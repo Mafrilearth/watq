@@ -22,6 +22,7 @@ import {
   CheckCircle2,
   RotateCcw
 } from 'lucide-react';
+import { WhatsNewModal } from '@/components/modals/WhatsNewModal';
 
 export default function HomePage() {
   const router = useRouter();
@@ -43,6 +44,9 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[#090D16] text-[#F8FAFC]">
+      {/* What's New Single-Time Versioned Announcement Modal */}
+      <WhatsNewModal />
+
       {/* Top Navbar */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-[#090D16]/80 border-b border-white/[0.08]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
