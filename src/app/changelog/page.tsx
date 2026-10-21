@@ -132,6 +132,15 @@ export default function ChangelogPage() {
               <time className="text-xs font-mono text-slate-400">
                 October 21, 2026
               </time>
+              <a
+                href="https://github.com/Mafrilearth/watq/releases/tag/v1.0.1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-[11px] font-mono text-slate-400 hover:text-sky-300 transition-colors ml-auto"
+              >
+                <span>GitHub Release</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
             </div>
 
             <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
