@@ -4,58 +4,68 @@ import React, { useState } from 'react';
 import { playMicroClick } from '@/lib/audio/haptics';
 
 export function ArchitecturalFigures() {
-  const [hoveredFig, setHoveredFig] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <section id="framework" className="py-24 sm:py-32 px-4 sm:px-6 max-w-7xl mx-auto border-t border-white/[0.08] relative">
-      {/* Background blueprint grid watermark */}
+      {/* Background Architectural Blueprint Grid & Crosshairs */}
       <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.02]"
+        className="absolute inset-0 pointer-events-none opacity-[0.035]"
         style={{
-          backgroundImage: `radial-gradient(circle, #ffffff 1px, transparent 1px)`,
-          backgroundSize: '24px 24px',
+          backgroundImage: `
+            linear-gradient(to right, #ffffff 1px, transparent 1px),
+            linear-gradient(to bottom, #ffffff 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px',
         }}
       />
+      {/* Blueprint Corner Registration Marks */}
+      <div className="absolute top-6 left-6 text-slate-600 font-mono text-[9px] pointer-events-none select-none">
+        + SYS_GRID_01 // 34.22° N
+      </div>
+      <div className="absolute top-6 right-6 text-slate-600 font-mono text-[9px] pointer-events-none select-none">
+        + SPEC_VEC_1921 // 100% LOCAL
+      </div>
 
-      {/* Section Header (Linear Typographic Style) */}
+      {/* Section Header */}
       <div className="max-w-3xl mb-16 sm:mb-20 text-left">
         <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-slate-400 mb-4">
-          <span className="w-1.5 h-1.5 rounded-full bg-sky-400" />
-          <span>SPECIFICATION // SYSTEM ARCHITECTURE</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+          <span>ENGINEERING SPECIFICATION // COGNITIVE BLUEPRINTS</span>
         </div>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-[-0.03em] leading-tight">
-          Architectural rigor for decoding human cognition.
+          Psychometric models rendered with structural precision.
         </h2>
-        <p className="mt-4 text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl">
-          Engineered on Carl Jung&rsquo;s 1921 foundational psychological types. Eliminating commercial psychometric ambiguity through deterministic client-side mathematics.
+        <p className="mt-4 text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl font-sans">
+          How Watq translates Carl Jung&rsquo;s 1921 cognitive theory into deterministic mathematical coordinates, from initial psychomotor response to vocational trajectory.
         </p>
       </div>
 
-      {/* 3-Column Technical Wireframe Grid (Direct Linear FIG 0.1, FIG 0.2, FIG 0.3 Paradigm) */}
-      <div className="grid grid-cols-1 md:grid-cols-3 border-y border-white/[0.08] divide-y md:divide-y-0 md:divide-x divide-white/[0.08]">
+      {/* 3-Column Technical Blueprint Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 border-y border-white/[0.08] divide-y md:divide-y-0 md:divide-x divide-white/[0.08] bg-[#070A11]/60 backdrop-blur-sm">
         
-        {/* ============================================================== */}
-        {/* FIG 0.1: The Stratified Aperture Plates (Purpose-built) */}
-        {/* ============================================================== */}
+        {/* ========================================================================= */}
+        {/* SCHEMATIC 01: The Refractive Cognitive Prism Core */}
+        {/* ========================================================================= */}
         <div 
-          className="group relative p-6 sm:p-10 flex flex-col justify-between transition-colors duration-300 hover:bg-white/[0.015]"
+          className="group relative p-6 sm:p-10 flex flex-col justify-between transition-all duration-300 hover:bg-white/[0.02]"
           onMouseEnter={() => {
-            setHoveredFig(1);
+            setHoveredIndex(1);
             playMicroClick(700);
           }}
-          onMouseLeave={() => setHoveredFig(null)}
+          onMouseLeave={() => setHoveredIndex(null)}
         >
-          {/* Technical Header */}
-          <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 mb-8 select-none">
-            <span className="tracking-widest font-semibold group-hover:text-sky-400 transition-colors">FIG 0.1</span>
-            <span className="text-[10px] opacity-60">STRATA // APERTURE</span>
+          {/* Technical Schematic Metadata Header */}
+          <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 mb-6 select-none">
+            <span className="tracking-widest font-semibold group-hover:text-sky-400 transition-colors">SCHEMATIC 01</span>
+            <span className="text-[10px] opacity-70">REFRACTIVE CORE // JUNG-1921</span>
           </div>
 
-          {/* Interactive Isometric SVG Artwork */}
+          {/* Interactive Isometric Blueprint Artwork */}
           <div className="h-64 sm:h-72 flex items-center justify-center relative my-4 overflow-visible">
             {/* Ambient Radial Spotlight */}
             <div className={`absolute w-44 h-44 rounded-full blur-3xl pointer-events-none transition-opacity duration-500 ${
-              hoveredFig === 1 ? 'opacity-30 bg-sky-500' : 'opacity-0 bg-transparent'
+              hoveredIndex === 1 ? 'opacity-35 bg-sky-500' : 'opacity-0 bg-transparent'
             }`} />
 
             <svg
@@ -65,120 +75,115 @@ export function ArchitecturalFigures() {
               xmlns="http://www.w3.org/2000/svg"
             >
               <defs>
-                <linearGradient id="fig1-fill-top" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.08" />
+                <linearGradient id="prism-grad-top" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.12" />
                   <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.02" />
                 </linearGradient>
-                <linearGradient id="fig1-fill-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.15" />
-                  <stop offset="100%" stopColor="#38BDF8" stopOpacity="0.02" />
+                <linearGradient id="prism-beam" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#818CF8" stopOpacity="0.1" />
                 </linearGradient>
               </defs>
 
-              {/* Layer 4: Base Foundation Slab */}
-              <g className="transition-transform duration-500 ease-out" style={{ transform: hoveredFig === 1 ? 'translateY(14px)' : 'translateY(0px)' }}>
-                {/* Bottom face */}
-                <path d="M 60 190 L 160 240 L 260 190 L 160 140 Z" fill="rgba(255,255,255,0.015)" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
-                <path d="M 60 190 L 60 205 L 160 255 L 160 240 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.18)" strokeWidth="1" />
-                <path d="M 160 240 L 160 255 L 260 205 L 260 190 Z" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.18)" strokeWidth="1" />
-                {/* Internal dashed construction line */}
-                <path d="M 60 190 L 160 140 L 260 190" stroke="rgba(255,255,255,0.1)" strokeWidth="1" strokeDasharray="3 3" />
+              {/* Blueprint Grid Coordinates & Crosshairs */}
+              <path d="M 40 140 L 280 140" stroke="rgba(255,255,255,0.06)" strokeWidth="1" strokeDasharray="3 3" />
+              <path d="M 160 40 L 160 240" stroke="rgba(255,255,255,0.06)" strokeWidth="1" strokeDasharray="3 3" />
+              <text x="45" y="132" fill="rgba(255,255,255,0.2)" fontSize="8" fontFamily="monospace">AXIS_REFRACT_X</text>
+
+              {/* Lower Hexagonal Pedestal */}
+              <g className="transition-transform duration-500" style={{ transform: hoveredIndex === 1 ? 'translateY(8px)' : 'translateY(0px)' }}>
+                <path d="M 80 190 L 160 235 L 240 190 L 240 175 L 160 130 L 80 175 Z" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.18)" strokeWidth="1" />
+                <path d="M 80 190 L 80 205 L 160 250 L 160 235 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" strokeWidth="1" />
+                <path d="M 160 235 L 160 250 L 240 205 L 240 190 Z" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.22)" strokeWidth="1" />
+                {/* Internal dashed lines */}
+                <path d="M 80 175 L 160 220 L 240 175" stroke="rgba(255,255,255,0.12)" strokeWidth="1" strokeDasharray="2 3" />
               </g>
 
-              {/* Layer 3: Tertiary Slab */}
-              <g className="transition-transform duration-500 ease-out" style={{ transform: hoveredFig === 1 ? 'translateY(5px)' : 'translateY(0px)' }}>
-                <path d="M 60 165 L 160 215 L 260 165 L 160 115 Z" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.22)" strokeWidth="1" />
-                <path d="M 60 165 L 60 178 L 160 228 L 160 215 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
-                <path d="M 160 215 L 160 228 L 260 178 L 260 165 Z" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
-              </g>
-
-              {/* Layer 2: Auxiliary Slab */}
-              <g className="transition-transform duration-500 ease-out" style={{ transform: hoveredFig === 1 ? 'translateY(-6px)' : 'translateY(0px)' }}>
-                <path d="M 60 140 L 160 190 L 260 140 L 160 90 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
-                <path d="M 60 140 L 60 152 L 160 202 L 160 190 Z" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.35)" strokeWidth="1" />
-                <path d="M 160 190 L 160 202 L 260 152 L 260 140 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.35)" strokeWidth="1" />
-              </g>
-
-              {/* Layer 1: Dominant Top Slab with Center Circular Aperture (Direct Linear Reference) */}
-              <g className="transition-transform duration-500 ease-out" style={{ transform: hoveredFig === 1 ? 'translateY(-20px)' : 'translateY(0px)' }}>
-                {/* Main Plate */}
+              {/* Central Geometric Watq Prism Crystal (Floating Hexagonal Monolith) */}
+              <g className="transition-transform duration-500" style={{ transform: hoveredIndex === 1 ? 'translateY(-14px)' : 'translateY(0px)' }}>
+                {/* Crystal Top Cap */}
                 <path 
-                  d="M 60 115 L 160 165 L 260 115 L 160 65 Z" 
-                  fill="url(#fig1-fill-top)" 
-                  stroke={hoveredFig === 1 ? '#38BDF8' : 'rgba(255,255,255,0.45)'} 
+                  d="M 160 60 L 225 95 L 160 130 L 95 95 Z" 
+                  fill="url(#prism-grad-top)" 
+                  stroke={hoveredIndex === 1 ? '#38BDF8' : 'rgba(255,255,255,0.5)'} 
                   strokeWidth="1.2" 
                 />
-                <path d="M 60 115 L 60 128 L 160 178 L 160 165 Z" fill="rgba(255,255,255,0.06)" stroke={hoveredFig === 1 ? '#38BDF8' : 'rgba(255,255,255,0.35)'} strokeWidth="1.2" />
-                <path d="M 160 165 L 160 178 L 260 128 L 260 115 Z" fill="rgba(255,255,255,0.04)" stroke={hoveredFig === 1 ? '#38BDF8' : 'rgba(255,255,255,0.35)'} strokeWidth="1.2" />
-
-                {/* Central Aperture Ellipse (Engraved Cutout) */}
-                <ellipse 
-                  cx="160" 
-                  cy="115" 
-                  rx="48" 
-                  ry="24" 
-                  fill="url(#fig1-fill-cyan)" 
-                  stroke={hoveredFig === 1 ? '#38BDF8' : 'rgba(255,255,255,0.6)'} 
+                {/* Left Facet */}
+                <path 
+                  d="M 95 95 L 160 130 L 160 195 L 95 160 Z" 
+                  fill="rgba(255,255,255,0.05)" 
+                  stroke={hoveredIndex === 1 ? '#38BDF8' : 'rgba(255,255,255,0.35)'} 
+                  strokeWidth="1.2" 
+                />
+                {/* Right Facet */}
+                <path 
+                  d="M 160 130 L 225 95 L 225 160 L 160 195 Z" 
+                  fill="rgba(255,255,255,0.03)" 
+                  stroke={hoveredIndex === 1 ? '#38BDF8' : 'rgba(255,255,255,0.35)'} 
                   strokeWidth="1.2" 
                 />
 
-                {/* Interior Grating / Refractive Lines inside the Aperture */}
-                <path d="M 124 110 L 196 110" stroke={hoveredFig === 1 ? '#38BDF8' : 'rgba(255,255,255,0.4)'} strokeWidth="1" />
-                <path d="M 118 115 L 202 115" stroke={hoveredFig === 1 ? '#38BDF8' : 'rgba(255,255,255,0.5)'} strokeWidth="1" />
-                <path d="M 124 120 L 196 120" stroke={hoveredFig === 1 ? '#38BDF8' : 'rgba(255,255,255,0.4)'} strokeWidth="1" />
-                <path d="M 134 125 L 186 125" stroke={hoveredFig === 1 ? '#38BDF8' : 'rgba(255,255,255,0.3)'} strokeWidth="1" />
+                {/* Internal "W" Refractive Facet Lines (Watq Prism DNA) */}
+                <path 
+                  d="M 125 105 L 140 145 L 160 120 L 180 145 L 195 105" 
+                  stroke={hoveredIndex === 1 ? '#38BDF8' : 'rgba(255,255,255,0.4)'} 
+                  strokeWidth="1.2" 
+                  strokeDasharray={hoveredIndex === 1 ? 'none' : '3 2'}
+                />
 
-                {/* Vertical Optical Ray when hovered */}
-                {hoveredFig === 1 && (
-                  <line 
-                    x1="160" 
-                    y1="115" 
-                    x2="160" 
-                    y2="25" 
-                    stroke="#38BDF8" 
-                    strokeWidth="1.5" 
-                    strokeDasharray="4 4"
-                    className="animate-pulse"
-                  />
+                {/* Apex Indicator Node */}
+                <circle cx="160" cy="60" r="3" fill="#38BDF8" />
+                <circle cx="160" cy="60" r="7" stroke="#38BDF8" strokeWidth="0.8" strokeDasharray="2 2" className="animate-spin" />
+
+                {/* Refracted Dispersion Light Rays (Active on Hover) */}
+                {hoveredIndex === 1 && (
+                  <g className="transition-opacity duration-300">
+                    <line x1="160" y1="130" x2="265" y2="70" stroke="#818CF8" strokeWidth="1.5" strokeDasharray="4 3" />
+                    <line x1="160" y1="130" x2="275" y2="135" stroke="#38BDF8" strokeWidth="1.5" strokeDasharray="4 3" />
+                    <line x1="160" y1="130" x2="260" y2="200" stroke="#2DD4BF" strokeWidth="1.5" strokeDasharray="4 3" />
+                    <circle cx="265" cy="70" r="2.5" fill="#818CF8" />
+                    <circle cx="275" cy="135" r="2.5" fill="#38BDF8" />
+                    <circle cx="260" cy="200" r="2.5" fill="#2DD4BF" />
+                  </g>
                 )}
               </g>
             </svg>
           </div>
 
-          {/* Technical Copy Block */}
+          {/* Technical Caption */}
           <div className="pt-6">
             <h3 className="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
-              <span>Purpose-built</span>
+              <span>Cognitive Refractive Core</span>
               <span className="w-1.5 h-1.5 rounded-full bg-sky-400 opacity-0 group-hover:opacity-100 transition-opacity" />
             </h3>
             <p className="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed font-sans">
-              Watq is shaped by the empirical principles of Jungian cognitive function theory. Structured into 4 stratified depth layers rather than superficial pop-psychology labels.
+              Human consciousness is treated as an optical spectrum. Raw situational stimuli pass through 4 polarized lenses, separating continuous behavioral data into discrete cognitive archetypes.
             </p>
           </div>
         </div>
 
-        {/* ============================================================== */}
-        {/* FIG 0.2: The 4 Bipolar Vector Monoliths (Powered by agents) */}
-        {/* ============================================================== */}
+        {/* ========================================================================= */}
+        {/* SCHEMATIC 02: 4-Polar Hypercube Tension Field */}
+        {/* ========================================================================= */}
         <div 
-          className="group relative p-6 sm:p-10 flex flex-col justify-between transition-colors duration-300 hover:bg-white/[0.015]"
+          className="group relative p-6 sm:p-10 flex flex-col justify-between transition-all duration-300 hover:bg-white/[0.02]"
           onMouseEnter={() => {
-            setHoveredFig(2);
+            setHoveredIndex(2);
             playMicroClick(750);
           }}
-          onMouseLeave={() => setHoveredFig(null)}
+          onMouseLeave={() => setHoveredIndex(null)}
         >
-          {/* Technical Header */}
-          <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 mb-8 select-none">
-            <span className="tracking-widest font-semibold group-hover:text-indigo-400 transition-colors">FIG 0.2</span>
-            <span className="text-[10px] opacity-60">MONOLITHS // 4 VECTORS</span>
+          {/* Technical Schematic Metadata Header */}
+          <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 mb-6 select-none">
+            <span className="tracking-widest font-semibold group-hover:text-indigo-400 transition-colors">SCHEMATIC 02</span>
+            <span className="text-[10px] opacity-70">4-AXIS LATTICE // BIPOLAR TENSION</span>
           </div>
 
-          {/* Interactive Isometric SVG Artwork */}
+          {/* Interactive Isometric Blueprint Artwork */}
           <div className="h-64 sm:h-72 flex items-center justify-center relative my-4 overflow-visible">
             {/* Ambient Radial Spotlight */}
             <div className={`absolute w-44 h-44 rounded-full blur-3xl pointer-events-none transition-opacity duration-500 ${
-              hoveredFig === 2 ? 'opacity-30 bg-indigo-500' : 'opacity-0 bg-transparent'
+              hoveredIndex === 2 ? 'opacity-35 bg-indigo-500' : 'opacity-0 bg-transparent'
             }`} />
 
             <svg
@@ -187,110 +192,110 @@ export function ArchitecturalFigures() {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* Pillar 1: Back Top (Energy E/I) */}
-              <g className="transition-all duration-500 ease-out">
-                {/* Top face */}
-                <path 
-                  d="M 160 55 L 205 78 L 160 101 L 115 78 Z" 
-                  fill="rgba(255,255,255,0.06)" 
-                  stroke={hoveredFig === 2 ? '#818CF8' : 'rgba(255,255,255,0.45)'} 
-                  strokeWidth="1.2" 
-                />
-                {/* Left face */}
-                <path d="M 115 78 L 115 155 L 160 178 L 160 101 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
-                {/* Right face */}
-                <path d="M 160 101 L 160 178 L 205 155 L 205 78 Z" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
-                {/* Center Node Target */}
-                <circle cx="160" cy="78" r="3" fill="#818CF8" />
+              {/* Outer Isometric Hypercube Frame (Fine Hairline Wireframe) */}
+              <g className="transition-all duration-500">
+                {/* Top Outer Diamond */}
+                <path d="M 160 45 L 245 95 L 160 145 L 75 95 Z" stroke="rgba(255,255,255,0.25)" strokeWidth="1" strokeDasharray="3 3" />
+                {/* Vertical Struts */}
+                <line x1="75" y1="95" x2="75" y2="185" stroke="rgba(255,255,255,0.2)" strokeWidth="1" strokeDasharray="3 3" />
+                <line x1="245" y1="95" x2="245" y2="185" stroke="rgba(255,255,255,0.2)" strokeWidth="1" strokeDasharray="3 3" />
+                <line x1="160" y1="145" x2="160" y2="235" stroke="rgba(255,255,255,0.25)" strokeWidth="1" strokeDasharray="3 3" />
+                {/* Bottom Outer Diamond */}
+                <path d="M 160 135 L 245 185 L 160 235 L 75 185 Z" stroke="rgba(255,255,255,0.2)" strokeWidth="1" strokeDasharray="3 3" />
               </g>
 
-              {/* Pillar 2: Left Middle (Perception S/N) */}
-              <g className="transition-all duration-500 ease-out">
-                {/* Top face */}
-                <path 
-                  d="M 95 105 L 140 128 L 95 151 L 50 128 Z" 
-                  fill="rgba(255,255,255,0.07)" 
-                  stroke={hoveredFig === 2 ? '#2DD4BF' : 'rgba(255,255,255,0.45)'} 
-                  strokeWidth="1.2" 
-                />
-                <path d="M 50 128 L 50 205 L 95 228 L 95 151 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.28)" strokeWidth="1" />
-                <path d="M 95 151 L 95 228 L 140 205 L 140 128 Z" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.28)" strokeWidth="1" />
-                <circle cx="95" cy="128" r="3" fill="#2DD4BF" />
-              </g>
+              {/* 4 Intersecting Coordinate Planes (E/I, S/N, T/F, J/P) */}
+              {/* Plane 1: Energy Orientation (EI) Vertical Plane */}
+              <path 
+                d="M 160 70 L 160 210" 
+                stroke={hoveredIndex === 2 ? '#818CF8' : 'rgba(255,255,255,0.6)'} 
+                strokeWidth="1.8" 
+              />
+              <circle cx="160" cy="70" r="3.5" fill="#818CF8" />
+              <text x="168" y="74" fill="#818CF8" fontSize="9" fontFamily="monospace">E [+]</text>
+              <circle cx="160" cy="210" r="3.5" fill="#818CF8" />
+              <text x="168" y="214" fill="#818CF8" fontSize="9" fontFamily="monospace">I [-]</text>
 
-              {/* Pillar 3: Right Middle (Judgment T/F) */}
-              <g className="transition-all duration-500 ease-out">
-                {/* Top face */}
-                <path 
-                  d="M 225 90 L 270 113 L 225 136 L 180 113 Z" 
-                  fill="rgba(255,255,255,0.07)" 
-                  stroke={hoveredFig === 2 ? '#38BDF8' : 'rgba(255,255,255,0.45)'} 
-                  strokeWidth="1.2" 
-                />
-                <path d="M 180 113 L 180 215 L 225 238 L 225 136 Z" fill="rgba(255,255,255,0.035)" stroke="rgba(255,255,255,0.28)" strokeWidth="1" />
-                <path d="M 225 136 L 225 238 L 270 215 L 270 113 Z" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.28)" strokeWidth="1" />
-                <circle cx="225" cy="113" r="3" fill="#38BDF8" />
-              </g>
+              {/* Plane 2: Information Intake (SN) Left Axis */}
+              <path 
+                d="M 100 110 L 220 170" 
+                stroke={hoveredIndex === 2 ? '#2DD4BF' : 'rgba(255,255,255,0.6)'} 
+                strokeWidth="1.8" 
+              />
+              <circle cx="100" cy="110" r="3.5" fill="#2DD4BF" />
+              <text x="75" y="108" fill="#2DD4BF" fontSize="9" fontFamily="monospace">S</text>
+              <circle cx="220" cy="170" r="3.5" fill="#2DD4BF" />
+              <text x="228" y="174" fill="#2DD4BF" fontSize="9" fontFamily="monospace">N</text>
 
-              {/* Pillar 4: Front Center (Lifestyle J/P) */}
-              <g className="transition-all duration-500 ease-out">
-                {/* Top face */}
-                <path 
-                  d="M 160 160 L 205 183 L 160 206 L 115 183 Z" 
-                  fill="rgba(255,255,255,0.09)" 
-                  stroke={hoveredFig === 2 ? '#FBBF24' : 'rgba(255,255,255,0.5)'} 
-                  strokeWidth="1.2" 
-                />
-                <path d="M 115 183 L 115 235 L 160 258 L 160 206 Z" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.32)" strokeWidth="1" />
-                <path d="M 160 206 L 160 258 L 205 235 L 205 183 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.32)" strokeWidth="1" />
-                <circle cx="160" cy="183" r="3" fill="#FBBF24" />
-              </g>
+              {/* Plane 3: Decision Formulation (TF) Right Axis */}
+              <path 
+                d="M 220 110 L 100 170" 
+                stroke={hoveredIndex === 2 ? '#38BDF8' : 'rgba(255,255,255,0.6)'} 
+                strokeWidth="1.8" 
+              />
+              <circle cx="220" cy="110" r="3.5" fill="#38BDF8" />
+              <text x="228" y="108" fill="#38BDF8" fontSize="9" fontFamily="monospace">T</text>
+              <circle cx="100" cy="170" r="3.5" fill="#38BDF8" />
+              <text x="82" y="174" fill="#38BDF8" fontSize="9" fontFamily="monospace">F</text>
 
-              {/* Connecting Vector Coordinates on Hover */}
-              {hoveredFig === 2 && (
-                <g className="transition-opacity duration-300">
-                  <path d="M 160 78 L 95 128 L 160 183 L 225 113 Z" stroke="rgba(255,255,255,0.35)" strokeWidth="1" strokeDasharray="3 3" />
-                  <line x1="160" y1="78" x2="160" y2="183" stroke="#818CF8" strokeWidth="1" strokeDasharray="2 2" />
-                  <line x1="95" y1="128" x2="225" y2="113" stroke="#2DD4BF" strokeWidth="1" strokeDasharray="2 2" />
-                </g>
+              {/* Central Vector Intersection Ring */}
+              <ellipse 
+                cx="160" 
+                cy="140" 
+                rx="24" 
+                ry="12" 
+                fill={hoveredIndex === 2 ? 'rgba(129,140,248,0.15)' : 'rgba(255,255,255,0.04)'} 
+                stroke={hoveredIndex === 2 ? '#818CF8' : 'rgba(255,255,255,0.5)'} 
+                strokeWidth="1" 
+              />
+
+              {/* Dynamic Equilibrium Lattice on Hover */}
+              {hoveredIndex === 2 && (
+                <polygon 
+                  points="160,85 205,115 160,190 115,160" 
+                  fill="rgba(129,140,248,0.1)" 
+                  stroke="#818CF8" 
+                  strokeWidth="1.2" 
+                  strokeDasharray="3 3"
+                />
               )}
             </svg>
           </div>
 
-          {/* Technical Copy Block */}
+          {/* Technical Caption */}
           <div className="pt-6">
             <h3 className="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
-              <span>Deductive Vector Space</span>
+              <span>Bipolar Tension Lattice</span>
               <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity" />
             </h3>
             <p className="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed font-sans">
-              4 autonomous bipolar coordinates calculate real-time psychomotor tension. Zero subjective rounding; results converge into 1 of 16 unambiguous archetype vectors.
+              No single trait operates in isolation. The instrument measures psychological tension along 4 intersecting dimensions, calibrating balance with reverse-keyed item vectors.
             </p>
           </div>
         </div>
 
-        {/* ============================================================== */}
-        {/* FIG 0.3: The Stepped Vocational Array Fins (Designed for speed) */}
-        {/* ============================================================== */}
+        {/* ========================================================================= */}
+        {/* SCHEMATIC 03: Vocational Trajectory Projection Matrix */}
+        {/* ========================================================================= */}
         <div 
-          className="group relative p-6 sm:p-10 flex flex-col justify-between transition-colors duration-300 hover:bg-white/[0.015]"
+          className="group relative p-6 sm:p-10 flex flex-col justify-between transition-all duration-300 hover:bg-white/[0.02]"
           onMouseEnter={() => {
-            setHoveredFig(3);
+            setHoveredIndex(3);
             playMicroClick(800);
           }}
-          onMouseLeave={() => setHoveredFig(null)}
+          onMouseLeave={() => setHoveredIndex(null)}
         >
-          {/* Technical Header */}
-          <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 mb-8 select-none">
-            <span className="tracking-widest font-semibold group-hover:text-emerald-400 transition-colors">FIG 0.3</span>
-            <span className="text-[10px] opacity-60">DISPERSION // ACCELERATION</span>
+          {/* Technical Schematic Metadata Header */}
+          <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 mb-6 select-none">
+            <span className="tracking-widest font-semibold group-hover:text-emerald-400 transition-colors">SCHEMATIC 03</span>
+            <span className="text-[10px] opacity-70">PROJECTION RADAR // ILO & UNESCO</span>
           </div>
 
-          {/* Interactive Isometric SVG Artwork */}
+          {/* Interactive Isometric Blueprint Artwork */}
           <div className="h-64 sm:h-72 flex items-center justify-center relative my-4 overflow-visible">
             {/* Ambient Radial Spotlight */}
             <div className={`absolute w-44 h-44 rounded-full blur-3xl pointer-events-none transition-opacity duration-500 ${
-              hoveredFig === 3 ? 'opacity-30 bg-emerald-500' : 'opacity-0 bg-transparent'
+              hoveredIndex === 3 ? 'opacity-35 bg-emerald-500' : 'opacity-0 bg-transparent'
             }`} />
 
             <svg
@@ -299,66 +304,91 @@ export function ArchitecturalFigures() {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* Stepped Isometric Vertical Louvers / Fins (Identical to Linear Fig 0.3) */}
-              {[
-                { x: 50, y: 175, h: 22 },
-                { x: 68, y: 165, h: 32 },
-                { x: 86, y: 155, h: 44 },
-                { x: 104, y: 145, h: 58 },
-                { x: 122, y: 135, h: 74 },
-                { x: 140, y: 125, h: 92 },
-                { x: 158, y: 115, h: 112 },
-                { x: 176, y: 105, h: 134 },
-                { x: 194, y: 95, h: 158 },
-                { x: 212, y: 85, h: 184 },
-              ].map((fin, idx) => {
-                const isHovered = hoveredFig === 3;
-                const waveOffset = isHovered ? Math.sin((idx / 9) * Math.PI) * 12 : 0;
-                const finY = fin.y - waveOffset;
-                const strokeCol = isHovered 
-                  ? (idx >= 6 ? '#2DD4BF' : '#38BDF8')
-                  : 'rgba(255,255,255,0.45)';
+              {/* Isometric Concentric Polar Radar Grids (Concentric Ellipses in Perspective) */}
+              {[18, 38, 58, 78].map((radius, idx) => (
+                <ellipse
+                  key={idx}
+                  cx="160"
+                  cy="175"
+                  rx={radius * 1.3}
+                  ry={radius * 0.65}
+                  fill="none"
+                  stroke={hoveredIndex === 3 ? 'rgba(45,212,191,0.3)' : 'rgba(255,255,255,0.15)'}
+                  strokeWidth="1"
+                  strokeDasharray={idx % 2 === 1 ? '3 3' : 'none'}
+                />
+              ))}
 
+              {/* Radar Radial Spokes */}
+              <line x1="160" y1="175" x2="60" y2="175" stroke="rgba(255,255,255,0.2)" strokeWidth="1" strokeDasharray="2 3" />
+              <line x1="160" y1="175" x2="260" y2="175" stroke="rgba(255,255,255,0.2)" strokeWidth="1" strokeDasharray="2 3" />
+              <line x1="160" y1="175" x2="160" y2="120" stroke="rgba(255,255,255,0.2)" strokeWidth="1" strokeDasharray="2 3" />
+              <line x1="160" y1="175" x2="160" y2="230" stroke="rgba(255,255,255,0.2)" strokeWidth="1" strokeDasharray="2 3" />
+
+              {/* Vertical Trajectory Vectors Rising into the Air (Career Beacons) */}
+              {[
+                { x: 110, y: 165, h: 55, label: 'ISCO:2511', col: '#38BDF8' },
+                { x: 140, y: 145, h: 80, label: 'UNESCO:0613', col: '#818CF8' },
+                { x: 185, y: 155, h: 95, label: 'AI_RES', col: '#2DD4BF' },
+                { x: 215, y: 175, h: 60, label: 'STRAT_PM', col: '#FBBF24' },
+              ].map((beacon, idx) => {
+                const targetY = beacon.y - beacon.h;
+                const isHovered = hoveredIndex === 3;
                 return (
                   <g key={idx} className="transition-all duration-300">
-                    {/* Front blade top cap */}
-                    <path
-                      d={`M ${fin.x} ${finY} L ${fin.x + 12} ${finY + 6} L ${fin.x + 8} ${finY + 8} L ${fin.x - 4} ${finY + 2} Z`}
-                      fill="rgba(255,255,255,0.12)"
-                      stroke={strokeCol}
+                    {/* Floor anchor node */}
+                    <circle cx={beacon.x} cy={beacon.y} r="2.5" fill="rgba(255,255,255,0.4)" />
+                    {/* Vertical Beam */}
+                    <line 
+                      x1={beacon.x} 
+                      y1={beacon.y} 
+                      x2={beacon.x} 
+                      y2={targetY} 
+                      stroke={isHovered ? beacon.col : 'rgba(255,255,255,0.4)'} 
+                      strokeWidth="1.2" 
+                      strokeDasharray="2 2" 
+                    />
+                    {/* Floating Apex Geometric Marker */}
+                    <polygon
+                      points={`${beacon.x},${targetY - 6} ${beacon.x + 5},${targetY} ${beacon.x},${targetY + 6} ${beacon.x - 5},${targetY}`}
+                      fill={isHovered ? beacon.col : 'rgba(255,255,255,0.1)'}
+                      stroke={isHovered ? '#FFFFFF' : 'rgba(255,255,255,0.6)'}
                       strokeWidth="1"
                     />
-                    {/* Front vertical face */}
-                    <path
-                      d={`M ${fin.x - 4} ${finY + 2} L ${fin.x + 8} ${finY + 8} L ${fin.x + 8} ${finY + fin.h + 8} L ${fin.x - 4} ${finY + fin.h + 2} Z`}
-                      fill="rgba(255,255,255,0.035)"
-                      stroke={strokeCol}
-                      strokeWidth="1"
-                    />
-                    {/* Side vertical face */}
-                    <path
-                      d={`M ${fin.x + 8} ${finY + 8} L ${fin.x + 12} ${finY + 6} L ${fin.x + 12} ${finY + fin.h + 6} L ${fin.x + 8} ${finY + fin.h + 8} Z`}
-                      fill="rgba(255,255,255,0.06)"
-                      stroke={strokeCol}
-                      strokeWidth="1"
-                    />
+                    {/* Micro Tag */}
+                    <text 
+                      x={beacon.x + 8} 
+                      y={targetY + 3} 
+                      fill={isHovered ? beacon.col : 'rgba(255,255,255,0.4)'} 
+                      fontSize="8" 
+                      fontFamily="monospace"
+                      fontWeight="bold"
+                    >
+                      {beacon.label}
+                    </text>
                   </g>
                 );
               })}
 
-              {/* Base Horizon Track */}
-              <line x1="40" y1="205" x2="235" y2="95" stroke="rgba(255,255,255,0.15)" strokeWidth="1" strokeDasharray="3 3" />
+              {/* Radar Trajectory Polygon Linking the Apex Nodes */}
+              <polygon
+                points="110,110 140,65 185,60 215,115"
+                fill={hoveredIndex === 3 ? 'rgba(45,212,191,0.08)' : 'rgba(255,255,255,0.02)'}
+                stroke={hoveredIndex === 3 ? '#2DD4BF' : 'rgba(255,255,255,0.3)'}
+                strokeWidth="1.2"
+                strokeDasharray="3 3"
+              />
             </svg>
           </div>
 
-          {/* Technical Copy Block */}
+          {/* Technical Caption */}
           <div className="pt-6">
             <h3 className="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
-              <span>Designed for Speed</span>
+              <span>Trajectory Projection Radar</span>
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity" />
             </h3>
             <p className="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed font-sans">
-              24 questions executed in ~3 minutes. Real-time client execution instantly delivers actionable ILO ISCO-08 vocational trajectories and UNESCO university majors.
+              Typology is not a destination; it is a vector. Your calibrated cognitive coordinates project directly into UNESCO ISCED-F university majors and ILO ISCO-08 occupational pathways.
             </p>
           </div>
         </div>
