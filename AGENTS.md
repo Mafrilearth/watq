@@ -45,6 +45,7 @@ Whenever modifying any domain, the agent **MUST** reference its respective SSOT 
 | **Psychometrics & PRD** | [`docs/02-prd.md`](file:///d:/watq/docs/02-prd.md) | 24-item question catalog, scoring formula, 16 archetype matrix. |
 | **Software Specs & SRS** | [`docs/03-srs.md`](file:///d:/watq/docs/03-srs.md) | Finite State Machine (FSM), local storage schema, 6 critical edge cases. |
 | **Design System Tokens** | [`docs/04-design-system.md`](file:///d:/watq/docs/04-design-system.md) | 680px layout container, CSS tokens, micro-motion timings (120ms/180ms), WCAG 2.2 AA. |
+| **Agentic SDLC & Skills** | [`docs/05-agentic-sdlc.md`](file:///d:/watq/docs/05-agentic-sdlc.md) | 8-Stage SDLC matrix, skill mapping, non-overlapping boundaries, mandatory deliverables, and closed-loop feedback. |
 | **Release History** | [`CHANGELOG.md`](file:///d:/watq/CHANGELOG.md) | SemVer 2.0.0 changelog records for all published releases. |
 | **Security Policy** | [`.github/SECURITY.md`](file:///d:/watq/.github/SECURITY.md) | Responsible disclosure terms, 48h SLA, private reporting channel. |
 
@@ -119,3 +120,26 @@ When shipping notable user-facing features or major updates:
    - GitHub **About** must remain universal and high-level:  
      `Watq — Modern cognitive assessment and personality typology platform.`
    - Do not pollute GitHub About or Topics with temporary micro-feature lists.
+
+---
+
+## **7. THE AGENTIC SDLC 8-STAGE FRAMEWORK & SKILL MAPPING**
+
+All engineering workflows in this repository operate under the **8-Stage Agentic SDLC** governed by [`docs/05-agentic-sdlc.md`](file:///d:/watq/docs/05-agentic-sdlc.md). AI agents must strictly invoke the corresponding specialized skill before executing work in each domain:
+
+| Stage | Phase | Primary Skill | Operational Scope & Non-Overlapping Boundary |
+| :---: | :--- | :--- | :--- |
+| **01** | **Discovery** | `product-discovery-research` | Market benchmarking, user persona formulation, JTBD, problem validation. *No code or technical architecture.* |
+| **02** | **Architecture** | `system-architecture-spec` | PRD formulation, Architecture Decision Records (ADRs), FSM models, data schemas. *No implementation code.* |
+| **03** | **Visual System** | `design-taste-frontend`<br>`brandkit`<br>`stitch-design-taste` | Brand identity, DIN 1450 / Inter typography, DTCG tokens, SVG prism construction, clean spacious layouts. |
+| **04** | **Implementation** | `nextjs-app-router-expert` | Production Next.js 16+ App Router, React Server Components (RSC), Client Components, session state. |
+| **05** | **Verification** | `testing-and-qa` | Test-Driven Development (TDD), Vitest unit tests, scoring algorithm proofs, edge case invariants. |
+| **06** | **Security** | `security-audit-hardening` | OWASP Top 10 prevention, secret scrubbing, HTTP security headers (`HSTS`, `CSP`, `X-Frame-Options: DENY`). |
+| **07** | **Release** | `devops-ci-cd-release` | Dual-branch Git flow (`dev` ➔ `main`), SemVer 2.0.0 4-surface synchronization, GitHub Release, Vercel deployment. |
+| **08** | **Observability** | `systematic-debugging-observability` | Scientific RCA (reproduce, isolate, fix), Core Web Vitals profiling, Sentry log triaging, closed-loop feedback into Stage 1. |
+
+### **Agent Execution Rules:**
+1. **Never Cowboy Code:** Agents must not write feature code without an established architecture specification (Stage 2).
+2. **Deterministic Deliverables:** Every stage must output auditable proof (specification doc, passing test suite, or verified build).
+3. **Continuous Closed Loop:** Any bug triaged in Stage 8 must be transformed into a regression test in Stage 5 before being resolved.
+

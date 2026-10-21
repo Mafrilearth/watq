@@ -18,7 +18,7 @@ The Watq documentation suite is engineered to meet the highest standards of mode
 
 ---
 
-## **2. OFFICIAL 4-PILLAR DOCUMENTATION INDEX**
+## **2. OFFICIAL 5-PILLAR DOCUMENTATION INDEX**
 
 | No | Specification File | Global Industry Equivalents & Standards | Single Source of Truth (SSOT) Domain |
 | :---: | :--- | :--- | :--- |
@@ -26,6 +26,7 @@ The Watq documentation suite is engineered to meet the highest standards of mode
 | **02** | [`02-prd.md`](file:///d:/watq/docs/02-prd.md) | **PRD (Product Requirements Document)** (`Jung 1921`, `Likert 1932`, `APA Standards`, `UNESCO ISCED-F 2013`, `ILO ISCO-08`) | MVP Scope Boundaries, 16 Cognitive Types Model, 24-Item Question Catalog, 50/50 Balanced Keying, Deterministic Scoring Formula & Proof Table, 16 Archetype Vocational Matrix, and Offline/Physical Testing Specs. |
 | **03** | [`03-srs.md`](file:///d:/watq/docs/03-srs.md) | **SRS (Software Requirements Specification)** (`IEEE 830`, `ISO/IEC 25010:2023`, `Fitts's Law`, `Hick-Hyman Law`, `Bringhurst's Law`, `RFC 9562`, `W3C Web Vitals`) | 3-Screen Sitemap (`/`, `/assess`, `/result`), Finite State Machine (FSM), Client Session Contract (`watq_mvp_session_v1`), Desktop Keyboard Navigation, 6 Critical Edge Cases Mitigation, and Non-Functional Budgets. |
 | **04** | [`04-design-system.md`](file:///d:/watq/docs/04-design-system.md) | **Design System & Tokens (DTCG)** (`W3C DTCG`, `WCAG 2.2 AAA`, `Bringhurst's Law`, `Weber-Fechner Law`, `Fitts's Law`, `Hick-Hyman Law`, `Miller's Law`, `DIN 1450`) | Atomic Component Hierarchy, 680px Focus Container, Slate & Deep Indigo Palettes, 4 Polarity Axis Tokens, 12-Dimensional Chart Spectrum, Inter `tnum` Typography, Micro-Motion Timing (120ms/180ms), and Reduced Motion. |
+| **05** | [`05-agentic-sdlc.md`](file:///d:/watq/docs/05-agentic-sdlc.md) | **Agentic SDLC & Multi-Agent Governance** (`ISO/IEC/IEEE 12207`, `CMMI v2.0`, `OWASP SAMM v2.0.1`, `Google SRE`, `SemVer 2.0.0`) | 8-Stage Agentic SDLC Matrix, Skill Mapping & Non-Overlapping Boundaries, Mandatory Deliverables, Cowboy Coding Anti-Patterns, and Continuous Closed-Loop Feedback Architecture. |
 
 ---
 
@@ -64,6 +65,11 @@ Chapter 4: CODE IMPLEMENTATION MAPPING (The "Where")     ──> Source code pat
 ┌───────────────────────────────────▼────────────────────────────────────┐
 │                         04-DESIGN-SYSTEM.MD                            │
 │   "How Does It Look & Move?" -> 680px Layout, CSS Tokens, Micro-Motion │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+┌───────────────────────────────────▼────────────────────────────────────┐
+│                         05-AGENTIC-SDLC.MD                             │
+│   "How is it Engineered?" -> 8-Stage SDLC, Agent Skills, Closed Loop   │
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
