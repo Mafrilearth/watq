@@ -1,5 +1,5 @@
-import { JUNGIAN_QUESTIONS, ARCHETYPES } from '@/data/assessments/jungian16';
-import { LikertValue, AssessmentResult, PolarityScores } from '@/types/assessment';
+import { JUNGIAN_QUESTIONS, ARCHETYPES } from './data';
+import { LikertValue, AssessmentResult, PolarityScores } from './types';
 
 /**
  * Deterministic scoring engine for Watq 16 Cognitive Types

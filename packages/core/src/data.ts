@@ -1,4 +1,4 @@
-import { QuestionItem, ArchetypeProfile } from '@/types/assessment';
+import { QuestionItem, ArchetypeProfile } from './types';
 
 export const JUNGIAN_QUESTIONS: QuestionItem[] = [
   // Dimension 1: Extraversion (E) vs Introversion (I)
