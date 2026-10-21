@@ -11,7 +11,8 @@ import {
   Lock, 
   CheckCircle2,
   Terminal,
-  Activity
+  Activity,
+  ArrowRight
 } from 'lucide-react';
 import { playMicroClick } from '@/lib/audio/haptics';
 
@@ -23,30 +24,30 @@ export function BentoGridFeatures() {
     EI: {
       title: 'Energy Orientation (E ↔ I)',
       color: '#818CF8',
-      desc: 'Dictates attentional flow and mental regeneration dynamics.',
-      leftPole: { code: 'E', label: 'Extraversion', focus: 'Action in the outer world of people & events.' },
-      rightPole: { code: 'I', label: 'Introversion', focus: 'Internal contemplation in the world of concepts & ideas.' },
+      desc: 'Governs attentional vector flow and mental battery regeneration dynamics.',
+      leftPole: { code: 'E', label: 'Extraversion', focus: 'Action in the outer world of people, events, and verbalized stimuli.' },
+      rightPole: { code: 'I', label: 'Introversion', focus: 'Internal solitary contemplation in the world of concepts, memories, and ideas.' },
     },
     SN: {
       title: 'Information Intake (S ↔ N)',
       color: '#2DD4BF',
-      desc: 'Governs how stimuli and observational data are absorbed.',
-      leftPole: { code: 'S', label: 'Sensing', focus: 'Literal, empirical reality perceived through 5 tangible senses.' },
-      rightPole: { code: 'N', label: 'Intuition', focus: 'Latent patterns, systemic symbols, and future possibilities.' },
+      desc: 'Controls how observational stimuli, empirical data, and patterns are ingested.',
+      leftPole: { code: 'S', label: 'Sensing', focus: 'Literal, tangible reality perceived through 5 senses and proven precedent.' },
+      rightPole: { code: 'N', label: 'Intuition', focus: 'Latent systemic patterns, abstract symbolism, and long-range future possibilities.' },
     },
     TF: {
       title: 'Decision Formulation (T ↔ F)',
       color: '#38BDF8',
-      desc: 'Controls judgment frameworks, valuation, and consequence sorting.',
-      leftPole: { code: 'T', label: 'Thinking', focus: 'Deductive logic, consistency, and impersonal causal criteria.' },
-      rightPole: { code: 'F', label: 'Feeling', focus: 'Subjective ethics, interpersonal harmony, and human values.' },
+      desc: 'Dictates criteria for valuation, conflict sorting, and causal consequence evaluation.',
+      leftPole: { code: 'T', label: 'Thinking', focus: 'Deductive logic, consistency, systems architecture, and impersonal causal criteria.' },
+      rightPole: { code: 'F', label: 'Feeling', focus: 'Interpersonal empathy, communal harmony, ethics, and human core values.' },
     },
     JP: {
       title: 'Lifestyle Execution (J ↔ P)',
       color: '#FBBF24',
-      desc: 'Determines external structural orientation and temporal cadence.',
-      leftPole: { code: 'J', label: 'Judging', focus: 'Deliberate planning, closure, and orderly structural regimens.' },
-      rightPole: { code: 'P', label: 'Perceiving', focus: 'Spontaneous exploration, adaptable emergent pacing, and open options.' },
+      desc: 'Determines external structural orientation, closure preference, and temporal cadence.',
+      leftPole: { code: 'J', label: 'Judging', focus: 'Deliberate planning, structured regimens, decisive closure, and milestones.' },
+      rightPole: { code: 'P', label: 'Perceiving', focus: 'Spontaneous exploration, adaptable emergent pacing, and keeping options open.' },
     },
   };
 
@@ -59,12 +60,30 @@ export function BentoGridFeatures() {
   };
 
   return (
-    <section id="framework" className="py-20 sm:py-28 px-4 sm:px-6 max-w-6xl mx-auto">
+    <section id="vocational" className="py-20 sm:py-28 px-4 sm:px-6 max-w-6xl mx-auto relative">
+      {/* Background Blueprint Grid Watermark */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.025]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #ffffff 1px, transparent 1px),
+            linear-gradient(to bottom, #ffffff 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px',
+        }}
+      />
+      <div className="absolute top-8 left-8 text-slate-700 font-mono text-[9px] pointer-events-none select-none">
+        + BENTO_GRID // SPECIFICATION MATRIX
+      </div>
+      <div className="absolute top-8 right-8 text-slate-700 font-mono text-[9px] pointer-events-none select-none">
+        + 4 POLAR AXES // ISCO-08 ALIGNED
+      </div>
+
       {/* Section Header */}
-      <div className="max-w-2xl mb-12 sm:mb-16">
+      <div className="max-w-2xl mb-12 sm:mb-16 text-left">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-xs font-mono font-semibold text-indigo-400 mb-4">
           <BrainCircuit className="w-3.5 h-3.5" />
-          <span>PSYCHOMETRIC SPECIFICATION & ARCHITECTURE</span>
+          <span>FOUR-TIER ANALYTICAL ARCHITECTURE</span>
         </div>
         <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
           Engineered for Rigorous Cognitive Precision.
@@ -76,7 +95,10 @@ export function BentoGridFeatures() {
 
       {/* Asymmetric Double-Bezel Bento Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        {/* ========================================================================= */}
         {/* CARD 1: 4 Bipolar Axes Interactive Explorer (Col-span 8) */}
+        {/* ========================================================================= */}
         <div className="lg:col-span-8 rounded-[2rem] p-1.5 bg-gradient-to-b from-white/[0.1] to-white/[0.02] border border-white/[0.08] shadow-xl">
           <div className="rounded-[calc(2rem-0.375rem)] bg-[#0B0F19] p-6 sm:p-8 h-full flex flex-col justify-between">
             <div>
@@ -110,49 +132,84 @@ export function BentoGridFeatures() {
                 </div>
               </div>
 
-              {/* Active Axis Content */}
-              <div className="mt-6 space-y-4">
-                <div className="flex items-center justify-between">
-                  <h4 className="text-base font-bold text-white" style={{ color: currentAxisInfo.color }}>
-                    {currentAxisInfo.title}
-                  </h4>
-                  <span className="text-xs font-mono text-slate-400">Balanced 6 Items (50% Reverse-Keyed)</span>
-                </div>
-                <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
-                  {currentAxisInfo.desc}
-                </p>
-
-                {/* 2 Opposite Poles Visualization */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-                  {/* Left Pole */}
-                  <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-lg font-mono font-extrabold text-white">
+              {/* Contextual Illustration for Active Axis: Dynamic Isometric Axis Model */}
+              <div className="my-6 p-4 rounded-xl bg-white/[0.02] border border-white/[0.05] flex flex-col md:flex-row items-center justify-between gap-6">
+                {/* SVG Isometric Axis Diagram */}
+                <div className="w-52 h-28 relative flex items-center justify-center shrink-0">
+                  <svg viewBox="0 0 220 110" className="w-full h-full overflow-visible">
+                    {/* Left Pole Isometric Node */}
+                    <g className="transition-transform duration-300 hover:scale-105">
+                      <polygon points="40,35 65,22 90,35 65,48" fill="rgba(255,255,255,0.06)" stroke={currentAxisInfo.color} strokeWidth="1.2" />
+                      <polygon points="40,35 65,48 65,75 40,62" fill="rgba(255,255,255,0.03)" stroke={currentAxisInfo.color} strokeWidth="1" />
+                      <polygon points="65,48 90,35 90,62 65,75" fill="rgba(255,255,255,0.02)" stroke={currentAxisInfo.color} strokeWidth="1" />
+                      <circle cx="65" cy="35" r="3" fill="#FFFFFF" />
+                      <text x="65" y="66" fill="#FFFFFF" fontSize="11" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
                         {currentAxisInfo.leftPole.code}
-                      </span>
-                      <span className="text-xs font-mono text-slate-400">
-                        {currentAxisInfo.leftPole.label}
-                      </span>
-                    </div>
-                    <p className="text-xs text-slate-400 leading-relaxed">
-                      {currentAxisInfo.leftPole.focus}
-                    </p>
-                  </div>
+                      </text>
+                    </g>
 
-                  {/* Right Pole */}
-                  <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-lg font-mono font-extrabold text-white">
+                    {/* Connecting Isometric Vector Bridge */}
+                    <line x1="85" y1="48" x2="135" y2="48" stroke="rgba(255,255,255,0.25)" strokeWidth="1" strokeDasharray="3 3" />
+                    <line x1="110" y1="36" x2="110" y2="60" stroke={currentAxisInfo.color} strokeWidth="1.5" />
+                    <circle cx="110" cy="48" r="4" fill={currentAxisInfo.color} className="animate-pulse" />
+
+                    {/* Right Pole Isometric Node */}
+                    <g className="transition-transform duration-300 hover:scale-105">
+                      <polygon points="130,35 155,22 180,35 155,48" fill="rgba(255,255,255,0.06)" stroke={currentAxisInfo.color} strokeWidth="1.2" />
+                      <polygon points="130,35 155,48 155,75 130,62" fill="rgba(255,255,255,0.03)" stroke={currentAxisInfo.color} strokeWidth="1" />
+                      <polygon points="155,48 180,35 180,62 155,75" fill="rgba(255,255,255,0.02)" stroke={currentAxisInfo.color} strokeWidth="1" />
+                      <circle cx="155" cy="35" r="3" fill="#FFFFFF" />
+                      <text x="155" y="66" fill="#FFFFFF" fontSize="11" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
                         {currentAxisInfo.rightPole.code}
-                      </span>
-                      <span className="text-xs font-mono text-slate-400">
-                        {currentAxisInfo.rightPole.label}
-                      </span>
-                    </div>
-                    <p className="text-xs text-slate-400 leading-relaxed">
-                      {currentAxisInfo.rightPole.focus}
-                    </p>
+                      </text>
+                    </g>
+                  </svg>
+                </div>
+
+                {/* Axis Telemetry Breakdown */}
+                <div className="flex-1 text-xs">
+                  <div className="flex items-center justify-between font-mono pb-2 border-b border-white/[0.04]">
+                    <span className="text-slate-400">AXIS TYPE:</span>
+                    <span className="font-bold" style={{ color: currentAxisInfo.color }}>
+                      {currentAxisInfo.title}
+                    </span>
                   </div>
+                  <p className="mt-2 text-slate-300 leading-relaxed font-sans">
+                    {currentAxisInfo.desc}
+                  </p>
+                </div>
+              </div>
+
+              {/* 2 Opposite Poles Detailed Breakdown Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Left Pole */}
+                <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-lg font-mono font-extrabold text-white">
+                      {currentAxisInfo.leftPole.code}
+                    </span>
+                    <span className="text-xs font-mono text-slate-400">
+                      {currentAxisInfo.leftPole.label}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-400 leading-relaxed">
+                    {currentAxisInfo.leftPole.focus}
+                  </p>
+                </div>
+
+                {/* Right Pole */}
+                <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-lg font-mono font-extrabold text-white">
+                      {currentAxisInfo.rightPole.code}
+                    </span>
+                    <span className="text-xs font-mono text-slate-400">
+                      {currentAxisInfo.rightPole.label}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-400 leading-relaxed">
+                    {currentAxisInfo.rightPole.focus}
+                  </p>
                 </div>
               </div>
             </div>
@@ -168,7 +225,9 @@ export function BentoGridFeatures() {
           </div>
         </div>
 
-        {/* CARD 2: Zero Database OpEx & Cryptographic Integrity (Col-span 4) */}
+        {/* ========================================================================= */}
+        {/* CARD 2: Zero Database OpEx & Cryptographic Silicon Chip (Col-span 4)      */}
+        {/* ========================================================================= */}
         <div className="lg:col-span-4 rounded-[2rem] p-1.5 bg-gradient-to-b from-white/[0.1] to-white/[0.02] border border-white/[0.08] shadow-xl">
           <div className="rounded-[calc(2rem-0.375rem)] bg-[#0B0F19] p-6 sm:p-8 h-full flex flex-col justify-between">
             <div>
@@ -185,35 +244,52 @@ export function BentoGridFeatures() {
                 Zero database dependencies. State is isolated locally in your browser memory and Web Crypto storage.
               </p>
 
+              {/* Contextual Illustration: The Isometric Cryptographic Silicon Die */}
+              <div className="my-5 flex items-center justify-center">
+                <svg viewBox="0 0 220 100" className="w-full max-w-[200px] h-auto">
+                  {/* Outer Silicon Substrate */}
+                  <polygon points="110,15 190,45 110,75 30,45" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
+                  <polygon points="30,45 110,75 110,88 30,58" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
+                  <polygon points="110,75 190,45 190,58 110,88" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
+                  
+                  {/* Gold Circuit Traces */}
+                  <path d="M 55 45 L 85 45 L 95 40" stroke="#38BDF8" strokeWidth="1" strokeDasharray="2 2" />
+                  <path d="M 165 45 L 135 45 L 125 40" stroke="#818CF8" strokeWidth="1" strokeDasharray="2 2" />
+                  <path d="M 110 30 L 110 40" stroke="#2DD4BF" strokeWidth="1" />
+
+                  {/* Microcontroller Die */}
+                  <polygon points="110,32 135,42 110,52 85,42" fill="#0B0F19" stroke="#38BDF8" strokeWidth="1.2" />
+                  <circle cx="110" cy="42" r="3" fill="#38BDF8" className="animate-pulse" />
+                  <text x="110" y="65" fill="#38BDF8" fontSize="8" fontFamily="monospace" textAnchor="middle">
+                    WEB_CRYPTO_CORE
+                  </text>
+                </svg>
+              </div>
+
               {/* Terminal Snippet Box */}
-              <div className="mt-6 p-4 rounded-xl bg-black/60 border border-white/[0.08] font-mono text-[11px] space-y-2">
-                <div className="flex items-center gap-1.5 text-slate-400 pb-2 border-b border-white/[0.06]">
-                  <Terminal className="w-3.5 h-3.5 text-sky-400" />
-                  <span>runtime_telemetry.log</span>
-                </div>
+              <div className="p-3.5 rounded-xl bg-black/60 border border-white/[0.08] font-mono text-[11px] space-y-1.5">
                 <div className="text-slate-400 font-mono">
-                  &gt; DB_OPEX: <span className="text-emerald-400">$0.00 / month</span>
+                  &gt; DB_OPEX: <span className="text-emerald-400">$0.00 (Zero Cloud)</span>
                 </div>
                 <div className="text-slate-400 font-mono">
                   &gt; STORAGE: <span className="text-sky-400">watq_mvp_session_v1</span>
                 </div>
                 <div className="text-slate-400 font-mono">
-                  &gt; AD_TRACKING: <span className="text-emerald-400">DISABLED (0 B)</span>
-                </div>
-                <div className="text-slate-400 font-mono">
-                  &gt; LATENCY: <span className="text-emerald-400">&lt; 1ms local</span>
+                  &gt; TRACKING: <span className="text-emerald-400">DISABLED (0 B)</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-white/[0.06] text-[11px] font-mono text-slate-400 flex items-center justify-between">
-              <span>Privacy Verified</span>
+            <div className="mt-5 pt-4 border-t border-white/[0.06] text-[11px] font-mono text-slate-400 flex items-center justify-between">
+              <span>Local Privacy Verified</span>
               <Lock className="w-3.5 h-3.5 text-emerald-400" />
             </div>
           </div>
         </div>
 
-        {/* CARD 3: Psychomotor Keyboard Navigation (Col-span 4) */}
+        {/* ========================================================================= */}
+        {/* CARD 3: Psychomotor Keyboard Navigation & Tactile Keycaps (Col-span 4)    */}
+        {/* ========================================================================= */}
         <div className="lg:col-span-4 rounded-[2rem] p-1.5 bg-gradient-to-b from-white/[0.1] to-white/[0.02] border border-white/[0.08] shadow-xl">
           <div className="rounded-[calc(2rem-0.375rem)] bg-[#0B0F19] p-6 sm:p-8 h-full flex flex-col justify-between">
             <div>
@@ -276,8 +352,10 @@ export function BentoGridFeatures() {
           </div>
         </div>
 
-        {/* CARD 4: Academic & Vocational Guidance Matrix (Col-span 8) */}
-        <div id="vocational" className="lg:col-span-8 rounded-[2rem] p-1.5 bg-gradient-to-b from-white/[0.1] to-white/[0.02] border border-white/[0.08] shadow-xl">
+        {/* ========================================================================= */}
+        {/* CARD 4: Academic & Vocational Trajectory Constellation (Col-span 8)       */}
+        {/* ========================================================================= */}
+        <div id="vocational-taxonomy" className="lg:col-span-8 rounded-[2rem] p-1.5 bg-gradient-to-b from-white/[0.1] to-white/[0.02] border border-white/[0.08] shadow-xl">
           <div className="rounded-[calc(2rem-0.375rem)] bg-[#0B0F19] p-6 sm:p-8 h-full flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between text-xs font-mono text-slate-400 mb-4">
@@ -290,7 +368,7 @@ export function BentoGridFeatures() {
 
               <h3 className="text-xl font-bold text-white mb-2">Transforming Typology into Life Trajectories</h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Personality without application is mere vanity. Watq translates each cognitive function stack into rigorous academic disciplines and high-growth professional careers:
+                Personality without application is mere vanity. Watq maps each cognitive polarity vector directly into international academic and career standards:
               </p>
 
               {/* Sample Target Trajectory Badges */}
@@ -323,6 +401,7 @@ export function BentoGridFeatures() {
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );

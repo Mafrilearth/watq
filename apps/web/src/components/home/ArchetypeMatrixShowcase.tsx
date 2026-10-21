@@ -321,9 +321,12 @@ export function ArchetypeMatrixShowcase() {
                 {/* Top Badge & Code */}
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="text-2xl font-mono font-extrabold tracking-tight text-white group-hover:text-sky-300 transition-colors">
-                      {profile.code}
-                    </span>
+                    <div className="flex items-center gap-2.5">
+                      <CognitiveFunctionGlyph lead={meta.leadFunction} color={meta.color} />
+                      <span className="text-2xl font-mono font-extrabold tracking-tight text-white group-hover:text-sky-300 transition-colors">
+                        {profile.code}
+                      </span>
+                    </div>
                     <span className={`px-2 py-0.5 rounded-full border text-[10px] font-mono font-semibold ${meta.badgeBorder}`}>
                       {meta.temperamentName}
                     </span>
@@ -495,5 +498,81 @@ export function ArchetypeMatrixShowcase() {
         </div>
       )}
     </section>
+  );
+}
+
+function CognitiveFunctionGlyph({ lead, color }: { lead: string; color: string }) {
+  if (lead.includes('Ni')) {
+    return (
+      <svg viewBox="0 0 32 32" className="w-5 h-5 overflow-visible" fill="none">
+        <polygon points="16,4 28,16 16,28 4,16" stroke={color} strokeWidth="1.2" fill="rgba(255,255,255,0.03)" />
+        <ellipse cx="16" cy="16" rx="6" ry="3" stroke={color} strokeWidth="1" strokeDasharray="2 2" />
+        <circle cx="16" cy="16" r="2" fill="#FFFFFF" />
+      </svg>
+    );
+  }
+  if (lead.includes('Ne')) {
+    return (
+      <svg viewBox="0 0 32 32" className="w-5 h-5 overflow-visible" fill="none">
+        <circle cx="16" cy="16" r="3.5" fill={color} />
+        <line x1="16" y1="4" x2="16" y2="9" stroke={color} strokeWidth="1.2" />
+        <line x1="16" y1="23" x2="16" y2="28" stroke={color} strokeWidth="1.2" />
+        <line x1="4" y1="16" x2="9" y2="16" stroke={color} strokeWidth="1.2" />
+        <line x1="23" y1="16" x2="28" y2="16" stroke={color} strokeWidth="1.2" />
+      </svg>
+    );
+  }
+  if (lead.includes('Ti')) {
+    return (
+      <svg viewBox="0 0 32 32" className="w-5 h-5 overflow-visible" fill="none">
+        <polygon points="16,6 25,11 25,21 16,26 7,21 7,11" stroke={color} strokeWidth="1.2" fill="rgba(255,255,255,0.03)" />
+        <line x1="16" y1="6" x2="16" y2="26" stroke={color} strokeWidth="0.8" strokeDasharray="2 2" />
+        <line x1="7" y1="11" x2="25" y2="21" stroke={color} strokeWidth="0.8" strokeDasharray="2 2" />
+      </svg>
+    );
+  }
+  if (lead.includes('Te')) {
+    return (
+      <svg viewBox="0 0 32 32" className="w-5 h-5 overflow-visible" fill="none">
+        <rect x="7" y="13" width="18" height="13" rx="1.5" stroke={color} strokeWidth="1.2" fill="rgba(255,255,255,0.03)" />
+        <line x1="11" y1="5" x2="11" y2="13" stroke={color} strokeWidth="1.2" />
+        <line x1="21" y1="5" x2="21" y2="13" stroke={color} strokeWidth="1.2" />
+        <circle cx="11" cy="5" r="1.5" fill={color} />
+        <circle cx="21" cy="5" r="1.5" fill={color} />
+      </svg>
+    );
+  }
+  if (lead.includes('Fi')) {
+    return (
+      <svg viewBox="0 0 32 32" className="w-5 h-5 overflow-visible" fill="none">
+        <path d="M 16 5 L 25 14 L 16 27 L 7 14 Z" stroke={color} strokeWidth="1.2" fill="rgba(255,255,255,0.03)" />
+        <circle cx="16" cy="15" r="3" fill={color} />
+      </svg>
+    );
+  }
+  if (lead.includes('Fe')) {
+    return (
+      <svg viewBox="0 0 32 32" className="w-5 h-5 overflow-visible" fill="none">
+        <circle cx="12" cy="16" r="6" stroke={color} strokeWidth="1" />
+        <circle cx="20" cy="16" r="6" stroke={color} strokeWidth="1" />
+        <circle cx="16" cy="16" r="2" fill="#FFFFFF" />
+      </svg>
+    );
+  }
+  if (lead.includes('Si')) {
+    return (
+      <svg viewBox="0 0 32 32" className="w-5 h-5 overflow-visible" fill="none">
+        <line x1="6" y1="24" x2="26" y2="24" stroke={color} strokeWidth="2" />
+        <line x1="9" y1="18" x2="23" y2="18" stroke={color} strokeWidth="1.5" />
+        <line x1="12" y1="12" x2="20" y2="12" stroke={color} strokeWidth="1.2" />
+        <circle cx="16" cy="6" r="2" fill="#FFFFFF" />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 32 32" className="w-5 h-5 overflow-visible" fill="none">
+      <polygon points="16,5 27,23 5,23" stroke={color} strokeWidth="1.2" fill="rgba(255,255,255,0.03)" />
+      <circle cx="16" cy="17" r="3" fill={color} />
+    </svg>
   );
 }
