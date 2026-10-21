@@ -1,0 +1,9 @@
+# Watq AI Directives for Cursor
+# Universal Master Directives are defined in AGENTS.md and docs/
+
+Before writing or editing code in this repository:
+1. Always read and strictly adhere to `AGENTS.md`.
+2. Reference the Single Source of Truth (SSOT) files under `docs/` (`01-brand.md`, `02-prd.md`, `03-srs.md`, `04-design-system.md`).
+3. Maintain 100% Global English across code, UI, copywriting, and git commits.
+4. Keep the application 100% client-driven ($0 OpEx, zero-database architecture) using local storage and Web Crypto API.
+5. Do NOT trigger automatic deployments to Vercel on git push — deployments are decoupled.
