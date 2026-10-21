@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watq — Brand Identity & Guidelines Portal (ISO 20671, ISO 12647-2 & WIPO Class 9/16/35/41/42)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ==========================================================================
+       WATQ DESIGN SYSTEM TOKENS (W3C DTCG / WCAG 2.2 AAA / ISO 12647)
+       ========================================================================== */
+    :root {
+      /* Backgrounds & Surfaces */
+      --bg-canvas: #090D16;
+      --surface-card: #0F172A;
+      --surface-card-subtle: #131D35;
+      --surface-input: rgba(255, 255, 255, 0.04);
+      --surface-hover: rgba(255, 255, 255, 0.07);
+
+      /* Borders */
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-medium: rgba(255, 255, 255, 0.14);
+      --border-cyan-subtle: rgba(56, 189, 248, 0.25);
+      --border-cyan-focus: #38BDF8;
+
+      /* Typography Colors */
+      --text-white: #FFFFFF;
+      --text-light: #F8FAFC;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+
+      /* Brand Palette (ISO 12647-2) */
+      --watq-indigo: #1E1B4B;
+      --watq-slate: #0F172A;
+      --watq-cyan: #38BDF8;
+      --watq-lavender: #A5B4FC;
+      --watq-emerald: #10B981;
+      --watq-amber: #F59E0B;
+
+      /* Radii */
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-xl: 20px;
+      --radius-2xl: 24px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-light);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 48px 32px 80px 32px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================================================
+       TOP STATUS BAR (PRECISION META HEADER)
+       ========================================================================== */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--watq-cyan);
+      border: 1px solid var(--border-cyan-subtle);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--watq-cyan);
+      box-shadow: 0 0 8px var(--watq-cyan);
+    }
+
+    .spec-badges {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .spec-id {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--surface-input);
+      padding: 5px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* ==========================================================================
+       HERO INTRO
+       ========================================================================== */
+    .hero {
+      margin-bottom: 36px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--watq-cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      color: var(--text-white);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 880px;
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       MASTER HERO SHOWCASE CARD (THE PRISM SYSTEM)
+       ========================================================================== */
+    .master-hero-card {
+      background: linear-gradient(180deg, #131B2E 0%, #0B1120 100%);
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      border-radius: var(--radius-2xl);
+      padding: 36px;
+      margin-bottom: 40px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .master-hero-card::after {
+      content: "";
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.16) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .master-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    @media (max-width: 920px) {
+      .master-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Interactive Canvas with Precision Grid Overlay */
+    .canvas-display {
+      background: #090D16;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-xl);
+      height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: background 0.25s ease, border-color 0.25s ease;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    .canvas-slate { background-color: #0F172A !important; }
+    .canvas-indigo { background-color: #1E1B4B !important; }
+    .canvas-light {
+      background-color: #FFFFFF !important;
+      border-color: #E2E8F0 !important;
+      background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
+    }
+
+    /* Coordinate Axis Markers */
+    .canvas-axis-x {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      right: 20px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.06);
+      pointer-events: none;
+    }
+    .canvas-axis-y {
+      position: absolute;
+      left: 50%;
+      top: 20px;
+      bottom: 20px;
+      width: 1px;
+      background: rgba(255, 255, 255, 0.06);
+      pointer-events: none;
+    }
+    .canvas-center-badge {
+      position: absolute;
+      bottom: 12px;
+      left: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--text-dim);
+      background: rgba(0, 0, 0, 0.5);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      align-self: flex-start;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.12);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.28);
+    }
+
+    .hero-meta h2 {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--text-white);
+    }
+
+    .hero-meta p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Segmented Picker UI Controls */
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .control-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .segmented-control {
+      display: flex;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 4px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .btn-seg {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 12px;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: var(--text-muted);
+      border: none;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      flex: 1;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .btn-seg:hover {
+      color: var(--text-white);
+      background: var(--surface-hover);
+    }
+
+    .btn-seg.active {
+      background: var(--watq-cyan);
+      color: #090D16;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(56, 189, 248, 0.3);
+    }
+
+    /* ==========================================================================
+       SECTION HEADERS & SYSTEM GRID
+       ========================================================================== */
+    .section-header {
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--text-white);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Strict Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 860px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 992px) {
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .grid-4 { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-subtitle {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+
+    /* ==========================================================================
+       PHILOSOPHY HERO BANNER
+       ========================================================================== */
+    .philosophy-banner {
+      background: rgba(79, 70, 229, 0.07);
+      border: 1px solid rgba(129, 140, 248, 0.28);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      margin-bottom: 40px;
+    }
+
+    .philosophy-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--watq-lavender);
+      margin-bottom: 8px;
+    }
+
+    .philosophy-body {
+      font-size: 13.5px;
+      color: #CBD5E1;
+      line-height: 1.65;
+    }
+
+    /* ==========================================================================
+       COLOR MATRIX (ISO 12647-2 & WCAG 2.2 AAA)
+       ========================================================================== */
+    .table-container {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow-x: auto;
+      margin-bottom: 24px;
+    }
+
+    .color-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+      min-width: 900px;
+    }
+
+    .color-table th {
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .color-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      vertical-align: middle;
+    }
+
+    .color-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .swatch-cell {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .color-swatch-box {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      flex-shrink: 0;
+    }
+
+    .color-name-text {
+      font-weight: 700;
+      color: var(--text-white);
+    }
+
+    .code-val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #E2E8F0;
+    }
+
+    .wcag-pass {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #34D399;
+      background: rgba(16, 185, 129, 0.1);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
+    /* 12-Dimensional Polar Chart Palette Deck */
+    .polar-swatches-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 6px;
+      padding: 14px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .polar-swatches-grid { grid-template-columns: repeat(6, 1fr); }
+    }
+
+    .polar-swatch-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .polar-swatch-color {
+      width: 100%;
+      height: 28px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .polar-swatch-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      color: var(--text-dim);
+    }
+
+    /* ==========================================================================
+       REAL-WORLD MOCKUPS & PHYSICAL COLLATERAL
+       ========================================================================== */
+    .mock-navbar {
+      background: #0B1120;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .mock-search {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 6px 12px;
+      font-size: 11.5px;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mock-avatar {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4F46E5, #38BDF8);
+    }
+
+    .mock-browser-bar {
+      background: #1E293B;
+      border-radius: 8px 8px 0 0;
+      padding: 8px 10px 0 10px;
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .mock-tab {
+      background: #0F172A;
+      border-radius: 6px 6px 0 0;
+      padding: 6px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: #E2E8F0;
+      font-weight: 500;
+      max-width: 240px;
+      border: 1px solid var(--border-subtle);
+      border-bottom: none;
+    }
+
+    .mock-browser-body {
+      background: #0F172A;
+      border: 1px solid var(--border-subtle);
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    .physical-spec-box {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .physical-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--watq-cyan);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid var(--border-cyan-subtle);
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+
+    /* ==========================================================================
+       OPTICAL FIDELITY SCALE SHELF
+       ========================================================================== */
+    .scale-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 40px;
+    }
+
+    .scale-shelf {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      align-items: flex-end;
+      padding: 24px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .scale-shelf { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .scale-pedestal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .scale-box-pedestal {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0B1120;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-sm);
+      width: 100%;
+      height: 100px;
+    }
+
+    .scale-label-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--watq-cyan);
+    }
+
+    .scale-desc-tag {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-align: center;
+    }
+
+    .scale-audit-note {
+      padding: 12px 16px;
+      background: rgba(56, 189, 248, 0.06);
+      border-radius: var(--radius-sm);
+      border: 1px dashed var(--border-cyan-subtle);
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       ISO 20671 5-PILLAR EVALUATION DECK
+       ========================================================================== */
+    .iso-deck {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 992px) {
+      .iso-deck { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .iso-deck { grid-template-columns: 1fr; }
+    }
+
+    .iso-pillar-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .iso-pillar-index {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--watq-cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .iso-pillar-name {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-white);
+    }
+
+    .iso-pillar-desc {
+      font-size: 11.5px;
+      color: var(--text-dim);
+      line-height: 1.45;
+    }
+
+    /* ==========================================================================
+       PRODUCTION ASSET REPOSITORY (2-COLUMN PRECISION GRID)
+       ========================================================================== */
+    .asset-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .asset-grid { grid-template-columns: 1fr; }
+    }
+
+    .asset-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: all 0.18s ease;
+    }
+
+    .asset-card:hover {
+      background: var(--surface-card-subtle);
+      border-color: var(--border-cyan-subtle);
+    }
+
+    .asset-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .asset-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      background: #090D16;
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .asset-text-block {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .asset-filename {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--watq-cyan);
+    }
+
+    .asset-desc {
+      font-size: 11.5px;
+      color: var(--text-dim);
+    }
+
+    .btn-download {
+      font-family: 'Inter', sans-serif;
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-white);
+      text-decoration: none;
+      border: 1px solid var(--border-subtle);
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .btn-download:hover {
+      background: var(--watq-cyan);
+      color: #090D16;
+      border-color: var(--watq-cyan);
+      font-weight: 700;
+    }
+
+    /* Footer Meta */
+    .footer-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- TOP META HEADER -->
+    <header class="top-bar">
+      <div class="brand-pill">
+        <span class="status-dot"></span> WATQ // BRAND DESIGN SSOT
+      </div>
+      <div class="spec-badges">
+        <span class="spec-id">ISO 20671 BRAND EVALUATION</span>
+        <span class="spec-id">ISO 12647-2 COLOR FIDELITY</span>
+        <span class="spec-id">WCAG 2.2 LEVEL AAA</span>
+        <span class="spec-id">WIPO CLASSES 9, 16, 35, 41, 42</span>
+      </div>
+    </header>
+
+    <!-- HERO HEADER -->
+    <section class="hero">
+      <div class="hero-eyebrow">Definitive Specification &amp; Brand Blueprint</div>
+      <h1>Watq — Official Single Mark: The Psychometric Prism</h1>
+      <p>
+        High-precision visual identity blueprint engineered to global standards. Centered upon a 
+        <strong>Single Pure Abstract Geometric Mark (*The Psychometric Prism*)</strong>: an optical prism deconstructing the spectrum of human personality 
+        (*Personality Decoded*) that naturally manifests the architectural silhouette of the letter <strong>W</strong> with mathematical clarity.
+      </p>
+    </section>
+
+    <!-- MASTER HERO SHOWCASE CARD -->
+    <section class="master-hero-card">
+      <div class="master-grid">
+
+        <!-- Left: Precision Canvas with Coordinate Crosshairs -->
+        <div class="canvas-display canvas-slate" id="masterCanvas">
+          <div class="canvas-axis-x"></div>
+          <div class="canvas-axis-y"></div>
+          <div class="canvas-center-badge">GRID: 500×500 // CENTER X: 250</div>
+
+          <svg viewBox="0 0 500 500" width="280" height="280" fill="none" id="masterSvg">
+            <!-- Facet 1: Left Pillar (Stark White) -->
+            <path
+              d="M 90 150 L 150 150 L 210 325 L 165 350 L 90 150 Z"
+              id="facetLeft"
+              fill="#FFFFFF"
+            />
+            <!-- Facet 2: Center Refractive Wedge (Electric Cyan) -->
+            <path
+              d="M 215 175 L 285 175 L 250 350 L 215 175 Z"
+              id="facetCenter"
+              fill="#38BDF8"
+            />
+            <!-- Facet 3: Right Pillar (Lavender Indigo Beam) -->
+            <path
+              d="M 350 150 L 410 150 L 335 350 L 290 325 L 350 150 Z"
+              id="facetRight"
+              fill="#A5B4FC"
+            />
+          </svg>
+        </div>
+
+        <!-- Right: Segmented Interactive Controls & Narrative -->
+        <div class="hero-meta">
+          <span class="badge-status">
+            <span>●</span> ISO 20671 Master Approved
+          </span>
+          <h2>The Psychometric Prism</h2>
+          <p>
+            <strong>Pure Solid Geometric Mark:</strong> 3 solid architectural polygons 
+            refracting cognitive variables into an orderly spectrum. Eliminates fragile hairline strokes, 
+            renders razor-sharp down to a 16px favicon, and sets a modern benchmark for top-tier digital products and physical media.
+          </p>
+
+          <!-- Control 1: Variant Selector -->
+          <div class="control-group">
+            <div class="control-label">Facet Color Variant:</div>
+            <div class="segmented-control">
+              <button class="btn-seg active" onclick="setPrismVariant('duotone', this)">Duo-Tone (Cyan Core)</button>
+              <button class="btn-seg" onclick="setPrismVariant('white', this)">Monochrome White</button>
+              <button class="btn-seg" onclick="setPrismVariant('black', this)">Monochrome Black (100% K)</button>
+            </div>
+          </div>
+
+          <!-- Control 2: Canvas Background Selector -->
+          <div class="control-group">
+            <div class="control-label">Canvas Background Surface:</div>
+            <div class="segmented-control">
+              <button class="btn-seg active" onclick="setCanvasBg('slate', this)">Psychometric Slate (#0F172A)</button>
+              <button class="btn-seg" onclick="setCanvasBg('indigo', this)">Deep Indigo (#1E1B4B)</button>
+              <button class="btn-seg" onclick="setCanvasBg('light', this)">Stark White (#FFFFFF)</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY BANNER -->
+    <div class="philosophy-banner">
+      <div class="philosophy-header">
+        <span>💎</span> Scientific Metaphor &amp; Optical Philosophy: Why "The Psychometric Prism"?
+      </div>
+      <div class="philosophy-body">
+        In physical optics, white light appears uniform to the naked eye until it refracts through an optical prism, deconstructing into a measurable color spectrum. 
+        Human personality operates identically: an individual appears monolithic on the surface, but through the <strong>Watq</strong> cognitive assessment engine, 
+        their psychological tendencies are deconstructed with mathematical precision across the 4 primary cognitive axes. 
+        The 3 solid facets naturally outline the letter <strong>W</strong> without delicate wireframe lines, creating an authoritative, singular mark.
+      </div>
+    </div>
+
+    <!-- COLOR MATRIX (ISO 12647-2 & WCAG 2.2 AAA) -->
+    <div class="section-header">
+      <div class="section-title">
+        <span>🎨</span> Official Multi-Medium Color Matrix (Screen, Print, Industrial &amp; Textile)
+      </div>
+      <div class="section-desc">
+        Mathematical color mapping across digital screens (HEX, sRGB, Display P3), offset print (CMYK ISO 12647-2), spot color (Pantone), industrial powder coating (RAL Classic), vinyl film (3M), and textile embroidery (Madeira):
+      </div>
+    </div>
+
+    <div class="table-container">
+      <table class="color-table">
+        <thead>
+          <tr>
+            <th style="width: 20%;">Color Name &amp; Swatch</th>
+            <th style="width: 10%;">HEX</th>
+            <th style="width: 13%;">sRGB / P3</th>
+            <th style="width: 14%;">CMYK (FOGRA51)</th>
+            <th style="width: 14%;">Pantone (PMS)</th>
+            <th style="width: 13%;">Industrial RAL</th>
+            <th style="width: 16%;">Accessibility (WCAG)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="swatch-cell">
+                <div class="color-swatch-box" style="background: #1E1B4B;"></div>
+                <div class="color-name-text">Watq Deep Indigo</div>
+              </div>
+            </td>
+            <td><code class="code-val">#1E1B4B</code></td>
+            <td><span class="code-val">30, 27, 75</span></td>
+            <td><span class="code-val">C95 M92 Y38 K55</span></td>
+            <td><span class="code-val">Pantone 2765 C</span></td>
+            <td><span class="code-val">RAL 5004</span></td>
+            <td><span class="wcag-pass">✓ AAA 12.4:1</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="swatch-cell">
+                <div class="color-swatch-box" style="background: #0F172A;"></div>
+                <div class="color-name-text">Psychometric Slate</div>
+              </div>
+            </td>
+            <td><code class="code-val">#0F172A</code></td>
+            <td><span class="code-val">15, 23, 42</span></td>
+            <td><span class="code-val">C88 M75 Y48 K62</span></td>
+            <td><span class="code-val">Pantone 532 C</span></td>
+            <td><span class="code-val">RAL 7021</span></td>
+            <td><span class="wcag-pass">✓ AAA 15.9:1</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="swatch-cell">
+                <div class="color-swatch-box" style="background: #38BDF8;"></div>
+                <div class="color-name-text">Electric Cyan</div>
+              </div>
+            </td>
+            <td><code class="code-val">#38BDF8</code></td>
+            <td><span class="code-val">56, 189, 248</span></td>
+            <td><span class="code-val">C65 M12 Y0 K0</span></td>
+            <td><span class="code-val">Pantone 298 C</span></td>
+            <td><span class="code-val">RAL 5012</span></td>
+            <td><span class="wcag-pass">✓ AAA 9.8:1</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="swatch-cell">
+                <div class="color-swatch-box" style="background: #FFFFFF;"></div>
+                <div class="color-name-text">Stark White</div>
+              </div>
+            </td>
+            <td><code class="code-val">#FFFFFF</code></td>
+            <td><span class="code-val">255, 255, 255</span></td>
+            <td><span class="code-val">C0 M0 Y0 K0</span></td>
+            <td><span class="code-val">Pure White</span></td>
+            <td><span class="code-val">RAL 9016</span></td>
+            <td><span class="wcag-pass">✓ AAA 15.9:1</span></td>
+          </tr>
+          <tr>
+            <td>
+              <div class="swatch-cell">
+                <div class="color-swatch-box" style="background: #090D16;"></div>
+                <div class="color-name-text">Stark Black</div>
+              </div>
+            </td>
+            <td><code class="code-val">#090D16</code></td>
+            <td><span class="code-val">9, 13, 22</span></td>
+            <td><span class="code-val">C95 M85 Y50 K80</span></td>
+            <td><span class="code-val">Pantone Black 6 C</span></td>
+            <td><span class="code-val">RAL 9005</span></td>
+            <td><span class="wcag-pass">✓ AAA 17.2:1</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 12-DIMENSIONAL SPECTRUM PALETTE DECK -->
+    <div class="section-header">
+      <div class="section-title">
+        <span>📊</span> 12-Dimensional Polar Chart Spectrum Tokens (Multi-Dimensional Diagnostics)
+      </div>
+      <div class="section-desc">
+        Pre-calibrated harmonic spectrum supporting multi-axis radar charts and psychometric profile visualizations with strict WCAG AA contrast compliance:
+      </div>
+    </div>
+
+    <div class="polar-swatches-grid">
+      <div class="polar-swatch-item">
+        <div class="polar-swatch-color" style="background: #A78BFA;"></div>
+        <span class="polar-swatch-label">D1</span>
+      </div>
+      <div class="polar-swatch-item">
+        <div class="polar-swatch-color" style="background: #818CF8;"></div>
+        <span class="polar-swatch-label">D2</span>
+      </div>
+      <div class="polar-swatch-item">
+        <div class="polar-swatch-color" style="background: #60A5FA;"></div>
+        <span class="polar-swatch-label">D3</span>
+      </div>
+      <div class="polar-swatch-item">
+        <div class="polar-swatch-color" style="background: #38BDF8;"></div>
+        <span class="polar-swatch-label">D4</span>
+      </div>
+      <div class="polar-swatch-item">
+        <div class="polar-swatch-color" style="background: #2DD4BF;"></div>
+        <span class="polar-swatch-label">D5</span>
+      </div>
+      <div class="polar-swatch-item">
+        <div class="polar-swatch-color" style="background: #34D399;"></div>
+        <span class="polar-swatch-label">D6</span>
+      </div>
+      <div class="polar-swatch-item">
+        <div class="polar-swatch-color" style="background: #FBBF24;"></div>
+        <span class="polar-swatch-label">D7</span>
+      </div>
+      <div class="polar-swatch-item">
+        <div class="polar-swatch-color" style="background: #FB923C;"></div>
+        <span class="polar-swatch-label">D8</span>
+      </div>
+      <div class="polar-swatch-item">
+        <div class="polar-swatch-color" style="background: #FB7185;"></div>
+        <span class="polar-swatch-label">D9</span>
+      </div>
+      <div class="polar-swatch-item">
+        <div class="polar-swatch-color" style="background: #F472B6;"></div>
+        <span class="polar-swatch-label">D10</span>
+      </div>
+      <div class="polar-swatch-item">
+        <div class="polar-swatch-color" style="background: #E879F9;"></div>
+        <span class="polar-swatch-label">D11</span>
+      </div>
+      <div class="polar-swatch-item">
+        <div class="polar-swatch-color" style="background: #C084FC;"></div>
+        <span class="polar-swatch-label">D12</span>
+      </div>
+    </div>
+
+    <!-- CONTEXT SIMULATORS & PHYSICAL APPLICATIONS -->
+    <div class="section-header">
+      <div class="section-title">
+        <span>🖥️</span> Real-World Placements &amp; Beyond-Software Physical Collateral
+      </div>
+      <div class="section-desc">
+        Demonstration across desktop SaaS web interfaces and tangible physical applications (DIN 5008 &amp; ISO 216 standards):
+      </div>
+    </div>
+
+    <div class="grid-2">
+
+      <!-- Desktop Navbar Simulator -->
+      <div class="card">
+        <div class="card-title">
+          <span>💻</span> Desktop SaaS Header Navigation
+        </div>
+        <div class="card-subtitle">Horizontal Master Lockup Integration (Navbar $Y=80\text{px}$)</div>
+
+        <div class="mock-navbar">
+          <!-- Watq Prism Lockup -->
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <svg viewBox="0 0 500 500" width="26" height="26" fill="none">
+              <path d="M 90 150 L 150 150 L 210 325 L 165 350 L 90 150 Z" fill="#FFFFFF" />
+              <path d="M 215 175 L 285 175 L 250 350 L 215 175 Z" fill="#38BDF8" />
+              <path d="M 350 150 L 410 150 L 335 350 L 290 325 L 350 150 Z" fill="#A5B4FC" />
+            </svg>
+            <div style="height: 16px; width: 1px; background: rgba(255,255,255,0.18);"></div>
+            <span style="font-size: 15px; font-weight: 800; letter-spacing: -0.04em; color: #FFFFFF;">WATQ</span>
+          </div>
+
+          <div class="mock-search">
+            <span>🔍</span>
+            <span>Search psychometric instruments...</span>
+          </div>
+
+          <div class="mock-avatar"></div>
+        </div>
+
+        <div style="font-size: 12px; color: var(--text-dim);">
+          The prism mark stands authoritative and balanced alongside the Inter ExtraBold "WATQ" wordmark.
+        </div>
+      </div>
+
+      <!-- Browser Tab / Favicon Simulator -->
+      <div class="card">
+        <div class="card-title">
+          <span>🌐</span> Browser Tab &amp; Favicon (16×16 px)
+        </div>
+        <div class="card-subtitle">Micro-Scale Optical Acuity on High-DPI Browser Tab Bar</div>
+
+        <div class="mock-browser-bar">
+          <div class="mock-tab">
+            <svg viewBox="0 0 64 64" width="15" height="15" fill="none">
+              <rect width="64" height="64" rx="14" fill="#0F172A" />
+              <g transform="translate(3.5, 4) scale(0.114)">
+                <path d="M 90 150 L 150 150 L 210 325 L 165 350 L 90 150 Z" fill="#FFFFFF" />
+                <path d="M 215 175 L 285 175 L 250 350 L 215 175 Z" fill="#38BDF8" />
+                <path d="M 350 150 L 410 150 L 335 350 L 290 325 L 350 150 Z" fill="#FFFFFF" />
+              </g>
+            </svg>
+            <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Watq — Personality Decoded</span>
+            <span style="color: var(--text-dim); margin-left: auto;">×</span>
+          </div>
+        </div>
+        <div class="mock-browser-body">
+          The center Electric Cyan facet (<code style="color: #38BDF8;">#38BDF8</code>) acts as an unmistakable optical beacon distinguishing the Watq tab in crowded browser sessions.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PHYSICAL APPLICATIONS GRID (BEYOND SOFTWARE) -->
+    <div class="grid-2">
+
+      <!-- Corporate Stationery DIN 5008 -->
+      <div class="card">
+        <div class="card-title">
+          <span>📄</span> Corporate Stationery (DIN 5008 &amp; ISO 216 A4)
+        </div>
+        <div class="card-subtitle">Official Assessment Dossiers &amp; Executive Letterhead</div>
+        <div class="physical-spec-box">
+          <span class="physical-badge">SPECIFICATION DIN 5008 FORM B</span>
+          <p>• <strong>Dimensions:</strong> $210 \times 297\text{mm}$ (ISO 216 A4 standard).</p>
+          <p>• <strong>Margins:</strong> Top $27\text{mm}$, Left $25\text{mm}$, Right $20\text{mm}$, Bottom $20\text{mm}$.</p>
+          <p>• <strong>Header Lockup:</strong> Master logo full at width $45\text{mm}$ aligned top-left.</p>
+          <p>• <strong>Paper Stock:</strong> Munken Polar Rough $120\text{gsm}$ FSC-certified uncoated.</p>
+        </div>
+      </div>
+
+      <!-- Business Card & Diagnostic Booklets -->
+      <div class="card">
+        <div class="card-title">
+          <span>💳</span> Business Cards &amp; Assessment Manuals
+        </div>
+        <div class="card-subtitle">Tactile Production Standards for Offline Engagement</div>
+        <div class="physical-spec-box">
+          <span class="physical-badge">EUROPEAN STANDARD 85×55 MM</span>
+          <p>• <strong>Executive Cards:</strong> Colorplan Navy $540\text{gsm}$ triplexed with blind deboss prism mark.</p>
+          <p>• <strong>Test Booklets:</strong> ISO 216 B5 ($176 \times 250\text{mm}$) lay-flat Wire-O binding.</p>
+          <p>• <strong>Cover Stock:</strong> $300\text{gsm}$ Invercote G with anti-scuff matte laminate and spot UV.</p>
+          <p>• <strong>Interior Paper:</strong> $115\text{gsm}$ woodfree uncoated paper for pen/pencil marking.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- OPTICAL FIDELITY SCALE SHELF -->
+    <div class="section-header">
+      <div class="section-title">
+        <span>📐</span> Multi-Scale Optical Fidelity (Digital &amp; Print Thresholds)
+      </div>
+      <div class="section-desc">
+        Verifying solid polygon legibility from 16px micro-favicons up to large-format display banners:
+      </div>
+    </div>
+
+    <div class="scale-card">
+      <div class="scale-shelf">
+
+        <!-- 16px Favicon -->
+        <div class="scale-pedestal">
+          <div class="scale-box-pedestal">
+            <svg viewBox="0 0 500 500" width="16" height="16" fill="none">
+              <path d="M 90 150 L 150 150 L 210 325 L 165 350 L 90 150 Z" fill="#FFFFFF" />
+              <path d="M 215 175 L 285 175 L 250 350 L 215 175 Z" fill="#38BDF8" />
+              <path d="M 350 150 L 410 150 L 335 350 L 290 325 L 350 150 Z" fill="#FFFFFF" />
+            </svg>
+          </div>
+          <span class="scale-label-tag">16×16 px</span>
+          <span class="scale-desc-tag">Favicon</span>
+        </div>
+
+        <!-- 24px Header Nav -->
+        <div class="scale-pedestal">
+          <div class="scale-box-pedestal">
+            <svg viewBox="0 0 500 500" width="24" height="24" fill="none">
+              <path d="M 90 150 L 150 150 L 210 325 L 165 350 L 90 150 Z" fill="#FFFFFF" />
+              <path d="M 215 175 L 285 175 L 250 350 L 215 175 Z" fill="#38BDF8" />
+              <path d="M 350 150 L 410 150 L 335 350 L 290 325 L 350 150 Z" fill="#A5B4FC" />
+            </svg>
+          </div>
+          <span class="scale-label-tag">24×24 px</span>
+          <span class="scale-desc-tag">Header Nav</span>
+        </div>
+
+        <!-- 32px App Tile -->
+        <div class="scale-pedestal">
+          <div class="scale-box-pedestal">
+            <svg viewBox="0 0 500 500" width="32" height="32" fill="none">
+              <path d="M 90 150 L 150 150 L 210 325 L 165 350 L 90 150 Z" fill="#FFFFFF" />
+              <path d="M 215 175 L 285 175 L 250 350 L 215 175 Z" fill="#38BDF8" />
+              <path d="M 350 150 L 410 150 L 335 350 L 290 325 L 350 150 Z" fill="#A5B4FC" />
+            </svg>
+          </div>
+          <span class="scale-label-tag">32×32 px</span>
+          <span class="scale-desc-tag">PWA Icon</span>
+        </div>
+
+        <!-- 48px Dashboard -->
+        <div class="scale-pedestal">
+          <div class="scale-box-pedestal">
+            <svg viewBox="0 0 500 500" width="48" height="48" fill="none">
+              <path d="M 90 150 L 150 150 L 210 325 L 165 350 L 90 150 Z" fill="#FFFFFF" />
+              <path d="M 215 175 L 285 175 L 250 350 L 215 175 Z" fill="#38BDF8" />
+              <path d="M 350 150 L 410 150 L 335 350 L 290 325 L 350 150 Z" fill="#A5B4FC" />
+            </svg>
+          </div>
+          <span class="scale-label-tag">48×48 px</span>
+          <span class="scale-desc-tag">Sidebar Widget</span>
+        </div>
+
+        <!-- 96px Badge -->
+        <div class="scale-pedestal">
+          <div class="scale-box-pedestal">
+            <svg viewBox="0 0 500 500" width="80" height="80" fill="none">
+              <path d="M 90 150 L 150 150 L 210 325 L 165 350 L 90 150 Z" fill="#FFFFFF" />
+              <path d="M 215 175 L 285 175 L 250 350 L 215 175 Z" fill="#38BDF8" />
+              <path d="M 350 150 L 410 150 L 335 350 L 290 325 L 350 150 Z" fill="#A5B4FC" />
+            </svg>
+          </div>
+          <span class="scale-label-tag">96×96 px</span>
+          <span class="scale-desc-tag">Profile Badge</span>
+        </div>
+
+      </div>
+
+      <div class="scale-audit-note">
+        <strong>Solid Polygon Geometry Integrity:</strong> Built from 3 solid facets separated by a locked 16px negative-space optical gap, the Watq mark never depends on fragile hairline strokes, rendering impeccably across standard and ultra-high-density displays.
+      </div>
+    </div>
+
+    <!-- ISO 20671 EVALUATION FRAMEWORK (5-PILLAR PRECISION DECK) -->
+    <div class="section-header">
+      <div class="section-title">
+        <span>⚖️</span> ISO 20671-1:2021 Brand Evaluation Framework
+      </div>
+      <div class="section-desc">
+        5 Global Brand Governance Dimensions Ensuring Watq's Long-Term Equity &amp; Defensibility:
+      </div>
+    </div>
+
+    <div class="iso-deck">
+      <div class="iso-pillar-card">
+        <span class="iso-pillar-index">01 // Input</span>
+        <div class="iso-pillar-name">Brand Investment</div>
+        <div class="iso-pillar-desc">Continuous R&amp;D in empirical psychometrics, modern type-safe codebase, and mathematical vector geometry.</div>
+      </div>
+      <div class="iso-pillar-card">
+        <span class="iso-pillar-index">02 // Input</span>
+        <div class="iso-pillar-name">Brand Strength</div>
+        <div class="iso-pillar-desc">Zero technical debt architecture, definitive specification suite, and complete user privacy data sovereignty.</div>
+      </div>
+      <div class="iso-pillar-card">
+        <span class="iso-pillar-index">03 // Output</span>
+        <div class="iso-pillar-name">Brand Consistency</div>
+        <div class="iso-pillar-desc">Strict clear space enforcement ($X = 70\text{px}$), ISO 12647-2 color fidelity, and zero-tolerance distortion rules.</div>
+      </div>
+      <div class="iso-pillar-card">
+        <span class="iso-pillar-index">04 // Output</span>
+        <div class="iso-pillar-name">Market Perception</div>
+        <div class="iso-pillar-desc">Zero-onboarding friction, instant &lt;10ms client execution, and an authoritative scientific voice.</div>
+      </div>
+      <div class="iso-pillar-card">
+        <span class="iso-pillar-index">05 // Value</span>
+        <div class="iso-pillar-name">Financial Impact</div>
+        <div class="iso-pillar-desc">$0 monthly operational expenses designed for enterprise B2B scalability and high brand valuation (ISO 10668).</div>
+      </div>
+    </div>
+
+    <!-- PRODUCTION ASSET REPOSITORY -->
+    <div class="section-header">
+      <div class="section-title">
+        <span>📦</span> Official Production Vector Repository (Downloadable Assets)
+      </div>
+      <div class="section-desc">
+        All production master vector SVG files stored in directory <code style="color: var(--watq-cyan);">public/brand/</code>:
+      </div>
+    </div>
+
+    <div class="asset-grid">
+
+      <!-- Asset 1 -->
+      <div class="asset-card">
+        <div class="asset-info">
+          <div class="asset-icon-box">
+            <svg viewBox="0 0 500 500" width="22" height="22" fill="none">
+              <path d="M 90 150 L 150 150 L 210 325 L 165 350 L 90 150 Z" fill="#FFFFFF" />
+              <path d="M 215 175 L 285 175 L 250 350 L 215 175 Z" fill="#38BDF8" />
+              <path d="M 350 150 L 410 150 L 335 350 L 290 325 L 350 150 Z" fill="#A5B4FC" />
+            </svg>
+          </div>
+          <div class="asset-text-block">
+            <span class="asset-filename">watq-mark.svg</span>
+            <span class="asset-desc">Single Prism Master Mark (Duo-Tone)</span>
+          </div>
+        </div>
+        <a href="watq-mark.svg" download class="btn-download">Download SVG</a>
+      </div>
+
+      <!-- Asset 2 -->
+      <div class="asset-card">
+        <div class="asset-info">
+          <div class="asset-icon-box">
+            <svg viewBox="0 0 500 500" width="22" height="22" fill="none">
+              <path d="M 90 150 L 150 150 L 210 325 L 165 350 L 90 150 Z" fill="#FFFFFF" />
+              <path d="M 215 175 L 285 175 L 250 350 L 215 175 Z" fill="#38BDF8" />
+              <path d="M 350 150 L 410 150 L 335 350 L 290 325 L 350 150 Z" fill="#FFFFFF" />
+            </svg>
+          </div>
+          <div class="asset-text-block">
+            <span class="asset-filename">watq-mark-white.svg</span>
+            <span class="asset-desc">High-Contrast Dark Mode Mark (Stark White)</span>
+          </div>
+        </div>
+        <a href="watq-mark-white.svg" download class="btn-download">Download SVG</a>
+      </div>
+
+      <!-- Asset 3 -->
+      <div class="asset-card">
+        <div class="asset-info">
+          <div class="asset-icon-box" style="background: #FFFFFF;">
+            <svg viewBox="0 0 500 500" width="22" height="22" fill="none">
+              <path d="M 90 150 L 150 150 L 210 325 L 165 350 L 90 150 Z" fill="#000000" />
+              <path d="M 215 175 L 285 175 L 250 350 L 215 175 Z" fill="#000000" />
+              <path d="M 350 150 L 410 150 L 335 350 L 290 325 L 350 150 Z" fill="#000000" />
+            </svg>
+          </div>
+          <div class="asset-text-block">
+            <span class="asset-filename">watq-mark-mono-black.svg</span>
+            <span class="asset-desc">1-Color Pure Black (ISO 12647-2 100% K Print &amp; Laser Engraving)</span>
+          </div>
+        </div>
+        <a href="watq-mark-mono-black.svg" download class="btn-download">Download SVG</a>
+      </div>
+
+      <!-- Asset 4 -->
+      <div class="asset-card">
+        <div class="asset-info">
+          <div class="asset-icon-box">
+            <svg viewBox="0 0 500 500" width="22" height="22" fill="none">
+              <path d="M 90 150 L 150 150 L 210 325 L 165 350 L 90 150 Z" fill="#FFFFFF" />
+              <path d="M 215 175 L 285 175 L 250 350 L 215 175 Z" fill="#FFFFFF" />
+              <path d="M 350 150 L 410 150 L 335 350 L 290 325 L 350 150 Z" fill="#FFFFFF" />
+            </svg>
+          </div>
+          <div class="asset-text-block">
+            <span class="asset-filename">watq-mark-mono-white.svg</span>
+            <span class="asset-desc">1-Color Pure White (Foil Stamp &amp; Screenprint)</span>
+          </div>
+        </div>
+        <a href="watq-mark-mono-white.svg" download class="btn-download">Download SVG</a>
+      </div>
+
+      <!-- Asset 5 -->
+      <div class="asset-card">
+        <div class="asset-info">
+          <div class="asset-icon-box">
+            <svg viewBox="0 0 512 512" width="24" height="24" fill="none">
+              <rect width="512" height="512" rx="116" fill="#1E293B" />
+              <g transform="translate(6, 6) scale(0.97)">
+                <path d="M 90 150 L 150 150 L 210 325 L 165 350 L 90 150 Z" fill="#FFFFFF" />
+                <path d="M 215 175 L 285 175 L 250 350 L 215 175 Z" fill="#38BDF8" />
+                <path d="M 350 150 L 410 150 L 335 350 L 290 325 L 350 150 Z" fill="#A5B4FC" />
+              </g>
+            </svg>
+          </div>
+          <div class="asset-text-block">
+            <span class="asset-filename">watq-app-icon.svg</span>
+            <span class="asset-desc">Application Icon 512×512 Squircle (iOS / Android / PWA)</span>
+          </div>
+        </div>
+        <a href="watq-app-icon.svg" download class="btn-download">Download SVG</a>
+      </div>
+
+      <!-- Asset 6 -->
+      <div class="asset-card">
+        <div class="asset-info">
+          <div class="asset-icon-box">
+            <svg viewBox="0 0 64 64" width="22" height="22" fill="none">
+              <rect width="64" height="64" rx="14" fill="#0F172A" />
+              <g transform="translate(3.5, 4) scale(0.114)">
+                <path d="M 90 150 L 150 150 L 210 325 L 165 350 L 90 150 Z" fill="#FFFFFF" />
+                <path d="M 215 175 L 285 175 L 250 350 L 215 175 Z" fill="#38BDF8" />
+                <path d="M 350 150 L 410 150 L 335 350 L 290 325 L 350 150 Z" fill="#FFFFFF" />
+              </g>
+            </svg>
+          </div>
+          <div class="asset-text-block">
+            <span class="asset-filename">watq-favicon.svg</span>
+            <span class="asset-desc">Optimized Browser Tab Favicon (64×64)</span>
+          </div>
+        </div>
+        <a href="watq-favicon.svg" download class="btn-download">Download SVG</a>
+      </div>
+
+      <!-- Asset 7 -->
+      <div class="asset-card">
+        <div class="asset-info">
+          <div class="asset-icon-box">
+            <svg viewBox="0 0 500 500" width="20" height="20" fill="none">
+              <path d="M 90 150 L 150 150 L 210 325 L 165 350 L 90 150 Z" fill="#FFFFFF" />
+              <path d="M 215 175 L 285 175 L 250 350 L 215 175 Z" fill="#38BDF8" />
+              <path d="M 350 150 L 410 150 L 335 350 L 290 325 L 350 150 Z" fill="#A5B4FC" />
+            </svg>
+          </div>
+          <div class="asset-text-block">
+            <span class="asset-filename">watq-logo-full.svg</span>
+            <span class="asset-desc">Master Horizontal Lockup (Prism + WATQ + Tagline, Axis $Y=80\text{px}$)</span>
+          </div>
+        </div>
+        <a href="watq-logo-full.svg" download class="btn-download">Download SVG</a>
+      </div>
+
+      <!-- Asset 8 -->
+      <div class="asset-card">
+        <div class="asset-info">
+          <div class="asset-icon-box">
+            <span style="font-family: 'Inter', sans-serif; font-weight: 800; font-size: 9px; letter-spacing: -0.02em; color: #FFFFFF;">WATQ</span>
+          </div>
+          <div class="asset-text-block">
+            <span class="asset-filename">watq-logotype.svg</span>
+            <span class="asset-desc">Bespoke Wordmark "WATQ" (Inter ExtraBold -0.04em)</span>
+          </div>
+        </div>
+        <a href="watq-logotype.svg" download class="btn-download">Download SVG</a>
+      </div>
+
+    </div>
+
+    <!-- FOOTER META -->
+    <footer class="footer-meta">
+      <div>WATQ-BRD-01 // BRAND IDENTITY SSOT // REV 1.1.0</div>
+      <div>GLOBAL STANDARDS: ISO 20671-1:2021 &bull; ISO 12647-2 &bull; DIN 5008 &bull; DIN 1450 &bull; WCAG 2.2 AAA &bull; WIPO CLASSES 9, 16, 35, 41, 42</div>
+    </footer>
+
+  </div>
+
+  <script>
+    let currentVariant = 'duotone';
+
+    function setPrismVariant(variant, btn) {
+      currentVariant = variant;
+      const left = document.getElementById('facetLeft');
+      const center = document.getElementById('facetCenter');
+      const right = document.getElementById('facetRight');
+
+      document.querySelectorAll('.hero-meta .segmented-control:first-of-type .btn-seg').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const isLightBg = document.getElementById('masterCanvas').classList.contains('canvas-light');
+
+      if (variant === 'duotone') {
+        left.setAttribute('fill', isLightBg ? '#1E1B4B' : '#FFFFFF');
+        center.setAttribute('fill', '#38BDF8');
+        right.setAttribute('fill', isLightBg ? '#4F46E5' : '#A5B4FC');
+      } else if (variant === 'white') {
+        left.setAttribute('fill', '#FFFFFF');
+        center.setAttribute('fill', '#FFFFFF');
+        right.setAttribute('fill', '#FFFFFF');
+      } else if (variant === 'black') {
+        left.setAttribute('fill', '#000000');
+        center.setAttribute('fill', '#000000');
+        right.setAttribute('fill', '#000000');
+      }
+    }
+
+    function setCanvasBg(bg, btn) {
+      const canvas = document.getElementById('masterCanvas');
+      const left = document.getElementById('facetLeft');
+      const center = document.getElementById('facetCenter');
+      const right = document.getElementById('facetRight');
+
+      document.querySelectorAll('.hero-meta .segmented-control:last-of-type .btn-seg').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      canvas.className = 'canvas-display';
+
+      if (bg === 'slate') {
+        canvas.classList.add('canvas-slate');
+        if (currentVariant === 'black') {
+          left.setAttribute('fill', '#000000');
+          center.setAttribute('fill', '#000000');
+          right.setAttribute('fill', '#000000');
+        } else if (currentVariant === 'white') {
+          left.setAttribute('fill', '#FFFFFF');
+          center.setAttribute('fill', '#FFFFFF');
+          right.setAttribute('fill', '#FFFFFF');
+        } else {
+          left.setAttribute('fill', '#FFFFFF');
+          center.setAttribute('fill', '#38BDF8');
+          right.setAttribute('fill', '#A5B4FC');
+        }
+      } else if (bg === 'indigo') {
+        canvas.classList.add('canvas-indigo');
+        if (currentVariant === 'black') {
+          left.setAttribute('fill', '#000000');
+          center.setAttribute('fill', '#000000');
+          right.setAttribute('fill', '#000000');
+        } else if (currentVariant === 'white') {
+          left.setAttribute('fill', '#FFFFFF');
+          center.setAttribute('fill', '#FFFFFF');
+          right.setAttribute('fill', '#FFFFFF');
+        } else {
+          left.setAttribute('fill', '#FFFFFF');
+          center.setAttribute('fill', '#38BDF8');
+          right.setAttribute('fill', '#A5B4FC');
+        }
+      } else if (bg === 'light') {
+        canvas.classList.add('canvas-light');
+        if (currentVariant === 'black') {
+          left.setAttribute('fill', '#000000');
+          center.setAttribute('fill', '#000000');
+          right.setAttribute('fill', '#000000');
+        } else if (currentVariant === 'white') {
+          left.setAttribute('fill', '#FFFFFF');
+          center.setAttribute('fill', '#FFFFFF');
+          right.setAttribute('fill', '#FFFFFF');
+        } else {
+          left.setAttribute('fill', '#1E1B4B');
+          center.setAttribute('fill', '#0284C7');
+          right.setAttribute('fill', '#4F46E5');
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>

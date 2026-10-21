@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%" fill="none">
+  <!-- Watq Official Single Mark: The Psychometric Prism -->
+  <defs>
+    <linearGradient id="prismCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="prismWhite" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#E2E8F0" />
+    </linearGradient>
+    <linearGradient id="prismIndigo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818CF8" />
+      <stop offset="100%" stop-color="#4F46E5" />
+    </linearGradient>
+  </defs>
+
+  <!-- 
+    The 3 Faceted Planes forming the Prism & W silhouette:
+    Plane 1 (Left Pillar / Descending Ray): Stark White
+    Plane 2 (Center Keystone / Dynamic Refraction): Electric Cyan
+    Plane 3 (Right Pillar / Ascending Spectrum): Indigo Beam
+  -->
+
+  <!-- Facet 1: Left Wing (Architectural Anchor) -->
+  <path
+    d="M 90 150 L 150 150 L 210 325 L 165 350 L 90 150 Z"
+    fill="url(#prismWhite)"
+  />
+
+  <!-- Facet 2: Center Core (The Decoding Prism Wedge) -->
+  <path
+    d="M 215 175 L 285 175 L 250 350 L 215 175 Z"
+    fill="url(#prismCyan)"
+  />
+
+  <!-- Facet 3: Right Wing (Spectrum Beam) -->
+  <path
+    d="M 350 150 L 410 150 L 335 350 L 290 325 L 350 150 Z"
+    fill="url(#prismIndigo)"
+  />
+</svg>

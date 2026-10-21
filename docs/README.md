@@ -1,53 +1,76 @@
-# **WATQ — UNIVERSAL PSYCHOMETRIC ENGINE DOCUMENTATION SUITE**
+# **WATQ — MASTER DOCUMENTATION SUITE (MVP v1.0)**
 
-> **Tagline Resmi:** *Personality Decoded.*  
-> **Status Repositori:** Full Production & Scalable Architecture Documentation Suite  
-> **Pola Rekayasa:** Dual-Layer Inverted Pyramid Hierarchy (Macro-Architecture to Micro-Implementation)
-
----
-
-## **1. ARSITEKTUR PIRAMIDA TERBALIK GANDA (DUAL-LAYER INVERTED PYRAMID)**
-
-Dokumentasi Watq beroperasi di bawah dua tingkatan struktur yang terprediksi:
-1. **Lapis Makro (Antar Berkas):** Disusun dari tingkat strategi payung paling luas (Brand & Positioning) meruncing ke bawah hingga ke persistensi basis data relasional (Database DDL), didukung oleh ekstensi skala enterprise.
-2. **Lapis Mikro (Di Dalam Tiap Berkas MD):** Setiap file markdown mematuhi **Anatomi 4 Bab Seragam**:
-   * **Header Metadata Box:** ID Dokumen, Versi, Status, Rujukan Standar Global, SSOT Scope, dan Tautan Kode `src/...`.
-   * **Bab 1: Fondasi, Tujuan & Prinsip Desain (The "Why"):** Filosofi dan batasan arsitektur tingkat tinggi.
-   * **Bab 2: Spesifikasi Teknis Definitif (The "What & How"):** Skrip DDL SQL, Skema JSON, CSS Tokens, atau Endpoint API.
-   * **Bab 3: Kasus Tepi, Validitas & Integritas Sistem (The "Guardrails"):** Mitigasi kegagalan, batas larangan, dan audit hash.
-   * **Bab 4: Matriks Implementasi & Integrasi Sistem (The "Where"):** Pemetaan file kode sumber (`src/`) dan relasi lintas dokumen.
+> **Official Tagline:** *Personality Decoded.*  
+> **Repository Status:** Clean MVP Specification Suite (Zero Bloat, Zero Overlap, Scalable Architecture)  
+> **Core Architecture:** Single-Instrument Client-Driven Architecture (16 Cognitive Types)  
+> **Suite Version:** `1.2.0` │ **Status:** `MVP_LOCKED`
 
 ---
 
-## **2. INDEKS RESMI BERKAS DOKUMENTASI (11 LAPISAN SSOT)**
+## **1. DOCUMENTATION PHILOSOPHY & STANDARDS (THE "WHY")**
 
-### **BAGIAN I: FASE MVP FONDASIONAL (Tingkat 1 s.d. 7 — Status: `MVP_ACTIVE`)**
+The Watq documentation suite is engineered to meet the highest standards of modern software engineering and multidisciplinary research:
+1. **Concise & Direct:** Eliminates redundant bureaucracy, repetitive jargon, and unnecessary narrative prose.
+2. **Zero Overlap & Non-Redundant:** Each document holds exclusive Single Source of Truth (SSOT) authority. No data or rules are duplicated across files.
+3. **Uniform & Predictable Structure (The Universal 4-Chapter Blueprint):** Every specification document follows an identical 4-chapter anatomy.
+4. **Scalable & Modular:** The architecture allows future extensions (v2.0+) without altering the validated MVP foundation.
+5. **100% Pure Global English:** Standardized across all technical documentation, component schemas, tokens, and build configurations.
 
-| Dokumen | Berkas Spesifikasi Resmi | Standar Global yang Dirujuk | Domain Otoritas Tunggal (*Single Source of Truth*) |
+---
+
+## **2. OFFICIAL 4-PILLAR DOCUMENTATION INDEX**
+
+| No | Specification File | Global Industry Equivalents & Standards | Single Source of Truth (SSOT) Domain |
 | :---: | :--- | :--- | :--- |
-| **01** | [`01-brand-identity-guidelines.md`](file:///d:/watq/docs/01-brand-identity-guidelines.md) | `WIPO Nice Class 9 & 42` \| `ISO 10646` | Identitas Merek, Nomenklatur, Etimologi, Tagline, Arketipe, Tone of Voice, Geometri Logo Monogram W+Q, & Palet Warna. |
-| **02** | [`02-mvp-feature-specification.md`](file:///d:/watq/docs/02-mvp-feature-specification.md) | `IPIP (1999)` \| `Jung (1921)` \| `Holland (1959)` | Spesifikasi Fungsional Fitur MVP, Cakupan 5 Instrumen Psikometri, & Logika 5 Modul Inti. |
-| **03** | [`03-information-architecture-specification.md`](file:///d:/watq/docs/03-information-architecture-specification.md) | `W3C Schema.org` \| `RFC 3986` \| `OGP` | Taksonomi Sistem 5-Tier, Perutean Next.js App Router, Skema Rendering, & Metadata SEO. |
-| **04** | [`04-user-flow-specification.md`](file:///d:/watq/docs/04-user-flow-specification.md) | `W3C Web Crypto` \| `W3C IndexedDB` \| `Fitts's Law` | Alur Pengguna 6-Fase, 4 Modalitas Input, Mesin Status Sesi, & Resolusi 5 Kasus Tepi. |
-| **05** | [`05-design-system-tokens-specification.md`](file:///d:/watq/docs/05-design-system-tokens-specification.md) | `W3C Design Tokens` \| `WCAG 2.2 AA` \| `CSS Layer 5` | Arsitektur Komponen Atomik, Kontainer 680px, Token Slate/Deep Indigo, 12 Dimensi Grafik, & Kurva Mikromosi. |
-| **06** | [`06-tech-stack-infrastructure-specification.md`](file:///d:/watq/docs/06-tech-stack-infrastructure-specification.md) | `ECMA-262 (ES2024)` \| `RFC 9113` \| `W3C Edge` | Matriks 15 Lapis Teknologi Terkunci, Request Pipeline <150ms, Ambang Batas Kuota $0 OpEx, & Tooling Developer. |
-| **07** | [`07-database-architecture-ddl-specification.md`](file:///d:/watq/docs/07-database-architecture-ddl-specification.md) | `ISO/IEC 9075:2023 (ANSI SQL)` \| `FIPS 180-4` | Skema Relasional ANSI 3NF, Skrip DDL Produksi PostgreSQL, Indeks GIN, Polis RLS Supabase, & Payload JSONB 5 Model. |
+| **01** | [`01-brand.md`](file:///d:/watq/docs/01-brand.md) | **BRD & Brand Identity System** (`WIPO Classes 9, 16, 35, 41, 42`, `ISO 20671`, `ISO 10668`, `ISO 12647-2`, `DIN 5008`, `DIN 1450`, `WCAG 2.2 AAA`) | Brand DNA, Nomenclature, Tagline, Archetype, Tone of Voice, Geometric Construction of *The Psychometric Prism*, Cross-Medium Color System (Screen, Print, RAL, Madeira), Typographic Scale, Physical Stationery, and Strict Guardrails. |
+| **02** | [`02-prd.md`](file:///d:/watq/docs/02-prd.md) | **PRD (Product Requirements Document)** (`Jung 1921`, `Likert 1932`, `APA Standards`, `UNESCO ISCED-F 2013`, `ILO ISCO-08`) | MVP Scope Boundaries, 16 Cognitive Types Model, 24-Item Question Catalog, 50/50 Balanced Keying, Deterministic Scoring Formula & Proof Table, 16 Archetype Vocational Matrix, and Offline/Physical Testing Specs. |
+| **03** | [`03-srs.md`](file:///d:/watq/docs/03-srs.md) | **SRS (Software Requirements Specification)** (`IEEE 830`, `ISO/IEC 25010:2023`, `Fitts's Law`, `Hick-Hyman Law`, `Bringhurst's Law`, `RFC 9562`, `W3C Web Vitals`) | 3-Screen Sitemap (`/`, `/assess`, `/result`), Finite State Machine (FSM), Client Session Contract (`watq_mvp_session_v1`), Desktop Keyboard Navigation, 6 Critical Edge Cases Mitigation, and Non-Functional Budgets. |
+| **04** | [`04-design-system.md`](file:///d:/watq/docs/04-design-system.md) | **Design System & Tokens (DTCG)** (`W3C DTCG`, `WCAG 2.2 AAA`, `Bringhurst's Law`, `Weber-Fechner Law`, `Fitts's Law`, `Hick-Hyman Law`, `Miller's Law`, `DIN 1450`) | Atomic Component Hierarchy, 680px Focus Container, Slate & Deep Indigo Palettes, 4 Polarity Axis Tokens, 12-Dimensional Chart Spectrum, Inter `tnum` Typography, Micro-Motion Timing (120ms/180ms), and Reduced Motion. |
 
 ---
 
-### **BAGIAN II: FASE SCALE-UP ENTERPRISE B2B (Tingkat 8 s.d. 11 — Status: `SCALEUP_ROADMAP`)**
+## **3. THE UNIVERSAL 4-CHAPTER BLUEPRINT**
 
-| Dokumen | Berkas Spesifikasi Resmi | Standar Global yang Dirujuk | Domain Otoritas Tunggal (*Single Source of Truth*) |
-| :---: | :--- | :--- | :--- |
-| **08** | [`08-api-webhook-integration-specification.md`](file:///d:/watq/docs/08-api-webhook-integration-specification.md) | `OpenAPI 3.1.0` \| `RFC 2104` \| `RFC 6585` | Spesifikasi RESTful API Publik, Protokol Webhook Idempotent, Adapter ATS/HRIS, & Rate Limiting Token Bucket. |
-| **09** | [`09-multi-tenancy-billing-specification.md`](file:///d:/watq/docs/09-multi-tenancy-billing-specification.md) | `NIST SP 800-145` \| `PCI-DSS v4.0` \| `ISO 27001` | Arsitektur Multi-Tenancy RLS, Matriks 5 Peran RBAC, Siklus Hidup Penagihan Stripe Billing, & DDL Ledger. |
-| **10** | [`10-security-compliance-data-sovereignty-specification.md`](file:///d:/watq/docs/10-security-compliance-data-sovereignty-specification.md) | `ISO/IEC 27001:2022` \| `GDPR` \| `UU PDP 27/2022` | Standar Keamanan Siber, Kedaulatan Kriptografis, Kepatuhan Privasi Global (GDPR/UU PDP), & Audit Logging. |
-| **11** | [`11-devops-cicd-disaster-recovery-specification.md`](file:///d:/watq/docs/11-devops-cicd-disaster-recovery-specification.md) | `ISO/IEC 22301` \| `W3C Web Vitals` \| `SemVer 2.0.0` | Otomasi Pipeline CI/CD, Pengarsipan Dingin R2 (Mitigasi 500 MB Supabase), Pemulihan Bencana, & Observabilitas. |
+Every document in this suite strictly adheres to a uniform structure:
+
+```text
+Header Metadata Box  ──> Document ID, Version (1.2.0), Status (MVP_LOCKED), Global Standards, SSOT, Code Links
+Chapter 1: FOUNDATION & PRINCIPLES (The "Why")           ──> Background, philosophy, and scope boundaries
+Chapter 2: CORE TECHNICAL SPECIFICATIONS (The "What/How") ──> Detailed specifications, data, and computation logic
+Chapter 3: GUARDRAILS, INTEGRITY & EDGE CASES            ──> Compliance standards, validation, and error mitigation
+Chapter 4: CODE IMPLEMENTATION MAPPING (The "Where")     ──> Source code paths (src/), data contracts, and acceptance
+```
 
 ---
 
-## **3. PEDOMAN KONTRIBUSI & TATA KELOLA PEMBARUAN (GOVERNANCE)**
+## **4. SEPARATION OF CONCERNS MAPPING**
 
-1. **Prinsip Single Source of Truth (SSOT):** Setiap aturan atau spesifikasi teknis hanya boleh dituliskan satu kali di dokumen yang berwenang. Berkas lain wajib merujuk via tautan markdown.
-2. **Penomoran Versi Semantik (SemVer):** Pembaruan dokumen wajib menaikkan nomor versi pada *Header Metadata Box* (`PATCH` untuk perbaikan redaksional, `MINOR` untuk penambahan butir/fitur, `MAJOR` untuk perombakan arsitektur).
-3. **Penyelarasan Kode (`target_code`):** Setiap perubahan skema atau token pada dokumen wajib disinkronkan langsung ke berkas kode sumber terkait di direktori `src/`.
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                              01-BRAND.MD                               │
+│   "Who is Watq?" -> Brand DNA, Logo, Colors, Physical Print, Voice     │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+┌───────────────────────────────────▼────────────────────────────────────┐
+│                              02-PRD.MD                                 │
+│   "What is Built?" -> 16 Types, 24 Items, Scoring Math, Archetypes    │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+┌───────────────────────────────────▼────────────────────────────────────┐
+│                              03-SRS.MD                                 │
+│   "How Does It Work?" -> 3 Screens, FSM, LocalStorage, 6 Edge Cases    │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+┌───────────────────────────────────▼────────────────────────────────────┐
+│                         04-DESIGN-SYSTEM.MD                            │
+│   "How Does It Look & Move?" -> 680px Layout, CSS Tokens, Micro-Motion │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## **5. FUTURE SCALABILITY & EXTENSIBILITY**
+
+While MVP v1.0 is strictly locked to the 16 Cognitive Types model with 3 screens and $0 database OpEx:
+* **Adding New Instruments (v2.0+):** Simply introduce a new item catalog file under `src/data/assessments/` and register a scoring calculator in `src/lib/scoring/` without modifying core runner logic.
+* **Adding Cloud Database Persistence:** Can be integrated as an additional storage adapter under `src/lib/storage/` without breaking the standardized `WatqAssessmentSession` data contract.

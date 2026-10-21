@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# **WATQ — PERSONALITY DECODED**
 
-## Getting Started
+> **Tagline:** *Personality Decoded.*  
+> **Status:** MVP v1.0 — Private & Proprietary (Closed-Source)  
+> **Governance:** Internal Development Only — External Contributions Prohibited  
+> **Distribution:** End-User Software Application Only  
+> **Stack:** Next.js 15 (App Router) + TypeScript + Tailwind CSS
 
-First, run the development server:
+---
 
+## **1. PROJECT OVERVIEW**
+**Watq** is a modern, client-driven cognitive assessment engine engineered to accurately decode natural personality tendencies and provide aligned college major recommendations and future career trajectories.
+
+In **MVP v1.0**, Watq strictly adheres to the **Zero-Bloat MVP** philosophy:
+* **Single Focused Model:** 16 Cognitive Types (Jungian Typology 1921 / Public Domain) evaluated via 24 5-point Likert items.
+* **3 Isolated Screens:** Landing (`/`) $\rightarrow$ Focused 680px Runner (`/assess`) $\rightarrow$ Diagnostic Report & Vocational Synthesis (`/result`).
+* **Zero Database Complexity ($0 OpEx):** Session persistence and scoring calculations execute client-side via Web Crypto API and `localStorage`.
+
+---
+
+## **2. OFFICIAL DOCUMENTATION SUITE (`docs/`)**
+All technical specifications and system designs are unified in 4 official documents:
+
+1. **[`docs/01-brand.md`](file:///d:/watq/docs/01-brand.md)** (Brand Guidelines & Visual Identity SSOT)  
+   Standards for *The Psychometric Prism* mark, Psychometric Slate & Deep Indigo palette, and typography.
+2. **[`docs/02-prd.md`](file:///d:/watq/docs/02-prd.md)** (PRD - Product Requirements Document)  
+   16 Cognitive Types instrument, complete 24-item question catalog, scoring algorithm, and 16 archetype vocational matrix.
+3. **[`docs/03-srs.md`](file:///d:/watq/docs/03-srs.md)** (SRS - Software Requirements Specification)  
+   3-screen architecture, client session state machine, desktop keyboard navigation, and edge case mitigation.
+4. **[`docs/04-design-system.md`](file:///d:/watq/docs/04-design-system.md)** (Design System & Design Tokens)  
+   Atomic component hierarchy, 680px focus container, CSS tokens, micro-motion timing (120ms/180ms), and WCAG 2.2 AA audit.
+
+---
+
+## **3. LOCAL DEVELOPMENT**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [http://localhost:3000](http://localhost:3000) in your web browser.

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 160" width="100%" height="100%" fill="none">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;800&amp;display=swap');
+      .brand-title {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-weight: 800;
+        font-size: 56px;
+        letter-spacing: -0.04em;
+        fill: #FFFFFF;
+      }
+      .brand-tagline {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-weight: 600;
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        fill: #94A3B8;
+      }
+      .lockup-divider {
+        stroke: rgba(255, 255, 255, 0.18);
+        stroke-width: 1.5;
+      }
+    </style>
+  </defs>
+
+  <!-- Left: The Psychometric Prism Perfectly Centered (Y: 40 to 120, Center Y = 80) -->
+  <g transform="translate(24, -20) scale(0.40)">
+    <path d="M 90 150 L 150 150 L 210 325 L 165 350 L 90 150 Z" fill="#FFFFFF" />
+    <path d="M 215 175 L 285 175 L 250 350 L 215 175 Z" fill="#38BDF8" />
+    <path d="M 350 150 L 410 150 L 335 350 L 290 325 L 350 150 Z" fill="#A5B4FC" />
+  </g>
+
+  <!-- Divider: Centered Vertically (Y: 38 to 122, Center Y = 80) -->
+  <line x1="225" y1="38" x2="225" y2="122" class="lockup-divider" />
+
+  <!-- Right: Wordmark + Tagline Centered Vertically (Center Y = 80) -->
+  <text x="255" y="85" class="brand-title">WATQ</text>
+  <text x="257" y="115" class="brand-tagline">PERSONALITY DECODED.</text>
+</svg>
