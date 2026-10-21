@@ -74,7 +74,7 @@ export default function HomePage() {
 
         {/* Live Active Session Quick-Resume Bar (if in progress or completed) */}
         {(hasCompletedResult || hasInProgressSession) && (
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 -mt-8 mb-16 relative z-10">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 mt-6 mb-16 relative z-10">
             <div className="p-4 rounded-2xl bg-[#0F172A]/90 border border-sky-500/30 backdrop-blur-xl shadow-2xl shadow-sky-500/10 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 shrink-0">
@@ -126,7 +126,7 @@ export default function HomePage() {
         )}
 
         {/* Precision Metrics Ticker / Trust Strip */}
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 -mt-4 mb-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 mt-8 mb-24">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 p-2 rounded-2xl bg-white/[0.02] border border-white/[0.06] backdrop-blur-md">
             <div className="p-4 rounded-xl bg-[#0B0F19]/80 border border-white/[0.04] transition-all hover:border-white/[0.1]">
               <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-1">DURATION</div>

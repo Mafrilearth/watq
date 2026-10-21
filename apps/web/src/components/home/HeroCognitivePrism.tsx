@@ -84,7 +84,7 @@ export function HeroCognitivePrism() {
   };
 
   return (
-    <section className="relative pt-24 sm:pt-32 pb-16 px-4 sm:px-6 max-w-6xl mx-auto text-center">
+    <section className="relative pt-28 sm:pt-36 pb-20 px-4 sm:px-6 max-w-6xl mx-auto text-center">
       {/* Subtle Ambient Radial Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[650px] h-[250px] sm:h-[400px] bg-sky-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
 

@@ -29,12 +29,12 @@ export function InteractiveRunnerPreview() {
   const extraversionPercent = 100 - introversionPercent;
 
   return (
-    <section id="interactive-demo" className="py-24 sm:py-32 px-4 sm:px-6 max-w-5xl mx-auto border-t border-white/[0.08] relative">
+    <section id="interactive-demo" className="py-24 sm:py-32 px-4 sm:px-6 max-w-6xl mx-auto border-t border-white/[0.08] relative">
       {/* Background Registration Crosshairs */}
-      <div className="absolute top-8 left-8 text-slate-700 font-mono text-[9px] pointer-events-none select-none">
+      <div className="hidden sm:block absolute top-8 left-8 text-slate-700 font-mono text-[9px] pointer-events-none select-none">
         + SAMPLE RUNNER // DISTRACTION-FREE
       </div>
-      <div className="absolute top-8 right-8 text-slate-700 font-mono text-[9px] pointer-events-none select-none">
+      <div className="hidden sm:block absolute top-8 right-8 text-slate-700 font-mono text-[9px] pointer-events-none select-none">
         + IN-BROWSER SCORING
       </div>
 

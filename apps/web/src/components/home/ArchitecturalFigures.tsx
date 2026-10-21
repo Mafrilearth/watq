@@ -9,10 +9,10 @@ export function ArchitecturalFigures() {
   return (
     <section id="framework" className="py-24 sm:py-32 px-4 sm:px-6 max-w-6xl mx-auto border-t border-white/[0.08] relative">
       {/* Blueprint Corner Registration Marks */}
-      <div className="absolute top-6 left-6 text-slate-600 font-mono text-[9px] pointer-events-none select-none">
+      <div className="hidden sm:block absolute top-6 left-6 text-slate-600 font-mono text-[9px] pointer-events-none select-none">
         + FRAMEWORK // JUNGIAN TYPOLOGY
       </div>
-      <div className="absolute top-6 right-6 text-slate-600 font-mono text-[9px] pointer-events-none select-none">
+      <div className="hidden sm:block absolute top-6 right-6 text-slate-600 font-mono text-[9px] pointer-events-none select-none">
         + 24 STANDARDIZED QUESTIONS
       </div>
 
