@@ -8,4 +8,4 @@ Before writing or editing code in this repository:
 4. Keep the application 100% client-driven ($0 OpEx, zero-database architecture) using local storage and Web Crypto API.
 5. Strictly preserve security headers in `next.config.ts`, GitHub push protections, and private vulnerability channels.
 6. Enforce the 4-surface version synchronization rule (`package.json`, `CHANGELOG.md`, `/changelog`, GitHub Releases) without version spamming on micro-edits.
-7. Follow the Dual-Branch Enterprise Architecture: work on `main`, release to `production`. Deployments to Vercel are decoupled.
+7. Follow the Dual-Branch Enterprise Architecture: work on `dev`, release to `main` (production). Deployments to Vercel are decoupled.

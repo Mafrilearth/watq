@@ -106,15 +106,15 @@ When shipping notable user-facing features or major updates:
 
 ## **6. GIT & DEPLOYMENT PROTOCOL**
 
-1. **Dual-Branch Enterprise Architecture:**
-   - **`production` (Default & Public):** The official production release branch. Tracks live deployments on Vercel. Code ONLY enters `production` via audited, fast-forward merges or release PRs from `main`. Both force-pushes and branch deletions are strictly disabled.
-   - **`main` (Development & Staging):** The active engineering branch. All daily commits, feature work, bug fixes, and agent tasks take place on `main`.
-   - **Release Flow:** Feature/Fix on `main` ➔ Verify build & tests ➔ Merge `main` into `production` ➔ Tag SemVer `vX.Y.Z` ➔ Deploy production bundle.
+1. **Dual-Branch Enterprise Architecture (Global Standard):**
+   - **`main` (Production & Public Default):** The official production release branch. Directly serves the live platform on Vercel ([https://watq.mafrilearth.com](https://watq.mafrilearth.com)). Code ONLY enters `main` via audited, fast-forward merges or release PRs from `dev`. Both force-pushes and branch deletions are strictly disabled.
+   - **`dev` (Development & Active Staging):** The active engineering branch. All daily commits, feature development, bug fixes, and agent workflows execute on `dev`.
+   - **Release Flow:** Work on `dev` ➔ Verify build & tests ➔ Merge `dev` into `main` ➔ Tag SemVer `vX.Y.Z` ➔ Deploy production bundle.
 2. **Commit Message Format:**
    - Adhere strictly to Conventional Commits: `feat:`, `fix:`, `refactor:`, `style:`, `docs:`, `chore:`.
 3. **Decoupled Deployment Policy:**
    - Automatic deployment on routine developer pushes is **DISABLED**.
-   - Production releases are intentional milestones deployed from `production`.
+   - Production releases are intentional milestones deployed from `main`.
 4. **Repository Metadata Preservation:**
    - GitHub **About** must remain universal and high-level:  
      `Watq — Modern cognitive assessment and personality typology platform.`
