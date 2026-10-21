@@ -85,7 +85,7 @@ export const WatqFullLogo: React.FC<WatqFullLogoProps> = ({
 
   return (
     <div
-      className={`inline-flex items-center gap-3.5 select-none ${className}`}
+      className={`inline-flex items-center gap-2.5 sm:gap-3.5 select-none ${className}`}
       {...props}
     >
       <WatqPrismMark
@@ -95,7 +95,7 @@ export const WatqFullLogo: React.FC<WatqFullLogoProps> = ({
         accentColor="#38BDF8"
       />
       <div
-        className="h-7 w-[1.5px]"
+        className="hidden xs:block h-5 sm:h-7 w-[1.5px]"
         style={{ backgroundColor: dividerColor }}
       />
       <div className="flex flex-col justify-center">
@@ -111,7 +111,7 @@ export const WatqFullLogo: React.FC<WatqFullLogoProps> = ({
         </span>
         {showTagline && (
           <span
-            className="font-semibold tracking-[0.16em] text-[10px] mt-1 leading-none uppercase"
+            className="hidden sm:block font-semibold tracking-[0.16em] text-[10px] mt-1 leading-none uppercase"
             style={{
               color: taglineColor,
               fontFamily: 'Inter, -apple-system, sans-serif',

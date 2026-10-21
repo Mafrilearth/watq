@@ -45,34 +45,37 @@ export default function HomePage() {
     <div className="flex flex-col min-h-screen bg-[#090D16] text-[#F8FAFC]">
       {/* Top Navbar */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-[#090D16]/80 border-b border-white/[0.08]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center">
-            <WatqFullLogo markSize={32} theme="dark" showTagline={true} />
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+          <Link href="/" className="flex items-center shrink-0">
+            <WatqFullLogo markSize={28} theme="dark" showTagline={true} />
           </Link>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center shrink-0">
             {hasCompletedResult ? (
               <Link
                 href="/result"
-                className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500 transition-colors"
+                className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-semibold px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500 transition-colors whitespace-nowrap"
               >
-                View Result ({session.result?.typeCode})
+                <span className="hidden xs:inline">View Result ({session.result?.typeCode})</span>
+                <span className="xs:hidden">Result ({session.result?.typeCode})</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             ) : hasInProgressSession ? (
               <Link
                 href="/assess"
-                className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-lg bg-[#38BDF8] text-[#090D16] hover:bg-[#7DD3FC] transition-colors"
+                className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-semibold px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#38BDF8] text-[#090D16] hover:bg-[#7DD3FC] transition-colors whitespace-nowrap"
               >
-                Resume (Q {session.currentIndex + 1}/24)
+                <span className="hidden xs:inline">Resume (Q {session.currentIndex + 1}/24)</span>
+                <span className="xs:hidden">Resume ({session.currentIndex + 1}/24)</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             ) : (
               <Link
                 href="/assess"
-                className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-lg bg-[#38BDF8] text-[#090D16] hover:bg-[#7DD3FC] transition-colors"
+                className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-semibold px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#38BDF8] text-[#090D16] hover:bg-[#7DD3FC] transition-colors whitespace-nowrap"
               >
-                Start Assessment
+                <span className="hidden xs:inline">Start Assessment</span>
+                <span className="xs:hidden">Start Test</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             )}
@@ -82,37 +85,37 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <main className="flex-1">
-        <section className="relative pt-24 pb-20 px-4 sm:px-6 max-w-5xl mx-auto text-center">
+        <section className="relative pt-10 sm:pt-20 md:pt-24 pb-12 sm:pb-20 px-4 sm:px-6 max-w-5xl mx-auto text-center">
           {/* Subtle Ambient Radial Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[300px] bg-sky-500/10 blur-[120px] rounded-full pointer-events-none -z-10" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[550px] h-[180px] sm:h-[300px] bg-sky-500/10 blur-[90px] sm:blur-[120px] rounded-full pointer-events-none -z-10" />
 
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-mono text-sky-400 mb-6">
-            <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] sm:text-xs font-mono text-sky-400 mb-5 sm:mb-6">
+            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-sky-400 animate-pulse" />
             WATQ ENGINE V1.0 // MVP ACTIVE
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-[-0.035em] text-white max-w-3xl mx-auto leading-[1.12]">
+          <h1 className="text-[28px] xs:text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-[-0.035em] text-white max-w-3xl mx-auto leading-[1.18] sm:leading-[1.12] px-1 sm:px-0">
             Decode Your Cognitive Architecture with Mathematical Precision.
           </h1>
 
-          <p className="mt-6 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed px-1 sm:px-0">
             A frictionless, client-driven psychometric instrument deconstructing 16 cognitive types to guide college major alignment and career trajectories. Zero registration, zero ads, and instant execution.
           </p>
 
           {/* Dynamic Call to Action Buttons */}
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-sm sm:max-w-none mx-auto">
             {hasCompletedResult ? (
               <>
                 <Link
                   href="/result"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#38BDF8] text-[#090D16] font-bold text-sm hover:bg-[#7DD3FC] transition-all shadow-lg shadow-sky-500/20"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-xl bg-[#38BDF8] text-[#090D16] font-bold text-sm hover:bg-[#7DD3FC] transition-all shadow-lg shadow-sky-500/20 active:scale-[0.99]"
                 >
-                  View Your Cognitive Profile ({session.result?.typeCode})
+                  View Your Profile ({session.result?.typeCode})
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <button
                   onClick={handleStartOver}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/[0.05] border border-white/[0.1] text-slate-200 font-semibold text-sm hover:bg-white/[0.08] transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-xl bg-white/[0.05] border border-white/[0.1] text-slate-200 font-semibold text-sm hover:bg-white/[0.08] transition-all"
                 >
                   <RotateCcw className="w-4 h-4" />
                   Retake Assessment
@@ -122,14 +125,14 @@ export default function HomePage() {
               <>
                 <Link
                   href="/assess"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#38BDF8] text-[#090D16] font-bold text-sm hover:bg-[#7DD3FC] transition-all shadow-lg shadow-sky-500/20"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-xl bg-[#38BDF8] text-[#090D16] font-bold text-sm hover:bg-[#7DD3FC] transition-all shadow-lg shadow-sky-500/20 active:scale-[0.99]"
                 >
-                  Resume Assessment (Question {session.currentIndex + 1} of 24)
+                  Resume Assessment (Q {session.currentIndex + 1}/24)
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <button
                   onClick={handleStartOver}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/[0.05] border border-white/[0.1] text-slate-200 font-semibold text-sm hover:bg-white/[0.08] transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-xl bg-white/[0.05] border border-white/[0.1] text-slate-200 font-semibold text-sm hover:bg-white/[0.08] transition-all"
                 >
                   <RotateCcw className="w-4 h-4" />
                   Start Over
@@ -138,7 +141,7 @@ export default function HomePage() {
             ) : (
               <Link
                 href="/assess"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[#38BDF8] text-[#090D16] font-bold text-sm hover:bg-[#7DD3FC] transition-all shadow-lg shadow-sky-500/20"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-[#38BDF8] text-[#090D16] font-bold text-sm sm:text-base hover:bg-[#7DD3FC] transition-all shadow-lg shadow-sky-500/20 active:scale-[0.99]"
               >
                 Start Assessment (Free)
                 <ArrowRight className="w-4 h-4" />
@@ -147,34 +150,34 @@ export default function HomePage() {
           </div>
 
           {/* Key Metrics Grid */}
-          <div className="mt-16 pt-8 border-t border-white/[0.06] grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto text-left">
-            <div>
-              <div className="flex items-center gap-2 text-sky-400 font-mono text-xs font-semibold mb-1">
+          <div className="mt-12 sm:mt-16 pt-8 border-t border-white/[0.06] grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-6 max-w-3xl mx-auto text-left">
+            <div className="p-3.5 sm:p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col justify-between">
+              <div className="flex items-center gap-1.5 sm:gap-2 text-sky-400 font-mono text-[11px] sm:text-xs font-semibold mb-1">
                 <Clock className="w-3.5 h-3.5" /> DURATION
               </div>
-              <div className="text-lg font-bold text-white font-mono">~3 Minutes</div>
-              <div className="text-xs text-slate-500">24 focused items</div>
+              <div className="text-base sm:text-lg font-bold text-white font-mono">~3 Minutes</div>
+              <div className="text-[11px] sm:text-xs text-slate-500">24 focused items</div>
             </div>
-            <div>
-              <div className="flex items-center gap-2 text-indigo-400 font-mono text-xs font-semibold mb-1">
+            <div className="p-3.5 sm:p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col justify-between">
+              <div className="flex items-center gap-1.5 sm:gap-2 text-indigo-400 font-mono text-[11px] sm:text-xs font-semibold mb-1">
                 <BrainCircuit className="w-3.5 h-3.5" /> MODEL
               </div>
-              <div className="text-lg font-bold text-white font-mono">16 Types</div>
-              <div className="text-xs text-slate-500">Jungian Typology 1921</div>
+              <div className="text-base sm:text-lg font-bold text-white font-mono">16 Types</div>
+              <div className="text-[11px] sm:text-xs text-slate-500">Jungian 1921</div>
             </div>
-            <div>
-              <div className="flex items-center gap-2 text-emerald-400 font-mono text-xs font-semibold mb-1">
+            <div className="p-3.5 sm:p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col justify-between">
+              <div className="flex items-center gap-1.5 sm:gap-2 text-emerald-400 font-mono text-[11px] sm:text-xs font-semibold mb-1">
                 <Zap className="w-3.5 h-3.5" /> LATENCY
               </div>
-              <div className="text-lg font-bold text-white font-mono">&lt; 10ms</div>
-              <div className="text-xs text-slate-500">Client-side engine</div>
+              <div className="text-base sm:text-lg font-bold text-white font-mono">&lt; 10ms</div>
+              <div className="text-[11px] sm:text-xs text-slate-500">Client engine</div>
             </div>
-            <div>
-              <div className="flex items-center gap-2 text-amber-400 font-mono text-xs font-semibold mb-1">
+            <div className="p-3.5 sm:p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col justify-between">
+              <div className="flex items-center gap-1.5 sm:gap-2 text-amber-400 font-mono text-[11px] sm:text-xs font-semibold mb-1">
                 <ShieldCheck className="w-3.5 h-3.5" /> PRIVACY
               </div>
-              <div className="text-lg font-bold text-white font-mono">100% Local</div>
-              <div className="text-xs text-slate-500">No account required</div>
+              <div className="text-base sm:text-lg font-bold text-white font-mono">100% Local</div>
+              <div className="text-[11px] sm:text-xs text-slate-500">No signup</div>
             </div>
           </div>
         </section>

@@ -159,14 +159,14 @@ export default function AssessmentRunnerPage() {
       </header>
 
       {/* Main Focus Container: Locked to exactly 680px (Bringhurst's Law) */}
-      <main className="w-full max-w-[680px] mx-auto my-auto py-8">
-        <div className="bg-[#0F172A] border border-white/[0.08] rounded-2xl p-6 sm:p-10 shadow-2xl shadow-black/60 relative overflow-hidden">
+      <main className="w-full max-w-[680px] mx-auto my-auto py-4 sm:py-8">
+        <div className="bg-[#0F172A] border border-white/[0.08] rounded-2xl p-5 sm:p-10 shadow-2xl shadow-black/60 relative overflow-hidden">
           {/* Subtle Accent Glow */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-sky-500/5 blur-3xl pointer-events-none" />
 
           {/* Question Category Metadata */}
-          <div className="flex items-center gap-2 mb-4">
-            <span className="text-[11px] font-mono uppercase tracking-widest text-sky-400 bg-sky-950/50 border border-sky-500/20 px-2.5 py-1 rounded-md">
+          <div className="flex items-center gap-2 mb-3 sm:mb-4">
+            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-sky-400 bg-sky-950/50 border border-sky-500/20 px-2 sm:px-2.5 py-1 rounded-md">
               Dimension: {currentQuestion.dimension} {'//'} Item {currentQuestion.id}
             </span>
             <span className="text-xs text-slate-500 font-mono hidden sm:inline-block">
@@ -174,17 +174,17 @@ export default function AssessmentRunnerPage() {
             </span>
           </div>
 
-          {/* Question Prompt (20px) */}
-          <h2 className="text-xl sm:text-2xl font-medium text-white leading-snug tracking-[-0.01em] min-h-[72px] flex items-center">
+          {/* Question Prompt */}
+          <h2 className="text-lg sm:text-2xl font-medium text-white leading-snug tracking-[-0.01em] min-h-[56px] sm:min-h-[72px] flex items-center">
             {currentQuestion.prompt}
           </h2>
 
-          <p className="text-xs text-slate-400 mt-2 mb-8 italic">
+          <p className="text-xs text-slate-400 mt-2 mb-6 sm:mb-8 italic">
             Cognitive target: {currentQuestion.target}
           </p>
 
           {/* 5-Point Likert Scale (Touch target >= 48px via Fitts's Law) */}
-          <div className="space-y-3" role="radiogroup" aria-label="Likert Scale Options">
+          <div className="space-y-2.5 sm:space-y-3" role="radiogroup" aria-label="Likert Scale Options">
             {LIKERT_OPTIONS.map((opt) => {
               const isSelected = selectedVal === opt.value;
               return (
@@ -193,7 +193,7 @@ export default function AssessmentRunnerPage() {
                   type="button"
                   disabled={isSubmitting}
                   onClick={() => handleSelect(opt.value)}
-                  className={`w-full min-h-[48px] px-4 py-3.5 rounded-xl border flex items-center justify-between text-left transition-all duration-120 select-none ${
+                  className={`w-full min-h-[50px] sm:min-h-[48px] px-3.5 sm:px-4 py-3 sm:py-3.5 rounded-xl border flex items-center justify-between text-left transition-all duration-120 select-none ${
                     isSelected
                       ? 'bg-sky-500/15 border-sky-400 text-white shadow-md shadow-sky-500/10'
                       : 'bg-white/[0.02] border-white/[0.08] text-slate-300 hover:bg-white/[0.06] hover:border-white/[0.18]'

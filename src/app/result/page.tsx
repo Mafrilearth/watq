@@ -142,15 +142,15 @@ Engine: Watq v1.0 // https://watq.mafrilearth.com`;
     <div className="min-h-screen bg-[#090D16] text-[#F8FAFC] flex flex-col justify-between">
       {/* Top Navigation */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-[#090D16]/80 border-b border-white/[0.08]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center">
-            <WatqFullLogo markSize={30} theme="dark" showTagline={true} />
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-2">
+          <Link href="/" className="flex items-center shrink-0">
+            <WatqFullLogo markSize={28} theme="dark" showTagline={true} />
           </Link>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             <button
               onClick={handleCopySummary}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-white/[0.05] border border-white/[0.1] text-slate-200 hover:bg-white/[0.1] transition-all"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 sm:px-3 py-1.5 rounded-lg bg-white/[0.05] border border-white/[0.1] text-slate-200 hover:bg-white/[0.1] transition-all whitespace-nowrap"
             >
               {copied ? (
                 <>
@@ -160,14 +160,15 @@ Engine: Watq v1.0 // https://watq.mafrilearth.com`;
               ) : (
                 <>
                   <Copy className="w-3.5 h-3.5" />
-                  <span>Copy Report</span>
+                  <span className="hidden xs:inline">Copy Report</span>
+                  <span className="xs:hidden">Copy</span>
                 </>
               )}
             </button>
 
             <button
               onClick={handleRetake}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400 hover:bg-sky-500/20 transition-all"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 sm:px-3 py-1.5 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400 hover:bg-sky-500/20 transition-all whitespace-nowrap"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Retake</span>
@@ -177,26 +178,27 @@ Engine: Watq v1.0 // https://watq.mafrilearth.com`;
       </header>
 
       {/* Main Content Area */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-10 w-full space-y-8 flex-1">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-10 w-full space-y-6 sm:space-y-8 flex-1">
         {/* Archetype Hero Card */}
-        <section className="bg-gradient-to-b from-[#1E1B4B]/40 to-[#0F172A] border border-white/[0.12] rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+        <section className="bg-gradient-to-b from-[#1E1B4B]/40 to-[#0F172A] border border-white/[0.12] rounded-2xl sm:rounded-3xl p-5 sm:p-10 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-80 h-80 bg-sky-500/10 blur-3xl pointer-events-none" />
 
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/60 border border-sky-500/20 text-xs font-mono text-sky-400 mb-6">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-sky-950/60 border border-sky-500/20 text-[10px] sm:text-xs font-mono text-sky-400 mb-4 sm:mb-6">
             <ShieldCheck className="w-3.5 h-3.5 text-sky-400" />
-            <span>COGNITIVE MATRIX VERIFIED // DETERMINISTIC SCORE</span>
+            <span className="hidden xs:inline">COGNITIVE MATRIX VERIFIED // DETERMINISTIC SCORE</span>
+            <span className="xs:hidden">COGNITIVE MATRIX VERIFIED</span>
           </div>
 
-          <div className="flex flex-col sm:flex-row sm:items-baseline gap-3 sm:gap-6 mb-4">
-            <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight text-white font-mono">
+          <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 mb-3 sm:mb-4">
+            <h1 className="text-4xl xs:text-5xl sm:text-7xl font-extrabold tracking-tight text-white font-mono">
               {result.typeCode}
             </h1>
-            <h2 className="text-2xl sm:text-3xl font-bold text-sky-400">
+            <h2 className="text-xl xs:text-2xl sm:text-3xl font-bold text-sky-400">
               {result.archetypeTitle}
             </h2>
           </div>
 
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl">
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-3xl">
             {result.summary}
           </p>
         </section>
