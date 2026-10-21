@@ -5,12 +5,13 @@
   <a href="https://github.com/Mafrilearth/watq/releases/tag/v1.0.0"><img src="https://img.shields.io/badge/Release-v1.0.0-emerald?style=flat-square" alt="Version 1.0.0" /></a>
   <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/Changelog-Keep%20a%20Changelog-blue?style=flat-square" alt="Changelog" /></a>
   <a href="AGENTS.md"><img src="https://img.shields.io/badge/Agentic%20AI-SOP%20Active-purple?style=flat-square" alt="Agentic AI SOP" /></a>
+  <img src="https://img.shields.io/badge/Visibility-Public-blue?style=flat-square" alt="Visibility: Public" />
   <img src="https://img.shields.io/badge/License-Proprietary-slate?style=flat-square" alt="License: Proprietary" />
 </p>
 
 > **Tagline:** *Personality Decoded.*  
 > **Repository:** [`Mafrilearth/watq`](https://github.com/Mafrilearth/watq) │ **Live URL:** [https://watq.mafrilearth.com](https://watq.mafrilearth.com)  
-> **Status:** MVP v1.0 — Private & Proprietary (Closed-Source)  
+> **Status:** MVP v1.0 — Public Repository (Client-Side Privacy Engine)  
 > **Governance:** Internal Development Only — External Contributions Prohibited  
 > **Stack:** Next.js 15 (App Router) + TypeScript + Tailwind CSS
 
