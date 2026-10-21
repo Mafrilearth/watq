@@ -88,6 +88,9 @@ export default function ResultPage() {
   const result = session?.result;
 
   useEffect(() => {
+    // Ensure the page always starts at the very top upon arriving at results
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
     // Only redirect if client storage has been checked and result is truly absent
     if (typeof window !== 'undefined' && session && !session.result) {
       router.replace('/');
@@ -160,8 +163,8 @@ Engine: Watq v1.0 // https://watq.mafrilearth.com`;
               ) : (
                 <>
                   <Copy className="w-3.5 h-3.5" />
-                  <span className="hidden xs:inline">Copy Report</span>
-                  <span className="xs:hidden">Copy</span>
+                  <span className="hidden sm:inline">Copy Report</span>
+                  <span className="sm:hidden">Copy</span>
                 </>
               )}
             </button>
@@ -171,29 +174,30 @@ Engine: Watq v1.0 // https://watq.mafrilearth.com`;
               className="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 sm:px-3 py-1.5 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400 hover:bg-sky-500/20 transition-all whitespace-nowrap"
             >
               <RotateCcw className="w-3.5 h-3.5" />
-              <span>Retake</span>
+              <span className="hidden sm:inline">Retake Assessment</span>
+              <span className="sm:hidden">Retake</span>
             </button>
           </div>
         </div>
       </header>
 
       {/* Main Content Area */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-10 w-full space-y-6 sm:space-y-8 flex-1">
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-10 w-full space-y-6 sm:space-y-8 flex-1">
         {/* Archetype Hero Card */}
         <section className="bg-gradient-to-b from-[#1E1B4B]/40 to-[#0F172A] border border-white/[0.12] rounded-2xl sm:rounded-3xl p-5 sm:p-10 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-80 h-80 bg-sky-500/10 blur-3xl pointer-events-none" />
 
           <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-sky-950/60 border border-sky-500/20 text-[10px] sm:text-xs font-mono text-sky-400 mb-4 sm:mb-6">
             <ShieldCheck className="w-3.5 h-3.5 text-sky-400" />
-            <span className="hidden xs:inline">COGNITIVE PROFILE VERIFIED // DETERMINISTIC SCORING</span>
-            <span className="xs:hidden">COGNITIVE PROFILE VERIFIED</span>
+            <span className="hidden sm:inline">COGNITIVE PROFILE VERIFIED // DETERMINISTIC SCORING</span>
+            <span className="sm:hidden">COGNITIVE PROFILE VERIFIED</span>
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 mb-3 sm:mb-4">
-            <h1 className="text-4xl xs:text-5xl sm:text-7xl font-extrabold tracking-tight text-white font-mono">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white font-mono">
               {result.typeCode}
             </h1>
-            <h2 className="text-xl xs:text-2xl sm:text-3xl font-bold text-sky-400">
+            <h2 className="text-xl sm:text-3xl font-bold text-sky-400">
               {result.archetypeTitle}
             </h2>
           </div>

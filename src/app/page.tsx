@@ -60,8 +60,8 @@ export default function HomePage() {
                 href="/result"
                 className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-semibold px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-500 transition-colors whitespace-nowrap"
               >
-                <span className="hidden xs:inline">View Result ({session.result?.typeCode})</span>
-                <span className="xs:hidden">Result ({session.result?.typeCode})</span>
+                <span className="hidden sm:inline">View Result ({session.result?.typeCode})</span>
+                <span className="sm:hidden">Result ({session.result?.typeCode})</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             ) : hasInProgressSession ? (
@@ -69,8 +69,8 @@ export default function HomePage() {
                 href="/assess"
                 className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-semibold px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#38BDF8] text-[#090D16] hover:bg-[#7DD3FC] transition-colors whitespace-nowrap"
               >
-                <span className="hidden xs:inline">Resume (Q {session.currentIndex + 1}/24)</span>
-                <span className="xs:hidden">Resume ({session.currentIndex + 1}/24)</span>
+                <span className="hidden sm:inline">Resume (Q {session.currentIndex + 1}/24)</span>
+                <span className="sm:hidden">Resume ({session.currentIndex + 1}/24)</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             ) : (
@@ -97,7 +97,7 @@ export default function HomePage() {
             WATQ COGNITIVE ENGINE V1.0 // DETERMINISTIC MVP
           </div>
 
-          <h1 className="text-[28px] xs:text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-[-0.035em] text-white max-w-3xl mx-auto leading-[1.18] sm:leading-[1.12] px-1 sm:px-0">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-[-0.035em] text-white max-w-3xl mx-auto leading-[1.18] sm:leading-[1.12] px-1 sm:px-0">
             Decode Your Cognitive Architecture with Mathematical Precision.
           </h1>
 

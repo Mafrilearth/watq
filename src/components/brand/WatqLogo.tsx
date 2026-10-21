@@ -95,7 +95,7 @@ export const WatqFullLogo: React.FC<WatqFullLogoProps> = ({
         accentColor="#38BDF8"
       />
       <div
-        className="hidden xs:block h-5 sm:h-7 w-[1.5px]"
+        className="hidden sm:block h-5 sm:h-7 w-[1.5px]"
         style={{ backgroundColor: dividerColor }}
       />
       <div className="flex flex-col justify-center">
