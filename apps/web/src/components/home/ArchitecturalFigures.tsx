@@ -7,18 +7,7 @@ export function ArchitecturalFigures() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section id="framework" className="py-24 sm:py-32 px-4 sm:px-6 max-w-7xl mx-auto border-t border-white/[0.08] relative">
-      {/* Background Architectural Blueprint Grid & Crosshairs */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.035]"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #ffffff 1px, transparent 1px),
-            linear-gradient(to bottom, #ffffff 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px',
-        }}
-      />
+    <section id="framework" className="py-24 sm:py-32 px-4 sm:px-6 max-w-6xl mx-auto border-t border-white/[0.08] relative">
       {/* Blueprint Corner Registration Marks */}
       <div className="absolute top-6 left-6 text-slate-600 font-mono text-[9px] pointer-events-none select-none">
         + SYS_GRID_01 // 34.22° N

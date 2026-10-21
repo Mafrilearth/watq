@@ -232,7 +232,7 @@ export function ArchetypeMatrixShowcase() {
   };
 
   return (
-    <section id="archetypes" className="py-20 sm:py-28 px-4 sm:px-6 max-w-7xl mx-auto relative">
+    <section id="archetypes" className="py-24 sm:py-32 px-4 sm:px-6 max-w-6xl mx-auto border-t border-white/[0.08] relative">
       {/* Ambient Radial Background Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none -z-10" />
 

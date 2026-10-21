@@ -60,18 +60,7 @@ export function BentoGridFeatures() {
   };
 
   return (
-    <section id="vocational" className="py-20 sm:py-28 px-4 sm:px-6 max-w-6xl mx-auto relative">
-      {/* Background Blueprint Grid Watermark */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.025]"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #ffffff 1px, transparent 1px),
-            linear-gradient(to bottom, #ffffff 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px',
-        }}
-      />
+    <section id="vocational" className="py-24 sm:py-32 px-4 sm:px-6 max-w-6xl mx-auto border-t border-white/[0.08] relative">
       <div className="absolute top-8 left-8 text-slate-700 font-mono text-[9px] pointer-events-none select-none">
         + BENTO_GRID // SPECIFICATION MATRIX
       </div>

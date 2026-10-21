@@ -125,6 +125,32 @@ export default function HomePage() {
           </div>
         )}
 
+        {/* Precision Metrics Ticker / Trust Strip */}
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 -mt-4 mb-16">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 p-2 rounded-2xl bg-white/[0.02] border border-white/[0.06] backdrop-blur-md">
+            <div className="p-4 rounded-xl bg-[#0B0F19]/80 border border-white/[0.04] transition-all hover:border-white/[0.1]">
+              <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-1">DURATION</div>
+              <div className="text-xl font-bold font-mono text-white">~3 Minutes</div>
+              <div className="text-[11px] text-slate-400 mt-0.5">24 Standardized Likert Items</div>
+            </div>
+            <div className="p-4 rounded-xl bg-[#0B0F19]/80 border border-white/[0.04] transition-all hover:border-white/[0.1]">
+              <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-1">FOUNDATION</div>
+              <div className="text-xl font-bold font-mono text-sky-400">16 Types</div>
+              <div className="text-[11px] text-slate-400 mt-0.5">Jungian 1921 Typology</div>
+            </div>
+            <div className="p-4 rounded-xl bg-[#0B0F19]/80 border border-white/[0.04] transition-all hover:border-white/[0.1]">
+              <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-1">ENGINE SPEED</div>
+              <div className="text-xl font-bold font-mono text-emerald-400">&lt; 10ms</div>
+              <div className="text-[11px] text-slate-400 mt-0.5">Deterministic Client Math</div>
+            </div>
+            <div className="p-4 rounded-xl bg-[#0B0F19]/80 border border-white/[0.04] transition-all hover:border-white/[0.1]">
+              <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-1">PRIVACY</div>
+              <div className="text-xl font-bold font-mono text-indigo-400">100% Local</div>
+              <div className="text-[11px] text-slate-400 mt-0.5">Zero Cloud Telemetry</div>
+            </div>
+          </div>
+        </div>
+
         {/* Section 2: Architectural Rigor Figures (Linear FIG 0.1, FIG 0.2, FIG 0.3 Blueprint Aesthetic) */}
         <ArchitecturalFigures />
 
@@ -138,7 +164,7 @@ export default function HomePage() {
         <ArchetypeMatrixShowcase />
 
         {/* Section 5: High-Impact Linear-Style Final Conversion Callout */}
-        <section className="py-24 sm:py-32 px-4 sm:px-6 max-w-5xl mx-auto text-center relative">
+        <section className="py-24 sm:py-32 px-4 sm:px-6 max-w-6xl mx-auto text-center border-t border-white/[0.08] relative">
           {/* Radial Center Glow */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[600px] h-[250px] bg-gradient-to-r from-sky-500/10 via-indigo-500/10 to-teal-500/10 blur-[100px] rounded-full pointer-events-none -z-10" />
 
@@ -208,7 +234,7 @@ export default function HomePage() {
 
       {/* Linear-Tier Precision Footer */}
       <footer className="border-t border-white/[0.08] bg-[#07090E] py-12 px-4 sm:px-6 relative z-10 text-xs font-mono text-slate-400">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo & Tagline */}
           <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
             <WatqFullLogo markSize={26} theme="dark" showTagline={false} />
@@ -242,7 +268,7 @@ export default function HomePage() {
         </div>
 
         {/* Bottom Micro Line */}
-        <div className="max-w-7xl mx-auto mt-8 pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
+        <div className="max-w-6xl mx-auto mt-8 pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
           <div>
             © 2026 Watq. Developed by Mafrilearth. Standardized psychometric instrument.
           </div>

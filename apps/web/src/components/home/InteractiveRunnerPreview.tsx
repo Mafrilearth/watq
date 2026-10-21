@@ -29,7 +29,7 @@ export function InteractiveRunnerPreview() {
   const extraversionPercent = 100 - introversionPercent;
 
   return (
-    <section id="interactive-demo" className="py-20 sm:py-28 px-4 sm:px-6 max-w-5xl mx-auto relative">
+    <section id="interactive-demo" className="py-24 sm:py-32 px-4 sm:px-6 max-w-5xl mx-auto border-t border-white/[0.08] relative">
       {/* Background Registration Crosshairs */}
       <div className="absolute top-8 left-8 text-slate-700 font-mono text-[9px] pointer-events-none select-none">
         + RUNNER_DEMO // 680px FOCUS CONTAINER

@@ -85,17 +85,8 @@ export function HeroCognitivePrism() {
 
   return (
     <section className="relative pt-24 sm:pt-32 pb-16 px-4 sm:px-6 max-w-6xl mx-auto text-center">
-      {/* Background Architectural Blueprint Grid Texture */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #ffffff 1px, transparent 1px),
-            linear-gradient(to bottom, #ffffff 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px',
-        }}
-      />
+      {/* Subtle Ambient Radial Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[650px] h-[250px] sm:h-[400px] bg-sky-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
 
       {/* Top Engineering Tagline Pill */}
       <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-slate-300 mb-6 backdrop-blur-md">
