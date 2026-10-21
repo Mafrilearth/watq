@@ -7,6 +7,8 @@ import {
   TouchableOpacity,
   ScrollView,
   SafeAreaView,
+  Platform,
+  StatusBar as RNStatusBar,
 } from 'react-native';
 import {
   calculateJungianScores,
@@ -250,6 +252,8 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: '#0B0F19',
+    paddingTop: Platform.OS === 'android' ? Math.max(RNStatusBar.currentHeight ?? 0, 36) + 6 : 0,
+    paddingBottom: Platform.OS === 'android' ? 16 : 0,
   },
   container: {
     flex: 1,
