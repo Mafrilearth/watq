@@ -224,7 +224,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Keyboard className="w-4 h-4 text-indigo-400" />
-                  <span>Desktop Keypad 1–5 or Touch</span>
+                  <span>Keyboard Shortcuts 1–5 or Click</span>
                 </div>
               </div>
             </div>

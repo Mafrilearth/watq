@@ -126,7 +126,7 @@ export default function ChangelogPage() {
               Monorepo Architecture, Landing Redesign &amp; Interactive Typology
             </h2>
             <p className="mt-2 text-sm text-slate-300 leading-relaxed">
-              Major milestone release introducing a shared monorepo core engine, mobile app workspace, complete landing page redesign with clean spacious layouts, interactive cognitive archetype explorer, and realistic vocational trajectory mappings.
+              Major milestone release introducing a high-performance modular core engine, complete web landing page redesign with clean spacious layouts, interactive cognitive archetype explorer, and realistic vocational trajectory mappings.
             </p>
 
             {/* Section: Added */}
@@ -139,7 +139,7 @@ export default function ChangelogPage() {
                 <li className="flex items-start gap-2.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-2 shrink-0" />
                   <span>
-                    <strong className="text-white font-medium">Universal Monorepo Architecture:</strong> Turbo and pnpm workspace setup integrating <code className="px-1.5 py-0.5 rounded bg-white/[0.06] text-sky-300 font-mono text-xs">@watq/core</code>, <code className="px-1.5 py-0.5 rounded bg-white/[0.06] text-sky-300 font-mono text-xs">@watq/web</code>, and <code className="px-1.5 py-0.5 rounded bg-white/[0.06] text-sky-300 font-mono text-xs">@watq/mobile</code>.
+                    <strong className="text-white font-medium">Modular Architecture:</strong> Turbo and pnpm workspace setup integrating <code className="px-1.5 py-0.5 rounded bg-white/[0.06] text-sky-300 font-mono text-xs">@watq/core</code> with the <code className="px-1.5 py-0.5 rounded bg-white/[0.06] text-sky-300 font-mono text-xs">@watq/web</code> Next.js application.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
@@ -173,7 +173,7 @@ export default function ChangelogPage() {
                 <li className="flex items-start gap-2.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-sky-400 mt-2 shrink-0" />
                   <span>
-                    <strong className="text-white font-medium">Spacious &amp; Clean Layout:</strong> Standardized uniform 6xl container gutters, eliminated negative margins, and prevented mobile overflow.
+                    <strong className="text-white font-medium">Spacious &amp; Clean Layout:</strong> Standardized uniform 6xl container gutters, eliminated negative margins, and eliminated horizontal overflow on small viewports.
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">

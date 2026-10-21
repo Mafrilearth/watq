@@ -280,14 +280,14 @@ export function BentoGridFeatures() {
               <div className="flex items-center justify-between text-xs font-mono text-slate-400 mb-4">
                 <span className="flex items-center gap-1.5 text-sky-400">
                   <Keyboard className="w-3.5 h-3.5" />
-                  KEYBOARD &amp; TOUCH
+                  KEYBOARD &amp; CLICK
                 </span>
-                <span>DESKTOP / MOBILE</span>
+                <span>WEB RUNNER</span>
               </div>
 
               <h3 className="text-xl font-bold text-white mb-2">Fast &amp; Distraction-Free</h3>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Complete questions smoothly using keys 1 through 5 on desktop, or simple touch taps on mobile devices.
+                Complete questions smoothly using keys 1 through 5 on your keyboard, or direct clicks.
               </p>
 
               {/* Interactive 3D Keycaps */}
