@@ -57,6 +57,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  verification: {
+    google: 'axxY_kb9E9Ehzoo8SORatzCeFY9i9Qmotgxn2P9UPZ4',
+  },
   openGraph: {
     title: 'Watq — Personality Decoded',
     description:
