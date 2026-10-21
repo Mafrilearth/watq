@@ -16,7 +16,10 @@ This repository follows the universal agentic engineering standard defined in **
   - SRS & State Machine: `docs/03-srs.md`
   - Design Tokens & Layout: `docs/04-design-system.md`
 - **Architecture:** 100% Client-driven execution ($0 database OpEx). No backend database.
+- **Dual-Branch Enterprise Flow:** 
+  - `main` = internal development & daily agent work.
+  - `production` = official production release branch (Vercel deployment target).
 - **Language:** Strict 100% English for code, comments, UI, and commits.
-- **Security & Privacy:** Enforce enterprise HTTP headers in `next.config.ts`, GitHub Secret Scanning Push Protection, branch immutability on `main`, and zero telemetry.
+- **Security & Privacy:** Enforce enterprise HTTP headers in `next.config.ts`, GitHub Secret Scanning Push Protection, branch immutability, and zero telemetry.
 - **Version Synchronization:** Ensure identical SemVer across `package.json`, `CHANGELOG.md`, `/changelog`, and GitHub Releases without version spamming on micro-edits.
 - **Deployment:** Vercel auto-deployment is decoupled from git pushes. Only push to GitHub unless directed.
