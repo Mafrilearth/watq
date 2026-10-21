@@ -265,15 +265,6 @@ export default function HomePage() {
             <Link href="/changelog" className="hover:text-sky-400 transition-colors">
               Changelog
             </Link>
-            <span className="text-white/20">•</span>
-            <a
-              href="https://github.com/Mafrilearth/watq"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-sky-400 transition-colors"
-            >
-              GitHub ↗
-            </a>
           </div>
           <p className="text-slate-500 font-mono text-[11px]">Deterministic Cognitive Engine // Zero Telemetry</p>
         </div>

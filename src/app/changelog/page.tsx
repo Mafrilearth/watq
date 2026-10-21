@@ -8,8 +8,6 @@ import {
   CheckCircle2, 
   Wrench, 
   ShieldCheck, 
-  GitBranch, 
-  ExternalLink,
   Layers,
   Compass,
   Cpu
@@ -52,16 +50,6 @@ export default function ChangelogPage() {
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Back Home</span>
             </Link>
-            <a
-              href="https://github.com/Mafrilearth/watq"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono text-slate-400 hover:text-white hover:bg-white/[0.05] transition-all"
-            >
-              <GitBranch className="w-3.5 h-3.5" />
-              <span>GitHub</span>
-              <ExternalLink className="w-3 h-3 text-slate-500" />
-            </a>
             <Link
               href="/assess"
               className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl bg-[#38BDF8] text-[#090D16] font-bold text-xs hover:bg-[#7DD3FC] transition-all shadow-md shadow-sky-500/20 active:scale-[0.98]"
@@ -132,15 +120,6 @@ export default function ChangelogPage() {
               <time className="text-xs font-mono text-slate-400">
                 October 21, 2026
               </time>
-              <a
-                href="https://github.com/Mafrilearth/watq/releases/tag/v1.0.1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-[11px] font-mono text-slate-400 hover:text-sky-300 transition-colors ml-auto"
-              >
-                <span>GitHub Release</span>
-                <ExternalLink className="w-3 h-3" />
-              </a>
             </div>
 
             <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -266,15 +245,6 @@ export default function ChangelogPage() {
               <time className="text-xs font-mono text-slate-400">
                 October 21, 2026
               </time>
-              <a
-                href="https://github.com/Mafrilearth/watq/releases/tag/v1.0.0"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-[11px] font-mono text-slate-400 hover:text-sky-300 transition-colors ml-auto"
-              >
-                <span>GitHub Release</span>
-                <ExternalLink className="w-3 h-3" />
-              </a>
             </div>
 
             <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
@@ -442,15 +412,6 @@ export default function ChangelogPage() {
             <Link href="/assess" className="hover:text-white transition-colors">
               Assessment
             </Link>
-            <span className="text-white/20">•</span>
-            <a
-              href="https://github.com/Mafrilearth/watq"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-sky-400 transition-colors"
-            >
-              GitHub ↗
-            </a>
           </div>
           <p className="text-slate-500 font-mono text-[11px]">Deterministic Cognitive Engine // Zero Telemetry</p>
         </div>
