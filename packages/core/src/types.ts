@@ -28,6 +28,9 @@ export interface ArchetypeProfile {
   code: string;
   title: string;
   summary: string;
+  temperament?: string;
+  cognitiveStack?: string;
+  leadFunction?: string;
   majors: string[];
   careers: string[];
 }
@@ -37,6 +40,9 @@ export interface AssessmentResult {
   archetypeTitle: string;
   scores: PolarityScores;
   summary: string;
+  temperament?: string;
+  cognitiveStack?: string;
+  leadFunction?: string;
   majors: string[];
   careers: string[];
 }

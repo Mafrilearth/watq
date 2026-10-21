@@ -9,6 +9,7 @@ import { calculateJungianScores } from '@/lib/scoring/jungian';
 import { getSession, initSession, updateSessionResponse, completeSession } from '@/lib/storage/session';
 import { LikertValue } from '@/types/assessment';
 import { ArrowLeft, Check, Sparkles } from 'lucide-react';
+import { playLikertPitch } from '@/lib/audio/haptics';
 
 const LIKERT_OPTIONS: Array<{ value: LikertValue; label: string; short: string }> = [
   { value: 1, label: 'Strongly Disagree', short: '1' },
@@ -55,6 +56,7 @@ export default function AssessmentRunnerPage() {
     (value: LikertValue) => {
       if (isSubmitting || !currentQuestion) return;
 
+      playLikertPitch(value);
       setIsSubmitting(true);
 
       const nextResponses = {
@@ -127,6 +129,15 @@ export default function AssessmentRunnerPage() {
     );
   }
 
+  const dimensionName =
+    currentQuestion.dimension === 'EI'
+      ? 'Energy & Orientation (E ↔ I)'
+      : currentQuestion.dimension === 'SN'
+      ? 'Information Intake (S ↔ N)'
+      : currentQuestion.dimension === 'TF'
+      ? 'Decision Criteria (T ↔ F)'
+      : 'Lifestyle & Pacing (J ↔ P)';
+
   return (
     <div className="min-h-screen bg-[#090D16] text-[#F8FAFC] flex flex-col justify-between py-6 sm:py-10 px-4 sm:px-6">
       {/* Top Header: Minimalist brand anchor & progress bar */}
@@ -165,23 +176,19 @@ export default function AssessmentRunnerPage() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-sky-500/5 blur-3xl pointer-events-none" />
 
           {/* Question Category Metadata */}
-          <div className="flex items-center gap-2 mb-3 sm:mb-4">
-            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-sky-400 bg-sky-950/50 border border-sky-500/20 px-2 sm:px-2.5 py-1 rounded-md">
-              DIMENSION: {currentQuestion.dimension} {'//'} ITEM {currentQuestion.id} OF {JUNGIAN_QUESTIONS.length}
+          <div className="flex items-center justify-between gap-2 mb-4 sm:mb-6">
+            <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-sky-400 bg-sky-950/50 border border-sky-500/20 px-2.5 py-1 rounded-md">
+              {dimensionName} • ITEM {currentIndex + 1} OF {JUNGIAN_QUESTIONS.length}
             </span>
             <span className="text-xs text-slate-500 font-mono hidden sm:inline-block">
-              Auto-saved to device
+              Auto-saved locally
             </span>
           </div>
 
           {/* Question Prompt */}
-          <h2 className="text-lg sm:text-2xl font-medium text-white leading-snug tracking-[-0.01em] min-h-[56px] sm:min-h-[72px] flex items-center">
-            {currentQuestion.prompt}
+          <h2 className="text-xl sm:text-2xl font-semibold text-white leading-relaxed tracking-[-0.01em] min-h-[64px] sm:min-h-[80px] flex items-center mb-6 sm:mb-8">
+            &ldquo;{currentQuestion.prompt}&rdquo;
           </h2>
-
-          <p className="text-xs text-slate-400 mt-2 mb-6 sm:mb-8 italic">
-            Measurement target: {currentQuestion.target}
-          </p>
 
           {/* 5-Point Likert Scale (Touch target >= 48px via Fitts's Law) */}
           <div className="space-y-2.5 sm:space-y-3" role="radiogroup" aria-label="Likert Scale Options">

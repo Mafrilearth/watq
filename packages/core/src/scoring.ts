@@ -1,4 +1,4 @@
-import { JUNGIAN_QUESTIONS, ARCHETYPES } from './data';
+import { JUNGIAN_QUESTIONS, ARCHETYPES, ARCHETYPE_METAS } from './data';
 import { LikertValue, AssessmentResult, PolarityScores } from './types';
 
 /**
@@ -53,6 +53,7 @@ export function calculateJungianScores(responses: Record<string, LikertValue>): 
 
   const typeCode = `${letterE_I}${letterS_N}${letterT_F}${letterJ_P}`;
   const archetype = ARCHETYPES[typeCode] || ARCHETYPES.INTJ;
+  const meta = ARCHETYPE_METAS[typeCode] || ARCHETYPE_METAS.INTJ;
 
   const scores: PolarityScores = {
     E: scoreE,
@@ -70,6 +71,9 @@ export function calculateJungianScores(responses: Record<string, LikertValue>): 
     archetypeTitle: archetype.title,
     scores,
     summary: archetype.summary,
+    temperament: meta?.temperament,
+    cognitiveStack: meta?.cognitiveStack,
+    leadFunction: meta?.leadFunction,
     majors: archetype.majors,
     careers: archetype.careers,
   };

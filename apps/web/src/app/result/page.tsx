@@ -10,6 +10,7 @@ import {
   getServerSessionSnapshot, 
   clearSession 
 } from '@/lib/storage/session';
+import { ARCHETYPE_METAS } from '@watq/core';
 import { 
   GraduationCap, 
   Briefcase, 
@@ -17,10 +18,13 @@ import {
   Copy, 
   Check, 
   ArrowRight,
-  ShieldCheck
+  ShieldCheck,
+  Sparkles,
+  Layers
 } from 'lucide-react';
 
 interface PolarityBarProps {
+  dimensionTitle?: string;
   labelLeft: string;
   labelRight: string;
   codeLeft: string;
@@ -31,6 +35,7 @@ interface PolarityBarProps {
 }
 
 function PolarityBar({
+  dimensionTitle,
   labelLeft,
   labelRight,
   codeLeft,
@@ -43,6 +48,11 @@ function PolarityBar({
 
   return (
     <div className="bg-white/[0.02] border border-white/[0.06] rounded-xl p-4 sm:p-5">
+      {dimensionTitle && (
+        <div className="text-[10px] font-mono uppercase tracking-widest text-slate-500 mb-2">
+          {dimensionTitle}
+        </div>
+      )}
       <div className="flex items-center justify-between text-xs sm:text-sm font-semibold mb-2">
         <span className={isLeftDominant ? 'text-white font-bold' : 'text-slate-400'}>
           {labelLeft} ({codeLeft}) <strong className="font-mono text-sky-400">{scoreLeft}%</strong>
@@ -104,10 +114,19 @@ export default function ResultPage() {
     }
   };
 
+  const meta = (result && ARCHETYPE_METAS[result.typeCode]) || null;
+  const temperament = result?.temperament || meta?.temperament || 'Jungian Archetype';
+  const cognitiveStack = result?.cognitiveStack || meta?.cognitiveStack || '';
+  const leadFunction = result?.leadFunction || meta?.leadFunction || '';
+
   const handleCopySummary = async () => {
     if (!result) return;
     const summaryText = `WATQ COGNITIVE REPORT
 Type: ${result.typeCode} — ${result.archetypeTitle}
+Class: ${temperament}
+Lead Function: ${leadFunction || 'N/A'}
+Cognitive Stack: ${cognitiveStack || 'N/A'}
+
 Summary: ${result.summary}
 
 Scores:
@@ -122,7 +141,7 @@ ${result.majors.map((m) => ` - ${m}`).join('\n')}
 Aligned Careers (ILO ISCO-08):
 ${result.careers.map((c) => ` - ${c}`).join('\n')}
 
-Engine: Watq v1.0 // https://watq.mafrilearth.com`;
+Engine: Watq v1.1 // https://watq.mafrilearth.com`;
 
     try {
       await navigator.clipboard.writeText(summaryText);
@@ -187,10 +206,17 @@ Engine: Watq v1.0 // https://watq.mafrilearth.com`;
         <section className="bg-gradient-to-b from-[#1E1B4B]/40 to-[#0F172A] border border-white/[0.12] rounded-2xl sm:rounded-3xl p-5 sm:p-10 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-80 h-80 bg-sky-500/10 blur-3xl pointer-events-none" />
 
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-sky-950/60 border border-sky-500/20 text-[10px] sm:text-xs font-mono text-sky-400 mb-4 sm:mb-6">
-            <ShieldCheck className="w-3.5 h-3.5 text-sky-400" />
-            <span className="hidden sm:inline">COGNITIVE PROFILE VERIFIED // DETERMINISTIC SCORING</span>
-            <span className="sm:hidden">COGNITIVE PROFILE VERIFIED</span>
+          <div className="flex flex-wrap items-center gap-2 mb-4 sm:mb-6">
+            <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-sky-950/60 border border-sky-500/20 text-[10px] sm:text-xs font-mono text-sky-400">
+              <ShieldCheck className="w-3.5 h-3.5 text-sky-400" />
+              <span>COGNITIVE PROFILE VERIFIED</span>
+            </div>
+            {temperament && (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-[10px] sm:text-xs font-mono text-indigo-300 font-semibold">
+                <Sparkles className="w-3 h-3 text-indigo-400" />
+                {temperament} Class
+              </span>
+            )}
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 mb-3 sm:mb-4">
@@ -201,6 +227,23 @@ Engine: Watq v1.0 // https://watq.mafrilearth.com`;
               {result.archetypeTitle}
             </h2>
           </div>
+
+          {/* Cognitive Stack Bar */}
+          {cognitiveStack && (
+            <div className="mt-2 mb-4 inline-flex flex-wrap items-center gap-3 px-3 py-1.5 rounded-xl bg-white/[0.04] border border-white/[0.08] text-xs font-mono">
+              <div className="flex items-center gap-1.5 text-slate-300">
+                <Layers className="w-3.5 h-3.5 text-slate-400" />
+                <span className="text-slate-500">STACK:</span>
+                <span className="text-white font-semibold">{cognitiveStack}</span>
+              </div>
+              {leadFunction && (
+                <div className="hidden sm:flex items-center gap-1.5 border-l border-white/[0.1] pl-3 text-slate-300">
+                  <span className="text-slate-500">DOMINANT:</span>
+                  <span className="text-sky-300 font-semibold">{leadFunction}</span>
+                </div>
+              )}
+            </div>
+          )}
 
           <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-3xl">
             {result.summary}
@@ -225,6 +268,7 @@ Engine: Watq v1.0 // https://watq.mafrilearth.com`;
 
           <div className="space-y-4">
             <PolarityBar
+              dimensionTitle="DIMENSION 1 // ENERGY ORIENTATION"
               labelLeft="Extraversion"
               codeLeft="E"
               scoreLeft={result.scores.E}
@@ -235,6 +279,7 @@ Engine: Watq v1.0 // https://watq.mafrilearth.com`;
             />
 
             <PolarityBar
+              dimensionTitle="DIMENSION 2 // INFORMATION INTAKE"
               labelLeft="Sensing"
               codeLeft="S"
               scoreLeft={result.scores.S}
@@ -245,6 +290,7 @@ Engine: Watq v1.0 // https://watq.mafrilearth.com`;
             />
 
             <PolarityBar
+              dimensionTitle="DIMENSION 3 // DECISION CRITERIA"
               labelLeft="Thinking"
               codeLeft="T"
               scoreLeft={result.scores.T}
@@ -255,6 +301,7 @@ Engine: Watq v1.0 // https://watq.mafrilearth.com`;
             />
 
             <PolarityBar
+              dimensionTitle="DIMENSION 4 // LIFESTYLE & PACING"
               labelLeft="Judging"
               codeLeft="J"
               scoreLeft={result.scores.J}

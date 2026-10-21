@@ -476,3 +476,25 @@ export const ARCHETYPES: Record<string, ArchetypeProfile> = {
     ],
   },
 };
+
+export const ARCHETYPE_METAS: Record<string, { temperament: string; cognitiveStack: string; leadFunction: string }> = {
+  INTJ: { temperament: 'Analyst (NT)', cognitiveStack: 'Ni • Te • Fi • Se', leadFunction: 'Introverted Intuition (Ni)' },
+  INTP: { temperament: 'Analyst (NT)', cognitiveStack: 'Ti • Ne • Si • Fe', leadFunction: 'Introverted Thinking (Ti)' },
+  ENTJ: { temperament: 'Analyst (NT)', cognitiveStack: 'Te • Ni • Se • Fi', leadFunction: 'Extraverted Thinking (Te)' },
+  ENTP: { temperament: 'Analyst (NT)', cognitiveStack: 'Ne • Ti • Fe • Si', leadFunction: 'Extraverted Intuition (Ne)' },
+
+  INFJ: { temperament: 'Diplomat (NF)', cognitiveStack: 'Ni • Fe • Ti • Se', leadFunction: 'Introverted Intuition (Ni)' },
+  INFP: { temperament: 'Diplomat (NF)', cognitiveStack: 'Fi • Ne • Si • Te', leadFunction: 'Introverted Feeling (Fi)' },
+  ENFJ: { temperament: 'Diplomat (NF)', cognitiveStack: 'Fe • Ni • Se • Ti', leadFunction: 'Extraverted Feeling (Fe)' },
+  ENFP: { temperament: 'Diplomat (NF)', cognitiveStack: 'Ne • Fi • Te • Si', leadFunction: 'Extraverted Intuition (Ne)' },
+
+  ISTJ: { temperament: 'Sentinel (SJ)', cognitiveStack: 'Si • Te • Fi • Ne', leadFunction: 'Introverted Sensing (Si)' },
+  ISFJ: { temperament: 'Sentinel (SJ)', cognitiveStack: 'Si • Fe • Ti • Ne', leadFunction: 'Introverted Sensing (Si)' },
+  ESTJ: { temperament: 'Sentinel (SJ)', cognitiveStack: 'Te • Si • Ne • Fi', leadFunction: 'Extraverted Thinking (Te)' },
+  ESFJ: { temperament: 'Sentinel (SJ)', cognitiveStack: 'Fe • Si • Ne • Ti', leadFunction: 'Extraverted Feeling (Fe)' },
+
+  ISTP: { temperament: 'Explorer (SP)', cognitiveStack: 'Ti • Se • Ni • Fe', leadFunction: 'Introverted Thinking (Ti)' },
+  ISFP: { temperament: 'Explorer (SP)', cognitiveStack: 'Fi • Se • Ni • Te', leadFunction: 'Introverted Feeling (Fi)' },
+  ESTP: { temperament: 'Explorer (SP)', cognitiveStack: 'Se • Ti • Fe • Ni', leadFunction: 'Extraverted Sensing (Se)' },
+  ESFP: { temperament: 'Explorer (SP)', cognitiveStack: 'Se • Fi • Te • Ni', leadFunction: 'Extraverted Sensing (Se)' },
+};
