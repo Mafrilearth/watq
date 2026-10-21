@@ -28,6 +28,7 @@ import { HeroCognitivePrism } from '@/components/home/HeroCognitivePrism';
 import { InteractiveRunnerPreview } from '@/components/home/InteractiveRunnerPreview';
 import { BentoGridFeatures } from '@/components/home/BentoGridFeatures';
 import { ArchetypeMatrixShowcase } from '@/components/home/ArchetypeMatrixShowcase';
+import { ArchitecturalFigures } from '@/components/home/ArchitecturalFigures';
 import { playMicroClick } from '@/lib/audio/haptics';
 
 export default function HomePage() {
@@ -124,7 +125,10 @@ export default function HomePage() {
           </div>
         )}
 
-        {/* Section 2: Interactive Sandbox Runner Demo (5-Point Likert with Web Audio synthesis) */}
+        {/* Section 2: Architectural Rigor Figures (Linear FIG 0.1, FIG 0.2, FIG 0.3 Blueprint Aesthetic) */}
+        <ArchitecturalFigures />
+
+        {/* Section 3: Interactive Sandbox Runner Demo (5-Point Likert with Web Audio synthesis) */}
         <InteractiveRunnerPreview />
 
         {/* Section 3: Asymmetrical Bento Grid Features (4 Dimensions, $0 OpEx Terminal, Keycaps) */}
