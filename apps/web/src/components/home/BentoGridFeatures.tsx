@@ -62,23 +62,23 @@ export function BentoGridFeatures() {
   return (
     <section id="vocational" className="py-24 sm:py-32 px-4 sm:px-6 max-w-6xl mx-auto border-t border-white/[0.08] relative">
       <div className="absolute top-8 left-8 text-slate-700 font-mono text-[9px] pointer-events-none select-none">
-        + BENTO_GRID // SPECIFICATION MATRIX
+        + PLATFORM HIGHLIGHTS // OVERVIEW
       </div>
       <div className="absolute top-8 right-8 text-slate-700 font-mono text-[9px] pointer-events-none select-none">
-        + 4 POLAR AXES // ISCO-08 ALIGNED
+        + 4 CORE PREFERENCE AXES
       </div>
 
       {/* Section Header */}
       <div className="max-w-2xl mb-12 sm:mb-16 text-left">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-xs font-mono font-semibold text-indigo-400 mb-4">
           <BrainCircuit className="w-3.5 h-3.5" />
-          <span>FOUR-TIER ANALYTICAL ARCHITECTURE</span>
+          <span>THOUGHTFUL & ACCESSIBLE BY DESIGN</span>
         </div>
         <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-          Engineered for Rigorous Cognitive Precision.
+          Designed for Clarity and Privacy.
         </h2>
         <p className="mt-3 text-sm sm:text-base text-slate-400">
-          A four-tier analytical architecture designed to eliminate acquiescence bias and deliver mathematically repeatable typology telemetry.
+          A transparent self-assessment platform built to give you meaningful personal insights without account walls, external tracking, or unnecessary complexity.
         </p>
       </div>
 
@@ -95,9 +95,9 @@ export function BentoGridFeatures() {
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-white/[0.06]">
                 <div>
                   <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400">
-                    AXIS 01-04 SPECIFICATION
+                    CORE PREFERENCE AXES
                   </span>
-                  <h3 className="text-xl font-bold text-white mt-1">4 Cognitive Polarity Dimensions</h3>
+                  <h3 className="text-xl font-bold text-white mt-1">4 Cognitive Dimensions</h3>
                 </div>
 
                 {/* Tabs */}
@@ -158,7 +158,7 @@ export function BentoGridFeatures() {
                 {/* Axis Telemetry Breakdown */}
                 <div className="flex-1 text-xs">
                   <div className="flex items-center justify-between font-mono pb-2 border-b border-white/[0.04]">
-                    <span className="text-slate-400">AXIS TYPE:</span>
+                    <span className="text-slate-400">DIMENSION:</span>
                     <span className="font-bold" style={{ color: currentAxisInfo.color }}>
                       {currentAxisInfo.title}
                     </span>
@@ -207,9 +207,9 @@ export function BentoGridFeatures() {
             <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-slate-400">
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                Raw scale normalized to 0-100% discrete vector
+                Raw score balanced across positive and reversed items
               </span>
-              <span>WATQ-PRD-1921</span>
+              <span>JUNGIAN 1921</span>
             </div>
           </div>
         </div>
@@ -222,55 +222,50 @@ export function BentoGridFeatures() {
             <div>
               <div className="flex items-center justify-between text-xs font-mono text-slate-400 mb-4">
                 <span className="flex items-center gap-1.5 text-emerald-400">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                  0ms CLOUD OPEX
+                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  NO ACCOUNT NEEDED
                 </span>
-                <span>SHA-256</span>
+                <span>LOCAL DEVICE</span>
               </div>
 
-              <h3 className="text-xl font-bold text-white mb-2">100% Client-Side Engine</h3>
+              <h3 className="text-xl font-bold text-white mb-2">100% In-Browser Privacy</h3>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Zero database dependencies. State is isolated locally in your browser memory and Web Crypto storage.
+                Your responses and results are calculated and kept right in your browser. No external database, tracking pixels, or account required.
               </p>
 
-              {/* Contextual Illustration: The Isometric Cryptographic Silicon Die */}
+              {/* Contextual Illustration: The Local Device Storage Vault */}
               <div className="my-5 flex items-center justify-center">
                 <svg viewBox="0 0 220 100" className="w-full max-w-[200px] h-auto">
-                  {/* Outer Silicon Substrate */}
-                  <polygon points="110,15 190,45 110,75 30,45" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
-                  <polygon points="30,45 110,75 110,88 30,58" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
-                  <polygon points="110,75 190,45 190,58 110,88" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
-                  
-                  {/* Gold Circuit Traces */}
-                  <path d="M 55 45 L 85 45 L 95 40" stroke="#38BDF8" strokeWidth="1" strokeDasharray="2 2" />
-                  <path d="M 165 45 L 135 45 L 125 40" stroke="#818CF8" strokeWidth="1" strokeDasharray="2 2" />
-                  <path d="M 110 30 L 110 40" stroke="#2DD4BF" strokeWidth="1" />
-
-                  {/* Microcontroller Die */}
-                  <polygon points="110,32 135,42 110,52 85,42" fill="#0B0F19" stroke="#38BDF8" strokeWidth="1.2" />
-                  <circle cx="110" cy="42" r="3" fill="#38BDF8" className="animate-pulse" />
-                  <text x="110" y="65" fill="#38BDF8" fontSize="8" fontFamily="monospace" textAnchor="middle">
-                    WEB_CRYPTO_CORE
-                  </text>
+                  {/* Browser Window Frame */}
+                  <rect x="25" y="15" width="170" height="70" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
+                  <line x1="25" y1="35" x2="195" y2="35" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+                  <circle cx="40" cy="25" r="2.5" fill="#EF4444" opacity="0.7" />
+                  <circle cx="50" cy="25" r="2.5" fill="#F59E0B" opacity="0.7" />
+                  <circle cx="60" cy="25" r="2.5" fill="#10B981" opacity="0.7" />
+                  <rect x="75" y="21" width="90" height="8" rx="3" fill="rgba(255,255,255,0.06)" />
+                  {/* Center Lock Shield */}
+                  <circle cx="110" cy="58" r="16" fill="rgba(16,185,129,0.1)" stroke="#10B981" strokeWidth="1" />
+                  <path d="M 106 56 L 106 52 A 4 4 0 0 1 114 52 L 114 56" stroke="#10B981" strokeWidth="1.5" fill="none" />
+                  <rect x="104" y="56" width="12" height="9" rx="1.5" fill="#10B981" />
                 </svg>
               </div>
 
               {/* Terminal Snippet Box */}
               <div className="p-3.5 rounded-xl bg-black/60 border border-white/[0.08] font-mono text-[11px] space-y-1.5">
                 <div className="text-slate-400 font-mono">
-                  &gt; DB_OPEX: <span className="text-emerald-400">$0.00 (Zero Cloud)</span>
+                  &gt; STORAGE: <span className="text-emerald-400">Browser LocalStorage</span>
                 </div>
                 <div className="text-slate-400 font-mono">
-                  &gt; STORAGE: <span className="text-sky-400">watq_mvp_session_v1</span>
+                  &gt; CLOUD DB: <span className="text-sky-400">None (Not Required)</span>
                 </div>
                 <div className="text-slate-400 font-mono">
-                  &gt; TRACKING: <span className="text-emerald-400">DISABLED (0 B)</span>
+                  &gt; TRACKING: <span className="text-emerald-400">Disabled (0 Cookies)</span>
                 </div>
               </div>
             </div>
 
             <div className="mt-5 pt-4 border-t border-white/[0.06] text-[11px] font-mono text-slate-400 flex items-center justify-between">
-              <span>Local Privacy Verified</span>
+              <span>Private &amp; Confidential</span>
               <Lock className="w-3.5 h-3.5 text-emerald-400" />
             </div>
           </div>
@@ -285,14 +280,14 @@ export function BentoGridFeatures() {
               <div className="flex items-center justify-between text-xs font-mono text-slate-400 mb-4">
                 <span className="flex items-center gap-1.5 text-sky-400">
                   <Keyboard className="w-3.5 h-3.5" />
-                  KEYBOARD FIRST
+                  KEYBOARD &amp; TOUCH
                 </span>
-                <span>120ms CADENCE</span>
+                <span>DESKTOP / MOBILE</span>
               </div>
 
-              <h3 className="text-xl font-bold text-white mb-2">Tactile Hotkey Matrix</h3>
+              <h3 className="text-xl font-bold text-white mb-2">Fast &amp; Distraction-Free</h3>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Complete the entire assessment without touching your mouse. Click or press keys to test the tactile response:
+                Complete questions smoothly using keys 1 through 5 on desktop, or simple touch taps on mobile devices.
               </p>
 
               {/* Interactive 3D Keycaps */}
@@ -336,7 +331,7 @@ export function BentoGridFeatures() {
             </div>
 
             <div className="mt-6 pt-4 border-t border-white/[0.06] text-[11px] font-mono text-slate-400 text-center">
-              Fitts&apos;s Law 120ms Psychomotor Pacing
+              Designed for effortless focus
             </div>
           </div>
         </div>
@@ -352,27 +347,27 @@ export function BentoGridFeatures() {
                   <GraduationCap className="w-3.5 h-3.5" />
                   VOCATIONAL TAXONOMY
                 </span>
-                <span>UNESCO ISCED-F // ILO ISCO-08</span>
+                <span>UNESCO ISCED // ILO ISCO</span>
               </div>
 
-              <h3 className="text-xl font-bold text-white mb-2">Transforming Typology into Life Trajectories</h3>
+              <h3 className="text-xl font-bold text-white mb-2">Connecting Personality to Life Trajectories</h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Personality without application is mere vanity. Watq maps each cognitive polarity vector directly into international academic and career standards:
+                Self-knowledge is most valuable when applied to education and career planning. Watq maps each archetype directly to international academic and occupational frameworks:
               </p>
 
               {/* Sample Target Trajectory Badges */}
               <div className="mt-6 flex flex-wrap gap-2">
                 {[
-                  'Artificial Intelligence & Systems',
-                  'Quantitative Finance & Risk',
-                  'Cardiothoracic Surgery',
-                  'Constitutional Law',
-                  'Aerospace Propulsion',
-                  'Product Architecture',
-                  'Bioethics & Medical Policy',
-                  'Venture Capital & Strategy',
-                  'Quantum Computing',
-                  'Cognitive Neurobiology'
+                  'Computer Science & Software',
+                  'Business & Management',
+                  'UI/UX & Product Design',
+                  'Psychology & Human Resources',
+                  'Engineering & Applied Sciences',
+                  'Finance & Accounting',
+                  'Media & Communications',
+                  'Education & Instruction',
+                  'Data Analysis & Statistics',
+                  'Operations & Logistics'
                 ].map((item) => (
                   <span
                     key={item}
@@ -386,7 +381,7 @@ export function BentoGridFeatures() {
 
             <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-slate-400">
               <span>Standardized International Classifications</span>
-              <span className="text-sky-400">16 Dedicated Syllabi</span>
+              <span className="text-sky-400">16 Dedicated Archetype Guides</span>
             </div>
           </div>
         </div>

@@ -32,23 +32,23 @@ export function InteractiveRunnerPreview() {
     <section id="interactive-demo" className="py-24 sm:py-32 px-4 sm:px-6 max-w-5xl mx-auto border-t border-white/[0.08] relative">
       {/* Background Registration Crosshairs */}
       <div className="absolute top-8 left-8 text-slate-700 font-mono text-[9px] pointer-events-none select-none">
-        + RUNNER_DEMO // 680px FOCUS CONTAINER
+        + SAMPLE RUNNER // DISTRACTION-FREE
       </div>
       <div className="absolute top-8 right-8 text-slate-700 font-mono text-[9px] pointer-events-none select-none">
-        + LATENCY &lt; 10ms // CLIENT EVAL
+        + IN-BROWSER SCORING
       </div>
 
       {/* Section Header */}
       <div className="text-center max-w-2xl mx-auto mb-12">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-xs font-mono font-semibold text-sky-400 mb-4">
           <Sparkles className="w-3.5 h-3.5" />
-          <span>ZERO REGISTRATION // INSTANT RUNNER DEMO</span>
+          <span>SAMPLE QUESTION // NO ACCOUNT NEEDED</span>
         </div>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-          Experience the Psychomotor Runner.
+          Try Answering a Question.
         </h2>
         <p className="mt-3 text-sm sm:text-base text-slate-400">
-          Try answering sample item 01 below. Notice how the mechanical potentiometer gauge rotates, Web Audio tone synthesizes, and cognitive vectors shift in real-time.
+          See how the assessment feels in practice. Select your rating from 1 (Strongly Disagree) to 5 (Strongly Agree) and observe how your preference indicator updates.
         </p>
       </div>
 
@@ -69,7 +69,7 @@ export function InteractiveRunnerPreview() {
             </span>
           </div>
 
-          {/* Contextual Illustration: The Isometric Psychomotor Potentiometer Dial */}
+          {/* Contextual Illustration: The Response Meter */}
           <div className="my-6 p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-6">
             {/* The SVG Precision Dial */}
             <div className="w-48 h-32 relative flex items-center justify-center shrink-0">
@@ -138,7 +138,7 @@ export function InteractiveRunnerPreview() {
                   {selectedScore}
                 </text>
                 <text x="100" y="124" fill="rgba(255,255,255,0.4)" fontSize="8" fontFamily="monospace" textAnchor="middle">
-                  CALIBRATION
+                  RATING
                 </text>
               </svg>
             </div>
@@ -146,19 +146,20 @@ export function InteractiveRunnerPreview() {
             {/* Dial Telemetry Diagnostics */}
             <div className="flex-1 w-full space-y-2 text-xs font-mono">
               <div className="flex items-center justify-between pb-2 border-b border-white/[0.04]">
-                <span className="text-slate-500">ANGULAR OFFSET:</span>
-                <span className="text-white font-bold">{currentOption.angle > 0 ? `+${currentOption.angle}°` : `${currentOption.angle}°`}</span>
+                <span className="text-slate-500">SELECTED SCORE:</span>
+                <span className="text-white font-bold">{selectedScore} / 5</span>
               </div>
               <div className="flex items-center justify-between pb-2 border-b border-white/[0.04]">
-                <span className="text-slate-500">AUDIO OSCILLATOR:</span>
+                <span className="text-slate-500">ANSWER CHOICE:</span>
                 <span className="text-sky-400 font-bold flex items-center gap-1">
-                  <Activity className="w-3 h-3 animate-pulse" />
-                  {currentOption.freq}
+                  {currentOption.desc.toUpperCase()}
                 </span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-slate-500">STATE RESOLUTION:</span>
-                <span className="text-emerald-400 font-bold">{currentOption.desc.toUpperCase()}</span>
+                <span className="text-slate-500">PRIMARY LEANING:</span>
+                <span className="text-emerald-400 font-bold">
+                  {introversionPercent > 50 ? `INTROVERSION (${introversionPercent}%)` : `EXTRAVERSION (${extraversionPercent}%)`}
+                </span>
               </div>
             </div>
           </div>
@@ -166,10 +167,10 @@ export function InteractiveRunnerPreview() {
           {/* Question Prompt */}
           <div className="my-6">
             <h3 className="text-lg sm:text-xl font-bold text-white leading-snug tracking-tight">
-              &ldquo;I naturally recharge mental energy through solitary deep-focus reflection rather than high-density social crowds.&rdquo;
+              &ldquo;After intense socializing, I require solitary time to recharge my mental energy.&rdquo;
             </h3>
             <p className="mt-2 text-xs font-mono text-slate-400">
-              Psychometric Target Pole: Introversion (I) • Scoring Weight: +1.0 • Direction: Normal
+              Dimension: Extraversion (E) vs Introversion (I) • Scale: 5-Point Likert
             </p>
           </div>
 

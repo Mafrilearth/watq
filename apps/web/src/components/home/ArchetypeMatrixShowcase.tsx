@@ -240,13 +240,13 @@ export function ArchetypeMatrixShowcase() {
       <div className="text-center max-w-3xl mx-auto mb-12">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-mono font-medium text-slate-300 mb-4">
           <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
-          <span>JUNGIAN 1921 TYPOLOGY CATALOG // 16 ARCHETYPES</span>
+          <span>16 PERSONALITY TYPES // JUNGIAN TYPOLOGY</span>
         </div>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-          Explore the Archetype Matrix.
+          Explore the 16 Archetypes.
         </h2>
         <p className="mt-4 text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl mx-auto">
-          Every human cognitive pattern maps into one of 16 distinct analytical frameworks. Filter by temperament or search by occupational affinity.
+          Discover the 16 distinct personality profiles rooted in Carl Jung&rsquo;s psychological types. Filter by temperament group or search by career and study interests.
         </p>
       </div>
 

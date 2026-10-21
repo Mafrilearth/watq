@@ -131,7 +131,7 @@ export default function HomePage() {
             <div className="p-4 rounded-xl bg-[#0B0F19]/80 border border-white/[0.04] transition-all hover:border-white/[0.1]">
               <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-1">DURATION</div>
               <div className="text-xl font-bold font-mono text-white">~3 Minutes</div>
-              <div className="text-[11px] text-slate-400 mt-0.5">24 Standardized Likert Items</div>
+              <div className="text-[11px] text-slate-400 mt-0.5">24 Clear Likert Questions</div>
             </div>
             <div className="p-4 rounded-xl bg-[#0B0F19]/80 border border-white/[0.04] transition-all hover:border-white/[0.1]">
               <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-1">FOUNDATION</div>
@@ -139,14 +139,14 @@ export default function HomePage() {
               <div className="text-[11px] text-slate-400 mt-0.5">Jungian 1921 Typology</div>
             </div>
             <div className="p-4 rounded-xl bg-[#0B0F19]/80 border border-white/[0.04] transition-all hover:border-white/[0.1]">
-              <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-1">ENGINE SPEED</div>
-              <div className="text-xl font-bold font-mono text-emerald-400">&lt; 10ms</div>
-              <div className="text-[11px] text-slate-400 mt-0.5">Deterministic Client Math</div>
+              <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-1">CALCULATION</div>
+              <div className="text-xl font-bold font-mono text-emerald-400">Instant</div>
+              <div className="text-[11px] text-slate-400 mt-0.5">Runs 100% in Browser</div>
             </div>
             <div className="p-4 rounded-xl bg-[#0B0F19]/80 border border-white/[0.04] transition-all hover:border-white/[0.1]">
               <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-1">PRIVACY</div>
               <div className="text-xl font-bold font-mono text-indigo-400">100% Local</div>
-              <div className="text-[11px] text-slate-400 mt-0.5">Zero Cloud Telemetry</div>
+              <div className="text-[11px] text-slate-400 mt-0.5">No Account or Tracking</div>
             </div>
           </div>
         </div>
@@ -178,15 +178,15 @@ export default function HomePage() {
 
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-mono text-slate-300 mb-6">
                 <Sparkles className="w-3.5 h-3.5 text-sky-400" />
-                <span>3 MINUTES // 24 STANDARDIZED ITEMS // ZERO REGISTRATION</span>
+                <span>FREE // NO SIGN-UP REQUIRED // INSTANT RESULTS</span>
               </div>
 
               <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight max-w-2xl mx-auto leading-tight">
-                Ready to Decode Your Cognitive Operating System?
+                Ready to Discover Your Cognitive Archetype?
               </h2>
 
               <p className="mt-4 text-sm sm:text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
-                Step into a focus-engineered assessment container with instant real-time telemetry, zero account wall, and actionable career trajectories.
+                Step into a clean, distraction-free assessment. Complete 24 questions in about 3 minutes to reveal your core preferences and tailored career trajectories.
               </p>
 
               {/* Action Buttons */}
@@ -196,7 +196,7 @@ export default function HomePage() {
                   onClick={() => playMicroClick(1000)}
                   className="group relative inline-flex items-center gap-3 pl-7 pr-3 py-3.5 rounded-full bg-gradient-to-r from-sky-400 via-indigo-400 to-teal-400 text-[#090D16] font-bold text-sm shadow-xl shadow-sky-500/20 hover:shadow-sky-500/35 transition-all duration-200 active:scale-95"
                 >
-                  <span>Launch Assessment Runner</span>
+                  <span>Start Free Assessment</span>
                   <span className="w-7 h-7 rounded-full bg-[#090D16] text-white flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5">
                     <ArrowRight className="w-3.5 h-3.5" />
                   </span>
@@ -216,15 +216,15 @@ export default function HomePage() {
               <div className="mt-12 pt-8 border-t border-white/[0.06] flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-xs font-mono text-slate-400">
                 <div className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  <span>100% Client-Side Privacy</span>
+                  <span>100% In-Browser Privacy</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Cpu className="w-4 h-4 text-sky-400" />
-                  <span>Deterministic 0ms Latency</span>
+                  <span>No Account Required</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Keyboard className="w-4 h-4 text-indigo-400" />
-                  <span>Desktop Keypad 1–5 Enabled</span>
+                  <span>Desktop Keypad 1–5 or Touch</span>
                 </div>
               </div>
             </div>
@@ -263,7 +263,7 @@ export default function HomePage() {
           {/* Right Status */}
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-[11px] text-slate-400">Engine Operational ($0 OpEx)</span>
+            <span className="text-[11px] text-slate-400">100% Client-Side Engine</span>
           </div>
         </div>
 

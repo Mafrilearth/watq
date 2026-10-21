@@ -10,23 +10,23 @@ export function ArchitecturalFigures() {
     <section id="framework" className="py-24 sm:py-32 px-4 sm:px-6 max-w-6xl mx-auto border-t border-white/[0.08] relative">
       {/* Blueprint Corner Registration Marks */}
       <div className="absolute top-6 left-6 text-slate-600 font-mono text-[9px] pointer-events-none select-none">
-        + SYS_GRID_01 // 34.22° N
+        + FRAMEWORK // JUNGIAN TYPOLOGY
       </div>
       <div className="absolute top-6 right-6 text-slate-600 font-mono text-[9px] pointer-events-none select-none">
-        + SPEC_VEC_1921 // 100% LOCAL
+        + 24 STANDARDIZED QUESTIONS
       </div>
 
       {/* Section Header */}
       <div className="max-w-3xl mb-16 sm:mb-20 text-left">
         <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-slate-400 mb-4">
           <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
-          <span>ENGINEERING SPECIFICATION // COGNITIVE BLUEPRINTS</span>
+          <span>HOW IT WORKS // ASSESSMENT METHODOLOGY</span>
         </div>
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-[-0.03em] leading-tight">
-          Psychometric models rendered with structural precision.
+          A transparent, well-defined assessment framework.
         </h2>
         <p className="mt-4 text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl font-sans">
-          How Watq translates Carl Jung&rsquo;s 1921 cognitive theory into deterministic mathematical coordinates, from initial psychomotor response to vocational trajectory.
+          Watq translates Carl Jung&rsquo;s 1921 psychological types into a clear, balanced scoring system that connects your natural preferences to real-world educational and career fields.
         </p>
       </div>
 
@@ -46,8 +46,8 @@ export function ArchitecturalFigures() {
         >
           {/* Technical Schematic Metadata Header */}
           <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 mb-6 select-none">
-            <span className="tracking-widest font-semibold group-hover:text-sky-400 transition-colors">SCHEMATIC 01</span>
-            <span className="text-[10px] opacity-70">REFRACTIVE CORE // JUNG-1921</span>
+            <span className="tracking-widest font-semibold group-hover:text-sky-400 transition-colors">FIGURE 01</span>
+            <span className="text-[10px] opacity-70">4 CORE PREFERENCE AXES</span>
           </div>
 
           {/* Interactive Isometric Blueprint Artwork */}
@@ -142,11 +142,11 @@ export function ArchitecturalFigures() {
           {/* Technical Caption */}
           <div className="pt-6">
             <h3 className="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
-              <span>Cognitive Refractive Core</span>
+              <span>4 Preference Dimensions</span>
               <span className="w-1.5 h-1.5 rounded-full bg-sky-400 opacity-0 group-hover:opacity-100 transition-opacity" />
             </h3>
             <p className="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed font-sans">
-              Human consciousness is treated as an optical spectrum. Raw situational stimuli pass through 4 polarized lenses, separating continuous behavioral data into discrete cognitive archetypes.
+              Your cognitive style is evaluated across 4 foundational dimensions: Energy (E/I), Information (S/N), Decisions (T/F), and Structure (J/P). Each person falls naturally along these spectra rather than into rigid boxes.
             </p>
           </div>
         </div>
@@ -164,8 +164,8 @@ export function ArchitecturalFigures() {
         >
           {/* Technical Schematic Metadata Header */}
           <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 mb-6 select-none">
-            <span className="tracking-widest font-semibold group-hover:text-indigo-400 transition-colors">SCHEMATIC 02</span>
-            <span className="text-[10px] opacity-70">4-AXIS LATTICE // BIPOLAR TENSION</span>
+            <span className="tracking-widest font-semibold group-hover:text-indigo-400 transition-colors">FIGURE 02</span>
+            <span className="text-[10px] opacity-70">BALANCED 5-POINT SCORING</span>
           </div>
 
           {/* Interactive Isometric Blueprint Artwork */}
@@ -254,11 +254,11 @@ export function ArchitecturalFigures() {
           {/* Technical Caption */}
           <div className="pt-6">
             <h3 className="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
-              <span>Bipolar Tension Lattice</span>
+              <span>Balanced Likert Calibration</span>
               <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity" />
             </h3>
             <p className="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed font-sans">
-              No single trait operates in isolation. The instrument measures psychological tension along 4 intersecting dimensions, calibrating balance with reverse-keyed item vectors.
+              Each axis includes 6 paired questions, including reversed items to minimize acquiescence bias. Responses range from Strongly Disagree (1) to Strongly Agree (5) for an accurate, nuanced preference score.
             </p>
           </div>
         </div>
@@ -276,8 +276,8 @@ export function ArchitecturalFigures() {
         >
           {/* Technical Schematic Metadata Header */}
           <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 mb-6 select-none">
-            <span className="tracking-widest font-semibold group-hover:text-emerald-400 transition-colors">SCHEMATIC 03</span>
-            <span className="text-[10px] opacity-70">PROJECTION RADAR // ILO & UNESCO</span>
+            <span className="tracking-widest font-semibold group-hover:text-emerald-400 transition-colors">FIGURE 03</span>
+            <span className="text-[10px] opacity-70">CAREER & ACADEMIC PATHWAYS</span>
           </div>
 
           {/* Interactive Isometric Blueprint Artwork */}
@@ -373,11 +373,11 @@ export function ArchitecturalFigures() {
           {/* Technical Caption */}
           <div className="pt-6">
             <h3 className="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
-              <span>Trajectory Projection Radar</span>
+              <span>Educational & Career Pathways</span>
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity" />
             </h3>
             <p className="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed font-sans">
-              Typology is not a destination; it is a vector. Your calibrated cognitive coordinates project directly into UNESCO ISCED-F university majors and ILO ISCO-08 occupational pathways.
+              Personality assessment is most useful when it informs real life. Watq maps your archetype profile to recognized educational programs (UNESCO ISCED) and professional career fields (ILO ISCO).
             </p>
           </div>
         </div>

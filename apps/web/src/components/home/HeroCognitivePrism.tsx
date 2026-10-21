@@ -25,46 +25,46 @@ interface ArchetypePreview {
 const PREVIEW_TYPES: ArchetypePreview[] = [
   {
     code: 'INTJ',
-    title: 'The Mastermind Architect',
+    title: 'The Strategic Architect',
     temperament: 'Analyst',
     color: '#818CF8', // Indigo
-    tagline: 'Strategic vision powered by systematic deductive architecture.',
+    tagline: 'Systemic strategic thinker, independent analytical planner, and structural optimizer.',
     dominantAxis: 'Introverted Intuition (Ni)',
-    majors: ['Computer Science & AI', 'Theoretical Physics', 'Quantitative Finance'],
-    careers: ['Enterprise Architect', 'AI Research Scientist', 'Algorithm Engineer'],
+    majors: ['Computer Science (0613)', 'Informatics & Data Science', 'Applied Mathematics (0541)'],
+    careers: ['Software Architect (2511)', 'Data Scientist (2521)', 'Systems Analyst (2511)'],
     bars: { ei: 82, sn: 78, tf: 86, jp: 74 },
   },
   {
     code: 'ENTP',
-    title: 'The Visionary Catalyst',
+    title: 'The Visionary Explorer',
     temperament: 'Analyst',
     color: '#38BDF8', // Sky
-    tagline: 'Rapid combinatorial problem solving through irreverent curiosity.',
+    tagline: 'Lateral problem solver, inventive debater, and cross-disciplinary idea catalyst.',
     dominantAxis: 'Extraverted Intuition (Ne)',
-    majors: ['Software Entrepreneurship', 'Cognitive Systems', 'Economics & Policy'],
-    careers: ['Venture Founder', 'Product Strategist', 'Innovation Director'],
+    majors: ['Computer Science (0613)', 'Product Design (0212)', 'Business Entrepreneurship'],
+    careers: ['Product Innovation Lead', 'Startup Founder (1120)', 'Technology Strategist'],
     bars: { ei: 28, sn: 84, tf: 72, jp: 32 },
   },
   {
     code: 'INFJ',
-    title: 'The Insightful Sage',
+    title: 'The Insightful Counselor',
     temperament: 'Diplomat',
     color: '#2DD4BF', // Teal
-    tagline: 'Profound humanistic foresight directed toward transformative purpose.',
+    tagline: 'Humanistic visionary, thoughtful observer, and supportive personal growth mentor.',
     dominantAxis: 'Introverted Intuition (Ni)',
-    majors: ['Organizational Psychology', 'Philosophy of Mind', 'Bioethics'],
-    careers: ['Executive Coach', 'Human Rights Counsel', 'Psychotherapist'],
+    majors: ['Psychology (0313)', 'Human-Computer Interaction', 'Cognitive Science'],
+    careers: ['UX Strategist (2513)', 'Educational Designer (2351)', 'Organizational Counselor'],
     bars: { ei: 88, sn: 82, tf: 34, jp: 78 },
   },
   {
     code: 'ESTP',
-    title: 'The Tactical Pragmatist',
+    title: 'The Dynamic Pragmatist',
     temperament: 'Explorer',
     color: '#FBBF24', // Amber
-    tagline: 'Decisive real-time spatial awareness and sensory problem exploitation.',
+    tagline: 'Agile field executor, tactical problem solver, and composed in high-energy situations.',
     dominantAxis: 'Extraverted Sensing (Se)',
-    majors: ['Aerospace Operations', 'Emergency Medicine', 'Financial Trading'],
-    careers: ['High-Frequency Trader', 'Crisis Manager', 'Aviation Captain'],
+    majors: ['Operations Management', 'Industrial Logistics', 'Business Administration'],
+    careers: ['Operations Specialist', 'Crisis Response Lead', 'Project Director'],
     bars: { ei: 22, sn: 26, tf: 80, jp: 28 },
   },
 ];
@@ -88,20 +88,20 @@ export function HeroCognitivePrism() {
       {/* Subtle Ambient Radial Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[650px] h-[250px] sm:h-[400px] bg-sky-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
 
-      {/* Top Engineering Tagline Pill */}
-      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-slate-300 mb-6 backdrop-blur-md">
+      {/* Top Tagline Pill */}
+      <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-slate-300 mb-6 backdrop-blur-md">
         <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
-        <span>WATQ 1.0 // DETERMINISTIC COGNITIVE ENGINE // JUNG 1921</span>
+        <span>WATQ // 16 PERSONALITY TYPES // JUNGIAN TYPOLOGY</span>
       </div>
 
       {/* Hero Headline */}
       <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-[-0.035em] text-white max-w-4xl mx-auto leading-[1.12] sm:leading-[1.08]">
-        Personality Decoded with Optical &amp; Mathematical Rigor.
+        Discover Your Personality with Clarity and Depth.
       </h1>
 
       {/* Subtitle */}
       <p className="mt-5 text-sm sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-        A client-driven psychometric instrument that refracts human behavioral patterns into 16 discrete cognitive architectures. Guiding university major selection and career trajectories.
+        A private, accessible assessment based on Carl Jung&rsquo;s 1921 typology. Answer 24 straightforward questions to explore your preferences across 4 core dimensions and uncover fitting academic and career paths.
       </p>
 
       {/* Primary CTA Buttons */}
@@ -111,7 +111,7 @@ export function HeroCognitivePrism() {
           onClick={() => playMicroClick(1000)}
           className="group relative inline-flex items-center gap-3 pl-7 pr-3 py-3.5 rounded-full bg-gradient-to-r from-sky-400 via-indigo-400 to-teal-400 text-[#090D16] font-bold text-sm shadow-xl shadow-sky-500/20 hover:shadow-sky-500/35 transition-all duration-200 active:scale-95"
         >
-          <span>Start Assessment</span>
+          <span>Start Assessment (3 Min)</span>
           <span className="w-7 h-7 rounded-full bg-[#090D16] text-white flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5">
             <ArrowRight className="w-3.5 h-3.5" />
           </span>
@@ -122,7 +122,7 @@ export function HeroCognitivePrism() {
           onClick={() => playMicroClick(700)}
           className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-xs font-semibold text-slate-300 hover:text-white transition-all"
         >
-          <span>Try 30-Second Sandbox</span>
+          <span>Try 30-Second Preview</span>
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
         </a>
       </div>
@@ -150,7 +150,7 @@ export function HeroCognitivePrism() {
             <div className="flex items-center gap-3">
               <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse" />
               <span className="text-xs font-mono font-semibold text-slate-300 tracking-wider uppercase">
-                Optical Refraction Bench // Telemetry Simulator
+                Archetype Explorer // 4 Polar Dimensions
               </span>
             </div>
 
@@ -235,7 +235,7 @@ export function HeroCognitivePrism() {
                   <line key={idx} x1={tx} y1="288" x2={tx} y2="293" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
                 ))}
 
-                {/* Left Source: Laser Induction Housing / Emitter Module */}
+                {/* Left Source: Survey Response Input Housing */}
                 <g>
                   {/* Housing Body */}
                   <rect x="20" y="145" width="48" height="50" rx="4" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.25)" strokeWidth="1.2" />
@@ -243,7 +243,7 @@ export function HeroCognitivePrism() {
                   {/* Collimator Nozzle */}
                   <path d="M 68 162 L 80 166 L 80 174 L 68 178 Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
                   <circle cx="74" cy="170" r="2" fill="#38BDF8" className="animate-pulse" />
-                  <text x="25" y="136" fill="rgba(255,255,255,0.4)" fontSize="8" fontFamily="monospace">EMITTER // 532nm</text>
+                  <text x="25" y="136" fill="rgba(255,255,255,0.4)" fontSize="8" fontFamily="monospace">RESPONSES</text>
                 </g>
 
                 {/* Incoming Coherent White Induction Beam */}
@@ -291,7 +291,7 @@ export function HeroCognitivePrism() {
                   { y: 75, col: '#818CF8', label: `E/I • ${activeType.bars.ei}%`, sub: 'ENERGY' },
                   { y: 130, col: '#2DD4BF', label: `S/N • ${activeType.bars.sn}%`, sub: 'INTAKE' },
                   { y: 205, col: '#38BDF8', label: `T/F • ${activeType.bars.tf}%`, sub: 'DECISION' },
-                  { y: 260, col: '#FBBF24', label: `J/P • ${activeType.bars.jp}%`, sub: 'CADENCE' },
+                  { y: 260, col: '#FBBF24', label: `J/P • ${activeType.bars.jp}%`, sub: 'LIFESTYLE' },
                 ].map((sensor, sIdx) => (
                   <g key={sIdx}>
                     {/* Receptor diode housing */}
@@ -358,11 +358,11 @@ export function HeroCognitivePrism() {
               </svg>
 
               <div className="flex items-center gap-4 mt-3 text-[10px] font-mono text-slate-500">
-                <span>STAGE CALIBRATION: θ = 45.2°</span>
+                <span>24 LIKERT ITEMS</span>
                 <span>•</span>
-                <span>SPECTRAL SENSITIVITY: 99.8%</span>
+                <span>4 BIPOLAR DIMENSIONS</span>
                 <span>•</span>
-                <span>NOISE REJECTION: 100%</span>
+                <span>100% IN-BROWSER SCORING</span>
               </div>
             </div>
 
