@@ -256,10 +256,25 @@ export default function HomePage() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-white/[0.08] py-8 text-center text-xs text-slate-500 font-mono">
+      <footer className="border-t border-white/[0.08] py-8 text-xs text-slate-500 font-mono">
         <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <WatqFullLogo markSize={24} theme="dark" showTagline={false} />
-          <p>© 2026 Watq. Personality Decoded. All rights reserved.</p>
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-mono text-slate-400">
+            <span>© 2026 Watq. All rights reserved.</span>
+            <span className="text-white/20">•</span>
+            <Link href="/changelog" className="hover:text-sky-400 transition-colors">
+              Changelog
+            </Link>
+            <span className="text-white/20">•</span>
+            <a
+              href="https://github.com/Mafrilearth/watq"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-sky-400 transition-colors"
+            >
+              GitHub ↗
+            </a>
+          </div>
           <p className="text-slate-500 font-mono text-[11px]">Deterministic Cognitive Engine // Zero Telemetry</p>
         </div>
       </footer>

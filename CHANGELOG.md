@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.1] - 2026-10-21
+
+### Summary
+Maintenance release introducing full search engine optimization (SEO) infrastructure, dedicated web changelog interface, viewport scroll behavior stabilization, and responsive container alignment fixes.
+
+---
+
+### Added
+- **SEO & Discoverability Infrastructure:** Implemented Next.js MetadataRoute handlers for `sitemap.xml`, `robots.txt`, and `manifest.webmanifest`.
+- **Schema.org Structured Data:** Embedded JSON-LD schema definitions (`SoftwareApplication` & `EducationalOrganization`) for search engine indexation and rich snippets.
+- **Web Changelog Interface:** Created a dedicated `/changelog` route displaying the platform release timeline and psychometric calibrations.
+- **Google Search Console Verification:** Added verification head tags and authoritative Cloudflare DNS TXT records.
+
+---
+
+### Fixed & Refined
+- **Result Page Container Width Alignment:** Aligned `<main>` layout container from `max-w-4xl` to `max-w-5xl` on `/result` to eliminate horizontal misalignment against the sticky navigation header.
+- **Instant Scroll Restoration:** Injected `window.scrollTo(0, 0)` on `/result` mount to eliminate jarring lower-viewport scroll locks.
+- **Tailwind v4 Responsive Breakpoint:** Added custom `--breakpoint-xs: 480px` in `globals.css` for balanced button wrapping on small viewports.
+
+---
+
 ## [1.0.0] - 2026-10-21
 
 ### Summary

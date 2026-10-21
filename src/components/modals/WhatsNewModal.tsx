@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Sparkles, X, CheckCircle2, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { Sparkles, X, CheckCircle2, ArrowRight, ExternalLink } from 'lucide-react';
 
 /**
  * Current release announcement version identifier.
@@ -118,6 +119,14 @@ export function WhatsNewModal() {
               <span>Start Assessment</span>
               <ArrowRight className="w-4 h-4" />
             </button>
+            <Link
+              href="/changelog"
+              onClick={() => setIsOpen(false)}
+              className="w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-1.5 py-3 px-4 rounded-xl bg-white/[0.05] border border-white/[0.1] text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/[0.08] transition-all"
+            >
+              <span>Full Changelog</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </Link>
           </div>
         </div>
       </div>

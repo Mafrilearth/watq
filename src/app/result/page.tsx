@@ -346,8 +346,19 @@ Engine: Watq v1.0 // https://watq.mafrilearth.com`;
       </main>
 
       {/* Report Footer */}
-      <footer className="border-t border-white/[0.06] py-6 text-center text-xs font-mono text-slate-500">
-        WATQ COGNITIVE REPORT // DETERMINISTIC &amp; PRIVATE // ZERO DATA COLLECTION
+      <footer className="border-t border-white/[0.06] py-6 text-xs font-mono text-slate-500">
+        <div className="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+          <span>WATQ COGNITIVE REPORT // DETERMINISTIC &amp; PRIVATE // ZERO TELEMETRY</span>
+          <div className="flex items-center gap-3 text-slate-400">
+            <Link href="/changelog" className="hover:text-sky-400 transition-colors">
+              Changelog
+            </Link>
+            <span className="text-white/20">•</span>
+            <Link href="/" className="hover:text-white transition-colors">
+              Home
+            </Link>
+          </div>
+        </div>
       </footer>
     </div>
   );
