@@ -307,7 +307,7 @@ export function HeroCognitivePrism() {
                 ))}
 
                 {/* Central Rotating Crystal Prism Stage (The Watq Prism Core) */}
-                <g className="transition-transform duration-500 hover:scale-105" transform-origin="240 170">
+                <g className="transition-transform duration-500 hover:scale-105" style={{ transformOrigin: '240px 170px' }}>
                   {/* Stage Base Ring */}
                   <ellipse cx="240" cy="225" rx="46" ry="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.2)" strokeWidth="1" strokeDasharray="3 2" />
                   <ellipse cx="240" cy="225" rx="36" ry="12" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
