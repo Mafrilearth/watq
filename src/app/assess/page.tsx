@@ -167,10 +167,10 @@ export default function AssessmentRunnerPage() {
           {/* Question Category Metadata */}
           <div className="flex items-center gap-2 mb-3 sm:mb-4">
             <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-sky-400 bg-sky-950/50 border border-sky-500/20 px-2 sm:px-2.5 py-1 rounded-md">
-              Dimension: {currentQuestion.dimension} {'//'} Item {currentQuestion.id}
+              DIMENSION: {currentQuestion.dimension} {'//'} ITEM {currentQuestion.id} OF {JUNGIAN_QUESTIONS.length}
             </span>
             <span className="text-xs text-slate-500 font-mono hidden sm:inline-block">
-              Auto-saved locally
+              Auto-saved to device
             </span>
           </div>
 
@@ -180,7 +180,7 @@ export default function AssessmentRunnerPage() {
           </h2>
 
           <p className="text-xs text-slate-400 mt-2 mb-6 sm:mb-8 italic">
-            Cognitive target: {currentQuestion.target}
+            Measurement target: {currentQuestion.target}
           </p>
 
           {/* 5-Point Likert Scale (Touch target >= 48px via Fitts's Law) */}
@@ -242,7 +242,7 @@ export default function AssessmentRunnerPage() {
 
             <div className="flex items-center gap-2 text-[11px] font-mono text-slate-500 hidden sm:flex">
               <Sparkles className="w-3 h-3 text-sky-400" />
-              <span>Tip: Press keys 1–5 on desktop for instant selection</span>
+              <span>Tip: Press numeric keys 1–5 for instant selection</span>
             </div>
           </div>
         </div>
@@ -250,7 +250,7 @@ export default function AssessmentRunnerPage() {
 
       {/* Runner Footer */}
       <footer className="w-full max-w-[680px] mx-auto text-center text-xs font-mono text-slate-600">
-        WATQ PSYCHOMETRIC RUNNER // CLIENT DETERMINISTIC ENGINE // 100% PRIVATE
+        WATQ COGNITIVE RUNNER // DETERMINISTIC &amp; PRIVATE // ZERO DATA COLLECTION
       </footer>
     </div>
   );

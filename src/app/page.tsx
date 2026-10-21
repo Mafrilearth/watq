@@ -33,7 +33,7 @@ export default function HomePage() {
   );
 
   const handleStartOver = () => {
-    if (window.confirm('Start assessment over? Your saved responses will be cleared.')) {
+    if (window.confirm('Restart assessment from the beginning? Your saved responses will be cleared.')) {
       clearSession();
       router.push('/assess');
     }
@@ -78,8 +78,7 @@ export default function HomePage() {
                 href="/assess"
                 className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-semibold px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-[#38BDF8] text-[#090D16] hover:bg-[#7DD3FC] transition-colors whitespace-nowrap"
               >
-                <span className="hidden xs:inline">Start Assessment</span>
-                <span className="xs:hidden">Start Test</span>
+                <span>Start Assessment</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             )}
@@ -95,7 +94,7 @@ export default function HomePage() {
 
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] sm:text-xs font-mono text-sky-400 mb-5 sm:mb-6">
             <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-sky-400 animate-pulse" />
-            WATQ ENGINE V1.0 // MVP ACTIVE
+            WATQ COGNITIVE ENGINE V1.0 // DETERMINISTIC MVP
           </div>
 
           <h1 className="text-[28px] xs:text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-[-0.035em] text-white max-w-3xl mx-auto leading-[1.18] sm:leading-[1.12] px-1 sm:px-0">
@@ -114,7 +113,7 @@ export default function HomePage() {
                   href="/result"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-xl bg-[#38BDF8] text-[#090D16] font-bold text-sm hover:bg-[#7DD3FC] transition-all shadow-lg shadow-sky-500/20 active:scale-[0.99]"
                 >
-                  View Your Profile ({session.result?.typeCode})
+                  View Cognitive Profile ({session.result?.typeCode})
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <button
@@ -131,7 +130,7 @@ export default function HomePage() {
                   href="/assess"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 rounded-xl bg-[#38BDF8] text-[#090D16] font-bold text-sm hover:bg-[#7DD3FC] transition-all shadow-lg shadow-sky-500/20 active:scale-[0.99]"
                 >
-                  Resume Assessment (Q {session.currentIndex + 1}/24)
+                  Resume Assessment (Question {session.currentIndex + 1} of 24)
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <button
@@ -139,7 +138,7 @@ export default function HomePage() {
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-xl bg-white/[0.05] border border-white/[0.1] text-slate-200 font-semibold text-sm hover:bg-white/[0.08] transition-all"
                 >
                   <RotateCcw className="w-4 h-4" />
-                  Start Over
+                  Retake Assessment
                 </button>
               </>
             ) : (
@@ -147,7 +146,7 @@ export default function HomePage() {
                 href="/assess"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-[#38BDF8] text-[#090D16] font-bold text-sm sm:text-base hover:bg-[#7DD3FC] transition-all shadow-lg shadow-sky-500/20 active:scale-[0.99]"
               >
-                Start Assessment (Free)
+                <span>Start Assessment</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             )}
@@ -167,21 +166,21 @@ export default function HomePage() {
                 <BrainCircuit className="w-3.5 h-3.5" /> MODEL
               </div>
               <div className="text-base sm:text-lg font-bold text-white font-mono">16 Types</div>
-              <div className="text-[11px] sm:text-xs text-slate-500">Jungian 1921</div>
+              <div className="text-[11px] sm:text-xs text-slate-500">Jungian Typology 1921</div>
             </div>
             <div className="p-3.5 sm:p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col justify-between">
               <div className="flex items-center gap-1.5 sm:gap-2 text-emerald-400 font-mono text-[11px] sm:text-xs font-semibold mb-1">
                 <Zap className="w-3.5 h-3.5" /> LATENCY
               </div>
               <div className="text-base sm:text-lg font-bold text-white font-mono">&lt; 10ms</div>
-              <div className="text-[11px] sm:text-xs text-slate-500">Client engine</div>
+              <div className="text-[11px] sm:text-xs text-slate-500">Client-side engine</div>
             </div>
             <div className="p-3.5 sm:p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col justify-between">
               <div className="flex items-center gap-1.5 sm:gap-2 text-amber-400 font-mono text-[11px] sm:text-xs font-semibold mb-1">
                 <ShieldCheck className="w-3.5 h-3.5" /> PRIVACY
               </div>
               <div className="text-base sm:text-lg font-bold text-white font-mono">100% Local</div>
-              <div className="text-[11px] sm:text-xs text-slate-500">No signup</div>
+              <div className="text-[11px] sm:text-xs text-slate-500">No account required</div>
             </div>
           </div>
         </section>
@@ -192,7 +191,7 @@ export default function HomePage() {
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
               <div className="space-y-3 max-w-xl">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-indigo-500/10 text-indigo-400 text-xs font-mono font-semibold border border-indigo-500/20">
-                  <Sparkles className="w-3 h-3" /> OFFICIAL MVP INSTRUMENT
+                  <Sparkles className="w-3 h-3" /> CORE INSTRUMENT // JUNGIAN TYPOLOGY
                 </div>
                 <h2 className="text-2xl font-bold text-white tracking-tight">
                   16 Cognitive Types Assessment
@@ -210,9 +209,9 @@ export default function HomePage() {
               <div className="w-full md:w-auto">
                 <Link
                   href="/assess"
-                  className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#38BDF8] text-[#090D16] font-bold text-sm hover:bg-[#7DD3FC] transition-all shadow-md"
+                  className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#38BDF8] text-[#090D16] font-bold text-sm hover:bg-[#7DD3FC] transition-all shadow-md active:scale-[0.99]"
                 >
-                  Start Assessment
+                  <span>Start Assessment</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -261,7 +260,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <WatqFullLogo markSize={24} theme="dark" showTagline={false} />
           <p>© 2026 Watq. Personality Decoded. All rights reserved.</p>
-          <p className="text-slate-500 font-mono text-[11px]">Client Deterministic Engine // Zero Telemetry</p>
+          <p className="text-slate-500 font-mono text-[11px]">Deterministic Cognitive Engine // Zero Telemetry</p>
         </div>
       </footer>
     </div>

@@ -185,8 +185,8 @@ Engine: Watq v1.0 // https://watq.mafrilearth.com`;
 
           <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-sky-950/60 border border-sky-500/20 text-[10px] sm:text-xs font-mono text-sky-400 mb-4 sm:mb-6">
             <ShieldCheck className="w-3.5 h-3.5 text-sky-400" />
-            <span className="hidden xs:inline">COGNITIVE MATRIX VERIFIED // DETERMINISTIC SCORE</span>
-            <span className="xs:hidden">COGNITIVE MATRIX VERIFIED</span>
+            <span className="hidden xs:inline">COGNITIVE PROFILE VERIFIED // DETERMINISTIC SCORING</span>
+            <span className="xs:hidden">COGNITIVE PROFILE VERIFIED</span>
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 mb-3 sm:mb-4">
@@ -318,8 +318,8 @@ Engine: Watq v1.0 // https://watq.mafrilearth.com`;
         {/* Action Panel */}
         <section className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
-            <h4 className="text-sm font-semibold text-white">Need to review the questions or try again?</h4>
-            <p className="text-xs text-slate-400">You can retake the assessment at any time. Data remains stored solely on your device.</p>
+            <h4 className="text-sm font-semibold text-white">Need to review or reassess?</h4>
+            <p className="text-xs text-slate-400">You can retake the assessment at any time. All responses remain stored exclusively on your device.</p>
           </div>
 
           <div className="flex items-center gap-3 w-full sm:w-auto">
@@ -343,7 +343,7 @@ Engine: Watq v1.0 // https://watq.mafrilearth.com`;
 
       {/* Report Footer */}
       <footer className="border-t border-white/[0.06] py-6 text-center text-xs font-mono text-slate-500">
-        WATQ COGNITIVE REPORT // PSYCHOMETRIC PRISM // PERSONALITY DECODED
+        WATQ COGNITIVE REPORT // DETERMINISTIC &amp; PRIVATE // ZERO DATA COLLECTION
       </footer>
     </div>
   );

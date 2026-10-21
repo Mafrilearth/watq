@@ -115,7 +115,7 @@ export function WhatsNewModal() {
               onClick={handleDismiss}
               className="w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-[#38BDF8] text-[#090D16] font-bold text-sm hover:bg-[#7DD3FC] transition-all shadow-lg shadow-sky-500/20 active:scale-[0.99]"
             >
-              <span>Explore Assessment</span>
+              <span>Start Assessment</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
