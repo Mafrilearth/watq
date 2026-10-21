@@ -9,6 +9,7 @@
     "dev:web": "pnpm --filter @watq/web dev",
     "dev:mobile": "pnpm --filter @watq/mobile start",
     "build:web": "pnpm --filter @watq/web build",
+    "build:mobile": "pnpm --filter @watq/mobile build:android",
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
