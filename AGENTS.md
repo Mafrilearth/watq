@@ -11,7 +11,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 # **WATQ — AGENTIC AI WORKFLOW & REPOSITORY DIRECTIVES**
 
 > **Standard:** Universal Agentic Engineering SOP (for Cursor, Claude Code, Copilot, Antigravity, Devin, Codex, and custom AI agents).  
-> **Repository:** `MaFrileartHXVI/watq` │ **Live URL:** [https://watq.mafrilearth.com](https://watq.mafrilearth.com)  
+> **Repository:** `Mafrilearth/watq` │ **Live URL:** [https://watq.mafrilearth.com](https://watq.mafrilearth.com)  
 > **Brand & Tagline:** *Watq — Personality Decoded.*  
 > **Primary Authority:** All agents must read and adhere to the Single Source of Truth (SSOT) documents in [`docs/`](file:///d:/watq/docs/README.md) before implementing changes.
 
