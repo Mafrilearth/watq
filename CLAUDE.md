@@ -17,4 +17,6 @@ This repository follows the universal agentic engineering standard defined in **
   - Design Tokens & Layout: `docs/04-design-system.md`
 - **Architecture:** 100% Client-driven execution ($0 database OpEx). No backend database.
 - **Language:** Strict 100% English for code, comments, UI, and commits.
-- **Deployment:** Vercel auto-deployment is decoupled from git pushes. Only push to GitHub.
+- **Security & Privacy:** Enforce enterprise HTTP headers in `next.config.ts`, GitHub Secret Scanning Push Protection, branch immutability on `main`, and zero telemetry.
+- **Version Synchronization:** Ensure identical SemVer across `package.json`, `CHANGELOG.md`, `/changelog`, and GitHub Releases without version spamming on micro-edits.
+- **Deployment:** Vercel auto-deployment is decoupled from git pushes. Only push to GitHub unless directed.

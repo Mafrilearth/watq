@@ -6,4 +6,6 @@ Before writing or editing code in this repository:
 2. Reference the Single Source of Truth (SSOT) files under `docs/` (`01-brand.md`, `02-prd.md`, `03-srs.md`, `04-design-system.md`).
 3. Maintain 100% Global English across code, UI, copywriting, and git commits.
 4. Keep the application 100% client-driven ($0 OpEx, zero-database architecture) using local storage and Web Crypto API.
-5. Do NOT trigger automatic deployments to Vercel on git push — deployments are decoupled.
+5. Strictly preserve security headers in `next.config.ts`, GitHub push protections, and private vulnerability channels.
+6. Enforce the 4-surface version synchronization rule (`package.json`, `CHANGELOG.md`, `/changelog`, GitHub Releases) without version spamming on micro-edits.
+7. Do NOT trigger automatic deployments to Vercel on git push — deployments are decoupled.
