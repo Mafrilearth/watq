@@ -80,7 +80,7 @@ export default function ChangelogPage() {
           <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div className="p-3.5 rounded-xl border border-white/[0.06] bg-white/[0.02]">
               <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wider block">Current Release</span>
-              <span className="text-sm font-bold text-sky-400 font-mono mt-0.5 block">v1.0.1</span>
+              <span className="text-sm font-bold text-sky-400 font-mono mt-0.5 block">v1.1.0</span>
             </div>
             <div className="p-3.5 rounded-xl border border-white/[0.06] bg-white/[0.02]">
               <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wider block">Standard</span>
@@ -102,7 +102,7 @@ export default function ChangelogPage() {
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 flex-1 w-full">
         <div className="space-y-12 sm:space-y-16">
 
-          {/* RELEASE v1.0.1 */}
+          {/* RELEASE v1.1.0 */}
           <article className="relative pl-6 sm:pl-8 border-l-2 border-sky-500/40 pb-2">
             {/* Timeline Marker */}
             <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[#090D16] border-2 border-sky-400 flex items-center justify-center">
@@ -112,10 +112,91 @@ export default function ChangelogPage() {
             {/* Header & Badges */}
             <div className="flex flex-wrap items-center gap-2.5 mb-3">
               <span className="px-2.5 py-1 rounded-lg bg-sky-500/15 border border-sky-500/30 text-sky-300 font-mono font-bold text-xs">
-                v1.0.1
+                v1.1.0
               </span>
               <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-[11px] font-semibold">
                 LATEST
+              </span>
+              <time className="text-xs font-mono text-slate-400">
+                October 21, 2026
+              </time>
+            </div>
+
+            <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+              Monorepo Architecture, Landing Redesign &amp; Interactive Typology
+            </h2>
+            <p className="mt-2 text-sm text-slate-300 leading-relaxed">
+              Major milestone release introducing a shared monorepo core engine, mobile app workspace, complete landing page redesign with clean spacious layouts, interactive cognitive archetype explorer, and realistic vocational trajectory mappings.
+            </p>
+
+            {/* Section: Added */}
+            <div className="mt-6 space-y-4">
+              <div className="flex items-center gap-2 text-xs font-mono font-semibold text-emerald-400 uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Added</span>
+              </div>
+              <ul className="space-y-2.5 pl-1 text-sm text-slate-300">
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-2 shrink-0" />
+                  <span>
+                    <strong className="text-white font-medium">Universal Monorepo Architecture:</strong> Turbo and pnpm workspace setup integrating <code className="px-1.5 py-0.5 rounded bg-white/[0.06] text-sky-300 font-mono text-xs">@watq/core</code>, <code className="px-1.5 py-0.5 rounded bg-white/[0.06] text-sky-300 font-mono text-xs">@watq/web</code>, and <code className="px-1.5 py-0.5 rounded bg-white/[0.06] text-sky-300 font-mono text-xs">@watq/mobile</code>.
+                  </span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-2 shrink-0" />
+                  <span>
+                    <strong className="text-white font-medium">Interactive Cognitive Archetype Explorer:</strong> Visual refraction demonstration showing how 24 questionnaire responses map across 4 bipolar dimensions.
+                  </span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-2 shrink-0" />
+                  <span>
+                    <strong className="text-white font-medium">Sample Question Sandbox:</strong> Interactive 5-point Likert question runner demonstrating instant preference feedback and hotkeys.
+                  </span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-2 shrink-0" />
+                  <span>
+                    <strong className="text-white font-medium">16 Archetype Interactive Catalog:</strong> Full-spectrum matrix of all 16 Jungian types with search and detail modal inspector.
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Section: Refined */}
+            <div className="mt-6 space-y-4">
+              <div className="flex items-center gap-2 text-xs font-mono font-semibold text-sky-400 uppercase tracking-wider">
+                <Wrench className="w-3.5 h-3.5" />
+                <span>Refined &amp; Polished</span>
+              </div>
+              <ul className="space-y-2.5 pl-1 text-sm text-slate-300">
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-sky-400 mt-2 shrink-0" />
+                  <span>
+                    <strong className="text-white font-medium">Spacious &amp; Clean Layout:</strong> Standardized uniform 6xl container gutters, eliminated negative margins, and prevented mobile overflow.
+                  </span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-sky-400 mt-2 shrink-0" />
+                  <span>
+                    <strong className="text-white font-medium">Realistic &amp; Honest Copywriting:</strong> Grounded all descriptions in practical psychometric and educational reality.
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          {/* RELEASE v1.0.1 */}
+          <article className="relative pl-6 sm:pl-8 border-l-2 border-white/[0.12] pb-2">
+            {/* Timeline Marker */}
+            <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-[#090D16] border-2 border-white/30 flex items-center justify-center">
+              <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
+            </div>
+
+            {/* Header & Badges */}
+            <div className="flex flex-wrap items-center gap-2.5 mb-3">
+              <span className="px-2.5 py-1 rounded-lg bg-white/[0.06] border border-white/[0.12] text-slate-300 font-mono font-bold text-xs">
+                v1.0.1
               </span>
               <time className="text-xs font-mono text-slate-400">
                 October 21, 2026

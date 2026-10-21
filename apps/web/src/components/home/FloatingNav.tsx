@@ -84,7 +84,7 @@ export function FloatingNav({ session }: FloatingNavProps) {
             onClick={() => playMicroClick(900)}
             className="hover:text-sky-400 text-slate-400 font-mono transition-colors duration-150"
           >
-            v1.0.1
+            v1.1.0
           </Link>
         </div>
 
@@ -177,7 +177,7 @@ export function FloatingNav({ session }: FloatingNavProps) {
               onClick={() => setMobileMenuOpen(false)}
               className="p-2.5 rounded-lg hover:bg-white/[0.05] hover:text-sky-400 font-mono text-xs transition-colors"
             >
-              Changelog (v1.0.1)
+              Changelog (v1.1.0)
             </Link>
           </div>
         </div>

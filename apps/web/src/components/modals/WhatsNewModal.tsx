@@ -9,7 +9,7 @@ import { Sparkles, X, CheckCircle2, ArrowRight, ExternalLink } from 'lucide-reac
  * Incrementing this version string (e.g., to 'watq_release_v1_1')
  * will automatically prompt users once more with the new update highlights.
  */
-const CURRENT_ANNOUNCEMENT_KEY = 'watq_announcement_seen_v1_0';
+const CURRENT_ANNOUNCEMENT_KEY = 'watq_announcement_seen_v1_1';
 
 export function WhatsNewModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,14 +68,14 @@ export function WhatsNewModal() {
         <div className="relative z-10">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-mono font-semibold mb-3">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>WHAT&apos;S NEW // V1.0 RELEASE</span>
+            <span>WHAT&apos;S NEW // V1.1 RELEASE</span>
           </div>
 
           <h2 id="modal-headline" className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-            Welcome to Watq v1.0
+            Welcome to Watq v1.1
           </h2>
           <p className="mt-1.5 text-xs sm:text-sm text-slate-400 leading-relaxed">
-            A modern, client-driven psychometric instrument decoding 16 cognitive types to guide college major alignment and career trajectories.
+            Experience the redesigned interactive landing page, sample question sandbox, and 16 archetype matrix explorer.
           </p>
 
           {/* Feature Highlights Grid */}
@@ -83,28 +83,28 @@ export function WhatsNewModal() {
             <div className="flex items-start gap-3">
               <CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
               <div className="text-xs sm:text-sm text-slate-300 leading-snug">
-                <strong className="text-white">24 Focused Likert Items:</strong> Evaluates personality dynamics in ~3 minutes with 50% reversed keying.
+                <strong className="text-white">Interactive Archetype Prism:</strong> Explore how 24 answers map across 4 bipolar dimensions into 16 archetypes.
               </div>
             </div>
 
             <div className="flex items-start gap-3">
               <CheckCircle2 className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
               <div className="text-xs sm:text-sm text-slate-300 leading-snug">
-                <strong className="text-white">16 Jungian Archetypes:</strong> Deterministic scoring engine across Energy, Information, Decision, and Lifestyle axes.
+                <strong className="text-white">Sample Question Sandbox:</strong> Try an interactive 5-point Likert question with instant preference calculation.
               </div>
             </div>
 
             <div className="flex items-start gap-3">
               <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
               <div className="text-xs sm:text-sm text-slate-300 leading-snug">
-                <strong className="text-white">Global Career Guidance:</strong> Rigorously mapped to UNESCO ISCED-F 2013 majors and ILO ISCO-08 professions.
+                <strong className="text-white">16 Archetype Catalog:</strong> Filter and search all 16 Jungian profiles with cognitive stack inspectors.
               </div>
             </div>
 
             <div className="flex items-start gap-3">
               <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
               <div className="text-xs sm:text-sm text-slate-300 leading-snug">
-                <strong className="text-white">100% Private &amp; Local:</strong> Zero signups, zero database storage, zero trackers. Your responses never leave your device.
+                <strong className="text-white">100% In-Browser Privacy:</strong> Zero signups, zero database storage, zero trackers. Your responses never leave your device.
               </div>
             </div>
           </div>

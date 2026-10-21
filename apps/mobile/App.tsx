@@ -65,7 +65,7 @@ export default function App() {
             </View>
           </View>
           <View style={styles.badgePill}>
-            <Text style={styles.badgePillText}>v1.0.1 Native</Text>
+            <Text style={styles.badgePillText}>v1.1.0 Native</Text>
           </View>
         </View>
 

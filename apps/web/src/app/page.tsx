@@ -248,7 +248,7 @@ export default function HomePage() {
             <a href="#interactive-demo" className="hover:text-white transition-colors">Runner</a>
             <a href="#archetypes" className="hover:text-white transition-colors">16 Types</a>
             <a href="#vocational" className="hover:text-white transition-colors">Vocational</a>
-            <Link href="/changelog" className="hover:text-sky-400 transition-colors">Changelog (v1.0.1)</Link>
+            <Link href="/changelog" className="hover:text-sky-400 transition-colors">Changelog (v1.1.0)</Link>
             <a 
               href="https://github.com/Mafrilearth/watq" 
               target="_blank" 

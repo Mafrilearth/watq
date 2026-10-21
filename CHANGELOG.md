@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.0] - 2026-10-21
+
+### Summary
+Feature release introducing universal monorepo architecture (`@watq/core`, `@watq/web`, `@watq/mobile`), a complete landing page architectural redesign with clean spacious layouts, interactive cognitive archetype explorer, real-time sample question runner sandbox, 4-tier analytical bento grid, 16 archetype matrix showcase, and grounded educational and career pathway mappings.
+
+---
+
+### Added
+- **Universal Monorepo Architecture:** Structured monorepo using pnpm workspaces and Turborepo with shared `@watq/core` engine, `@watq/web` Next.js 16 application, and `@watq/mobile` React Native / Expo application.
+- **Interactive Cognitive Archetype Explorer:** Dynamic visual prism demonstrating how 24 assessment responses refract across 4 bipolar dimensions (Energy, Information, Decisions, Lifestyle) to determine archetype profiles.
+- **Sample Question Runner Sandbox:** Live interactive 5-point Likert question runner demonstrating real-time preference calculation, audio feedback, and keyboard hotkeys.
+- **Methodology & Educational Framework Schematics:** 3 architectural blueprint figures explaining 4 preference dimensions, balanced reverse-keyed scoring, and international career alignment (UNESCO ISCED & ILO ISCO).
+- **16 Archetype Interactive Catalog:** Searchable and filterable matrix of all 16 Jungian types with dedicated detail modals and cognitive stack inspection.
+- **Mobile Standalone Architecture:** Configured native Android build scripts (`assembleRelease` and `assembleDebug`) with dynamic safe-area insets.
+
+---
+
+### Refined & Polished
+- **Spacious & Clean Layout:** Standardized uniform `max-w-6xl` container boundaries across all sections with balanced vertical rhythms and zero horizontal overflow.
+- **Realistic & Honest Copywriting:** Grounded all user-facing copy, labels, and metrics in authentic psychometric reality without hyperbole or inflated claims.
+
+---
+
 ## [1.0.1] - 2026-10-21
 
 ### Summary
