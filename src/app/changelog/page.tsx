@@ -202,6 +202,40 @@ export default function ChangelogPage() {
                 </li>
               </ul>
             </div>
+
+            {/* Section: Security & Hardening */}
+            <div className="mt-6 space-y-4">
+              <div className="flex items-center gap-2 text-xs font-mono font-semibold text-amber-400 uppercase tracking-wider">
+                <ShieldCheck className="w-3.5 h-3.5" />
+                <span>Security &amp; Hardening</span>
+              </div>
+              <ul className="space-y-2.5 pl-1 text-sm text-slate-300">
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 shrink-0" />
+                  <span>
+                    <strong className="text-white font-medium">Enterprise HTTP Security Headers:</strong> Enabled strict HSTS (<code className="px-1.5 py-0.5 rounded bg-white/[0.06] text-sky-300 font-mono text-xs">max-age=63072000; includeSubDomains; preload</code>), <code className="px-1.5 py-0.5 rounded bg-white/[0.06] text-sky-300 font-mono text-xs">X-Content-Type-Options: nosniff</code>, <code className="px-1.5 py-0.5 rounded bg-white/[0.06] text-sky-300 font-mono text-xs">X-Frame-Options: DENY</code>, and comprehensive CSP.
+                  </span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 shrink-0" />
+                  <span>
+                    <strong className="text-white font-medium">Framework Fingerprint Masking:</strong> Disabled <code className="px-1.5 py-0.5 rounded bg-white/[0.06] text-sky-300 font-mono text-xs">poweredByHeader</code> in Next.js to eliminate technology stack disclosure.
+                  </span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 shrink-0" />
+                  <span>
+                    <strong className="text-white font-medium">GitHub Secret Scanning &amp; Push Protection:</strong> Real-time scanning and commit-intercept protection activated across the repository to block leaked keys and tokens.
+                  </span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 shrink-0" />
+                  <span>
+                    <strong className="text-white font-medium">Branch Protection &amp; Supply Chain Defense:</strong> Enforced immutable branch rules against force-pushes and deletion, enabled Vercel Git Fork Protection, and configured Dependabot security scanning.
+                  </span>
+                </li>
+              </ul>
+            </div>
           </article>
 
 

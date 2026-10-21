@@ -29,6 +29,16 @@ Maintenance release introducing full search engine optimization (SEO) infrastruc
 
 ---
 
+### Security & Infrastructure Hardening
+- **HTTP Security Headers:** Configured strict HSTS (`max-age=63072000; includeSubDomains; preload`), `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `X-XSS-Protection: 1; mode=block`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy`, and Content Security Policy (CSP).
+- **Framework Fingerprint Masking:** Disabled `poweredByHeader` in Next.js to strip `X-Powered-By: Next.js`.
+- **GitHub Secret Scanning & Push Protection:** Activated automated repository credential scanning and push-intercept protection.
+- **GitHub Branch Protection:** Enforced branch protection on `main` to prevent force-pushes and accidental branch deletion.
+- **Private Vulnerability Reporting:** Configured responsible disclosure pipeline, security advisory channel, and `SECURITY.md`.
+- **Vercel Supply Chain Security:** Enabled Git Fork Protection (`gitForkProtection`) and Protected Source Maps (`protectedSourcemaps`).
+
+---
+
 ## [1.0.0] - 2026-10-21
 
 ### Summary
