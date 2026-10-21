@@ -1,10 +1,21 @@
 # **WATQ — PERSONALITY DECODED**
 
+<p align="left">
+  <a href="https://watq.mafrilearth.com"><img src="https://img.shields.io/badge/Live%20Platform-watq.mafrilearth.com-4F46E5?style=flat-square" alt="Live Platform" /></a>
+  <a href="https://github.com/Mafrilearth/watq/releases/tag/v1.0.0"><img src="https://img.shields.io/badge/Release-v1.0.0-emerald?style=flat-square" alt="Version 1.0.0" /></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/Changelog-Keep%20a%20Changelog-blue?style=flat-square" alt="Changelog" /></a>
+  <a href="AGENTS.md"><img src="https://img.shields.io/badge/Agentic%20AI-SOP%20Active-purple?style=flat-square" alt="Agentic AI SOP" /></a>
+  <img src="https://img.shields.io/badge/License-Proprietary-slate?style=flat-square" alt="License: Proprietary" />
+</p>
+
 > **Tagline:** *Personality Decoded.*  
+> **Repository:** [`Mafrilearth/watq`](https://github.com/Mafrilearth/watq) │ **Live URL:** [https://watq.mafrilearth.com](https://watq.mafrilearth.com)  
 > **Status:** MVP v1.0 — Private & Proprietary (Closed-Source)  
 > **Governance:** Internal Development Only — External Contributions Prohibited  
-> **Distribution:** End-User Software Application Only  
 > **Stack:** Next.js 15 (App Router) + TypeScript + Tailwind CSS
+
+### ⚡ **Quick Navigation**
+[**Live Platform**](https://watq.mafrilearth.com) │ [**Latest Release Notes (v1.0.0)**](https://github.com/Mafrilearth/watq/releases/tag/v1.0.0) │ [**Full Changelog**](CHANGELOG.md) │ [**AI Agent Directives (AGENTS.md)**](AGENTS.md) │ [**Master Docs Suite**](docs/README.md)
 
 ---
 
