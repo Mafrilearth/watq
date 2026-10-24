@@ -2,7 +2,7 @@
 
 <p align="left">
   <a href="https://watq.mafrilearth.com"><img src="https://img.shields.io/badge/Live%20Platform-watq.mafrilearth.com-4F46E5?style=flat-square" alt="Live Platform" /></a>
-  <a href="https://github.com/Mafrilearth/watq"><img src="https://img.shields.io/badge/Release-v1.2.0-emerald?style=flat-square" alt="Version 1.2.0" /></a>
+  <a href="https://github.com/Mafrilearth/watq"><img src="https://img.shields.io/badge/Release-v1.0.0-emerald?style=flat-square" alt="Version 1.0.0" /></a>
   <a href="AGENTS.md"><img src="https://img.shields.io/badge/Agentic%20AI-SOP%20Active-purple?style=flat-square" alt="Agentic AI SOP" /></a>
   <img src="https://img.shields.io/badge/Visibility-Public-blue?style=flat-square" alt="Visibility: Public" />
   <img src="https://img.shields.io/badge/License-Proprietary-slate?style=flat-square" alt="License: Proprietary" />

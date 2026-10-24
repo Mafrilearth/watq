@@ -18,7 +18,7 @@ export default function DocsPage() {
             <span className="font-bold tracking-tight text-lg text-slate-100">
               Watq <span className="text-[#D4F024]">Docs</span>
             </span>
-            <Badge variant="citron">SSOT v1.1.0</Badge>
+            <Badge variant="citron">SSOT v1.0.0</Badge>
           </div>
           <div className="flex items-center gap-3">
             <a

@@ -1,6 +1,6 @@
 # **WATQ: PRODUCT REQUIREMENTS DOCUMENT (PRD)**
 
-> **ID & Version:** `WATQ-PRD-02` │ `v1.2.0` │ `LOCKED`  
+> **ID & Version:** `WATQ-PRD-02` │ `v1.0.0` │ `LOCKED`  
 > **Authority & Owner:** Fauzul (Platform Lead) │ **Standard:** `APA/ITC 2014` │ `Jung 1921` │ `Likert 1932` │ `ILO ISCO-08`  
 > **SSOT Domain:** 16 Cognitive Types Construct, 24 Balanced Likert Items, Scoring Algorithm Math, 16 Archetype Trajectories  
 > **Target Code:** [`apps/web/src/data/assessments/jungian16.ts`](file:///d:/watq/apps/web/src/data/assessments/jungian16.ts) │ [`apps/web/src/lib/scoring/jungian.ts`](file:///d:/watq/apps/web/src/lib/scoring/jungian.ts)

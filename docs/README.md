@@ -1,6 +1,6 @@
-# **WATQ — MASTER DOCUMENTATION SUITE (ENTERPRISE SaaS v1.2.0)**
+# **WATQ — MASTER DOCUMENTATION SUITE (ENTERPRISE SaaS v1.0.0)**
 
-> **Suite ID & Version:** `WATQ-DOCS-INDEX` │ `v1.2.0` │ `LOCKED`  
+> **Suite ID & Version:** `WATQ-DOCS-INDEX` │ `v1.0.0` │ `LOCKED`  
 > **Authority & Owner:** Fauzul (Platform Lead) │ **Repository:** `Mafrilearth/watq`  
 > **SSOT Domain:** Master Index of 8 Non-Overlapping SDLC Specifications  
 > **Live Platform:** [https://watq.mafrilearth.com](https://watq.mafrilearth.com)

@@ -136,7 +136,7 @@ export function exportSovereignData(): string {
   const rawQuestions = localStorage.getItem("watq_custom_questions_v1");
 
   const backup: WatqSovereignBackup = {
-    version: "1.1.0",
+    version: "1.0.0",
     schema: "watq_sovereign_backup_v1",
     exportedAt: new Date().toISOString(),
     history,
