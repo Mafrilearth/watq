@@ -97,6 +97,76 @@ Application routes are strictly segregated between public-facing and private aut
 2. **Cognitive Tunneling (Distraction-Free Focus Mode):** The runner interface completely eliminates external links, global navbars, and promotional footers during questionnaire execution to prevent cognitive distraction.
 3. **Deterministic Continuity:** Response data is never lost upon browser reload, accidental tab closure, or network disconnection due to immediate synchronous `localStorage` persistence.
 
+## **1.5 Formal Information Architecture (IA) Specification**
+Watq organizes its content, navigation taxonomy, and data accessibility according to Rosenfeld & Morville's Information Architecture standard:
+
+### **A. Global Sitemap & Route Hierarchy Tree**
+```
+WATQ ENTERPRISE PLATFORM (Root)
+│
+├── [PUBLIC GATEWAY: apps/web]
+│   ├── / (Executive Landing & Orientation)
+│   │   ├── Brand Lockup & Tagline
+│   │   ├── Value Proposition & Diagnostic Overview
+│   │   ├── Primary CTA (Start / Resume Assessment)
+│   │   └── Trust & Scientific Accreditation Bar
+│   │
+│   ├── /assess (Focused Assessment Runner — Zero-Distraction Mode)
+│   │   ├── Progress & Question Counter (P% | Q X/24)
+│   │   ├── Active Likert Prompt Container (680px)
+│   │   ├── 5-Point Response Scales (1–5)
+│   │   └── Ergonomic Keyboard Shortcuts (1-5, Backspace, Esc)
+│   │
+│   ├── /result (Executive Diagnostic Dossier)
+│   │   ├── Cognitive Archetype Hero (Type Code & Title)
+│   │   ├── 4 Polarity Balance Gauges (E/I, S/N, T/F, J/P)
+│   │   ├── Natural Behavioral Strengths Breakdown
+│   │   ├── Stress Triggers & Mental Recharge Antidotes
+│   │   ├── Interpersonal & Teamwork Protocols
+│   │   ├── Vocational Alignment Matrix (UNESCO & ILO)
+│   │   └── Action Utility Bar (PDF Export, Copy, Retake)
+│   │
+│   ├── /login (Enterprise Authentication Gateway)
+│   │   └── Single-step Credential Entry & Session Restoration
+│   │
+│   └── /register (Self-Service Member Onboarding)
+│       └── Secure Account Creation & Instant Session Linkage
+│
+└── [DEDICATED PRIVATE WORKSPACE: apps/app]
+    ├── / (Member Portal & Archive — MEMBER)
+    │   ├── Personal Identity & Status
+    │   ├── Historical Assessment Timeline Log
+    │   ├── One-Click Past Dossier Opener
+    │   └── Account Security & Profile Settings
+    │
+    └── /admin (Administration Studio — ADMIN / Fauzul)
+        ├── System Telemetry & Macroscopic Activity KPIs
+        ├── Aggregate Cognitive Typology Distribution (Pie Chart)
+        ├── Global Member Master Table with Live Search Filter
+        └── Account Safety & Defensible Moderation Controls
+```
+
+### **B. Wayfinding, Navigation & Screen Modes**
+1. **Global App Bar Navigation:** Present on `/`, `/result`, `/dashboard`, and `/admin`. Displays brand lockup, session status, and primary navigational links.
+2. **Cognitive Tunneling (Zero-Distraction Mode):** Strict suppression of global header, footer, and external links when user enters `/assess`. Replaced solely with a minimal progress tracker and safe exit control.
+3. **Contextual Action Menus:** Sticky utility bar on `/result` offering immediate user actions (*Download A4 PDF*, *Copy Summary*, *Retake Assessment*).
+4. **Automated Wayfinding Route Guards:**
+   - Accessing `/result` without completed local session $\rightarrow$ Immediate redirect to `/`.
+   - Accessing `/admin` without verified `ADMIN` session cookie $\rightarrow$ Immediate HTTP 403 Forbidden rejection.
+   - Accessing `/login` or `/register` with active valid session $\rightarrow$ Redirect to workspace.
+
+### **C. Information Access Matrix by Role**
+| Information Entity | Unauthenticated Guest | Registered `MEMBER` | System `ADMIN` (Fauzul) |
+| :--- | :---: | :---: | :---: |
+| **Public Landing & Assessment Runner** | Full Access | Full Access | Full Access |
+| **Current Diagnostic Dossier (`/result`)** | Session-bound (Local) | Persistent (Cloud) | Full Access |
+| **Download Unbranded A4 PDF Report** | Available | Available | Available |
+| **Historical Assessment Timeline** | ❌ (Ephemeral) | Full Access (`/dashboard`) | Full Access |
+| **Self-Service Profile & Password Update** | ❌ | Full Access | Full Access |
+| **Global Member Master Directory** | ❌ (403 Forbidden) | ❌ (403 Forbidden) | Full Access (`/admin`) |
+| **Macro Typology Distribution Analytics** | ❌ (403 Forbidden) | ❌ (403 Forbidden) | Full Access (`/admin`) |
+| **Account Safety & Session Moderation** | ❌ (403 Forbidden) | ❌ (403 Forbidden) | Full Access (`/admin`) |
+
 ---
 
 # **2. FUNCTIONAL REQUIREMENTS (THE "WHAT & HOW")**
