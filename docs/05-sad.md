@@ -23,7 +23,7 @@
 * **Software Type:** `Application Software` (IEEE Computer Society / SWEBOK v4.0).
 * **Platform & Distribution Model:** `Cloud Web Application / Enterprise SaaS` (NIST SP 800-145).
 * **Role-Based Access Control (RBAC — 2 Validated & Encrypted Roles):**
-  * `ADMIN` (Dedicated Platform Authority: Fauzul — Administrative Studio in `apps/app`, member directory governance, role promotion/demotion, system health telemetry).
+  * `ADMIN` (Dedicated Platform Authority: Fauzul — Administrative Studio in `apps/app`, member directory governance, aggregate typology telemetry, account moderation with strict immutable RBAC).
   * `MEMBER` (Registered Enterprise User — Execute assessments, access cognitive diagnostic archive, PDF report export, persistent synchronization in Neon PostgreSQL).
 
 ---
