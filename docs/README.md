@@ -1,55 +1,57 @@
-# **WATQ — MASTER DOCUMENTATION SUITE (MVP v1.0)**
+# **WATQ — MASTER DOCUMENTATION SUITE (ENTERPRISE SaaS v1.2.0)**
 
-> **Official Tagline:** *Personality Decoded.*  
-> **Repository Status:** Clean MVP Specification Suite (Zero Bloat, Zero Overlap, Scalable Architecture)  
-> **Core Architecture:** Single-Instrument Client-Driven Architecture (16 Cognitive Types)  
-> **Suite Version:** `1.2.0` │ **Status:** `MVP_LOCKED`
-
----
-
-## **1. DOCUMENTATION PHILOSOPHY & STANDARDS (THE "WHY")**
-
-The Watq documentation suite is engineered to meet the highest standards of modern software engineering and multidisciplinary research:
-1. **Concise & Direct:** Eliminates redundant bureaucracy, repetitive jargon, and unnecessary narrative prose.
-2. **Zero Overlap & Non-Redundant:** Each document holds exclusive Single Source of Truth (SSOT) authority. No data or rules are duplicated across files.
-3. **Uniform & Predictable Structure (The Universal 4-Chapter Blueprint):** Every specification document follows an identical 4-chapter anatomy.
-4. **Scalable & Modular:** The architecture allows future extensions (v2.0+) without altering the validated MVP foundation.
-5. **100% Pure Global English:** Standardized across all technical documentation, component schemas, tokens, and build configurations.
+> **Suite ID & Version:** `WATQ-DOCS-INDEX` │ `v1.2.0` │ `LOCKED`  
+> **Authority & Owner:** Fauzul (Platform Lead) │ **Repository:** `Mafrilearth/watq`  
+> **SSOT Domain:** Master Index of 8 Non-Overlapping SDLC Specifications  
+> **Live Platform:** [https://watq.mafrilearth.com](https://watq.mafrilearth.com)
 
 ---
 
-## **2. OFFICIAL 5-PILLAR DOCUMENTATION INDEX**
+## **1. DOCUMENTATION ARCHITECTURE & ZERO-OVERLAP PRINCIPLE**
 
-| No | Specification File | Global Industry Equivalents & Standards | Single Source of Truth (SSOT) Domain |
-| :---: | :--- | :--- | :--- |
-| **01** | [`01-brand.md`](file:///d:/watq/docs/01-brand.md) | **BRD & Brand Identity System** (`WIPO Classes 9, 16, 35, 41, 42`, `ISO 20671`, `ISO 10668`, `ISO 12647-2`, `DIN 5008`, `DIN 1450`, `WCAG 2.2 AAA`) | Brand DNA, Nomenclature, Tagline, Archetype, Tone of Voice, Geometric Construction of *The Psychometric Prism*, Cross-Medium Color System (Screen, Print, RAL, Madeira), Typographic Scale, Physical Stationery, and Strict Guardrails. |
-| **02** | [`02-prd.md`](file:///d:/watq/docs/02-prd.md) | **PRD (Product Requirements Document)** (`Jung 1921`, `Likert 1932`, `APA Standards`, `UNESCO ISCED-F 2013`, `ILO ISCO-08`) | MVP Scope Boundaries, 16 Cognitive Types Model, 24-Item Question Catalog, 50/50 Balanced Keying, Deterministic Scoring Formula & Proof Table, 16 Archetype Vocational Matrix, and Offline/Physical Testing Specs. |
-| **03** | [`03-srs.md`](file:///d:/watq/docs/03-srs.md) | **SRS (Software Requirements Specification)** (`IEEE 830`, `ISO/IEC 25010:2023`, `Fitts's Law`, `Hick-Hyman Law`, `Bringhurst's Law`, `RFC 9562`, `W3C Web Vitals`) | 3-Screen Sitemap (`/`, `/assess`, `/result`), Finite State Machine (FSM), Client Session Contract (`watq_mvp_session_v1`), Desktop Keyboard Navigation, 6 Critical Edge Cases Mitigation, and Non-Functional Budgets. |
-| **04** | [`04-design-system.md`](file:///d:/watq/docs/04-design-system.md) | **Design System & Tokens (DTCG)** (`W3C DTCG`, `WCAG 2.2 AAA`, `Bringhurst's Law`, `Weber-Fechner Law`, `Fitts's Law`, `Hick-Hyman Law`, `Miller's Law`, `DIN 1450`) | Atomic Component Hierarchy, 680px Focus Container, Slate & Deep Indigo Palettes, 4 Polarity Axis Tokens, 12-Dimensional Chart Spectrum, Inter `tnum` Typography, Micro-Motion Timing (120ms/180ms), and Reduced Motion. |
-| **05** | [`05-agentic-sdlc.md`](file:///d:/watq/docs/05-agentic-sdlc.md) | **Agentic SDLC & Multi-Agent Governance** (`ISO/IEC/IEEE 12207`, `CMMI v2.0`, `OWASP SAMM v2.0.1`, `Google SRE`, `SemVer 2.0.0`) | 8-Stage Agentic SDLC Matrix, Skill Mapping & Non-Overlapping Boundaries, Mandatory Deliverables, Cowboy Coding Anti-Patterns, and Continuous Closed-Loop Feedback Architecture. |
+The Watq documentation suite adheres to the highest global software engineering standards (`ISO/IEC/IEEE`, `W3C`, `OWASP`, `NIST`):
+1. **Strictly Non-Overlapping (Zero Overlap):** Each document possesses exclusive Single Source of Truth (SSOT) authority. No rule or data is duplicated across documents.
+2. **Standard International Nomenclature:** All specification files use recognized global acronyms (`BRD`, `PRD`, `SRS`, `DTS`, `SAD`, `STP`, `SEC`, `OPS`).
+3. **100% Pure Global English:** Standardized across all technical documentation, component schemas, tokens, and build configurations.
+4. **The Universal 4-Chapter Blueprint:** Every specification document follows an identical 4-chapter structure (Foundation, Core Specs, Guardrails, Code Mapping).
+
+---
+
+## **2. OFFICIAL MASTER DOCUMENTATION INDEX (8 CORE SDLC SPECIFICATIONS)**
+
+| No | File Path | Standard Document Title | Governing Global Standards | Single Source of Truth (SSOT) Domain |
+| :-: | :--- | :--- | :--- | :--- |
+| **01** | [`01-brd.md`](file:///d:/watq/docs/01-brd.md) | **Brand & Business Requirements Document (BRD)** | `ISO 20671`, `ISO 10668`, `WIPO Classes 9 & 42` | Brand DNA, Sundanese *Watek* root etymology, legal Fanciful Mark status, *The Universal Personality Lens* geometric construction, color palette, and business vision. |
+| **02** | [`02-prd.md`](file:///d:/watq/docs/02-prd.md) | **Product Requirements Document (PRD)** | `APA/ITC 2014`, `Jung 1921`, `Likert 1932`, `ILO ISCO-08`, `UNESCO ISCED-F` | 16 Cognitive Types construct, 24-item balanced Likert catalog, deterministic scoring formula ($S_{\text{dim}} \in [6, 30]$), and 16 archetype vocational matrix. |
+| **03** | [`03-srs.md`](file:///d:/watq/docs/03-srs.md) | **Software Requirements Specification (SRS)** | `ISO/IEC/IEEE 29148:2018`, `IEEE 830`, `ISO/IEC 25010:2023` | Monorepo domain routing (`apps/web` vs `apps/app`), Finite State Machine (FSM), keyboard navigation contract, and 6 critical edge cases mitigation. |
+| **04** | [`04-dts.md`](file:///d:/watq/docs/04-dts.md) | **Design Tokens Specification (DTS)** | `W3C DTCG Standard`, `WCAG 2.2 AAA`, `Bringhurst's Law` | DTCG token architecture, 680px distraction-free focus container derivation ($65\text{ CPL}$ measure), micro-motion curves (120ms/180ms), and ARIA accessibility. |
+| **05** | [`05-sad.md`](file:///d:/watq/docs/05-sad.md) | **Software Architecture Document (SAD)** | `ISO/IEC/IEEE 42010:2011`, `NIST SP 800-145` | Next-Forge monorepo structure, Neon Serverless PostgreSQL pooling, Prisma ORM schema, Architecture Decision Records (ADRs), and $0 OpEx toolchain. |
+| **06** | [`06-stp.md`](file:///d:/watq/docs/06-stp.md) | **Software Test Plan & Quality Assurance (STP)** | `ISO/IEC/IEEE 29119:2022`, `IEEE 730-2014` | Master testing strategy, 27/27 automated test proofs (brand geometry, scoring invariants, response validity), and release acceptance gates. |
+| **07** | [`07-sec.md`](file:///d:/watq/docs/07-sec.md) | **Security, Cryptography & Governance Policy (SEC)** | `OWASP Top 10 (2021)`, `ISO/IEC 27001`, `GDPR Art. 17/20` | Salted `scrypt` hashing with `timingSafeEqual`, strict 2-Role RBAC (`ADMIN` vs `MEMBER`), HTTP security headers (`HSTS`, `CSP`, `DENY`), and zero secret disclosure. |
+| **08** | [`08-ops.md`](file:///d:/watq/docs/08-ops.md) | **Operations & Observability Manual (OPS)** | `Google SRE Handbook`, `SemVer 2.0.0`, `ISO/IEC/IEEE 12207` | Dual-branch Git flow (`dev` ➔ `main`), SemVer 2.0.0 4-surface synchronization, telemetry infrastructure (Sentry, Better Stack, PostHog), and closed-loop triage runbook. |
 
 ---
 
 ## **3. THE UNIVERSAL 4-CHAPTER BLUEPRINT**
 
-Every document in this suite strictly adheres to a uniform structure:
+Every specification document in this suite strictly adheres to a uniform structure:
 
 ```text
-Header Metadata Box  ──> Document ID, Version (1.2.0), Status (MVP_LOCKED), Global Standards, SSOT, Code Links
-Chapter 1: FOUNDATION & PRINCIPLES (The "Why")           ──> Background, philosophy, and scope boundaries
-Chapter 2: CORE TECHNICAL SPECIFICATIONS (The "What/How") ──> Detailed specifications, data, and computation logic
-Chapter 3: GUARDRAILS, INTEGRITY & EDGE CASES            ──> Compliance standards, validation, and error mitigation
-Chapter 4: CODE IMPLEMENTATION MAPPING (The "Where")     ──> Source code paths (src/), data contracts, and acceptance
+Header Metadata Box  ──> Document ID (WATQ-XXX-0N), Version (1.0.0), Status (PRODUCTION_INITIAL_RELEASE_LOCKED), Global Standards, SSOT Authority, Code Links
+Chapter 1: FOUNDATION & PRINCIPLES (The "Why")           ──> Philosophical grounding, scientific rationale, and scope boundaries
+Chapter 2: CORE TECHNICAL SPECIFICATIONS (The "What/How") ──> Exhaustive data schemas, mathematical formulas, and contract specifications
+Chapter 3: GUARDRAILS, INTEGRITY & EDGE CASES            ──> Security invariants, validation constraints, and defensive mitigations
+Chapter 4: CODE IMPLEMENTATION MAPPING (The "Where")     ──> Monorepo source code links (apps/ and packages/), acceptance criteria
 ```
 
 ---
 
-## **4. SEPARATION OF CONCERNS MAPPING**
+## **4. SEPARATION OF CONCERNS MATRIX (ZERO OVERLAP)**
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
-│                              01-BRAND.MD                               │
-│   "Who is Watq?" -> Brand DNA, Logo, Colors, Physical Print, Voice     │
+│                              01-BRD.MD                                 │
+│   "Who is Watq?" -> Brand DNA, Watek Origin, Logo Geometry, Vision     │
 └───────────────────────────────────┬────────────────────────────────────┘
                                     │
 ┌───────────────────────────────────▼────────────────────────────────────┐
@@ -59,24 +61,31 @@ Chapter 4: CODE IMPLEMENTATION MAPPING (The "Where")     ──> Source code pat
                                     │
 ┌───────────────────────────────────▼────────────────────────────────────┐
 │                              03-SRS.MD                                 │
-│   "How Does It Work?" -> 3 Screens, FSM, LocalStorage, 6 Edge Cases    │
+│   "How Does It Work?" -> Route FSM, State Machine, 6 Edge Cases        │
 └───────────────────────────────────┬────────────────────────────────────┘
                                     │
 ┌───────────────────────────────────▼────────────────────────────────────┐
-│                         04-DESIGN-SYSTEM.MD                            │
-│   "How Does It Look & Move?" -> 680px Layout, CSS Tokens, Micro-Motion │
+│                              04-DTS.MD                                 │
+│   "How Does It Look & Move?" -> 680px Container, DTCG Tokens, Motion   │
 └───────────────────────────────────┬────────────────────────────────────┘
                                     │
 ┌───────────────────────────────────▼────────────────────────────────────┐
-│                         05-AGENTIC-SDLC.MD                             │
-│   "How is it Engineered?" -> 8-Stage SDLC, Agent Skills, Closed Loop   │
+│                              05-SAD.MD                                 │
+│   "Where Does It Run?" -> Next-Forge Monorepo, Neon DB, Prisma, ADRs   │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+┌───────────────────────────────────▼────────────────────────────────────┐
+│                              06-STP.MD                                 │
+│   "How is It Proven?" -> 27/27 Tests, Mathematical Scoring Proofs      │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+┌───────────────────────────────────▼────────────────────────────────────┐
+│                              07-SEC.MD                                 │
+│   "How is It Defended?" -> Scrypt Crypto, 2-Role RBAC, HSTS/CSP Headers │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+┌───────────────────────────────────▼────────────────────────────────────┐
+│                              08-OPS.MD                                 │
+│   "How is It Operated?" -> Dual-Branch Git, SemVer, Sentry, Telemetry   │
 └────────────────────────────────────────────────────────────────────────┘
 ```
-
----
-
-## **5. FUTURE SCALABILITY & EXTENSIBILITY**
-
-While MVP v1.0 is strictly locked to the 16 Cognitive Types model with 3 screens and $0 database OpEx:
-* **Adding New Instruments (v2.0+):** Simply introduce a new item catalog file under `src/data/assessments/` and register a scoring calculator in `src/lib/scoring/` without modifying core runner logic.
-* **Adding Cloud Database Persistence:** Can be integrated as an additional storage adapter under `src/lib/storage/` without breaking the standardized `WatqAssessmentSession` data contract.

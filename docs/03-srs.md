@@ -1,50 +1,55 @@
 # **WATQ: SOFTWARE REQUIREMENTS SPECIFICATION (SRS)**
 
-> **Document ID:** `WATQ-SRS-01` │ **Version:** `1.3.0` │ **Status:** `MVP_LOCKED`  
-> **Global Standards:** `IEEE 830` │ `ISO/IEC/IEEE 29148:2018 (Requirements Engineering)` │ `ISO/IEC 25010:2023 (Systems & Software Quality)` │ `W3C HTML5 & Web Storage API` │ `W3C Web Vitals` │ `RFC 9562 (UUID v4)` │ `ISO 8601:2019 (Timestamping)` │ `WCAG 2.2 Level AA/AAA` │ `Fitts's Law (1954)` │ `Hick-Hyman Law (1952)` │ `Robert Bringhurst's Law of Typographic Measure`  
-> **Single Source of Truth (SSOT):** 3-Screen Routing Architecture, Finite State Machine (FSM), Client Session State Contract (`localStorage`), 6 Critical Edge Cases Mitigation, Psychomotor Micro-Timing, and Non-Functional Performance Budgets  
-> **Code Link:** [`src/app/page.tsx`](file:///d:/watq/src/app/page.tsx), [`src/app/assess/page.tsx`](file:///d:/watq/src/app/), [`src/app/result/page.tsx`](file:///d:/watq/src/app/), [`src/lib/storage/session.ts`](file:///d:/watq/src/lib/) │ **Related Documents:** [`01-brand.md`](file:///d:/watq/docs/01-brand.md), [`02-prd.md`](file:///d:/watq/docs/02-prd.md), [`04-design-system.md`](file:///d:/watq/docs/04-design-system.md)
+> **ID & Version:** `WATQ-SRS-03` │ `v1.0.0` │ `LOCKED`  
+> **Authority & Owner:** Fauzul (Platform Lead) │ **Standard:** `ISO/IEC/IEEE 29148:2018` │ `IEEE 830` │ `ISO/IEC 25010`  
+> **SSOT Domain:** Domain Routing (`apps/web` vs `apps/app`), 2-Role Engine, Finite State Machine, 6 Critical Edge Cases  
+> **Target Code:** [`apps/web/src/app/assess/page.tsx`](file:///d:/watq/apps/web/src/app/assess/page.tsx) │ [`apps/web/src/lib/storage/session.ts`](file:///d:/watq/apps/web/src/lib/storage/session.ts)
 
 ---
 
 # **1. SYSTEM FOUNDATION & ARCHITECTURE (THE "WHY")**
 
-## **1.1 Client-Driven Zero-Backend Architecture ($0 OpEx)**
-Watq MVP v1.0 is engineered with a pure client-side web architecture using Next.js App Router. The entire computation pipeline, state processing, and data persistence execute inside the user's browser runtime:
-* **Zero Server Infrastructure:** No external database dependencies, API servers, authentication backends, or third-party cookies ($0 monthly server operating expenses).
-* **High Availability & Instant Latency:** Delivers $99.99\%$ operational availability and near-$0\text{ms}$ computational scoring latency.
-* **Complete User Data Sovereignty:** Assessment responses never leave the respondent's device. No telemetry tracking or third-party behavioral profiling.
+## **1.1 Enterprise Hybrid Architecture: Secure Cloud Persistence + Client Engine**
+Watq is engineered as a high-security Enterprise SaaS utilizing Next.js App Router, Neon Serverless PostgreSQL, and client-side scoring computation:
+* **Persistent Enterprise Security:** User credentials are encrypted using cryptographic `scrypt` hashing with 16-byte random salts. Sessions are stored securely in PostgreSQL with HttpOnly cookies.
+* **Deterministic Client Diagnostic Engine:** Assessment scoring computation and real-time Likert state transitions execute 100% deterministically in the browser (< 5ms scoring latency).
+* **Domain Monorepo Isolation:** Clear boundary separation between public marketing/runner (`apps/web`) and private authenticated workspace (`apps/app`).
 
 ## **1.2 Definitive Technology Stack Matrix**
-The MVP technical stack is strictly audited to eliminate runtime bloat, external network calls, and third-party vendor lock-in:
+The technical stack is strictly audited to eliminate runtime bloat, external network calls, and third-party vendor lock-in:
 
 | Architecture Layer | Technology & Version | Engineering Rationale & Governance |
 | :--- | :--- | :--- |
-| **Web Framework** | **Next.js 15 (App Router)** | Strict route segmentation, static rendering optimization, zero routing latency. |
+| **Web Framework** | **Next.js 16 (App Router)** | Strict route segmentation, static rendering optimization, zero routing latency. |
 | **Core UI Library** | **React 19** | Concurrent rendering primitives, efficient DOM reconciliation, zero layout shifts. |
 | **Programming Language** | **TypeScript 5.x** | Strict static type checking (`strict: true`), zero `any`, deterministic state schemas. |
-| **Styling & Tokens** | **Vanilla CSS + Tailwind CSS v3** | CSS Variables (`globals.css`), CSS `@layer`, zero runtime CSS-in-JS overhead. |
-| **Client State & Storage** | **React useReducer + Web Storage API** | Deterministic state machine + synchronous `localStorage` (`watq_mvp_session_v1`). |
-| **Typography System** | **Inter (Variable) + JetBrains Mono** | Next Font optimization (`next/font/google`), OpenType features (`cv02-cv04`, `tnum`). |
-| **Vector Iconography** | **Native Inline SVG Components** | Custom SVG vectors (`WatqLogo.tsx`), zero external icon font/package bundle bloat. |
-| **Session Identification** | **Web Crypto API (`crypto.randomUUID`)** | Cryptographically secure UUID v4 generation conforming to RFC 9562. |
-| **Hosting & Deployment** | **Vercel Edge Network / Static Export** | Static export capable (`output: 'export'`), global CDN caching, $0 operating expenses. |
+| **Database Engine** | **Neon Serverless PostgreSQL** | Cloud-native serverless PostgreSQL pooler, real-time data persistence, zero hardcoding. |
+| **ORM / Data Access** | **Prisma 6.x** | Type-safe query client, automated database migrations, zero-SQL injection. |
+| **Security & Cryptography** | **Node.js Crypto (`scryptSync`)** | Enterprise-grade password hashing with constant-time equality validation. |
+| **Styling & Tokens** | **Vanilla CSS + Tailwind CSS v4** | CSS Variables (`globals.css`), DTCG tokens, zero runtime CSS-in-JS overhead. |
+| **Typography System** | **Inter (Variable) + Space Grotesk** | Next Font optimization (`next/font/google`), zero layout shifts (CLS = 0). |
+| **Vector Iconography** | **Native Inline SVG Components** | Custom SVG vectors (`WatqLogo.tsx`), zero external icon bundle bloat. |
+| **Hosting & Deployment** | **Vercel Edge Network** | Edge SSR delivery, HTTP security headers (HSTS, CSP, X-Frame-Options: DENY). |
 
-## **1.3 Definitive 3-Screen Sitemap & Step-by-Step User Flow**
-Application navigation is strictly constrained to 3 isolated screens without sub-routes or unmanaged redirects:
+## **1.3 Definitive Route Architecture & Domain Separation**
+Application routes are strictly segregated between public-facing and private authenticated domains:
 
-### **A. Isolated Sitemap Hierarchy:**
+### **A. Public Gateway & Runner (`apps/web`):**
 ```
-[ROOT: watq.mafrilearth.com / localhost:3000]
+[PUBLIC DOMAIN: watq.mafrilearth.com]
 │
-├── Screen 1: Landing & Orientation (/)
-│   └── Brand Header, Value Proposition, Assessment Info (24 Items ~3 Min), & Action Button
+├── 1. Executive Landing: (/)
+├── 2. Focused 24-Item Assessment Runner: (/assess)
+├── 3. Executive Cognitive Dossier: (/result)
+└── 4. Enterprise Identity Gateways: (/login & /register)
+```
+
+### **B. Dedicated Private Workspace (`apps/app`):**
+```
+[PRIVATE DOMAIN: app.watq.mafrilearth.com]
 │
-├── Screen 2: Focused Assessment Runner (/assess)
-│   └── 680px Focus Mode, Progress Bar, Question Runner (1 to 24), & Keyboard Shortcuts
-│
-└── Screen 3: Diagnostic Synthesis & Vocational Report (/result)
-    └── Archetype Hero, 4 Polarity Bars, Recommended Majors & Careers, & Reset Button
+├── 1. Member Workspace: (/) — Personal profile & synchronized assessment archive
+└── 2. Administration Studio: (/admin) — Directory governance & operational health (Fauzul)
 ```
 
 ### **B. Step-by-Step User Journey Flow:**
@@ -124,7 +129,7 @@ Application navigation is strictly constrained to 3 isolated screens without sub
 * **FR-2.5 Previous Item Navigation:**
   * `"Back"` button always available at the bottom-left of the container (disabled on item 1), allowing respondents to revise earlier answers without resetting session progress.
 * **FR-2.6 Automatic Scoring on Final Item:**
-  * Upon answering the 24th item, the system executes deterministic scoring calculations (`WATQ-PRD-01`), stores results in `localStorage`, sets `completedAt`, and navigates to `/result`.
+  * Upon answering the 24th item, the system executes deterministic scoring calculations (`WATQ-PRD-02`), stores results in `localStorage`, sets `completedAt`, and navigates to `/result`.
 
 ## **2.3 Screen 3: Diagnostic Report & Recommendations (`/result`)**
 * **FR-3.1 Route Protection (Redirect Guard):** Navigating directly to `/result` without valid completed assessment data in `localStorage` safely performs an immediate client redirect to `/`.

@@ -13,24 +13,29 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 > **Standard:** Universal Agentic Engineering SOP (for Cursor, Claude Code, Copilot, Antigravity, Devin, Codex, and custom AI agents).  
 > **Repository:** `Mafrilearth/watq` │ **Live URL:** [https://watq.mafrilearth.com](https://watq.mafrilearth.com)  
 > **Brand & Tagline:** *Watq — Personality Decoded.*  
+> **Platform Domain:** Universal Personality & Cognitive Decoding Platform (Model-Agnostic Sovereign Standard)  
 > **Primary Authority:** All agents must read and adhere to the Single Source of Truth (SSOT) documents in [`docs/`](file:///d:/watq/docs/README.md) before implementing changes.
 
 ---
 
 ## **1. SYSTEM ARCHITECTURE & PHILOSOPHY**
 
-1. **Zero-Database OpEx ($0 Infra Overhead):**
-   - The assessment runner, session state machine, scoring calculation, and reporting engine execute **100% client-side**.
-   - Session persistence uses browser `localStorage` + Web Crypto API (`watq_mvp_session_v1`).
-   - Do **NOT** introduce cloud database dependencies (Supabase, Neon, Firebase, etc.) unless the user explicitly requests a database migration.
-2. **Deterministic & Isolated 3-Screen Architecture:**
-   - **Landing (`/`):** Universal brand pitch, clear single CTA (`Start Assessment`), responsive metrics grid.
-   - **Runner (`/assess`):** Centered 680px focus container, 24-item 5-point Likert scale (Jungian 1921 / 16 Cognitive Types), zero header distraction, desktop keyboard navigation (`1`-`5`, `Enter`, `Back`).
-   - **Diagnosis & Vocational Report (`/result`):** High-density archetypal profile, 4-polarity radar, career trajectories (ILO ISCO-08 & UNESCO ISCED-F 2013 alignment).
-3. **Dedicated Public Changelog (`/changelog`):**
-   - User-facing timeline documenting platform iterations, psychometric engine calibrations, and architectural updates.
-   - Synchronized with `CHANGELOG.md` and GitHub Releases.
-4. **100% Global English Standard:**
+1. **Universal Personality Architecture (Model-Agnostic):**
+   - **Overarching Brand Domain:** Human personality itself (*Personality Decoded*), not merely a "testing tool". The assessment runner is the diagnostic gateway into lifelong self-decoding, cognitive understanding, and vocational mastery.
+   - **Psychological Grounding:** Grounded in the Universal Psychological Triad (Cognition, Affect, Conation) and Authentic Self (*Das Selbst / Wathiqa*).
+   - **MVP Phasing:** Initialized with the 16 Cognitive Types public-domain instrument (Carl Gustav Jung 1921 / 24-item Likert scale) as the reference implementation, architected with modular catalog support for future instruments (Big Five OCEAN, Enneagram, DISC, Holland RIASEC).
+2. **Enterprise Cloud Persistence & Cryptographic Security:**
+   - Production persistence powered by **Neon Serverless PostgreSQL** via Prisma ORM.
+   - User credentials secured using one-way cryptographic salted hashing (`scryptSync` with 16-byte random salt and `timingSafeEqual`).
+   - Session tokens stored securely in PostgreSQL and managed via secure `HttpOnly` cookies.
+   - Zero hardcoding of user roles or accounts; zero demo bypasses.
+3. **Deterministic Monorepo Separation (`apps/web` vs `apps/app`):**
+   - **Public Gateway (`apps/web`):** Executive Landing (`/`), Focused Assessment Runner (`/assess`), Executive Diagnostic Dossier (`/result`), and Authentication Gateways (`/login` & `/register`).
+   - **Private Workspace (`apps/app`):** Dedicated authenticated enterprise application. Member profile & assessment sync at `/`, Administrative Governance Studio at `/admin`.
+4. **Zero Technical Jargon in User-Facing UI:**
+   - Never surface internal developer terminology, database names (Neon, PostgreSQL, Prisma), cloud infrastructure regions, or technical acronyms (RBAC, WAF, OpEx) on user screens.
+   - All client copy must be polished, natural, and executive-ready.
+5. **100% Global English Standard:**
    - All code, UI copy, button labels, error toasts, commit messages, and documentation must be written in **standard British/American English**. No Indonesian or mixed slang in code or user-facing interfaces.
 
 ---
@@ -41,12 +46,14 @@ Whenever modifying any domain, the agent **MUST** reference its respective SSOT 
 
 | Domain | SSOT Document | Key Information |
 | :--- | :--- | :--- |
-| **Brand & Design** | [`docs/01-brand.md`](file:///d:/watq/docs/01-brand.md) | Logo construction, Slate (`#0B0F19`) & Indigo palette, typography, tone of voice. |
-| **Psychometrics & PRD** | [`docs/02-prd.md`](file:///d:/watq/docs/02-prd.md) | 24-item question catalog, scoring formula, 16 archetype matrix. |
-| **Software Specs & SRS** | [`docs/03-srs.md`](file:///d:/watq/docs/03-srs.md) | Finite State Machine (FSM), local storage schema, 6 critical edge cases. |
-| **Design System Tokens** | [`docs/04-design-system.md`](file:///d:/watq/docs/04-design-system.md) | 680px layout container, CSS tokens, micro-motion timings (120ms/180ms), WCAG 2.2 AA. |
-| **Agentic SDLC & Skills** | [`docs/05-agentic-sdlc.md`](file:///d:/watq/docs/05-agentic-sdlc.md) | 8-Stage SDLC matrix, skill mapping, non-overlapping boundaries, mandatory deliverables, and closed-loop feedback. |
-| **Release History** | [`CHANGELOG.md`](file:///d:/watq/CHANGELOG.md) | SemVer 2.0.0 changelog records for all published releases. |
+| **Brand & Business** | [`docs/01-brd.md`](file:///d:/watq/docs/01-brd.md) | Universal personality philosophy, Watek etymology, Fanciful Mark status, The Universal Personality Lens geometry, Cold Basalt & Citron palette. |
+| **Product & Psychometrics** | [`docs/02-prd.md`](file:///d:/watq/docs/02-prd.md) | Universal platform vision, MVP 16 Cognitive Types catalog, scoring formula, 16 archetype matrix, UNESCO/ILO career mapping. |
+| **Software Specs & SRS** | [`docs/03-srs.md`](file:///d:/watq/docs/03-srs.md) | Monorepo domain routing (`apps/web` vs `apps/app`), Finite State Machine (FSM), local storage schema, 6 critical edge cases. |
+| **Design Tokens & System** | [`docs/04-dts.md`](file:///d:/watq/docs/04-dts.md) | 680px layout container, DTCG CSS tokens, micro-motion timings (120ms/180ms), WCAG 2.2 AAA accessibility. |
+| **Software Architecture** | [`docs/05-sad.md`](file:///d:/watq/docs/05-sad.md) | Next-Forge monorepo boundaries, Neon Serverless PostgreSQL pooling, Prisma ORM schema, ADRs, $0 OpEx toolchain. |
+| **Test Plan & QA** | [`docs/06-stp.md`](file:///d:/watq/docs/06-stp.md) | Master testing strategy, 27/27 automated test proofs (brand geometry, scoring invariants, response validity), release gates. |
+| **Security & Cryptography** | [`docs/07-sec.md`](file:///d:/watq/docs/07-sec.md) | Salted `scrypt` hashing with `timingSafeEqual`, strict 2-Role RBAC (`ADMIN` vs `MEMBER`), HTTP security headers (`HSTS`, `CSP`, `DENY`). |
+| **Operations & Observability** | [`docs/08-ops.md`](file:///d:/watq/docs/08-ops.md) | Dual-branch Git release flow (`dev` ➔ `main`), SemVer 2.0.0 4-surface synchronization, telemetry, closed-loop incident triage. |
 | **Security Policy** | [`.github/SECURITY.md`](file:///d:/watq/.github/SECURITY.md) | Responsible disclosure terms, 48h SLA, private reporting channel. |
 
 ---
@@ -56,7 +63,7 @@ Whenever modifying any domain, the agent **MUST** reference its respective SSOT 
 All agents must strictly preserve platform security across all layers:
 
 1. **Zero Secret Disclosure:**
-   - **NEVER** expose API keys, tokens, credentials, private emails, internal server IPs, or unpatched vulnerabilities in commit messages, documentation, `CHANGELOG.md`, or public web pages.
+   - **NEVER** expose API keys, tokens, credentials, private emails, internal server IPs, or unpatched vulnerabilities in commit messages, documentation, or public web pages.
 2. **HTTP Security Headers (`next.config.ts`):**
    - Maintain enterprise headers: Strict-Transport-Security (`HSTS` max-age 2 years with preload), `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `X-XSS-Protection`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy`, and Content Security Policy (`CSP`).
    - Keep `poweredByHeader: false` to strip `X-Powered-By: Next.js` technology stack fingerprinting.
@@ -75,7 +82,7 @@ All agents must strictly preserve platform security across all layers:
 
 ### **A. Anti-Pattern: No Version Spamming for Micro-Revisions**
 - **Do NOT bump version numbers for routine micro-edits** (e.g., CSS margin adjustments, minor typo fixes, internal refactoring).
-- Micro-changes accumulate in Git commits (following Conventional Commits) or under `## [Unreleased]` in `CHANGELOG.md`.
+- Micro-changes accumulate in Git commits (following Conventional Commits).
 - Version numbers are bumped **ONLY** when bundling an intentional milestone release for users.
 
 ### **B. Semantic Versioning Rules (SemVer 2.0.0):**
@@ -85,23 +92,19 @@ All agents must strictly preserve platform security across all layers:
 
 ### **C. The 4-Surface Version Synchronization Rule:**
 Whenever a release is published, the agent **MUST** ensure the version string matches identically across all 4 surfaces:
-1. **`package.json`**: `"version": "X.Y.Z"`
-2. **`CHANGELOG.md`**: `## [X.Y.Z] - YYYY-MM-DD`
-3. **Web Changelog (`src/app/changelog/page.tsx`)**: Entry card with identical release notes, badges, and link to GitHub tag.
+1. **`package.json`**: `"version": "X.Y.Z"` across root and all workspace packages (`@watq/web`, `@watq/app`, etc.)
+2. **Master Documentation Suite (`docs/README.md`)**: `Suite Version: X.Y.Z` and `docs/02-prd.md`
+3. **Root README (`README.md`)**: Release badge `Release-vX.Y.Z`
 4. **GitHub Releases & Git Tag**: Tag `vX.Y.Z` pushed to remote, and official GitHub Release published with `make_latest: true`.
 
 ---
 
-## **5. FEATURE ROLLOUT & ANNOUNCEMENT SOP**
+## **5. FEATURE ROLLOUT & ZERO-BLOAT SOP**
 
 When shipping notable user-facing features or major updates:
-1. **Update [`src/components/modals/WhatsNewModal.tsx`](file:///d:/watq/src/components/modals/WhatsNewModal.tsx):**
-   - Add the new feature cards with clear titles, descriptions, and tag labels (`NEW`, `IMPROVEMENT`, `FIX`).
-   - Bump the `STORAGE_KEY` version string (e.g., `watq_announcement_seen_v1_1`) so that returning users are presented with the popup exactly once.
-2. **Update [`CHANGELOG.md`](file:///d:/watq/CHANGELOG.md) & [`src/app/changelog/page.tsx`](file:///d:/watq/src/app/changelog/page.tsx):**
-   - Maintain identical notes under `Added`, `Changed`, `Fixed`, and `Security` sections.
-3. **Update [`src/app/sitemap.ts`](file:///d:/watq/src/app/sitemap.ts):**
-   - Ensure all public routes are registered with appropriate change frequencies.
+1. **Enterprise Cleanliness:** Zero intrusive popups or disruptive modals on user screens. All public updates must preserve focus and executive polish.
+2. **Update Documentation Suite:** Reflect changes in [`docs/02-prd.md`](file:///d:/watq/docs/02-prd.md), [`docs/03-srs.md`](file:///d:/watq/docs/03-srs.md), and related SSOT documents.
+3. **Update [`src/app/sitemap.ts`](file:///d:/watq/src/app/sitemap.ts):** Ensure all public routes are registered with appropriate change frequencies.
 
 ---
 
@@ -125,7 +128,7 @@ When shipping notable user-facing features or major updates:
 
 ## **7. THE AGENTIC SDLC 8-STAGE FRAMEWORK & SKILL MAPPING**
 
-All engineering workflows in this repository operate under the **8-Stage Agentic SDLC** governed by [`docs/05-agentic-sdlc.md`](file:///d:/watq/docs/05-agentic-sdlc.md). AI agents must strictly invoke the corresponding specialized skill before executing work in each domain:
+All engineering workflows in this repository operate under the **8-Stage Agentic SDLC** governed by [`docs/08-ops.md`](file:///d:/watq/docs/08-ops.md) and [`docs/README.md`](file:///d:/watq/docs/README.md). AI agents must strictly invoke the corresponding specialized skill before executing work in each domain:
 
 | Stage | Phase | Primary Skill | Operational Scope & Non-Overlapping Boundary |
 | :---: | :--- | :--- | :--- |

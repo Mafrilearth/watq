@@ -1,6 +1,11 @@
-import { AssessmentSession, AssessmentResult, LikertValue } from '@/types/assessment';
+import type {
+  AnyAssessmentResult,
+  AssessmentModelType,
+  AssessmentSession,
+  LikertValue,
+} from "@/types/assessment";
 
-const STORAGE_KEY = 'watq_mvp_session_v1';
+const STORAGE_KEY = "watq_mvp_session_v1";
 
 let memorySession: AssessmentSession | null = null;
 let cachedRaw: string | null = null;
@@ -22,25 +27,25 @@ export function subscribeSession(callback: () => void): () => void {
     }
   };
 
-  if (typeof window !== 'undefined') {
-    window.addEventListener('storage', handleStorage);
+  if (typeof window !== "undefined") {
+    window.addEventListener("storage", handleStorage);
   }
 
   return () => {
     listeners.delete(callback);
-    if (typeof window !== 'undefined') {
-      window.removeEventListener('storage', handleStorage);
+    if (typeof window !== "undefined") {
+      window.removeEventListener("storage", handleStorage);
     }
   };
 }
 
 function generateUUID(): string {
-  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
     return crypto.randomUUID();
   }
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
     const r = (Math.random() * 16) | 0;
-    const v = c === 'x' ? r : (r & 0x3) | 0x8;
+    const v = c === "x" ? r : (r & 0x3) | 0x8;
     return v.toString(16);
   });
 }
@@ -50,7 +55,7 @@ function generateUUID(): string {
  * Preserves object reference identity when localStorage content has not changed.
  */
 export function getClientSessionSnapshot(): AssessmentSession | null {
-  if (typeof window === 'undefined') {
+  if (typeof window === "undefined") {
     return null;
   }
   try {
@@ -64,7 +69,7 @@ export function getClientSessionSnapshot(): AssessmentSession | null {
       return cachedSnapshot;
     }
     const parsed = JSON.parse(raw) as AssessmentSession;
-    if (parsed && parsed.sessionId && parsed.instrumentId === 'jungian-16') {
+    if (parsed && parsed.sessionId && parsed.instrumentId) {
       cachedSnapshot = parsed;
     } else {
       cachedSnapshot = null;
@@ -88,7 +93,7 @@ export function saveSession(session: AssessmentSession): void {
   memorySession = session;
   cachedSnapshot = session;
 
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     try {
       const raw = JSON.stringify(session);
       cachedRaw = raw;
@@ -100,10 +105,14 @@ export function saveSession(session: AssessmentSession): void {
   notifyListeners();
 }
 
-export function initSession(): AssessmentSession {
+export function initSession(
+  instrumentId = "jungian-16",
+  modelType: AssessmentModelType = "jungian",
+): AssessmentSession {
   const newSession: AssessmentSession = {
     sessionId: generateUUID(),
-    instrumentId: 'jungian-16',
+    instrumentId,
+    modelType,
     startedAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     completedAt: null,
@@ -118,7 +127,7 @@ export function initSession(): AssessmentSession {
 export function updateSessionResponse(
   questionId: string,
   value: LikertValue,
-  nextIndex: number
+  nextIndex: number,
 ): AssessmentSession {
   const current = getSession() ?? initSession();
   current.responses[questionId] = value;
@@ -127,7 +136,7 @@ export function updateSessionResponse(
   return current;
 }
 
-export function completeSession(result: AssessmentResult): AssessmentSession {
+export function completeSession(result: AnyAssessmentResult): AssessmentSession {
   const current = getSession() ?? initSession();
   current.result = result;
   current.completedAt = new Date().toISOString();
@@ -139,7 +148,7 @@ export function clearSession(): void {
   memorySession = null;
   cachedRaw = null;
   cachedSnapshot = null;
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     try {
       window.localStorage.removeItem(STORAGE_KEY);
     } catch {

@@ -1,39 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 160" width="100%" height="100%" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160" width="100%" height="100%" fill="none">
+  <!-- 
+    WATQ MASTER HORIZONTAL LOCKUP (100% PERFECTION STANDARD)
+    Insignia: The Universal Personality Lens (Filleted Keystones & Golden Aperture)
+    Typography: Space Grotesk Bold 700 + Inter Semibold 600
+  -->
   <defs>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;800&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;family=Inter:wght@600&amp;display=swap');
       .brand-title {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        font-weight: 800;
-        font-size: 56px;
+        font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-weight: 700;
+        font-size: 52px;
         letter-spacing: -0.04em;
         fill: #FFFFFF;
       }
       .brand-tagline {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         font-weight: 600;
-        font-size: 12px;
-        letter-spacing: 0.18em;
-        fill: #94A3B8;
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        fill: #8E8E93;
       }
       .lockup-divider {
-        stroke: rgba(255, 255, 255, 0.18);
+        stroke: rgba(255, 255, 255, 0.16);
         stroke-width: 1.5;
       }
     </style>
   </defs>
 
-  <!-- Left: The Psychometric Prism Perfectly Centered (Y: 40 to 120, Center Y = 80) -->
-  <g transform="translate(24, -20) scale(0.40)">
-    <path d="M 90 150 L 150 150 L 210 325 L 165 350 L 90 150 Z" fill="#FFFFFF" />
-    <path d="M 215 175 L 285 175 L 250 350 L 215 175 Z" fill="#38BDF8" />
-    <path d="M 350 150 L 410 150 L 335 350 L 290 325 L 350 150 Z" fill="#A5B4FC" />
+  <!-- Left: The Universal Personality Lens (Scaled to 82px) -->
+  <g transform="translate(80, 80) scale(0.244) translate(-250, -250)">
+    <path d="M 310.14 203.73 L 381.58 162.49 Q 391.97 156.49 385.02 146.71 A 170 170 0 0 0 114.98 146.71 Q 108.03 156.49 118.42 162.49 L 189.86 203.73 Q 200.26 209.73 208.63 201.17 A 64 64 0 0 1 291.37 201.17 Q 299.74 209.73 310.14 203.73 Z" fill="#FFFFFF" />
+    <path d="M 179.86 221.05 L 108.42 179.81 Q 98.03 173.81 93.04 184.72 A 170 170 0 0 0 228.06 418.58 Q 240.00 419.71 240.00 407.71 L 240.00 325.21 Q 240.00 313.21 228.39 310.24 A 64 64 0 0 1 187.02 238.59 Q 190.26 227.05 179.86 221.05 Z" fill="#FFFFFF" />
+    <path d="M 260.00 325.21 L 260.00 407.71 Q 260.00 419.71 271.94 418.58 A 170 170 0 0 0 406.96 184.72 Q 401.97 173.81 391.58 179.81 L 320.14 221.05 Q 309.74 227.05 312.98 238.59 A 64 64 0 0 1 271.61 310.24 Q 260.00 313.21 260.00 325.21 Z" fill="#FFFFFF" />
+    <circle cx="250" cy="250" r="24" fill="#FFFFFF" />
   </g>
 
-  <!-- Divider: Centered Vertically (Y: 38 to 122, Center Y = 80) -->
-  <line x1="225" y1="38" x2="225" y2="122" class="lockup-divider" />
+  <!-- Vertical Divider Bar -->
+  <line x1="150" y1="44" x2="150" y2="116" class="lockup-divider" />
 
-  <!-- Right: Wordmark + Tagline Centered Vertically (Center Y = 80) -->
-  <text x="255" y="85" class="brand-title">WATQ</text>
-  <text x="257" y="115" class="brand-tagline">PERSONALITY DECODED.</text>
+  <!-- Right: Wordmark + Tagline -->
+  <text x="180" y="85" class="brand-title">Watq</text>
+  <text x="182" y="114" class="brand-tagline">Personality Decoded.</text>
 </svg>

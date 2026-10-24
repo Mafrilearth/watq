@@ -1,0 +1,146 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum Role {
+  ADMIN
+  MEMBER
+}
+
+enum Dimension {
+  ENERGY        // E vs I
+  PERCEPTION    // S vs N
+  JUDGMENT      // T vs F
+  ORIENTATION   // J vs P
+}
+
+// ==============================================================================
+// 1. BETTER AUTH REQUIRED MODELS
+// ==============================================================================
+
+model User {
+  id            String       @id @default(cuid())
+  name          String?
+  email         String       @unique
+  emailVerified Boolean      @default(false)
+  image         String?
+  role          Role         @default(MEMBER)
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  sessions      Session[]
+  accounts      Account[]
+  assessments   AssessmentResult[]
+
+  @@map("users")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model Account {
+  id                    String    @id @default(cuid())
+  userId                String
+  accountId             String
+  providerId            String
+  accessToken           String?
+  refreshToken          String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  idToken               String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([providerId, accountId])
+  @@map("accounts")
+}
+
+model Verification {
+  id         String   @id @default(cuid())
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("verifications")
+}
+
+// ==============================================================================
+// 2. PSYCHOMETRIC ENGINE & QUESTION BANK
+// ==============================================================================
+
+model PsychometricModel {
+  id          String   @id // e.g. "jung-16-types", "holland-riasec", "big-five-ocean"
+  name        String
+  framework   String
+  year        Int
+  description String
+  itemCount   Int
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  questions   Question[]
+
+  @@map("psychometric_models")
+}
+
+model Question {
+  id          Int               @id @default(autoincrement())
+  modelId     String            @default("jung-16-types")
+  prompt      String
+  target      String
+  dimension   Dimension
+  pole        String            // "E", "I", "S", "N", "T", "F", "J", "P"
+  polarity    Int               // +1 (Positively Keyed) or -1 (Reverse Keyed)
+  orderIndex  Int               @default(0)
+  isActive    Boolean           @default(true)
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  model       PsychometricModel @relation(fields: [modelId], references: [id], onDelete: Cascade)
+
+  @@map("questions")
+}
+
+model AssessmentResult {
+  id          String   @id @default(cuid())
+  userId      String?  // Nullable for unauthenticated guest sessions
+  modelId     String   @default("jung-16-types")
+  typeCode    String   // e.g. "INTJ", "ENFP"
+  archetype   String   // e.g. "The Architect", "The Champion"
+  scoreEI     Float
+  scoreSN     Float
+  scoreTF     Float
+  scoreJP     Float
+  rawScores   Json     // Full polarity breakdown: { E: 18, I: 6, ... }
+  responses   Json     // Snapshot of item responses: { "EI-01": 5, "EI-02": 4, ... }
+  completedAt DateTime @default(now())
+
+  user        User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@map("assessment_results")
+}

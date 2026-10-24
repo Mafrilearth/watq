@@ -1,18 +1,22 @@
 {
-  "name": "watq-monorepo",
-  "version": "1.1.0",
+  "name": "watq",
+  "version": "1.2.0",
   "private": true,
   "scripts": {
-    "dev": "turbo run dev",
-    "build": "turbo run build",
-    "lint": "turbo run lint",
+    "dev": "turbo dev",
     "dev:web": "pnpm --filter @watq/web dev",
-    "dev:mobile": "pnpm --filter @watq/mobile start",
+    "dev:app": "pnpm --filter @watq/app dev",
+    "dev:docs": "pnpm --filter @watq/docs dev",
+    "build": "turbo build",
     "build:web": "pnpm --filter @watq/web build",
-    "build:mobile": "pnpm --filter @watq/mobile build:android",
-    "typecheck": "turbo run typecheck"
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "typecheck": "turbo typecheck",
+    "test": "pnpm --filter @watq/web test",
+    "db:studio": "pnpm --filter @watq/studio dev"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "turbo": "^2"
   },
   "packageManager": "pnpm@12.11.2"

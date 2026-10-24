@@ -1,5 +1,5 @@
-import { JUNGIAN_QUESTIONS, ARCHETYPES, ARCHETYPE_METAS } from './data';
-import { LikertValue, AssessmentResult, PolarityScores } from './types';
+import { ARCHETYPES, ARCHETYPE_METAS, JUNGIAN_QUESTIONS } from "./data";
+import type { AssessmentResult, LikertValue, PolarityScores } from "./types";
 
 /**
  * Deterministic scoring engine for Watq 16 Cognitive Types
@@ -17,16 +17,16 @@ export function calculateJungianScores(responses: Record<string, LikertValue>): 
     const normalizedScore = item.isReversed ? 6 - rawVal : rawVal;
 
     switch (item.dimension) {
-      case 'EI':
+      case "EI":
         sumEI += normalizedScore;
         break;
-      case 'SN':
+      case "SN":
         sumSN += normalizedScore;
         break;
-      case 'TF':
+      case "TF":
         sumTF += normalizedScore;
         break;
-      case 'JP':
+      case "JP":
         sumJP += normalizedScore;
         break;
     }
@@ -46,10 +46,10 @@ export function calculateJungianScores(responses: Record<string, LikertValue>): 
   const scoreP = 100 - scoreJ;
 
   // Deterministic tie-breaking threshold (>= 50% maps to primary pole)
-  const letterE_I = scoreE >= 50 ? 'E' : 'I';
-  const letterS_N = scoreS >= 50 ? 'S' : 'N';
-  const letterT_F = scoreT >= 50 ? 'T' : 'F';
-  const letterJ_P = scoreJ >= 50 ? 'J' : 'P';
+  const letterE_I = scoreE >= 50 ? "E" : "I";
+  const letterS_N = scoreS >= 50 ? "S" : "N";
+  const letterT_F = scoreT >= 50 ? "T" : "F";
+  const letterJ_P = scoreJ >= 50 ? "J" : "P";
 
   const typeCode = `${letterE_I}${letterS_N}${letterT_F}${letterJ_P}`;
   const archetype = ARCHETYPES[typeCode] || ARCHETYPES.INTJ;

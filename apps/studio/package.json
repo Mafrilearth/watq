@@ -1,0 +1,15 @@
+{
+  "name": "@watq/studio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "prisma studio --schema=../../packages/database/prisma/schema.prisma --port 5555",
+    "start": "prisma studio --schema=../../packages/database/prisma/schema.prisma --port 5555"
+  },
+  "dependencies": {
+    "@watq/database": "workspace:*"
+  },
+  "devDependencies": {
+    "prisma": "^6.4.1"
+  }
+}

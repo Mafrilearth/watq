@@ -1,19 +1,22 @@
-'use client';
+"use client";
 
-import React, { useState, useRef, MouseEvent } from 'react';
-import Link from 'next/link';
-import { ArrowRight, Sparkles, Brain, Compass, Shield, Target, Award } from 'lucide-react';
-import { playMicroClick } from '@/lib/audio/haptics';
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { useUIStore } from "@/lib/stores/uiStore";
+import { ArrowRight, Sparkles, Compass } from "lucide-react";
+import Link from "next/link";
+import React, { useState, useRef, type MouseEvent } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 interface ArchetypePreview {
   code: string;
-  title: string;
-  temperament: 'Analyst' | 'Diplomat' | 'Sentinel' | 'Explorer';
+  title: { en: string; id: string };
+  temperament: { en: string; id: string };
   color: string;
-  tagline: string;
-  dominantAxis: string;
-  majors: string[];
-  careers: string[];
+  tagline: { en: string; id: string };
+  dominantAxis: { en: string; id: string };
+  majors: { en: string[]; id: string[] };
+  careers: { en: string[]; id: string[] };
   bars: {
     ei: number; // % Introversion (0 = E, 100 = I)
     sn: number; // % Intuition (0 = S, 100 = N)
@@ -24,52 +27,125 @@ interface ArchetypePreview {
 
 const PREVIEW_TYPES: ArchetypePreview[] = [
   {
-    code: 'INTJ',
-    title: 'The Strategic Architect',
-    temperament: 'Analyst',
-    color: '#818CF8', // Indigo
-    tagline: 'Systemic strategic thinker, independent analytical planner, and structural optimizer.',
-    dominantAxis: 'Introverted Intuition (Ni)',
-    majors: ['Computer Science (0613)', 'Informatics & Data Science', 'Applied Mathematics (0541)'],
-    careers: ['Software Architect (2511)', 'Data Scientist (2521)', 'Systems Analyst (2511)'],
+    code: "INTJ",
+    title: {
+      en: "The Strategic Architect",
+      id: "Arsitek Strategis",
+    },
+    temperament: {
+      en: "Analyst",
+      id: "Analis",
+    },
+    color: "#818CF8", // Indigo
+    tagline: {
+      en: "Systemic strategic thinker, independent analytical planner, and thoughtful builder.",
+      id: "Pemikir strategis berorientasi sistem, perencana analitis mandiri, dan visioner terstruktur.",
+    },
+    dominantAxis: {
+      en: "Strategic Vision (Ni)",
+      id: "Visi Strategis (Ni)",
+    },
+    majors: {
+      en: ["Computer Science", "Data Science & AI", "Applied Mathematics"],
+      id: ["Ilmu Komputer", "Sains Data & AI", "Matematika Terapan"],
+    },
+    careers: {
+      en: ["Software Architect", "Data Scientist", "Strategic Systems Director"],
+      id: ["Arsitek Perangkat Lunak", "Data Scientist", "Direktur Sistem Strategis"],
+    },
     bars: { ei: 82, sn: 78, tf: 86, jp: 74 },
   },
   {
-    code: 'ENTP',
-    title: 'The Visionary Explorer',
-    temperament: 'Analyst',
-    color: '#38BDF8', // Sky
-    tagline: 'Lateral problem solver, inventive debater, and cross-disciplinary idea catalyst.',
-    dominantAxis: 'Extraverted Intuition (Ne)',
-    majors: ['Computer Science (0613)', 'Product Design (0212)', 'Business Entrepreneurship'],
-    careers: ['Product Innovation Lead', 'Startup Founder (1120)', 'Technology Strategist'],
+    code: "ENTP",
+    title: {
+      en: "The Visionary Explorer",
+      id: "Penjelajah Visioner",
+    },
+    temperament: {
+      en: "Analyst",
+      id: "Analis",
+    },
+    color: "#D4F024", // Radioactive Citron
+    tagline: {
+      en: "Creative problem solver, inventive innovator, and curious cross-disciplinary thinker.",
+      id: "Pemecah masalah kreatif, inovator adaptif, dan penghubung ide lintas disiplin.",
+    },
+    dominantAxis: {
+      en: "Creative Exploration (Ne)",
+      id: "Eksplorasi Kreatif (Ne)",
+    },
+    majors: {
+      en: ["Product Design", "Computer Engineering", "Entrepreneurship"],
+      id: ["Desain Produk", "Teknik Komputer", "Kewirausahaan & Bisnis"],
+    },
+    careers: {
+      en: ["Innovation Lead", "Tech Founder", "Product Strategist"],
+      id: ["Pemimpin Inovasi", "Pendiri Startup Teknologi", "Ahli Strategi Produk"],
+    },
     bars: { ei: 28, sn: 84, tf: 72, jp: 32 },
   },
   {
-    code: 'INFJ',
-    title: 'The Insightful Counselor',
-    temperament: 'Diplomat',
-    color: '#2DD4BF', // Teal
-    tagline: 'Humanistic visionary, thoughtful observer, and supportive personal growth mentor.',
-    dominantAxis: 'Introverted Intuition (Ni)',
-    majors: ['Psychology (0313)', 'Human-Computer Interaction', 'Cognitive Science'],
-    careers: ['UX Strategist (2513)', 'Educational Designer (2351)', 'Organizational Counselor'],
+    code: "INFJ",
+    title: {
+      en: "The Insightful Counselor",
+      id: "Konselor Penuh Wawasan",
+    },
+    temperament: {
+      en: "Diplomat",
+      id: "Diplomat",
+    },
+    color: "#2DD4BF", // Teal
+    tagline: {
+      en: "Empathetic visionary, thoughtful observer, and dedicated guide for personal growth.",
+      id: "Visioner empatik, pengamat bijaksana, dan pembimbing pertumbuhan pribadi berdedikasi.",
+    },
+    dominantAxis: {
+      en: "Empathetic Insight (Ni)",
+      id: "Wawasan Empatik (Ni)",
+    },
+    majors: {
+      en: ["Psychology", "Cognitive Science", "Human-Centered Design"],
+      id: ["Psikologi", "Ilmu Kognitif", "Desain Berorientasi Manusia"],
+    },
+    careers: {
+      en: ["UX Strategist", "Organizational Mentor", "Educational Consultant"],
+      id: ["Ahli Strategi UX", "Mentor Organisasi", "Konsultan Pendidikan"],
+    },
     bars: { ei: 88, sn: 82, tf: 34, jp: 78 },
   },
   {
-    code: 'ESTP',
-    title: 'The Dynamic Pragmatist',
-    temperament: 'Explorer',
-    color: '#FBBF24', // Amber
-    tagline: 'Agile field executor, tactical problem solver, and composed in high-energy situations.',
-    dominantAxis: 'Extraverted Sensing (Se)',
-    majors: ['Operations Management', 'Industrial Logistics', 'Business Administration'],
-    careers: ['Operations Specialist', 'Crisis Response Lead', 'Project Director'],
+    code: "ESTP",
+    title: {
+      en: "The Dynamic Pragmatist",
+      id: "Pragmatis Dinamis",
+    },
+    temperament: {
+      en: "Explorer",
+      id: "Penjelajah",
+    },
+    color: "#FBBF24", // Amber
+    tagline: {
+      en: "Action-oriented realist, tactical problem solver, and calm under fast-paced situations.",
+      id: "Realis berorientasi tindakan, tanggap memecahkan masalah, dan tenang di situasi dinamis.",
+    },
+    dominantAxis: {
+      en: "Action Execution (Se)",
+      id: "Eksekusi Aksi Cepat (Se)",
+    },
+    majors: {
+      en: ["Business Operations", "Industrial Logistics", "Financial Technology"],
+      id: ["Manajemen Operasi Bisnis", "Logistik Industri", "Teknologi Finansial"],
+    },
+    careers: {
+      en: ["Operations Director", "Tactical Project Lead", "Crisis Management Specialist"],
+      id: ["Direktur Operasional", "Manajer Proyek Taktis", "Spesialis Manajemen Krisis"],
+    },
     bars: { ei: 22, sn: 26, tf: 80, jp: 28 },
   },
 ];
 
 export function HeroCognitivePrism() {
+  const { locale } = useUIStore();
   const [activeType, setActiveType] = useState<ArchetypePreview>(PREVIEW_TYPES[0]);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
@@ -86,51 +162,115 @@ export function HeroCognitivePrism() {
   return (
     <section className="relative pt-28 sm:pt-36 pb-20 px-4 sm:px-6 max-w-6xl mx-auto text-center">
       {/* Subtle Ambient Radial Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[650px] h-[250px] sm:h-[400px] bg-sky-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[650px] h-[250px] sm:h-[400px] bg-[#D4F024]/[0.05] blur-[130px] rounded-full pointer-events-none -z-10" />
 
       {/* Top Tagline Pill */}
-      <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-slate-300 mb-6 backdrop-blur-md">
-        <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
-        <span>WATQ // 16 PERSONALITY TYPES // JUNGIAN TYPOLOGY</span>
-      </div>
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-slate-300 mb-6 backdrop-blur-md shadow-xs"
+      >
+        <span className="w-1.5 h-1.5 rounded-full bg-[#D4F024] animate-pulse" />
+        <span>
+          {locale === "id"
+            ? "Watq • 5 Model Asesmen Psikometri Ilmiah • Pemetaan Kepribadian Mandiri"
+            : "Watq • 5 Calibrated Psychological Suites • Personality Decoded"}
+        </span>
+      </motion.div>
 
       {/* Hero Headline */}
-      <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-[-0.035em] text-white max-w-4xl mx-auto leading-[1.12] sm:leading-[1.08]">
-        Discover Your Personality with Clarity and Depth.
-      </h1>
+      <motion.h1
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="font-display text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-[-0.035em] text-white max-w-4xl mx-auto leading-[1.12] sm:leading-[1.08]"
+      >
+        {locale === "id"
+          ? "Kenali Potensi & Karakter Sejati Anda dengan Lebih Mendalam."
+          : "Human Personality Decoded with Scientific Clarity."}
+      </motion.h1>
 
       {/* Subtitle */}
-      <p className="mt-5 text-sm sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-        A private, accessible assessment based on Carl Jung&rsquo;s 1921 typology. Answer 24 straightforward questions to explore your preferences across 4 core dimensions and uncover fitting academic and career paths.
-      </p>
+      <motion.p
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="mt-5 text-sm sm:text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed"
+      >
+        {locale === "id" ? (
+          <>
+            Pahami diri Anda melalui 5 instrumen psikologi komprehensif:{" "}
+            <span className="text-white font-medium">16 Tipe Kepribadian</span>,{" "}
+            <span className="text-white font-medium">Big Five Traits</span>,{" "}
+            <span className="text-white font-medium">9 Tipe Enneagram</span>,{" "}
+            <span className="text-white font-medium">Gaya Kerja DISC</span>, dan{" "}
+            <span className="text-white font-medium">Rekomendasi Karir Holland RIASEC</span>.
+          </>
+        ) : (
+          <>
+            A sovereign, model-agnostic intelligence platform. Explore 5 calibrated psychometric frameworks
+            spanning <span className="text-white font-medium">16 Cognitive Types</span>,{" "}
+            <span className="text-white font-medium">Big Five OCEAN</span>,{" "}
+            <span className="text-white font-medium">The 9 Enneagram Types</span>,{" "}
+            <span className="text-white font-medium">DISC Workplace Dynamics</span>, and{" "}
+            <span className="text-white font-medium">Holland RIASEC Vocational Pathways</span>.
+          </>
+        )}
+      </motion.p>
 
       {/* Primary CTA Buttons */}
-      <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Link
-          href="/assess"
-          onClick={() => playMicroClick(1000)}
-          className="group relative inline-flex items-center gap-3 pl-7 pr-3 py-3.5 rounded-full bg-gradient-to-r from-sky-400 via-indigo-400 to-teal-400 text-[#090D16] font-bold text-sm shadow-xl shadow-sky-500/20 hover:shadow-sky-500/35 transition-all duration-200 active:scale-95"
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
+      >
+        <Button
+          asChild
+          variant="citron"
+          size="lg"
+          className="rounded-full pl-6 pr-2.5 h-12 text-sm shadow-xl shadow-[#D4F024]/20 hover:shadow-[#D4F024]/35 font-bold"
         >
-          <span>Start Assessment (3 Min)</span>
-          <span className="w-7 h-7 rounded-full bg-[#090D16] text-white flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5">
-            <ArrowRight className="w-3.5 h-3.5" />
-          </span>
-        </Link>
+          <Link href="/assess" className="group inline-flex items-center gap-3">
+            <span>{locale === "id" ? "Mulai Asesmen Sekarang" : "Start Assessment"}</span>
+            <span className="w-8 h-8 rounded-full bg-[#08090C] text-[#D4F024] flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5">
+              <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </Link>
+        </Button>
 
-        <a
-          href="#interactive-demo"
-          onClick={() => playMicroClick(700)}
-          className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-xs font-semibold text-slate-300 hover:text-white transition-all"
+        <Button
+          asChild
+          variant="island"
+          size="lg"
+          className="rounded-full px-5 h-12 text-xs font-semibold text-white shadow-md"
         >
-          <span>Try 30-Second Preview</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-        </a>
-      </div>
+          <a href="#frameworks" className="inline-flex items-center gap-2">
+            <Compass className="w-3.5 h-3.5 text-[#D4F024]" />
+            <span>{locale === "id" ? "Pelajari 5 Model" : "Explore All 5 Frameworks"}</span>
+          </a>
+        </Button>
+
+        <Button
+          asChild
+          variant="ghost"
+          size="lg"
+          className="rounded-full px-5 h-12 text-xs font-semibold text-slate-300 hover:text-white border border-white/[0.06] hover:bg-white/[0.04]"
+        >
+          <a href="#archetypes">
+            <span>{locale === "id" ? "16 Karakter" : "16 Archetypes"}</span>
+          </a>
+        </Button>
+      </motion.div>
 
       {/* ========================================================================= */}
       {/* THE COGNITIVE PRISM OPTICAL BENCH SIMULATOR (Interactive SVG Apparatus)   */}
       {/* ========================================================================= */}
-      <div
+      <motion.div
+        initial={{ opacity: 0, scale: 0.98 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
         ref={containerRef}
         onMouseMove={handleMouseMove}
         className="relative w-full max-w-5xl mx-auto mt-14 sm:mt-20 rounded-[2.2rem] p-1.5 sm:p-2 bg-gradient-to-b from-white/[0.12] via-white/[0.04] to-transparent border border-white/[0.08] shadow-2xl shadow-black/80 overflow-hidden text-left"
@@ -150,25 +290,26 @@ export function HeroCognitivePrism() {
             <div className="flex items-center gap-3">
               <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse" />
               <span className="text-xs font-mono font-semibold text-slate-300 tracking-wider uppercase">
-                Archetype Explorer // 4 Polar Dimensions
+                {locale === "id"
+                  ? "Pratinjau Karakter // 4 Dimensi Kepribadian"
+                  : "Archetype Explorer // 4 Polar Dimensions"}
               </span>
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-[11px] font-mono text-slate-500 mr-1 hidden sm:inline">SELECT ARCHETYPE:</span>
+              <span className="text-[11px] font-mono text-slate-500 mr-1 hidden sm:inline">
+                {locale === "id" ? "PILIH KARAKTER:" : "SELECT ARCHETYPE:"}
+              </span>
               {PREVIEW_TYPES.map((t) => {
                 const isSelected = activeType.code === t.code;
                 return (
                   <button
                     key={t.code}
-                    onClick={() => {
-                      playMicroClick(t.code === 'INTJ' ? 800 : t.code === 'ENTP' ? 900 : 700);
-                      setActiveType(t);
-                    }}
-                    className={`px-3 py-1 rounded-full text-xs font-mono font-bold transition-all duration-200 ${
+                    onClick={() => setActiveType(t)}
+                    className={`px-3 py-1 rounded-full text-xs font-mono font-bold transition-all duration-200 cursor-pointer ${
                       isSelected
-                        ? 'bg-white text-[#0B0F19] shadow-md shadow-white/20 scale-105'
-                        : 'bg-white/[0.04] text-slate-400 hover:text-white hover:bg-white/[0.08] border border-white/[0.06]'
+                        ? "bg-white text-[#0B0F19] shadow-md shadow-white/20 scale-105"
+                        : "bg-white/[0.04] text-slate-400 hover:text-white hover:bg-white/[0.08] border border-white/[0.06]"
                     }`}
                   >
                     {t.code}
@@ -180,7 +321,6 @@ export function HeroCognitivePrism() {
 
           {/* Centerpiece: The Optical Bench & Spectroscopy Apparatus Grid */}
           <div className="relative z-10 mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
             {/* Left Col: High-Tech Technical Isometric Optics Drawing */}
             <div className="lg:col-span-7 flex flex-col items-center justify-center relative min-h-[320px]">
               {/* Dynamic Aura Glow */}
@@ -197,53 +337,143 @@ export function HeroCognitivePrism() {
               >
                 <defs>
                   {/* Laser Inflow Gradient */}
-                  <linearGradient id="laserInflow" x1="0" y1="170" x2="220" y2="170" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#38BDF8" stopOpacity="0" />
-                    <stop offset="60%" stopColor="#38BDF8" stopOpacity="0.8" />
+                  <linearGradient
+                    id="laserInflow"
+                    x1="0"
+                    y1="170"
+                    x2="220"
+                    y2="170"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0%" stopColor="#D4F024" stopOpacity="0" />
+                    <stop offset="60%" stopColor="#D4F024" stopOpacity="0.8" />
                     <stop offset="100%" stopColor="#FFFFFF" stopOpacity="1" />
                   </linearGradient>
 
                   {/* 4 Polarized Refraction Rays */}
-                  <linearGradient id="rayEI" x1="260" y1="160" x2="490" y2="75" gradientUnits="userSpaceOnUse">
+                  <linearGradient
+                    id="rayEI"
+                    x1="260"
+                    y1="160"
+                    x2="490"
+                    y2="75"
+                    gradientUnits="userSpaceOnUse"
+                  >
                     <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.9" />
                     <stop offset="30%" stopColor="#818CF8" stopOpacity="0.9" />
                     <stop offset="100%" stopColor="#818CF8" stopOpacity="0.1" />
                   </linearGradient>
-                  <linearGradient id="raySN" x1="260" y1="165" x2="495" y2="130" gradientUnits="userSpaceOnUse">
+                  <linearGradient
+                    id="raySN"
+                    x1="260"
+                    y1="165"
+                    x2="495"
+                    y2="130"
+                    gradientUnits="userSpaceOnUse"
+                  >
                     <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.9" />
                     <stop offset="30%" stopColor="#2DD4BF" stopOpacity="0.9" />
                     <stop offset="100%" stopColor="#2DD4BF" stopOpacity="0.1" />
                   </linearGradient>
-                  <linearGradient id="rayTF" x1="260" y1="175" x2="495" y2="205" gradientUnits="userSpaceOnUse">
+                  <linearGradient
+                    id="rayTF"
+                    x1="260"
+                    y1="175"
+                    x2="495"
+                    y2="205"
+                    gradientUnits="userSpaceOnUse"
+                  >
                     <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.9" />
-                    <stop offset="30%" stopColor="#38BDF8" stopOpacity="0.9" />
-                    <stop offset="100%" stopColor="#38BDF8" stopOpacity="0.1" />
+                    <stop offset="30%" stopColor="#D4F024" stopOpacity="0.9" />
+                    <stop offset="100%" stopColor="#D4F024" stopOpacity="0.1" />
                   </linearGradient>
-                  <linearGradient id="rayJP" x1="260" y1="180" x2="490" y2="260" gradientUnits="userSpaceOnUse">
+                  <linearGradient
+                    id="rayJP"
+                    x1="260"
+                    y1="180"
+                    x2="490"
+                    y2="260"
+                    gradientUnits="userSpaceOnUse"
+                  >
                     <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.9" />
-                    <stop offset="30%" stopColor="#FBBF24" stopOpacity="0.9" />
-                    <stop offset="100%" stopColor="#FBBF24" stopOpacity="0.1" />
+                    <stop offset="30%" stopColor="#FF7A00" stopOpacity="0.9" />
+                    <stop offset="100%" stopColor="#FF7A00" stopOpacity="0.1" />
                   </linearGradient>
                 </defs>
 
                 {/* Optical Bench Calibration Grid Baseplate */}
-                <path d="M 40 280 L 260 320 L 480 280 L 260 240 Z" fill="rgba(255,255,255,0.015)" stroke="rgba(255,255,255,0.08)" strokeWidth="1" strokeDasharray="3 3" />
-                <path d="M 40 280 L 40 292 L 260 332 L 260 320 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
-                <path d="M 260 320 L 260 332 L 480 292 L 480 280 Z" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
+                <path
+                  d="M 40 280 L 260 320 L 480 280 L 260 240 Z"
+                  fill="rgba(255,255,255,0.015)"
+                  stroke="rgba(255,255,255,0.08)"
+                  strokeWidth="1"
+                  strokeDasharray="3 3"
+                />
+                <path
+                  d="M 40 280 L 40 292 L 260 332 L 260 320 Z"
+                  fill="rgba(255,255,255,0.03)"
+                  stroke="rgba(255,255,255,0.12)"
+                  strokeWidth="1"
+                />
+                <path
+                  d="M 260 320 L 260 332 L 480 292 L 480 280 Z"
+                  fill="rgba(255,255,255,0.02)"
+                  stroke="rgba(255,255,255,0.12)"
+                  strokeWidth="1"
+                />
                 {/* Millimeter graduation ticks along the bench */}
                 {[80, 120, 160, 200, 320, 360, 400, 440].map((tx, idx) => (
-                  <line key={idx} x1={tx} y1="288" x2={tx} y2="293" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
+                  <line
+                    key={idx}
+                    x1={tx}
+                    y1="288"
+                    x2={tx}
+                    y2="293"
+                    stroke="rgba(255,255,255,0.2)"
+                    strokeWidth="1"
+                  />
                 ))}
 
                 {/* Left Source: Survey Response Input Housing */}
                 <g>
                   {/* Housing Body */}
-                  <rect x="20" y="145" width="48" height="50" rx="4" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.25)" strokeWidth="1.2" />
-                  <rect x="25" y="150" width="38" height="40" rx="2" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
+                  <rect
+                    x="20"
+                    y="145"
+                    width="48"
+                    height="50"
+                    rx="4"
+                    fill="rgba(255,255,255,0.04)"
+                    stroke="rgba(255,255,255,0.25)"
+                    strokeWidth="1.2"
+                  />
+                  <rect
+                    x="25"
+                    y="150"
+                    width="38"
+                    height="40"
+                    rx="2"
+                    fill="rgba(255,255,255,0.02)"
+                    stroke="rgba(255,255,255,0.1)"
+                    strokeWidth="1"
+                  />
                   {/* Collimator Nozzle */}
-                  <path d="M 68 162 L 80 166 L 80 174 L 68 178 Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
-                  <circle cx="74" cy="170" r="2" fill="#38BDF8" className="animate-pulse" />
-                  <text x="25" y="136" fill="rgba(255,255,255,0.4)" fontSize="8" fontFamily="monospace">RESPONSES</text>
+                  <path
+                    d="M 68 162 L 80 166 L 80 174 L 68 178 Z"
+                    fill="rgba(255,255,255,0.08)"
+                    stroke="rgba(255,255,255,0.3)"
+                    strokeWidth="1"
+                  />
+                  <circle cx="74" cy="170" r="2" fill="#D4F024" className="animate-pulse" />
+                  <text
+                    x="25"
+                    y="136"
+                    fill="rgba(255,255,255,0.4)"
+                    fontSize="8"
+                    fontFamily="monospace"
+                  >
+                    INPUT
+                  </text>
                 </g>
 
                 {/* Incoming Coherent White Induction Beam */}
@@ -261,66 +491,125 @@ export function HeroCognitivePrism() {
                 <path
                   d="M 255 162 Q 330 130 460 75"
                   stroke="url(#rayEI)"
-                  strokeWidth={activeType.bars.ei > 50 ? '3' : '1.5'}
+                  strokeWidth={activeType.bars.ei > 50 ? "3" : "1.5"}
                   strokeLinecap="round"
                 />
                 {/* Ray 2: Information (SN) */}
                 <path
                   d="M 258 168 Q 350 150 460 130"
                   stroke="url(#raySN)"
-                  strokeWidth={activeType.bars.sn > 50 ? '3' : '1.5'}
+                  strokeWidth={activeType.bars.sn > 50 ? "3" : "1.5"}
                   strokeLinecap="round"
                 />
                 {/* Ray 3: Decision (TF) */}
                 <path
                   d="M 258 172 Q 350 190 460 205"
                   stroke="url(#rayTF)"
-                  strokeWidth={activeType.bars.tf > 50 ? '3' : '1.5'}
+                  strokeWidth={activeType.bars.tf > 50 ? "3" : "1.5"}
                   strokeLinecap="round"
                 />
                 {/* Ray 4: Lifestyle (JP) */}
                 <path
                   d="M 255 178 Q 330 210 460 260"
                   stroke="url(#rayJP)"
-                  strokeWidth={activeType.bars.jp > 50 ? '3' : '1.5'}
+                  strokeWidth={activeType.bars.jp > 50 ? "3" : "1.5"}
                   strokeLinecap="round"
                 />
 
                 {/* Target Sensor Receptor Arrays (Right Column) */}
                 {[
-                  { y: 75, col: '#818CF8', label: `E/I • ${activeType.bars.ei}%`, sub: 'ENERGY' },
-                  { y: 130, col: '#2DD4BF', label: `S/N • ${activeType.bars.sn}%`, sub: 'INTAKE' },
-                  { y: 205, col: '#38BDF8', label: `T/F • ${activeType.bars.tf}%`, sub: 'DECISION' },
-                  { y: 260, col: '#FBBF24', label: `J/P • ${activeType.bars.jp}%`, sub: 'LIFESTYLE' },
+                  { y: 75, col: "#818CF8", label: `E/I • ${activeType.bars.ei}%`, sub: "ENERGY" },
+                  { y: 130, col: "#2DD4BF", label: `S/N • ${activeType.bars.sn}%`, sub: "INTAKE" },
+                  {
+                    y: 205,
+                    col: "#D4F024",
+                    label: `T/F • ${activeType.bars.tf}%`,
+                    sub: "DECISION",
+                  },
+                  {
+                    y: 260,
+                    col: "#FF7A00",
+                    label: `J/P • ${activeType.bars.jp}%`,
+                    sub: "LIFESTYLE",
+                  },
                 ].map((sensor, sIdx) => (
                   <g key={sIdx}>
                     {/* Receptor diode housing */}
-                    <rect x="460" y={sensor.y - 12} width="40" height="24" rx="3" fill="rgba(255,255,255,0.03)" stroke={sensor.col} strokeWidth="1" />
+                    <rect
+                      x="460"
+                      y={sensor.y - 12}
+                      width="40"
+                      height="24"
+                      rx="3"
+                      fill="rgba(255,255,255,0.03)"
+                      stroke={sensor.col}
+                      strokeWidth="1"
+                    />
                     <circle cx="460" cy={sensor.y} r="3" fill={sensor.col} />
-                    <text x="466" y={sensor.y - 2} fill={sensor.col} fontSize="7" fontFamily="monospace" fontWeight="bold">
+                    <text
+                      x="466"
+                      y={sensor.y - 2}
+                      fill={sensor.col}
+                      fontSize="7"
+                      fontFamily="monospace"
+                      fontWeight="bold"
+                    >
                       {sensor.sub}
                     </text>
-                    <text x="466" y={sensor.y + 7} fill="#FFFFFF" fontSize="8" fontFamily="monospace">
+                    <text
+                      x="466"
+                      y={sensor.y + 7}
+                      fill="#FFFFFF"
+                      fontSize="8"
+                      fontFamily="monospace"
+                    >
                       {sensor.label}
                     </text>
                   </g>
                 ))}
 
                 {/* Central Rotating Crystal Prism Stage (The Watq Prism Core) */}
-                <g className="transition-transform duration-500 hover:scale-105" style={{ transformOrigin: '240px 170px' }}>
+                <g
+                  className="transition-transform duration-500 hover:scale-105"
+                  style={{ transformOrigin: "240px 170px" }}
+                >
                   {/* Stage Base Ring */}
-                  <ellipse cx="240" cy="225" rx="46" ry="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.2)" strokeWidth="1" strokeDasharray="3 2" />
-                  <ellipse cx="240" cy="225" rx="36" ry="12" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
-                  <line x1="240" y1="225" x2="240" y2="195" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+                  <ellipse
+                    cx="240"
+                    cy="225"
+                    rx="46"
+                    ry="16"
+                    fill="rgba(255,255,255,0.03)"
+                    stroke="rgba(255,255,255,0.2)"
+                    strokeWidth="1"
+                    strokeDasharray="3 2"
+                  />
+                  <ellipse
+                    cx="240"
+                    cy="225"
+                    rx="36"
+                    ry="12"
+                    fill="none"
+                    stroke="rgba(255,255,255,0.15)"
+                    strokeWidth="1"
+                  />
+                  <line
+                    x1="240"
+                    y1="225"
+                    x2="240"
+                    y2="195"
+                    stroke="rgba(255,255,255,0.3)"
+                    strokeWidth="1"
+                  />
 
                   {/* Rear Shadow Face */}
                   <polygon
                     points="240,75 195,215 285,215"
-                    fill="#0B0F19"
+                    fill="#08090C"
                     fillOpacity="0.9"
-                    stroke="#38BDF8"
+                    stroke="#D4F024"
                     strokeWidth="1"
-                    strokeOpacity="0.3"
+                    strokeOpacity="0.4"
                   />
 
                   {/* Left Refraction Facet */}
@@ -353,129 +642,156 @@ export function HeroCognitivePrism() {
 
                   {/* Apex Focal Node */}
                   <circle cx="240" cy="75" r="3.5" fill="#FFFFFF" />
-                  <circle cx="240" cy="75" r="7" stroke="#38BDF8" strokeWidth="0.8" strokeDasharray="2 2" className="animate-spin" />
+                  <circle
+                    cx="240"
+                    cy="75"
+                    r="7"
+                    stroke="#D4F024"
+                    strokeWidth="0.8"
+                    strokeDasharray="2 2"
+                    className="animate-spin"
+                  />
                 </g>
               </svg>
 
               <div className="flex items-center gap-4 mt-3 text-[10px] font-mono text-slate-500">
-                <span>24 LIKERT ITEMS</span>
+                <span>
+                  {locale === "id" ? "24 PERTANYAAN PILIHAN" : "24 CALIBRATED ITEMS"}
+                </span>
                 <span>•</span>
-                <span>4 BIPOLAR DIMENSIONS</span>
+                <span>
+                  {locale === "id" ? "4 DIMENSI UTAMA" : "4 CORE DIMENSIONS"}
+                </span>
                 <span>•</span>
-                <span>100% IN-BROWSER SCORING</span>
+                <span>
+                  {locale === "id" ? "100% PRIVAT DI BROWSER" : "100% PRIVATE IN-BROWSER"}
+                </span>
               </div>
             </div>
 
             {/* Right Col: Live Archetype Telemetry Card */}
             <div className="lg:col-span-5 p-5 sm:p-6 rounded-2xl bg-white/[0.02] border border-white/[0.08] flex flex-col justify-between">
-              <div>
-                {/* Header Badge */}
-                <div className="flex items-center justify-between gap-2 mb-3">
-                  <span
-                    className="px-2.5 py-0.5 rounded-md text-[11px] font-mono font-bold uppercase tracking-wider"
-                    style={{
-                      backgroundColor: `${activeType.color}15`,
-                      color: activeType.color,
-                      border: `1px solid ${activeType.color}35`,
-                    }}
-                  >
-                    {activeType.temperament} Class
-                  </span>
-                  <span className="text-xl font-mono font-extrabold text-white tracking-wider">
-                    {activeType.code}
-                  </span>
-                </div>
-
-                <h3 className="text-lg font-bold text-white tracking-tight leading-snug">
-                  {activeType.title}
-                </h3>
-                <p className="mt-2 text-xs text-slate-300 leading-relaxed font-sans">
-                  {activeType.tagline}
-                </p>
-
-                {/* 4 Vector Sliders */}
-                <div className="mt-5 space-y-2.5 pt-4 border-t border-white/[0.06]">
-                  <div>
-                    <div className="flex justify-between text-[11px] font-mono text-slate-300 mb-1">
-                      <span>Introversion (I)</span>
-                      <span className="font-bold text-indigo-400">{activeType.bars.ei}%</span>
-                    </div>
-                    <div className="h-1.5 w-full rounded-full bg-white/[0.06] overflow-hidden">
-                      <div
-                        className="h-full bg-indigo-500 rounded-full transition-all duration-500"
-                        style={{ width: `${activeType.bars.ei}%` }}
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between text-[11px] font-mono text-slate-300 mb-1">
-                      <span>Intuition (N)</span>
-                      <span className="font-bold text-teal-400">{activeType.bars.sn}%</span>
-                    </div>
-                    <div className="h-1.5 w-full rounded-full bg-white/[0.06] overflow-hidden">
-                      <div
-                        className="h-full bg-teal-400 rounded-full transition-all duration-500"
-                        style={{ width: `${activeType.bars.sn}%` }}
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between text-[11px] font-mono text-slate-300 mb-1">
-                      <span>Thinking (T)</span>
-                      <span className="font-bold text-sky-400">{activeType.bars.tf}%</span>
-                    </div>
-                    <div className="h-1.5 w-full rounded-full bg-white/[0.06] overflow-hidden">
-                      <div
-                        className="h-full bg-sky-400 rounded-full transition-all duration-500"
-                        style={{ width: `${activeType.bars.tf}%` }}
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between text-[11px] font-mono text-slate-300 mb-1">
-                      <span>Judging (J)</span>
-                      <span className="font-bold text-amber-400">{activeType.bars.jp}%</span>
-                    </div>
-                    <div className="h-1.5 w-full rounded-full bg-white/[0.06] overflow-hidden">
-                      <div
-                        className="h-full bg-amber-400 rounded-full transition-all duration-500"
-                        style={{ width: `${activeType.bars.jp}%` }}
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Lead Cognitive Function */}
-                <div className="mt-5 p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] flex items-center justify-between text-xs font-mono">
-                  <span className="text-slate-500">DOMINANT FUNCTION:</span>
-                  <span className="text-white font-semibold">{activeType.dominantAxis}</span>
-                </div>
-              </div>
-
-              {/* Bottom Trajectories */}
-              <div className="mt-6 pt-4 border-t border-white/[0.06]">
-                <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-2">
-                  Top Vocational Trajectories (ILO ISCO-08)
-                </div>
-                <div className="flex flex-wrap gap-1.5">
-                  {activeType.careers.map((career, i) => (
-                    <span
-                      key={i}
-                      className="px-2 py-0.5 rounded bg-white/[0.03] border border-white/[0.06] text-[10px] font-mono text-slate-300"
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeType.code}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  {/* Header Badge */}
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <Badge
+                      variant="outline"
+                      className="px-2.5 py-0.5 text-[11px] font-mono font-bold uppercase tracking-wider"
+                      style={{
+                        backgroundColor: `${activeType.color}15`,
+                        color: activeType.color,
+                        borderColor: `${activeType.color}35`,
+                      }}
                     >
-                      {career}
+                      <Sparkles className="w-3 h-3 mr-1" />
+                      {activeType.temperament[locale]}
+                    </Badge>
+                    <span className="text-xl font-mono font-extrabold text-white tracking-wider">
+                      {activeType.code}
                     </span>
-                  ))}
-                </div>
-              </div>
-            </div>
+                  </div>
 
+                  <h3 className="text-lg font-bold text-white tracking-tight leading-snug">
+                    {activeType.title[locale]}
+                  </h3>
+                  <p className="mt-2 text-xs text-slate-300 leading-relaxed font-sans">
+                    {activeType.tagline[locale]}
+                  </p>
+
+                  {/* 4 Vector Sliders */}
+                  <div className="mt-5 space-y-2.5 pt-4 border-t border-white/[0.06]">
+                    <div>
+                      <div className="flex justify-between text-[11px] font-mono text-slate-300 mb-1">
+                        <span>{locale === "id" ? "Introversi (I)" : "Introversion (I)"}</span>
+                        <span className="font-bold text-[#D4F024]">{activeType.bars.ei}%</span>
+                      </div>
+                      <div className="h-1.5 w-full rounded-full bg-white/[0.06] overflow-hidden">
+                        <div
+                          className="h-full bg-[#D4F024] rounded-full transition-all duration-500"
+                          style={{ width: `${activeType.bars.ei}%` }}
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between text-[11px] font-mono text-slate-300 mb-1">
+                        <span>{locale === "id" ? "Intuisi (N)" : "Intuition (N)"}</span>
+                        <span className="font-bold text-white">{activeType.bars.sn}%</span>
+                      </div>
+                      <div className="h-1.5 w-full rounded-full bg-white/[0.06] overflow-hidden">
+                        <div
+                          className="h-full bg-white rounded-full transition-all duration-500"
+                          style={{ width: `${activeType.bars.sn}%` }}
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between text-[11px] font-mono text-slate-300 mb-1">
+                        <span>{locale === "id" ? "Pemikiran Logis (T)" : "Thinking (T)"}</span>
+                        <span className="font-bold text-[#2E68FF]">{activeType.bars.tf}%</span>
+                      </div>
+                      <div className="h-1.5 w-full rounded-full bg-white/[0.06] overflow-hidden">
+                        <div
+                          className="h-full bg-[#2E68FF] rounded-full transition-all duration-500"
+                          style={{ width: `${activeType.bars.tf}%` }}
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between text-[11px] font-mono text-slate-300 mb-1">
+                        <span>{locale === "id" ? "Terencana & Terstruktur (J)" : "Judging (J)"}</span>
+                        <span className="font-bold text-[#FF7A00]">{activeType.bars.jp}%</span>
+                      </div>
+                      <div className="h-1.5 w-full rounded-full bg-white/[0.06] overflow-hidden">
+                        <div
+                          className="h-full bg-[#FF7A00] rounded-full transition-all duration-500"
+                          style={{ width: `${activeType.bars.jp}%` }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Lead Cognitive Function */}
+                  <div className="mt-5 p-3 rounded-xl bg-white/[0.02] border border-white/[0.05] flex items-center justify-between text-xs font-mono">
+                    <span className="text-slate-500">
+                      {locale === "id" ? "KEKUATAN UTAMA:" : "DOMINANT STRENGTH:"}
+                    </span>
+                    <span className="text-white font-semibold">
+                      {activeType.dominantAxis[locale]}
+                    </span>
+                  </div>
+
+                  {/* Bottom Trajectories */}
+                  <div className="mt-6 pt-4 border-t border-white/[0.06]">
+                    <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-2">
+                      {locale === "id" ? "Rekomendasi Karir Teratas" : "Top Career Pathways"}
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {activeType.careers[locale].map((career, i) => (
+                        <span
+                          key={i}
+                          className="px-2 py-0.5 rounded bg-white/[0.03] border border-white/[0.06] text-[10px] font-mono text-slate-300"
+                        >
+                          {career}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

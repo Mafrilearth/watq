@@ -1,31 +1,107 @@
 # **WATQ: PRODUCT REQUIREMENTS DOCUMENT (PRD)**
 
-> **Document ID:** `WATQ-PRD-01` │ **Version:** `1.2.0` │ **Status:** `MVP_LOCKED`  
-> **Global Standards:** `Jungian Cognitive Typology (Jung 1921)` │ `Likert Psychometric Scaling (Likert 1932)` │ `APA/AERA/NCME Testing Standards (2014)` │ `UNESCO ISCED-F 2013 (Education Fields)` │ `ILO ISCO-08 (Occupational Standards)` │ `WIPO Nice Classes 9, 16, 35, 41, 42`  
-> **Single Source of Truth (SSOT):** MVP Scope Boundaries, 16 Cognitive Types Instrument Specification, 24-Item Question Catalog (Global English Standard), Deterministic Scoring Algorithm, 16 Vocational Archetype Matrix, and Offline/Physical Testing Specifications  
-> **Code Link:** [`src/data/assessments/jungian16.ts`](file:///d:/watq/src/data/assessments/), [`src/lib/scoring/jungian.ts`](file:///d:/watq/src/lib/scoring/) │ **Related Documents:** [`01-brand.md`](file:///d:/watq/docs/01-brand.md), [`03-srs.md`](file:///d:/watq/docs/03-srs.md), [`04-design-system.md`](file:///d:/watq/docs/04-design-system.md)
+> **ID & Version:** `WATQ-PRD-02` │ `v1.2.0` │ `LOCKED`  
+> **Authority & Owner:** Fauzul (Platform Lead) │ **Standard:** `APA/ITC 2014` │ `Jung 1921` │ `Likert 1932` │ `ILO ISCO-08`  
+> **SSOT Domain:** 16 Cognitive Types Construct, 24 Balanced Likert Items, Scoring Algorithm Math, 16 Archetype Trajectories  
+> **Target Code:** [`apps/web/src/data/assessments/jungian16.ts`](file:///d:/watq/apps/web/src/data/assessments/jungian16.ts) │ [`apps/web/src/lib/scoring/jungian.ts`](file:///d:/watq/apps/web/src/lib/scoring/jungian.ts)
 
 ---
 
 # **1. PRODUCT FOUNDATION & PRINCIPLES (THE "WHY")**
 
-## **1.1 Product Background & Vision**
-Watq (*Personality Decoded*) originated from an undergraduate thesis project in Informatics, elevated into an industry-grade global product. The primary need of respondents—especially high school students, university undergraduates, and emerging professionals—is to accurately understand their natural cognitive dispositions to select aligned academic majors and career pathways without onboarding bureaucracy or registration barriers.
+## **1.1 Product Background & Vision: The Sovereign Personality SaaS Ecosystem**
+Watq (*Personality Decoded*) is engineered as a **Universal Personality Platform & SaaS Ecosystem**. The platform operates on the foundational thesis that *a psychometric test is merely an initial diagnostic gateway, while the true domain of the brand is the holistic decoding, navigation, and application of human personality across all facets of life and work*.
 
-## **1.2 Zero-Bloat MVP Philosophy**
-To ensure high execution velocity, maximum reliability, and minimal operational risk (*fast time-to-market*), MVP v1.0 scope is strictly constrained:
-1. **Single Focused Instrument:** 16 Cognitive Types based on Carl Gustav Jung's 1921 psychological typology in the public domain (100% legal, defensible, and free from external proprietary trademark constraints).
-2. **Zero Database Complexity ($0 OpEx):** The entire question catalog, scoring logic, and archetype descriptions operate client-side (*client-side deterministic engine*).
-3. **Exactly 3 Core Screens:** Landing (`/`) $\rightarrow$ Focused 680px Assessment Runner (`/assess`) $\rightarrow$ Diagnostic Synthesis Report (`/result`).
+Unlike traditional applications narrowly restricted to a single test or proprietary MBTI clones, Watq is architected as an extensible, model-agnostic operating system for human personality. It unifies the fundamental psychological triad (Cognition, Affect, Conation) across Jungian cognitive typology, the Big Five (OCEAN), Enneagram, DISC, Holland RIASEC, VIA Strengths, and international occupational frameworks (ILO ISCO-08 & UNESCO ISCED-F 2013).
 
-## **1.3 Explicit Out-of-Scope Boundaries**
-The following features are intentionally deferred to future versions (v2.0+) and prohibited in MVP v1.0:
-* ❌ User account authentication (Login / Register / OAuth).
-* ❌ Cloud database persistence (PostgreSQL, Supabase, Prisma).
-* ❌ Additional psychometric instruments (Big Five OCEAN, DISC, Enneagram, RIASEC).
-* ❌ Payment gateways, SaaS subscriptions, and B2B multi-tenancy.
-* ❌ Administrative governance console (`/admin`) and backend cohort analytics.
-* ❌ Relational comparison features (`/compare/[a]/[b]`).
+### **1.1.1 Fauzul's Brand Architecture & Zero-Acronym Sovereign Rationale**
+Fauzul formulated the platform's brand identity under strict software engineering and linguistic governance:
+1. **Linguistic Origin (Sundanese Root "Watek"):**  
+   Audited against authoritative lexicography (*Danadibrata* & *Balai Bahasa Jabar*), the un-affixed root word **"Watek"** (5 letters: *watak, tabiat batin bawaan lahir*) is the exact equivalent of *Personality & Cognitive Typology*.
+2. **Naming Pattern (Vowel Elision & Terminal Stylization):**  
+   Adopting the Silicon Valley product naming tradition (*Flickr* from *Flicker*, *Tumblr* from *Tumbler*), the word is compressed into **Watq** (logotype: **WATQ**), pronounced identically as `/wɑtək/`.
+3. **The Zero-Acronym Principle (Eliminating Tight-Coupling):**  
+   Fauzul explicitly rejected treating Watq as an acronym or backronym. By establishing Watq as a **single, standalone proper noun (Sovereign Wordmark)**, the brand avoids architectural lock-in to any single psychometric model, guaranteeing total modular flexibility to host the 16 Cognitive Types, Big Five (OCEAN 5-factor model), DISC, Enneagram, and Holland RIASEC without contradiction.
+4. **Legal & Trademark Supremacy:**  
+   Classified under WIPO Nice Classes 9 & 42 as a **Fanciful Mark** (Abercrombie Spectrum), enjoying the highest tier of intellectual property protectability and zero search collision.
+
+### **1.1.2 Fauzul's Product Scope Thesis: Why "Just a Test" is Insufficient (The Beyond-a-Quiz Mandate)**
+Fauzul formulated the core thesis on product value, user retention, and real-world utility:
+1. **Rejection of the Transient Quiz Commodity Trap:**  
+   Conventional personality quizzes suffer from a 99.9% churn rate because they treat testing as an ephemeral parlor game—users spend 3 minutes clicking choices, glance at an arbitrary 4-letter acronym, and permanently close the tab. In software product terms, an assessment runner is strictly a *data acquisition mechanism*, never the valuable outcome itself.
+2. **The "So What?" Real-World Utility Barrier:**  
+   Receiving an abstract personality label solves zero life problems unless coupled with actionable guidance. Users undertake psychometric evaluations seeking answers to high-stakes decisions: *"Which university major aligns with my cognitive strengths? Which global engineering or vocational careers offer high fulfillment and low burnout? How do I recover when experiencing mental exhaustion?"*
+3. **The 4-Tier Cognitive Value Progression:**  
+   Watq elevates the assessment runner into an indispensable **Personal Cognitive Operating Manual**:
+   - **Level 1 (Data Capture):** High-speed 24-item Likert assessment runner (< 3 minutes, zero-friction client execution).
+   - **Level 2 (Diagnostic Profile):** Continuous 4-axis polarity radar ($E \leftrightarrow I, S \leftrightarrow N, T \leftrightarrow F, J \leftrightarrow P$) replacing crude binary pigeonholing.
+   - **Level 3 (Mental Resilience):** Lead cognitive function identification, stress overload warning triggers, and psychological recovery antidotes.
+   - **Level 4 (Vocational Trajectory):** Concrete, internationally standardized academic majors (**UNESCO ISCED-F 2013**) and global career trajectories (**ILO ISCO-08**).
+4. **Engineering Portfolio Caliber:**  
+   This multidimensional vocational mapping elevates Watq from an ordinary "quiz tutorial" into a production-grade **Cognitive Decision Support System**, demonstrating advanced software architecture, rigorous ontological mapping, and deterministic client-side scoring coupled with secure enterprise cloud persistence.
+
+## **1.2 The Inverted Pyramid Scientific & Software Taxonomy**
+Watq maps its product domain to the established inverted pyramid taxonomy of behavioral science and software engineering:
+
+```
+▼ [LEVEL 1: SCIENTIFIC DISCIPLINE] ───────────────── (Apex Knowledge Domain)
+      Behavioral & Cognitive Science
+      │
+      ▼ [LEVEL 2: DISCIPLINE BRANCH] ──────────────── (Specific Field of Study)
+            Personality & Differential Psychology
+            │
+            ▼ [LEVEL 3: METHODOLOGICAL STANDARD] ─── (How Data is Measured)
+                  Psychometrics & Standardized Assessment (APA / ITC Standard)
+                  │
+                  ▼ [LEVEL 4: SOVEREIGN SOFTWARE PLATFORM] ── (Operating System & Gateway)
+                        Watq — Personality Decoded.
+                        │
+                        ▼ [LEVEL 5: MODULAR PSYCHOMETRIC CATALOG] (Pluggable Engine Drivers)
+                              ├─ Catalog Driver 01: 16 Cognitive Types (Carl Jung 1921 / Cognitive Wiring)
+                              ├─ Catalog Driver 02: Big Five Factor Model (Goldberg 1992 / Empirical Traits)
+                              ├─ Catalog Driver 03: Enneagram of Personality (9 Types / Core Motivations)
+                              ├─ Catalog Driver 04: DISC Workplace Behavioral Assessment (Marston 1928 / Team Dynamics)
+                              └─ Catalog Driver 05: Holland Codes RIASEC Model (Holland 1997 / Vocational Pathways)
+                              │
+                              ▼ [LEVEL 6: DIAGNOSTIC & VOCATIONAL DELIVERABLES] (Synthesized Output)
+                                    Cognitive Polarity Radar, Stress Antidotes,
+                                    UNESCO ISCED-F 2013 Academic Majors & ILO ISCO-08 Careers
+```
+
+## **1.3 Two Primary System Actors (Target Personas)**
+Watq is engineered with a strict 2-actor system boundary:
+1. **Actor 1: The Member (Authenticated Enterprise User):**
+   - Accesses the high-speed 24-item diagnostic runner (`/assess`).
+   - Receives their personal **Cognitive Operating Manual** (`/result`): 4-polarity radar, stress overload triggers & recovery antidotes, authentic communication patterns, and academic/career alignments (UNESCO ISCED-F 2013 / ILO ISCO-08).
+   - Manages personal profile and synchronized assessment records securely in Neon PostgreSQL (`/dashboard` or `apps/app`).
+   - Strictly restricted from administrative features.
+2. **Actor 2: The System Administrator (Fauzul / Platform Lead):**
+   - Accesses the dedicated **Administration Studio** (`apps/app/admin`).
+   - Directory Governance: Audits active platform members, controls role promotion/demotion (`MEMBER` ↔ `ADMIN`), and revokes unauthorized accounts.
+   - Audits psychometric balance and platform health telemetry.
+
+## **1.4 Phase 1 Implementation Scope (Production Initial Release v1.0.0)**
+To guarantee high execution velocity, zero latency, and an uncompromising, clean enterprise user experience:
+1. **Initial Reference Gateway:** 16 Cognitive Types public-domain instrument (Carl Gustav Jung 1921), 24 items with 50% reversed-keying.
+2. **Dynamic Question Service:** Assessment runner loads items dynamically from Neon PostgreSQL via Next.js Server Actions (`getPublicAssessmentQuestionsAction`).
+3. **Enterprise Cloud Persistence & Cryptographic Security:**
+   - User credentials protected with salted `scrypt` hashing (16-byte random salt + `timingSafeEqual`).
+   - User sessions and completed assessment dossiers persistently stored in Neon Serverless PostgreSQL.
+   - Deterministic client-side scoring computation (< 5ms calculation latency).
+4. **Monorepo Domain Separation:**
+   - **Public Gateway (`apps/web`):** Executive Landing (`/`), Focused 680px Assessment Runner (`/assess`), Executive Diagnostic Dossier (`/result`), and Authentication Gateways (`/login` & `/register`).
+   - **Private Workspace (`apps/app`):** Member Workspace (`/`) and Administration Studio (`/admin`).
+
+## **1.5 Permanent Bloat Elimination & Out-of-Scope Boundaries**
+To ensure an ultra-lean enterprise SaaS MVP, the following items are permanently eliminated or deferred:
+* ❌ Interactive runner sandbox / mini previews on the landing page (users take the official runner at `/assess`).
+* ❌ Developer architectural figures and system schematics on customer-facing screens.
+* ❌ Public changelog popups and `/changelog` routes (release notes are tracked via Git tags and documentation).
+* ❌ Question CRUD in admin (psychometric instruments are scientifically calibrated; admin handles directory governance).
+* ❌ Demo accounts, guest bypasses, and mock logins (strict email + salted scrypt passwords enforced).
+* ❌ Local storage JSON export/import (all data is cloud-persisted in PostgreSQL).
+* ❌ Additional psychometric instruments (Big Five OCEAN, DISC, Enneagram, RIASEC) in the active runner (deferred to Phase 2).
+* ❌ Relational comparison interfaces (`/compare`).
 
 ---
 
@@ -173,7 +249,7 @@ The 24-item Watq assessment can be administered offline without digital hardware
 ```typescript
 /**
  * Core Assessment Session Contract
- * Document: WATQ-PRD-01 // Product Requirements Document
+ * Document: WATQ-PRD-02 // Product Requirements Document
  */
 interface WatqAssessmentSession {
   sessionId: string;                 // UUID v4
@@ -193,7 +269,7 @@ interface WatqAssessmentSession {
     };
     archetypeTitle: string;          // e.g. "The Strategic Architect"
     summary: string;
-    majors: string[];                // UNESCO ISCED-F aligned
+    majors: string[];                // UNESCO ISCED-F 2013 aligned
     careers: string[];               // ILO ISCO-08 aligned
   };
 }
@@ -208,4 +284,4 @@ While MVP v1.0 is locked to the 16 Cognitive Types model:
 - [x] All 24 questionnaire items defined in Global English with unique IDs, axis labels, and keying direction.
 - [x] Deterministic scoring calculation verified mathematically across all boundary scores ($S_{\text{dim}} \in [6, 30]$).
 - [x] 16 archetypes exhaustively defined with titles, cognitive descriptions, college majors (ISCED-F), and careers (ISCO-08).
-- [x] Session data contract typed with TypeScript and stored in client `localStorage`.
+- [x] Session data contract typed with TypeScript and stored in client session with cloud synchronization to Neon PostgreSQL.

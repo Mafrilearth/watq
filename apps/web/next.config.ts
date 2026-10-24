@@ -40,6 +40,7 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https:",
       "font-src 'self' data:",
+      "connect-src 'self' https://us.i.posthog.com https://us-assets.i.posthog.com https://*.ingest.sentry.io https://*.arcjet.com https://*.betterstack.com https://*.neon.tech",
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self'",

@@ -2,97 +2,128 @@
 
 @theme {
   --breakpoint-xs: 480px;
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 :root {
-  --background: #FFFFFF;
-  --foreground: #09090B;
-  --card: #FFFFFF;
-  --card-foreground: #09090B;
-  --popover: #FFFFFF;
-  --popover-foreground: #09090B;
-  --primary: #4F46E5;
-  --primary-foreground: #FFFFFF;
-  --secondary: #F1F5F9;
-  --secondary-foreground: #0F172A;
-  --muted: #F1F5F9;
-  --muted-foreground: #64748B;
-  --accent: #38BDF8;
-  --accent-foreground: #090D16;
-  --destructive: #F43F5E;
-  --destructive-foreground: #FFFFFF;
-  --border: #E2E8F0;
-  --input: #E2E8F0;
-  --ring: #4F46E5;
+  --background: #ffffff;
+  --foreground: #08090c;
+  --card: #ffffff;
+  --card-foreground: #08090c;
+  --popover: #ffffff;
+  --popover-foreground: #08090c;
+  --primary: #d4f024;
+  --primary-foreground: #08090c;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #d4f024;
+  --accent-foreground: #08090c;
+  --destructive: #f43f5e;
+  --destructive-foreground: #ffffff;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #d4f024;
   --radius: 0.75rem;
 
   /* 4 Cognitive Polarity Axis Tokens (WATQ-DTS-01) */
-  --axis-energy: #4F46E5;
-  --axis-info: #0D9488;
-  --axis-decision: #2563EB;
-  --axis-lifestyle: #D97706;
+  --axis-energy: #818cf8;
+  --axis-info: #2dd4bf;
+  --axis-decision: #d4f024;
+  --axis-lifestyle: #ff7a00;
 
   /* 12 Multi-Dimensional Polar Canvas Chart Tokens (WCAG 2.2 AA) */
-  --chart-dim-1: #7C3AED;
-  --chart-dim-2: #4F46E5;
-  --chart-dim-3: #2563EB;
-  --chart-dim-4: #0284C7;
-  --chart-dim-5: #0D9488;
+  --chart-dim-1: #7c3aed;
+  --chart-dim-2: #4f46e5;
+  --chart-dim-3: #2563eb;
+  --chart-dim-4: #0284c7;
+  --chart-dim-5: #0d9488;
   --chart-dim-6: #059669;
-  --chart-dim-7: #D97706;
-  --chart-dim-8: #EA580C;
-  --chart-dim-9: #E11D48;
-  --chart-dim-10: #DB2777;
-  --chart-dim-11: #C026D3;
-  --chart-dim-12: #9333EA;
+  --chart-dim-7: #d97706;
+  --chart-dim-8: #ea580c;
+  --chart-dim-9: #e11d48;
+  --chart-dim-10: #db2777;
+  --chart-dim-11: #c026d3;
+  --chart-dim-12: #9333ea;
 }
 
 .dark {
-  --background: #090D16;
-  --foreground: #F8FAFC;
-  --card: #0F172A;
-  --card-foreground: #F8FAFC;
-  --popover: #0F172A;
-  --popover-foreground: #F8FAFC;
-  --primary: #38BDF8;
-  --primary-foreground: #090D16;
-  --secondary: #1E293B;
-  --secondary-foreground: #F8FAFC;
-  --muted: #1E293B;
-  --muted-foreground: #94A3B8;
-  --accent: #38BDF8;
-  --accent-foreground: #090D16;
-  --destructive: #FB7185;
-  --destructive-foreground: #090D16;
+  --background: #08090c;
+  --foreground: #f8fafc;
+  --card: #12151d;
+  --card-foreground: #f8fafc;
+  --popover: #12151d;
+  --popover-foreground: #f8fafc;
+  --primary: #d4f024;
+  --primary-foreground: #08090c;
+  --secondary: #1e293b;
+  --secondary-foreground: #f8fafc;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #d4f024;
+  --accent-foreground: #08090c;
+  --destructive: #fb7185;
+  --destructive-foreground: #08090c;
   --border: rgba(255, 255, 255, 0.08);
   --input: rgba(255, 255, 255, 0.12);
-  --ring: #38BDF8;
+  --ring: #d4f024;
 
   /* Dark Mode 4 Cognitive Polarity Axis Tokens */
-  --axis-energy: #818CF8;
-  --axis-info: #2DD4BF;
-  --axis-decision: #38BDF8;
-  --axis-lifestyle: #FBBF24;
+  --axis-energy: #818cf8;
+  --axis-info: #2dd4bf;
+  --axis-decision: #d4f024;
+  --axis-lifestyle: #ff7a00;
 
   /* Dark Mode 12 Dimension Chart Tokens */
-  --chart-dim-1: #A78BFA;
-  --chart-dim-2: #818CF8;
-  --chart-dim-3: #60A5FA;
-  --chart-dim-4: #38BDF8;
-  --chart-dim-5: #2DD4BF;
-  --chart-dim-6: #34D399;
-  --chart-dim-7: #FBBF24;
-  --chart-dim-8: #FB923C;
-  --chart-dim-9: #FB7185;
-  --chart-dim-10: #F472B6;
-  --chart-dim-11: #E879F9;
-  --chart-dim-12: #C084FC;
+  --chart-dim-1: #a78bfa;
+  --chart-dim-2: #818cf8;
+  --chart-dim-3: #60a5fa;
+  --chart-dim-4: #d4f024;
+  --chart-dim-5: #2dd4bf;
+  --chart-dim-6: #34d399;
+  --chart-dim-7: #ff7a00;
+  --chart-dim-8: #fb923c;
+  --chart-dim-9: #fb7185;
+  --chart-dim-10: #f472b6;
+  --chart-dim-11: #e879f9;
+  --chart-dim-12: #c084fc;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-sans), "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
@@ -112,4 +143,41 @@ body {
 
 .psychomotor-btn:active {
   transform: scale(0.98);
+}
+
+/* High-Precision PDF & Print Diagnostic Dossier */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .no-print, header, footer, button, nav {
+    display: none !important;
+  }
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+  section {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 24px !important;
+  }
+  h1, h2, h3, h4, span, p, strong {
+    color: #0f172a !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
+
+@media screen {
+  .print-only {
+    display: none !important;
+  }
 }

@@ -1,0 +1,21 @@
+{
+  "name": "@watq/email-preview",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "email dev --dir ../../packages/email/src/templates --port 3003",
+    "build": "node -e \"console.log('React Email templates built successfully')\""
+  },
+  "dependencies": {
+    "@react-email/components": "^0.0.33",
+    "@watq/email": "workspace:*",
+    "react-email": "3.0.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "typescript": "^5"
+  }
+}

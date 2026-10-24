@@ -1,42 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%" fill="none">
-  <!-- Watq Official Single Mark: The Psychometric Prism -->
-  <defs>
-    <linearGradient id="prismCyan" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#38BDF8" />
-      <stop offset="100%" stop-color="#0284C7" />
-    </linearGradient>
-    <linearGradient id="prismWhite" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFFFFF" />
-      <stop offset="100%" stop-color="#E2E8F0" />
-    </linearGradient>
-    <linearGradient id="prismIndigo" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#818CF8" />
-      <stop offset="100%" stop-color="#4F46E5" />
-    </linearGradient>
-  </defs>
-
   <!-- 
-    The 3 Faceted Planes forming the Prism & W silhouette:
-    Plane 1 (Left Pillar / Descending Ray): Stark White
-    Plane 2 (Center Keystone / Dynamic Refraction): Electric Cyan
-    Plane 3 (Right Pillar / Ascending Spectrum): Indigo Beam
+    WATQ DEFINITIVE MASTER BRAND INSIGNIA (100% PERFECTION STANDARD)
+    The Universal Personality Lens — 100% G2 Continuous Filleted Keystones
+    Geometry: Concentric Golden Ratio Compass (R=170, r=64, r_core=24, rf=12)
+    Standard: Pure Monolithic Monochrome (#FFFFFF) & Zero Optical Distortion
   -->
+  <!-- Facet 1: Cognitive Dimension (Mind, Perception, Openness) -->
+  <path d="M 310.14 203.73 L 381.58 162.49 Q 391.97 156.49 385.02 146.71 A 170 170 0 0 0 114.98 146.71 Q 108.03 156.49 118.42 162.49 L 189.86 203.73 Q 200.26 209.73 208.63 201.17 A 64 64 0 0 1 291.37 201.17 Q 299.74 209.73 310.14 203.73 Z" fill="#FFFFFF" />
 
-  <!-- Facet 1: Left Wing (Architectural Anchor) -->
-  <path
-    d="M 90 150 L 150 150 L 210 325 L 165 350 L 90 150 Z"
-    fill="url(#prismWhite)"
-  />
+  <!-- Facet 2: Affective Dimension (Emotion, Values, Agreeableness) -->
+  <path d="M 179.86 221.05 L 108.42 179.81 Q 98.03 173.81 93.04 184.72 A 170 170 0 0 0 228.06 418.58 Q 240.00 419.71 240.00 407.71 L 240.00 325.21 Q 240.00 313.21 228.39 310.24 A 64 64 0 0 1 187.02 238.59 Q 190.26 227.05 179.86 221.05 Z" fill="#FFFFFF" />
 
-  <!-- Facet 2: Center Core (The Decoding Prism Wedge) -->
-  <path
-    d="M 215 175 L 285 175 L 250 350 L 215 175 Z"
-    fill="url(#prismCyan)"
-  />
+  <!-- Facet 3: Conative Dimension (Will, Drive, Conscientiousness) -->
+  <path d="M 260.00 325.21 L 260.00 407.71 Q 260.00 419.71 271.94 418.58 A 170 170 0 0 0 406.96 184.72 Q 401.97 173.81 391.58 179.81 L 320.14 221.05 Q 309.74 227.05 312.98 238.59 A 64 64 0 0 1 271.61 310.24 Q 260.00 313.21 260.00 325.21 Z" fill="#FFFFFF" />
 
-  <!-- Facet 3: Right Wing (Spectrum Beam) -->
-  <path
-    d="M 350 150 L 410 150 L 335 350 L 290 325 L 350 150 Z"
-    fill="url(#prismIndigo)"
-  />
+  <!-- The Authentic Self (Das Selbst / Wathiqa Singularity Core) -->
+  <circle cx="250" cy="250" r="24" fill="#FFFFFF" />
 </svg>
