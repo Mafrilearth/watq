@@ -52,44 +52,107 @@ Application routes are strictly segregated between public-facing and private aut
 └── 2. Administration Studio: (/admin) — Directory governance & operational health (Fauzul)
 ```
 
-### **B. Step-by-Step User Journey Flow:**
+### **C. The 5 Definitive Enterprise User Flows**
+
+#### **1. Flow 1: Seamless Public Evaluation Flow (Tamu Langsung Mengerjakan Tes)**
+* **Aktor:** Calon pengguna baru / tamu tanpa akun (*Guest Respondent*).
+* **Tujuan:** Menyelesaikan tes kepribadian secara cepat tanpa hambatan registrasi akun di awal.
 ```
-  [USER ARRIVES AT ROOT: /]
-             │
-             ▼
-  ┌────────────────────────────────────────────────────────┐
-  │ Screen 1: Landing & Orientation (/)                    │
-  │ • Inspects Value Proposition & Test Overview           │
-  │ • System inspects localStorage for active session:      │
-  │   - If clean: CTA = "Start Assessment"                 │
-  │   - If in-progress: CTA = "Resume Assessment (Q X/24)" │
-  └──────────────────────────┬─────────────────────────────┘
-                             │
-            Click Primary CTA│ (Generates RFC 9562 UUID v4 if new)
-                             ▼
-  ┌────────────────────────────────────────────────────────┐
-  │ Screen 2: Focused 680px Runner (/assess)               │
-  │ • Question currentIndex (1 to 24) displayed            │
-  │ • Respondent selects option (1 to 5 via Tap / Keyboard)│
-  │ • Selection state highlights immediately (<50ms)       │
-  │ • Synchronous write to localStorage                    │
-  │ • 180ms Psychomotor Delay (100ms visual + 80ms buffer) │
-  │                                                        │
-  │   [Is currentIndex < 23?]                              │
-  │   ├── YES ──> Advance to currentIndex + 1              │
-  │   └── NO  ──> Trigger Deterministic Scoring Engine     │
-  └──────────────────────────┬─────────────────────────────┘
-                             │
-       Scoring Completed (<5ms)
-                             ▼
-  ┌────────────────────────────────────────────────────────┐
-  │ Screen 3: Diagnostic Synthesis Report (/result)        │
-  │ • Archetype Hero Displayed (e.g., INTJ - The Architect)│
-  │ • 4 Polarity Percentage Bars Animate (E/I, S/N, T/F, J/P)│
-  │ • UNESCO ISCED-F 2013 College Majors Recommended       │
-  │ • ILO ISCO-08 Aligned Career Trajectories Recommended   │
-  │ • Action: "Copy Summary" (Clipboard) or "Retake" (Reset)│
-  └────────────────────────────────────────────────────────┘
+[User Tiba di Landing Page: /]
+   │
+   ▼
+[Klik "Start Assessment" (Tanpa Input Data Apapun)]
+   │ ➔ Sistem membuat UUID v4 sesi baru di memori lokal browser
+   ▼
+[Masuk Ruang Tes: /assess (Mode Fokus Bebas Distraksi)]
+   │ ➔ Jawab soal 1 sampai 24 (Klik Opsi atau Tekan Angka 1-5 di Keyboard)
+   │ ➔ Setiap pilihan otomatis tersimpan seketika di perangkat
+   │ ➔ Pindah soal otomatis dalam jeda 180ms yang nyaman
+   ▼
+[Soal Terakhir (Nomor 24) Terjawab]
+   │ ➔ Algoritma skor deterministik menghitung seketika (< 5ms)
+   ▼
+[Layar Hasil Diagnostik: /result]
+   │ ➔ Rangkuman Tipe Kepribadian, Grafik 4 Sumbu Keseimbangan Energi
+   │ ➔ Panduan Kekuatan Alami, Pemulihan Stres, Rekomendasi Jurusan & Karier
+   │ ➔ Aksi: "Download PDF", "Salin Ringkasan", atau "Simpan ke Akun"
+```
+
+#### **2. Flow 2: Guest-to-Member Conversion & Sync Flow (Penyelarasan Hasil ke Akun Baru)**
+* **Aktor:** Tamu yang telah melihat hasil tes dan ingin menyimpan rekamannya secara permanen.
+* **Tujuan:** Membuat akun member dan otomatis menyelaraskan hasil tes lokal ke basis data awan.
+```
+[User Berada di Layar Hasil: /result]
+   │
+   ▼
+[Klik "Simpan Hasil ke Akun" / "Daftar Akun Member"]
+   │ ➔ Data sesi hasil tes lokal disiapkan untuk disinkronkan
+   ▼
+[Halaman Pendaftaran: /register]
+   │ ➔ Masukkan Nama Lengkap, Email, dan Kata Sandi
+   ▼
+[Klik "Buat Akun"]
+   │ ➔ Sandi dienkripsi satu arah dengan pengacak acak unik (salted scrypt)
+   │ ➔ Akun member terdaftar di Neon Serverless PostgreSQL
+   │ ➔ Rekam data hasil tes otomatis ditautkan ke ID Member baru
+   ▼
+[Masuk ke Member Portal: /dashboard]
+   │ ➔ Hasil tes yang baru saja dikerjakan sudah tersimpan aman di arsip riwayat
+```
+
+#### **3. Flow 3: Returning Member History & Retake Flow (Member Lama Masuk & Buka Arsip)**
+* **Aktor:** Pengguna terdaftar (*Role: MEMBER*).
+* **Tujuan:** Membuka arsip laporan kepribadian lama atau melakukan evaluasi ulang berkala.
+```
+[User Tiba di Halaman Masuk: /login]
+   │ ➔ Masukkan Email & Kata Sandi
+   ▼
+[Verifikasi Kredensial Berhasil]
+   │ ➔ Penerbitan HttpOnly Secure Session Cookie di peramban
+   ▼
+[Member Portal: /dashboard]
+   │
+   ├── Skenario A: Membuka Laporan Lama
+   │     │ ➔ Klik salah satu kartu pada riwayat tes
+   │     ▼
+   │   [Laporan Hasil Diagnostik Terbuka Penuh Tanpa Tes Ulang]
+   │
+   └── Skenario B: Melakukan Evaluasi Berkala Baru
+         │ ➔ Klik tombol "Mulai Evaluasi Baru"
+         ▼
+       [Masuk ke /assess ➔ Selesai ➔ Hasil Baru Masuk ke Garis Waktu Riwayat]
+```
+
+#### **4. Flow 4: Publication-Grade Document Export Flow (Unduh Berkas Resmi A4)**
+* **Aktor:** Pengguna umum maupun Member yang memerlukan berkas fisik/digital resmi.
+* **Tujuan:** Mengunduh berkas laporan kepribadian format A4 bersih tanpa cap air untuk lampiran akademik/karier.
+```
+[User Berada di Halaman Hasil: /result]
+   │
+   ▼
+[Klik Tombol "Download PDF"]
+   │ ➔ Sistem memicu Print Engine CSS A4 khusus
+   │ ➔ Menu navigasi, tombol website, dan banner otomatis disembunyikan
+   │ ➔ Tata letak dikonversi presisi ke margin standar kertas cetak A4
+   │ ➔ Tautan permanen verifikasi keaslian tertera di catatan kaki dokumen
+   ▼
+[Berkas PDF Resmi Tersimpan di Perangkat Siap Dikirim atau Dicetak]
+```
+
+#### **5. Flow 5: Sovereign Administrator Governance Flow (Tata Kelola Pengelola / Fauzul)**
+* **Aktor:** Fauzul (*Role: ADMIN / Pemilik & Pengelola Tunggal*).
+* **Tujuan:** Mengelola direktori pengguna, memantau sebaran tipologi, dan menjaga keamanan ekosistem.
+```
+[Fauzul Membuka Studio Admin: /admin]
+   │ ➔ Sistem memeriksa verifikasi cookie akun ADMIN di server
+   │ ➔ Proteksi ketat: Akun umum/tamu langsung ditolak (HTTP 403 Forbidden)
+   ▼
+[Masuk Dashboard Administration Studio]
+   │
+   ├── Pantau Statistik Aktivitas: Total Member Terdaftar & Status Selesai Tes
+   ├── Analisis Sebaran Kepribadian: Grafik Lingkaran Proporsi 16 Tipe
+   ├── Manajemen Direktori: Kolom Pencarian Kata Kunci Instan Nama atau Email
+   └── Keamanan Ekosistem: Penangguhan Akun Mencurigakan (Tanpa Mengubah Hak Akses)
 ```
 
 ## **1.4 Three Laws of User Interaction Flow**
