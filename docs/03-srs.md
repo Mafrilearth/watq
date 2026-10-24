@@ -260,7 +260,9 @@ Application routes are strictly segregated between public-facing and private aut
 * **Deterministic Scoring Calculator:** [`src/lib/scoring/jungian.ts`](file:///d:/watq/src/lib/)
 * **Brand Lockup Component:** [`src/components/brand/WatqLogo.tsx`](file:///d:/watq/src/components/brand/WatqLogo.tsx)
 
-## **4.2 Non-Functional Performance Budgets (ISO/IEC 25010 & W3C Web Vitals)**
+## **4.2 Non-Functional Performance Budgets & Module Quality Mapping (ISO/IEC 25010)**
+
+### **A. Core Web Vitals & System Performance Budgets**
 * **First Contentful Paint (FCP):** $\le 0.8\text{ seconds}$ on standard 4G mobile connections.
 * **Largest Contentful Paint (LCP):** $\le 1.2\text{ seconds}$ (optimal Google Core Web Vitals rating).
 * **Cumulative Layout Shift (CLS):** Exactly $0.00$ (Container enforces fixed min-height avoiding content jumps).
@@ -268,6 +270,32 @@ Application routes are strictly segregated between public-facing and private aut
 * **Scoring Calculation Duration:** $< 5\text{ms}$ (pure linear CPU cycle across 24 integer inputs).
 * **Client JavaScript Bundle:** $\le 85\text{ KB}$ gzipped.
 * **Accessibility (WCAG 2.2 Level AA / AAA):** High contrast ratio $\ge 7:1$, full keyboard navigation support (`Tab`, `Space`, `1`–`5`, `Backspace`).
+
+### **B. Module-by-Module Non-Functional Quality Attributes**
+1. **`Authentication`**:
+   - `Security`: Salted `scrypt` password hashing ($N=16384, r=8, p=1$) with `timingSafeEqual`.
+   - `Integrity`: Session tokens stored in `HttpOnly`, `SameSite=Lax`, `Secure` cookies (Anti-XSS).
+   - `Resilience`: Neutral anti-enumeration alerts on authentication failures.
+2. **`Assessment Runner`**:
+   - `Latency`: Sub-50ms tap/key registration; 180ms psychomotor auto-advance delay.
+   - `Reliability`: Local-first answer persistence preventing loss on refresh or network drops.
+   - `Stability`: Bringhurst 680px layout container with fixed min-height (CLS = 0.00).
+3. **`Diagnostic Report`**:
+   - `Accuracy & Speed`: Mathematical determinism ($<5\text{ms}$) with zero LLM hallucinations.
+   - `Readability`: Ergonomic 65 CPL typography; constructive positive psychology framing.
+4. **`Career Guidance`**:
+   - `Taxonomy`: Aligned with UNESCO ISCED-F 2013 and ILO ISCO-08 international standards.
+   - `Responsiveness`: Client-side real-time career filter execution in $<10\text{ms}$.
+5. **`Document Export`**:
+   - `Fidelity`: Publication-grade A4 print CSS layout, unbranded and watermark-free.
+   - `Verifiability`: Permanent verification URL at document footer confirming authenticity.
+6. **`Member Portal`**:
+   - `Data Isolation`: Strict tenant separation; zero cross-member data leakage.
+   - `Availability`: Serverless persistence with sub-second retrieval of past reports.
+7. **`Admin Studio`**:
+   - `Access Control`: Server-side Zero-Trust guard (HTTP 403 for non-`ADMIN` requests).
+   - `Immutability`: Immutable RBAC with zero role elevation controls in UI.
+   - `Ethics`: Macroscopic cohort health telemetry without exposing individual question answers.
 
 ## **4.3 Verification & Quality Checklist**
 - [x] Strict 3-screen sitemap enforced without secondary or unmanaged routes.

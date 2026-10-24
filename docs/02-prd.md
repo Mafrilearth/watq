@@ -152,6 +152,44 @@ To ensure an ultra-lean enterprise SaaS MVP and prevent scope creep, alternative
 * ❌ **AI Chatbot / Unstructured Conversational Agents (Eliminated):** Introduces token cost overhead, latency, and non-deterministic psychological hallucinations. Structured executive reports deliver superior enterprise authority.
 * ❌ **Dynamic Role Editing in UI (Permanently Rejected):** Eliminates privilege escalation attack surfaces; roles remain strictly fixed as `ADMIN` and `MEMBER`.
 
+## **1.7 Non-Functional Enterprise Requirements & System Quality Attributes**
+Beyond functional deliverables ("what the system does"), Watq enforces rigorous non-functional quality standards ("how resiliently, securely, and swiftly the system operates") mapped directly to each of the 7 core modules:
+
+### **Module 1: Authentication Quality Attributes**
+* **`Cryptographic Password Security`**: User credentials hashed using one-way salted `scrypt` (16-byte cryptographically secure random salt, $N=16384$, $r=8$, $p=1$) evaluated via `timingSafeEqual`. Zero plaintext or reversible password storage.
+* **`Safe Session Protection`**: Session tokens encapsulated within `HttpOnly`, `SameSite=Lax`, and `Secure` cookies. Fully immune to malicious browser client scripts (Anti-XSS token theft).
+* **`Anti-Enumeration Feedback`**: Authentication failures return neutral, human-centered alerts without revealing whether email or password was invalid, preventing account harvesting attacks.
+
+### **Module 2: Assessment Runner Quality Attributes**
+* **`Zero-Lag Interaction Latency`**: Button taps and physical keyboard responses register in $<50\text{ms}$ (INP budget).
+* **`Local-First Resilience`**: Every response is immediately persisted to local client storage. Zero data loss during sudden network dropouts, browser refreshes, or device power failures.
+* **`Smooth Psychomotor Pacing`**: Exactly $180\text{ms}$ transition interval post-selection, calibrated to human ocular fixation without cognitive jarring or disorientation.
+* **`High Contrast Accessibility (WCAG 2.2 AAA)`**: Strict contrast ratio $\ge 7:1$, readable in low and high ambient light environments; 100% operable via physical keyboard shortcuts (`1-5`, `Backspace`, `Escape`).
+* **`Zero Visual Jumps (CLS = 0.00)`**: Layout container maintains a Bringhurst-derived 680px width with fixed min-height, preventing disruptive layout shifts during item transitions.
+
+### **Module 3: Diagnostic Report Quality Attributes**
+* **`Deterministic Calculation Speed`**: 16-type psychometric scoring executes mathematically in $<5\text{ms}$ without asynchronous server dependencies or non-deterministic AI latency.
+* **`Ergonomic Reading Flow`**: 680px reading container conforms to optimal cognitive intake ($65\text{ CPL}$), minimizing ocular fatigue across long-form diagnostic copy.
+* **`Constructive Psychological Tone & Privacy`**: Positive psychology grounding emphasizing cognitive superpowers and actionable remedies without fatalistic or pejorative labeling; individual reports strictly private by default.
+
+### **Module 4: Career Guidance Quality Attributes**
+* **`Global Standard Taxonomy`**: Academic majors and career pathways aligned strictly with international classifications (UNESCO ISCED-F 2013 and ILO ISCO-08), guaranteeing institutional credibility.
+* **`Instant Search Latency`**: Real-time filtering across careers executes in $<10\text{ms}$ client-side without page reloads.
+
+### **Module 5: Document Export Quality Attributes**
+* **`Publication-Grade Print Fidelity`**: Precision A4 print CSS rendering authoritative, unbranded, watermark-free dossiers suitable for university admissions and executive hiring panels.
+* **`Lightweight Document Footprint`**: Optimized asset delivery ensuring PDF generation remains fast and bandwidth-friendly even on constrained mobile networks.
+* **`Provenance & Authenticity Verification`**: Permanent tamper-evident verification URL rendered at document footer, allowing instant third-party validation.
+
+### **Module 6: Member Portal Quality Attributes**
+* **`Strict Data Isolation`**: Zero cross-tenant or cross-member record leakage. Members can only query and view their own historical assessment dossiers.
+* **`High Availability & Rapid Retrieval`**: Serverless cloud database guarantees 99.9% uptime with sub-second retrieval of past assessment records.
+
+### **Module 7: Admin Studio Quality Attributes**
+* **`Zero-Trust Route Defense`**: Server-side role guard rejecting non-`ADMIN` requests immediately with HTTP 403 Forbidden before any admin component renders.
+* **`Immutable Role Security by Design`**: Complete absence of dynamic role modification or privilege escalation controls in the user interface.
+* **`Ethical Audit Telemetry`**: Administrative visibility provides macroscopic completion status and aggregate typology statistics without exposing private, individual question-item answers.
+
 ---
 
 # **2. CORE TECHNICAL SPECIFICATIONS (THE "WHAT & HOW")**
