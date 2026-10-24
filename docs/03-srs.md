@@ -143,9 +143,35 @@ Application routes are strictly segregated between public-facing and private aut
 * **FR-3.4 Vocational Guidance Matrix:**
   * List of relevant College Majors (UNESCO ISCED-F 2013 aligned interactive badges).
   * Aligned Professional Career Trajectories (ILO ISCO-08 aligned career pathways).
-* **FR-3.5 Action Bar:**
+* **FR-3.5 Document Export (Serverless A4 PDF):**
+  * One-click generation of publication-grade A4 PDF reports via `@vercel/og` and print CSS engine.
+  * Completely unbranded and watermark-free, preserving executive dignity for employment and university submissions.
+  * Displays permanent verification URL at the document footer validating certificate authenticity.
+* **FR-3.6 Action Bar:**
   * `"Copy Summary"`: Copies formatted text summary to clipboard with 120ms visual tooltip confirmation.
   * `"Retake Assessment"`: Displays confirmation modal, clears existing session from `localStorage`, and restarts at item 1.
+
+## **2.4 Screen 4: Administration Studio (`/admin`)**
+* **FR-4.1 Immutable Role Gatekeeper:**
+  * Strict server-side route protection checking session cookie role (`ADMIN`).
+  * Unauthenticated users or users with role `MEMBER` are immediately redirected with HTTP 403 / route guard.
+  * **Strict Role Immutability:** No UI controls exist to promote, demote, or alter roles (`MEMBER` ↔ `ADMIN`), completely eliminating privilege escalation risks.
+* **FR-4.2 Global Member Master Directory:**
+  * Live responsive table rendering all registered users: Full Name, Email Address, Role (`MEMBER`), Registration Date, and Activity Status.
+  * Real-time zero-reload keyword search filtering across member names and email addresses.
+* **FR-4.3 Assessment Completion & Health Audit:**
+  * Visual audit badges for completion status: `"Completed"` (Emerald) vs `"In Progress"` (Muted Slate).
+  * Aggregate typology distribution chart rendering macroscopic cognitive category proportions.
+* **FR-4.4 Account Safety & Moderation Controls:**
+  * Single-click defensible session revocation and account suspension for abusive/spam entries without permission alteration.
+
+## **2.5 Screen 5: Member Portal & History Archive (`/dashboard`)**
+* **FR-5.1 Personal Assessment Log:**
+  * Chronological timeline displaying all completed assessments, archetype badges, and completion timestamps.
+* **FR-5.2 Historical Report Revisit:**
+  * One-click re-opening of any past diagnostic dossier without requiring assessment re-execution.
+* **FR-5.3 Self-Service Profile Settings:**
+  * Intuitive management for updating display name and updating authentication credentials.
 
 ---
 

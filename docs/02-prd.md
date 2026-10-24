@@ -68,40 +68,89 @@ Watq maps its product domain to the established inverted pyramid taxonomy of beh
                                     UNESCO ISCED-F 2013 Academic Majors & ILO ISCO-08 Careers
 ```
 
-## **1.3 Two Primary System Actors (Target Personas)**
-Watq is engineered with a strict 2-actor system boundary:
-1. **Actor 1: The Member (Authenticated Enterprise User):**
-   - Accesses the high-speed 24-item diagnostic runner (`/assess`).
-   - Receives their personal **Cognitive Operating Manual** (`/result`): 4-polarity radar, stress overload triggers & recovery antidotes, authentic communication patterns, and academic/career alignments (UNESCO ISCED-F 2013 / ILO ISCO-08).
-   - Manages personal profile and synchronized assessment records securely in Neon PostgreSQL (`/dashboard` or `apps/app`).
-   - Strictly restricted from administrative features.
-2. **Actor 2: The System Administrator (Fauzul / Platform Lead):**
-   - Accesses the dedicated **Administration Studio** (`apps/app/admin`).
-   - Directory Governance: Audits active platform members, controls role promotion/demotion (`MEMBER` ↔ `ADMIN`), and revokes unauthorized accounts.
-   - Audits psychometric balance and platform health telemetry.
+## **1.3 Two Immutable System Roles (Strict Non-Alterable RBAC)**
+Watq is engineered with a strict, immutable 2-role system boundary:
+1. **Actor 1: The Member (`MEMBER` — Registered Platform User):**
+   - Accesses the high-speed diagnostic runner (`/assess`).
+   - Receives their personal **Cognitive Operating Manual** (`/result`): polarity balance, strengths, stress recovery antidotes, interpersonal communication advice, and academic/career alignments (UNESCO ISCED-F 2013 / ILO ISCO-08).
+   - Manages personal profile and synchronized assessment records securely in cloud storage (`/dashboard` or `apps/app`).
+   - **Immutable Boundary:** Strictly restricted from administrative oversight. Roles are fixed upon registration and cannot be altered via UI.
+2. **Actor 2: The System Administrator (`ADMIN` — Fauzul / Platform Lead):**
+   - Dedicated sovereign platform authority held exclusively by **Fauzul**.
+   - Accesses the dedicated **Administration Studio** (`apps/app/admin` or `/admin`).
+   - Global Directory Governance: Audits active platform members and monitors completion health telemetry.
+   - Account Moderation: Safely deactivates or removes malicious/spam accounts.
+   - **Immutable Boundary:** Zero dynamic role alteration or promotion/demotion (`MEMBER` ↔ `ADMIN`) in UI. Eliminates privilege escalation vulnerabilities and administrative misconfigurations.
 
-## **1.4 Phase 1 Implementation Scope (Production Initial Release v1.0.0)**
+## **1.4 Phase 1 Implementation Scope (MVP Focus: 1 Active Assessment Model)**
 To guarantee high execution velocity, zero latency, and an uncompromising, clean enterprise user experience:
-1. **Initial Reference Gateway:** 16 Cognitive Types public-domain instrument (Carl Gustav Jung 1921), 24 items with 50% reversed-keying.
+1. **Sole Active Assessment Gateway:** 16 Cognitive Types public-domain instrument (Carl Gustav Jung 1921), measuring 4 cognitive polarity axes with balanced positive and reversed keying. Direct modern enterprise evolution of Fauzul's foundational `df-mbti` architecture.
 2. **Dynamic Question Service:** Assessment runner loads items dynamically from Neon PostgreSQL via Next.js Server Actions (`getPublicAssessmentQuestionsAction`).
 3. **Enterprise Cloud Persistence & Cryptographic Security:**
    - User credentials protected with salted `scrypt` hashing (16-byte random salt + `timingSafeEqual`).
    - User sessions and completed assessment dossiers persistently stored in Neon Serverless PostgreSQL.
    - Deterministic client-side scoring computation (< 5ms calculation latency).
 4. **Monorepo Domain Separation:**
-   - **Public Gateway (`apps/web`):** Executive Landing (`/`), Focused 680px Assessment Runner (`/assess`), Executive Diagnostic Dossier (`/result`), and Authentication Gateways (`/login` & `/register`).
+   - **Public Gateway (`apps/web`):** Executive Landing (`/`), Focused Assessment Runner (`/assess`), Executive Diagnostic Dossier (`/result`), and Authentication Gateways (`/login` & `/register`).
    - **Private Workspace (`apps/app`):** Member Workspace (`/`) and Administration Studio (`/admin`).
 
-## **1.5 Permanent Bloat Elimination & Out-of-Scope Boundaries**
-To ensure an ultra-lean enterprise SaaS MVP, the following items are permanently eliminated or deferred:
-* ❌ Interactive runner sandbox / mini previews on the landing page (users take the official runner at `/assess`).
-* ❌ Developer architectural figures and system schematics on customer-facing screens.
-* ❌ Public changelog popups and `/changelog` routes (release notes are tracked via Git tags and documentation).
-* ❌ Question CRUD in admin (psychometric instruments are scientifically calibrated; admin handles directory governance).
-* ❌ Demo accounts, guest bypasses, and mock logins (strict email + salted scrypt passwords enforced).
-* ❌ Local storage JSON export/import (all data is cloud-persisted in PostgreSQL).
-* ❌ Additional psychometric instruments (Big Five OCEAN, DISC, Enneagram, RIASEC) in the active runner (deferred to Phase 2).
-* ❌ Relational comparison interfaces (`/compare`).
+## **1.5 The 7 Core Enterprise SaaS Modules & Granular Functional Features**
+The platform architecture is strictly partitioned into 7 modular domains with official global enterprise naming:
+
+### **Module 1: `Authentication` (Pintu Masuk & Identitas Akun)**
+* **`User Registration`**: Self-service onboarding for new members with encrypted credentials.
+* **`User Login`**: Secure authentication gateway restoring access to personal assessment records.
+* **`Guest Assessment Access`**: Frictionless evaluation without mandatory upfront account creation.
+* **`Secure Logout`**: Instant session invalidation preventing unauthorized access on shared devices.
+* **`Friendly Input Alert`**: Human-centered inline validation guidance for syntax and credential errors.
+
+### **Module 2: `Assessment Runner` (Ruang Pengerjaan Tes)**
+* **`Distraction-Free Test Screen`**: Isolated single-item focus presentation stripped of extraneous navigation chrome.
+* **`Auto-Next Question Progression`**: Fluid, immediate transition to the next prompt upon response selection.
+* **`Keyboard Shortcuts Interaction`**: Desktop ergonomics enabling rapid completion via physical number keys (`1-5`).
+* **`Auto-Save Answer Resilience`**: Immediate local-first state capture preventing data loss during network disruptions.
+* **`Progress & Completion Indicator`**: Clear linear progress visualization eliminating user pacing uncertainty.
+* **`Safe Exit Warning`**: Gentle exit confirmation safeguarding partially completed diagnostic sessions.
+
+### **Module 3: `Diagnostic Report` (Buku Panduan Karakter Diri)**
+* **`Personality Profile Summary`**: Executive title and synthesized cognitive archetype overview.
+* **`Mindset & Energy Balance Visual`**: Balanced polarity gauges visualizing Energy, Information, Decisions, and Lifestyle.
+* **`Natural Strengths Breakdown`**: In-depth analysis of innate behavioral and cognitive advantages.
+* **`Stress Triggers Warning`**: Proactive identification of mental exhaustion triggers.
+* **`Mental Recharge Antidotes`**: Actionable psychological restoration guidance.
+* **`Teamwork & Communication Advice`**: Practical collaboration protocols for interpersonal friction reduction.
+
+### **Module 4: `Career Guidance` (Panduan Jurusan & Karier Masa Depan)**
+* **`Academic Major Match List`**: Curated university disciplines matched to the member's cognitive wiring.
+* **`Career Path Matching`**: High-fulfillment, low-burnout occupational trajectories mapped to real-world industries.
+* **`Instant Career Search Box`**: Real-time interactive filter testing cognitive compatibility against aspirational roles.
+* **`Work Environment Fit Description`**: Concrete description of operational workplace conditions required for peak productivity.
+
+### **Module 5: `Document Export` (Pusat Dokumen Resmi)**
+* **`PDF Report Download`**: One-click generation of a publication-grade A4 dossier ready for HR, recruitment, or academic submission.
+* **`Unbranded Clean Layout`**: Watermark-free, authoritative styling suitable for formal corporate and institutional evaluation.
+* **`Official Verification Link`**: Tamper-evident permanent URL verifying report provenance and authenticity.
+
+### **Module 6: `Member Portal` (Ruang Riwayat Pribadi — Khusus `MEMBER`)**
+* **`Test History Archive`**: Chronological log of historical assessment completions.
+* **`Past Report Opener`**: Instant access to previous diagnostic reports without requiring re-assessment.
+* **`Basic Profile Settings`**: Self-service management for display name and credential updates.
+
+### **Module 7: `Admin Studio` (Pusat Kendali Pengelola — Khusus `ADMIN` / Fauzul)**
+* **`Global Member Master Table`**: Centralized, real-time registry of all registered platform members.
+* **`Live Keyword Member Search`**: Instant zero-reload filtering across member names and emails.
+* **`Completion Status Audit Tag`**: Clear visual indicators auditing member assessment completion.
+* **`Aggregate Personality Pie Chart`**: Macroscopic distribution analytics summarizing platform-wide cognitive typology.
+* **`Account Safety & Moderation`**: Defensible session revocation and account suspension for abusive/spam entries, strictly maintaining immutable role boundaries.
+
+## **1.6 Architectural Scope Governance & Out-of-Scope Rationales**
+To ensure an ultra-lean enterprise SaaS MVP and prevent scope creep, alternative features are explicitly governed:
+* ❌ **Subscription Billing & Paywalls (Eliminated):** Upfront monetization barriers severely depress early product adoption. MVP prioritizes unencumbered value validation.
+* ❌ **Multi-Tenant Corporate Workspaces (Deferred):** Complex B2B organization trees, seat allocation, and department tagging add unnecessary overhead prior to individual user-market validation.
+* ❌ **Live Colleague/Team Matrix Comparison (Deferred):** Requires simultaneous cohort completion within a single group; optimal for Phase 2 expansion.
+* ❌ **Dynamic Question Editor / CRUD in Admin (Permanently Rejected):** Psychometric instruments are scientifically calibrated mathematical scales. Ad-hoc admin editing invalidates construct reliability.
+* ❌ **AI Chatbot / Unstructured Conversational Agents (Eliminated):** Introduces token cost overhead, latency, and non-deterministic psychological hallucinations. Structured executive reports deliver superior enterprise authority.
+* ❌ **Dynamic Role Editing in UI (Permanently Rejected):** Eliminates privilege escalation attack surfaces; roles remain strictly fixed as `ADMIN` and `MEMBER`.
 
 ---
 
