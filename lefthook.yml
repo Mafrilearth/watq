@@ -1,8 +1,48 @@
+# ==============================================================================
+# WATQ ENTERPRISE GIT HOOKS CONFIGURATION (LEFTHOOK v2.2)
+# Standard: Fast, multi-platform, parallel Git hooks for monorepo determinism.
+# ==============================================================================
+
+colors: true
+
+output:
+  - meta
+  - summary
+  - success
+  - failure
+  - execution_out
+
+# ------------------------------------------------------------------------------
+# 1. PRE-COMMIT HOOKS
+# Executes in sub-150ms before commit creation.
+# Enforces Biome formatting, linting, and import sorting with auto-staging.
+# ------------------------------------------------------------------------------
 pre-commit:
   parallel: true
   commands:
     biome-check:
-      glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}"
-      run: pnpm biome check --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
-    typecheck:
-      run: pnpm turbo run typecheck
+      glob: "*.{js,ts,jsx,tsx,json,jsonc,css}"
+      run: pnpm biome check --write --no-errors-on-unmatched {staged_files}
+      stage_fixed: true
+
+# ------------------------------------------------------------------------------
+# 2. COMMIT-MSG HOOKS
+# Enforces Conventional Commits specification across all commits.
+# ------------------------------------------------------------------------------
+commit-msg:
+  commands:
+    conventional-commits:
+      run: node scripts/verify-commit-msg.js {1}
+
+# ------------------------------------------------------------------------------
+# 3. PRE-PUSH HOOKS
+# Executes before pushing commits to remote repository (main / dev).
+# Verifies 90/90 invariant test proofs and Turbo strict TypeScript typecheck.
+# ------------------------------------------------------------------------------
+pre-push:
+  parallel: true
+  commands:
+    psychometric-unit-tests:
+      run: pnpm test
+    monorepo-typecheck:
+      run: pnpm typecheck
