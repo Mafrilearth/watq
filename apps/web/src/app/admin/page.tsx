@@ -39,6 +39,7 @@ import {
   Layers,
 } from "lucide-react";
 import Link from "next/link";
+import { parseAsString, parseAsStringLiteral, useQueryState } from "nuqs";
 import React, { useState, useEffect, useSyncExternalStore, useMemo, useCallback } from "react";
 import { toast } from "sonner";
 
@@ -51,7 +52,12 @@ export default function AdminPage() {
     getServerAuthSnapshot,
   );
 
-  const [activeTab, setActiveTab] = useState<AdminTab>("users");
+  const [activeTab, setActiveTab] = useQueryState(
+    "tab",
+    parseAsStringLiteral(["users", "questions", "models", "telemetry"] as const).withDefault(
+      "users",
+    ),
+  );
 
   // User Management State
   const [users, setUsers] = useState<EnterpriseUserRecord[]>([]);
@@ -63,8 +69,14 @@ export default function AdminPage() {
   // Question Management State
   const [questions, setQuestions] = useState<EnterpriseQuestionItem[]>([]);
   const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedDimension, setSelectedDimension] = useState<string>("ALL");
+  const [searchQuery, setSearchQuery] = useQueryState(
+    "q",
+    parseAsString.withDefault("").withOptions({ shallow: true, throttleMs: 250 }),
+  );
+  const [selectedDimension, setSelectedDimension] = useQueryState(
+    "dim",
+    parseAsString.withDefault("ALL").withOptions({ shallow: true }),
+  );
   const [newPrompt, setNewPrompt] = useState("");
   const [newTarget, setNewTarget] = useState("");
   const [newDim, setNewDim] = useState<"ENERGY" | "PERCEPTION" | "JUDGMENT" | "ORIENTATION">(

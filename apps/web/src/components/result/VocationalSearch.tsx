@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { useQueryState } from "nuqs";
+import { parseAsString, useQueryState } from "nuqs";
 import Fuse from "fuse.js";
 import { Search, Briefcase, GraduationCap } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -19,7 +19,14 @@ interface Item {
 
 export function VocationalSearch({ careers, majors }: VocationalSearchProps) {
   const { locale } = useUIStore();
-  const [query, setQuery] = useQueryState("q", { defaultValue: "" });
+  const [query, setQuery] = useQueryState(
+    "q",
+    parseAsString.withDefault("").withOptions({
+      shallow: true,
+      throttleMs: 300,
+      clearOnDefault: true,
+    }),
+  );
 
   const allItems: Item[] = useMemo(() => {
     const c = careers.map((title) => ({ title, type: "Career" as const }));

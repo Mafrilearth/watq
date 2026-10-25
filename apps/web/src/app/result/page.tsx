@@ -39,6 +39,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { parseAsStringLiteral, useQueryState } from "nuqs";
 import React, { useSyncExternalStore, useEffect, useState, useMemo } from "react";
 import { VocationalSearch } from "@/components/result/VocationalSearch";
 import { CollaborationManualModal } from "@/components/modals/CollaborationManualModal";
@@ -125,8 +126,12 @@ export default function ResultPage() {
   );
   const isAuthenticated = Boolean(authSession.user);
   const [copied, setCopied] = useState<boolean>(false);
-  const [showManualModal, setShowManualModal] = useState<boolean>(false);
-  const [showStoryModal, setShowStoryModal] = useState<boolean>(false);
+  const [activeModal, setActiveModal] = useQueryState(
+    "modal",
+    parseAsStringLiteral(["manual", "story"] as const).withOptions({ shallow: true }),
+  );
+  const showManualModal = activeModal === "manual";
+  const showStoryModal = activeModal === "story";
 
   const result: AnyAssessmentResult | null = session?.result || null;
 
@@ -298,7 +303,7 @@ Report Verification: ${sha256Fingerprint}`;
                   type="button"
                   variant="island"
                   size="sm"
-                  onClick={() => setShowStoryModal(true)}
+                  onClick={() => setActiveModal("story")}
                   title={locale === "id" ? "Buat Story Card 9:16" : "Generate 9:16 Story Card"}
                   className="h-8 text-xs font-semibold text-slate-200"
                 >
@@ -312,7 +317,7 @@ Report Verification: ${sha256Fingerprint}`;
                   type="button"
                   variant="island"
                   size="sm"
-                  onClick={() => setShowManualModal(true)}
+                  onClick={() => setActiveModal("manual")}
                   title={
                     locale === "id" ? "Panduan Kolaborasi Pribadi" : "View Collaboration Guide"
                   }
@@ -1031,7 +1036,7 @@ Report Verification: ${sha256Fingerprint}`;
       {modelType === "jungian" && jungianResult && (
         <CollaborationManualModal
           isOpen={showManualModal}
-          onClose={() => setShowManualModal(false)}
+          onClose={() => setActiveModal(null)}
           typeCode={jungianResult.typeCode}
           callsign={callsign}
         />
@@ -1041,7 +1046,7 @@ Report Verification: ${sha256Fingerprint}`;
       {modelType === "jungian" && jungianResult && (
         <SocialStoryModal
           isOpen={showStoryModal}
-          onClose={() => setShowStoryModal(false)}
+          onClose={() => setActiveModal(null)}
           typeCode={jungianResult.typeCode}
           archetypeTitle={jungianResult.archetypeTitle}
           callsign={callsign}

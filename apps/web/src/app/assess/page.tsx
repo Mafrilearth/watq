@@ -31,7 +31,8 @@ import { getPublicAssessmentQuestionsAction } from "@/app/actions/questionAction
 import { useUIStore } from "@/lib/stores/uiStore";
 import { ArrowLeft, Check, Sparkles, Globe } from "lucide-react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { parseAsStringLiteral, useQueryState } from "nuqs";
 import React, { useState, useEffect, useCallback, useTransition, useMemo } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { QUESTION_TRANSLATIONS_ID } from "@watq/core";
@@ -102,20 +103,15 @@ const MODEL_CONFIGS: Record<
 
 function AssessmentRunnerContent() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [, startTransition] = useTransition();
 
-  const queryModel = (searchParams.get("model") as AssessmentModelType) || null;
-
-  // Active Model Type (defaults to session model or query param or jungian)
-  const [activeModel, setActiveModel] = useState<AssessmentModelType>(() => {
-    if (queryModel && queryModel in MODEL_CONFIGS) return queryModel;
-    const session = getSession();
-    if (session?.modelType && session.modelType in MODEL_CONFIGS) {
-      return session.modelType as AssessmentModelType;
-    }
-    return "jungian";
-  });
+  // Active Model Type synced to URL query parameter with nuqs
+  const [activeModel, setActiveModel] = useQueryState(
+    "model",
+    parseAsStringLiteral(["jungian", "bigfive", "enneagram", "disc", "riasec"] as const)
+      .withDefault("jungian")
+      .withOptions({ shallow: true, history: "push" }),
+  );
 
   const [dbQuestions, setDbQuestions] = useState<QuestionItem[] | null>(null);
 
