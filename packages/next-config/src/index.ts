@@ -54,6 +54,7 @@ export const baseNextConfig: NextConfig = {
   // Remove X-Powered-By: Next.js to prevent framework fingerprinting
   poweredByHeader: false,
   reactStrictMode: true,
+  typedRoutes: true,
   turbopack: {
     rules: {
       "*.css": {

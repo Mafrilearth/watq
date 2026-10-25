@@ -55,6 +55,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   cacheComponents: true,
   partialPrefetching: true,
+  typedRoutes: true,
   turbopack: {
     rules: {
       "*.css": {
