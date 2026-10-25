@@ -130,6 +130,7 @@ export function getArcjetErrorMessage(decision: ArcjetDecision): string | null {
 export { request };
 export * from "@arcjet/next";
 export * from "./webcrypto";
+export * from "./turnstile";
 
 import crypto from "node:crypto";
 

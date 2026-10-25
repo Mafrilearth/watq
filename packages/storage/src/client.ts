@@ -1,6 +1,8 @@
 import {
   DeleteObjectCommand,
   GetObjectCommand,
+  HeadObjectCommand,
+  ListObjectsV2Command,
   PutObjectCommand,
   S3Client,
 } from "@aws-sdk/client-s3";
@@ -13,6 +15,10 @@ const R2_BUCKET_NAME = process.env.R2_BUCKET_NAME || "watq-storage";
 
 let s3ClientInstance: S3Client | null = null;
 
+/**
+ * Returns the authenticated S3Client connected to Cloudflare R2 endpoint.
+ * Zero egress fees across global Anycast points of presence.
+ */
 export function getStorageClient(): S3Client | null {
   if (!CLOUDFLARE_ACCOUNT_ID || !R2_ACCESS_KEY_ID || !R2_SECRET_ACCESS_KEY) {
     return null;
@@ -73,6 +79,43 @@ export async function createDownloadPresignedUrl({
   });
 
   return getSignedUrl(client, command, { expiresIn });
+}
+
+export async function checkObjectExists(key: string): Promise<boolean> {
+  const client = getStorageClient();
+  if (!client) {
+    return false;
+  }
+
+  try {
+    const command = new HeadObjectCommand({
+      Bucket: R2_BUCKET_NAME,
+      Key: key,
+    });
+    await client.send(command);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export async function listObjects(prefix = "", maxKeys = 100): Promise<string[]> {
+  const client = getStorageClient();
+  if (!client) {
+    return [];
+  }
+
+  try {
+    const command = new ListObjectsV2Command({
+      Bucket: R2_BUCKET_NAME,
+      Prefix: prefix,
+      MaxKeys: maxKeys,
+    });
+    const response = await client.send(command);
+    return response.Contents?.map((obj) => obj.Key || "").filter(Boolean) || [];
+  } catch {
+    return [];
+  }
 }
 
 export async function deleteObject(key: string): Promise<boolean> {
