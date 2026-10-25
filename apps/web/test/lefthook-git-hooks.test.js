@@ -45,6 +45,10 @@ test("Lefthook Commit-Msg Policy: Conventional Commits Invariants", () => {
 
   assert.ok(fs.existsSync(VERIFY_SCRIPT_PATH), "verify-commit-msg.js must exist");
   const scriptContent = fs.readFileSync(VERIFY_SCRIPT_PATH, "utf-8");
+  assert.ok(
+    scriptContent.includes("conventionalCommitRegex"),
+    "verify script must define conventionalCommitRegex pattern",
+  );
 
   // Verify conventional regex invariants
   const conventionalRegex =
