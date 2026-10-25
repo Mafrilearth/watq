@@ -1,4 +1,5 @@
 export * from "./client";
+export * from "./errors";
 export { PrismaClient, Prisma, Role, Dimension } from "@prisma/client";
 export type {
   User,
