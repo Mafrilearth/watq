@@ -2,27 +2,41 @@ import {
   Body,
   Button,
   Container,
+  Font,
   Head,
   Heading,
+  Hr,
   Html,
+  Link,
   Preview,
   Section,
   Text,
 } from "@react-email/components";
 import type * as React from "react";
 
-interface MagicLinkEmailProps {
+export interface MagicLinkEmailProps {
   url?: string;
   userName?: string;
 }
 
 export function MagicLinkEmail({
-  url = "https://watq.app/login",
+  url = "https://watq.mafrilearth.com/login",
   userName = "Cognitive Explorer",
 }: MagicLinkEmailProps) {
   return (
-    <Html>
-      <Head />
+    <Html lang="en" dir="ltr">
+      <Head>
+        <Font
+          fontFamily="Inter"
+          fallbackFontFamily="sans-serif"
+          webFont={{
+            url: "https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff2",
+            format: "woff2",
+          }}
+          fontWeight={400}
+          fontStyle="normal"
+        />
+      </Head>
       <Preview>Your secure sign-in link for Watq (Personality Decoded)</Preview>
       <Body style={mainStyle}>
         <Container style={containerStyle}>
@@ -37,8 +51,14 @@ export function MagicLinkEmail({
             <Button style={buttonStyle} href={url}>
               Sign In to Watq
             </Button>
+            <Hr style={dividerStyle} />
             <Text style={footerTextStyle}>
               If you did not request this link, you can safely ignore this email.
+            </Text>
+            <Text style={footerLinksStyle}>
+              <Link href="https://watq.mafrilearth.com" style={linkStyle}>
+                Watq — Personality Decoded
+              </Link>
             </Text>
           </Section>
         </Container>
@@ -104,8 +124,24 @@ const buttonStyle: React.CSSProperties = {
   margin: "16px 0 24px 0",
 };
 
+const dividerStyle: React.CSSProperties = {
+  borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+  margin: "24px 0 16px 0",
+};
+
 const footerTextStyle: React.CSSProperties = {
   fontSize: "12px",
   color: "#64748B",
+  margin: "0 0 8px 0",
+};
+
+const footerLinksStyle: React.CSSProperties = {
+  fontSize: "12px",
+  color: "#64748B",
   margin: "0",
+};
+
+const linkStyle: React.CSSProperties = {
+  color: "#D4F024",
+  textDecoration: "none",
 };

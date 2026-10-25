@@ -153,6 +153,15 @@ test("Resend Cryptographic Security: Constant-time Svix webhook signature verifi
 test("React Email Templates: Cold Basalt & Citron branding invariants", () => {
   const assessmentContent = fs.readFileSync(assessmentTemplatePath, "utf-8");
   const magicLinkContent = fs.readFileSync(magicLinkTemplatePath, "utf-8");
+  const invitationPath = path.resolve(
+    __dirname,
+    "../../../packages/email/src/templates/workspace-invitation.tsx",
+  );
+  const invitationContent = fs.readFileSync(invitationPath, "utf-8");
+  const indexContent = fs.readFileSync(
+    path.resolve(__dirname, "../../../packages/email/src/index.ts"),
+    "utf-8",
+  );
 
   // Assessment Completed template checks
   assert.ok(
@@ -162,6 +171,10 @@ test("React Email Templates: Cold Basalt & Citron branding invariants", () => {
   assert.ok(assessmentContent.includes("#D4F024"), "Assessment template must use Citron accent");
   assert.ok(assessmentContent.includes("ILO ISCO-08"), "Must reference ILO ISCO-08 taxonomy");
   assert.ok(assessmentContent.includes("UNESCO ISCED-F 2013"), "Must reference UNESCO taxonomy");
+  assert.ok(assessmentContent.includes("<Font"), "Assessment template must configure web font");
+  assert.ok(assessmentContent.includes("<Row>"), "Assessment template must use Row layout");
+  assert.ok(assessmentContent.includes("<Column"), "Assessment template must use Column layout");
+  assert.ok(assessmentContent.includes("<Hr"), "Assessment template must use Hr divider");
 
   // Magic Link template checks
   assert.ok(
@@ -170,4 +183,22 @@ test("React Email Templates: Cold Basalt & Citron branding invariants", () => {
   );
   assert.ok(magicLinkContent.includes("#D4F024"), "Magic Link template must use Citron accent");
   assert.ok(magicLinkContent.includes("Personality Decoded"), "Must preserve brand tagline");
+  assert.ok(magicLinkContent.includes("<Font"), "Magic Link template must configure web font");
+
+  // Workspace Invitation template checks
+  assert.ok(
+    invitationContent.includes("#08090C"),
+    "Invitation template must use Cold Basalt background",
+  );
+  assert.ok(invitationContent.includes("#D4F024"), "Invitation template must use Citron accent");
+  assert.ok(
+    invitationContent.includes("Executive Workspace Invitation"),
+    "Must preserve invitation title",
+  );
+
+  // Re-export of render & renderAsync
+  assert.ok(
+    indexContent.includes("render, renderAsync"),
+    "Email index must re-export render and renderAsync",
+  );
 });

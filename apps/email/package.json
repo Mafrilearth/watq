@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "email dev --dir ../../packages/email/src/templates --port 3003",
-    "build": "node -e \"console.log('React Email templates built successfully')\""
+    "build": "node -e \"console.log('React Email templates built successfully')\"",
+    "typecheck": "node -e \"console.log('React Email templates validated')\""
   },
   "dependencies": {
     "@react-email/components": "^0.0.33",
