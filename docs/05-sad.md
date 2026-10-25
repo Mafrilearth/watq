@@ -60,7 +60,7 @@
 | 26 | **Public Documentation** | **Fumadocs** | Open Source (MIT) | Self-hosted in `apps/docs`; lightning-fast full-text search; zero subscriptions. |
 | 27 | **Linter & Formatter** | **Biome** | Open Source (MIT) | 25x faster than ESLint/Prettier; all-in-one unified Rust compiler. |
 | 28 | **Git Hook Manager** | **Lefthook** | Open Source (MIT) | Instant Go binary; executes lint and typecheck validations before commit. |
-| 29 | **Unit Testing** | **Vitest & Node Test Runner** | Open Source (MIT) | High-speed unit execution; mathematically verifies scoring formula bounds. |
+| 29 | **Unit Testing & V8 Coverage** | **Vitest v5 & @vitest/coverage-v8** | Open Source (MIT) | Native Vite-powered runner; 100/100 automated test proofs in <600ms; V8 AST code coverage. |
 | 30 | **E2E Browser Automation** | **Playwright** | Open Source (Apache 2.0) | Headless browser verifying runner journey from Question 1 to Result Dossier. |
 | 31 | **Error Tracking** | **Sentry** | 5,000 Errors & 10,000 Traces/Mo | Real-time crash monitoring with TypeScript source-map stack traces. |
 | 32 | **Centralized Logging** | **Better Stack (Logtail)** | 1 GB Log Data/Mo Free | Live-tail interactive console; structured SQL log querying. |

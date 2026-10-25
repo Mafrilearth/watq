@@ -1,12 +1,12 @@
-const test = require("node:test");
-const assert = require("node:assert/strict");
-const {
+import assert from "node:assert/strict";
+import {
+  createSearchParamsCache,
+  parseAsBoolean,
+  parseAsInteger,
   parseAsString,
   parseAsStringLiteral,
-  parseAsInteger,
-  parseAsBoolean,
-  createSearchParamsCache,
-} = require("nuqs/server");
+} from "nuqs/server";
+import { test } from "vitest";
 
 // =========================================================================
 // NUQS V2 SEARCH PARAMS PARSER & CACHE PROOFS

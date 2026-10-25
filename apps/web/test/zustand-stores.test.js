@@ -1,7 +1,7 @@
-const test = require("node:test");
-const assert = require("node:assert/strict");
-const { createStore } = require("zustand/vanilla");
-const { subscribeWithSelector } = require("zustand/middleware");
+import assert from "node:assert/strict";
+import { test } from "vitest";
+import { subscribeWithSelector } from "zustand/middleware";
+import { createStore } from "zustand/vanilla";
 
 // =========================================================================
 // ZUSTAND V5 STORE MECHANICS & INVARIANT PROOFS

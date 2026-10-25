@@ -15,6 +15,8 @@
     "ci:check": "biome ci .",
     "typecheck": "turbo typecheck",
     "test": "pnpm --filter @watq/web test",
+    "test:coverage": "pnpm --filter @watq/web test:coverage",
+    "test:ui": "pnpm --filter @watq/web test:ui",
     "db:studio": "pnpm --filter @watq/studio dev",
     "postinstall": "pnpm --filter @watq/database db:generate",
     "prepare": "lefthook install"

@@ -1,6 +1,6 @@
-const test = require("node:test");
-const assert = require("node:assert/strict");
-const { z } = require("zod");
+import assert from "node:assert/strict";
+import { test } from "vitest";
+import { z } from "zod";
 
 // Define equivalent test schemas matching apps/web/src/lib/validations/index.ts
 const signInSchema = z.object({

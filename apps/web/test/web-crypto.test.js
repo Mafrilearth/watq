@@ -1,5 +1,5 @@
-const test = require("node:test");
-const assert = require("node:assert/strict");
+import assert from "node:assert/strict";
+import { test } from "vitest";
 
 // We test using globalThis.crypto which is native in Node.js 20+ and standard browsers.
 // Load helpers directly or re-implement for CommonJS test runner:

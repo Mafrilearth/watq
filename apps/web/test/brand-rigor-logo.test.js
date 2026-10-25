@@ -1,7 +1,11 @@
-const test = require("node:test");
-const assert = require("node:assert/strict");
-const fs = require("node:fs");
-const path = require("node:path");
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { describe, it, test } from "vitest";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Master Compass Coordinates for WATQ Insignia
 const CX = 250;
@@ -32,8 +36,8 @@ const F1_INNER_LEFT_ARC_START = { x: 208.63, y: 201.17 };
 const F1_INNER_RIGHT_ARC_END = { x: 291.37, y: 201.17 };
 const F1_INNER_RIGHT_CTRL = { x: 299.74, y: 209.73 };
 
-test("WATQ Brand Rigor: 120° Triad Radial Rotational Symmetry", async (t) => {
-  await t.test("Facet 1 rotated by 120° maps identically to Facet 3", () => {
+describe("WATQ Brand Rigor: 120° Triad Radial Rotational Symmetry", () => {
+  it("Facet 1 rotated by 120° maps identically to Facet 3", () => {
     const rot = rotatePoint(F1_INNER_RIGHT.x, F1_INNER_RIGHT.y, 120);
     assert.strictEqual(rot.x, 260.0);
     assert.strictEqual(rot.y, 325.22);
@@ -47,7 +51,7 @@ test("WATQ Brand Rigor: 120° Triad Radial Rotational Symmetry", async (t) => {
     assert.strictEqual(rotArcEnd.y, 418.58);
   });
 
-  await t.test("Facet 1 rotated by 240° maps identically to Facet 2", () => {
+  it("Facet 1 rotated by 240° maps identically to Facet 2", () => {
     const rot = rotatePoint(F1_INNER_RIGHT.x, F1_INNER_RIGHT.y, 240);
     assert.strictEqual(rot.x, 179.86);
     assert.strictEqual(rot.y, 221.05);
@@ -62,22 +66,22 @@ test("WATQ Brand Rigor: 120° Triad Radial Rotational Symmetry", async (t) => {
   });
 });
 
-test("WATQ Brand Rigor: Euclidean Compass Radius & Tangents", async (t) => {
-  await t.test("Outer Perimeter Radius R sits exactly at 170px ± 0.01px", () => {
+describe("WATQ Brand Rigor: Euclidean Compass Radius & Tangents", () => {
+  it("Outer Perimeter Radius R sits exactly at 170px ± 0.01px", () => {
     const dist1 = Math.hypot(F1_OUTER_RIGHT_ARC_END.x - CX, F1_OUTER_RIGHT_ARC_END.y - CY);
     const dist2 = Math.hypot(F1_OUTER_LEFT_ARC_START.x - CX, F1_OUTER_LEFT_ARC_START.y - CY);
     assert.ok(Math.abs(dist1 - 170.0) < 0.01, `Expected 170px, got ${dist1}`);
     assert.ok(Math.abs(dist2 - 170.0) < 0.01, `Expected 170px, got ${dist2}`);
   });
 
-  await t.test("Golden Aperture Radius r sits exactly at 64px ± 0.01px", () => {
+  it("Golden Aperture Radius r sits exactly at 64px ± 0.01px", () => {
     const dist1 = Math.hypot(F1_INNER_LEFT_ARC_START.x - CX, F1_INNER_LEFT_ARC_START.y - CY);
     const dist2 = Math.hypot(F1_INNER_RIGHT_ARC_END.x - CX, F1_INNER_RIGHT_ARC_END.y - CY);
     assert.ok(Math.abs(dist1 - 64.0) < 0.01, `Expected 64px, got ${dist1}`);
     assert.ok(Math.abs(dist2 - 64.0) < 0.01, `Expected 64px, got ${dist2}`);
   });
 
-  await t.test("Singularity Core Radius r_core sits at 24px with 40px radial buffer", () => {
+  it("Singularity Core Radius r_core sits at 24px with 40px radial buffer", () => {
     const coreRadius = 24.0;
     const apertureRadius = 64.0;
     const buffer = apertureRadius - coreRadius;
@@ -85,15 +89,15 @@ test("WATQ Brand Rigor: Euclidean Compass Radius & Tangents", async (t) => {
   });
 });
 
-test("WATQ Brand Rigor: Golden Ratio Harmonic Series (Phi = 1.618)", async (t) => {
-  await t.test("Aperture matches R / phi^2 within 1.5% optical margin", () => {
+describe("WATQ Brand Rigor: Golden Ratio Harmonic Series (Phi = 1.618)", () => {
+  it("Aperture matches R / phi^2 within 1.5% optical margin", () => {
     const theoreticalAperture = 170 / (PHI * PHI);
     const actualAperture = 64.0;
     const errorPct = (Math.abs(theoreticalAperture - actualAperture) / actualAperture) * 100;
     assert.ok(errorPct < 1.5, `Golden ratio aperture deviation is ${errorPct}% (must be < 1.5%)`);
   });
 
-  await t.test("Core Singularity matches R / phi^4 within 3.5% optical margin", () => {
+  it("Core Singularity matches R / phi^4 within 3.5% optical margin", () => {
     const theoreticalCore = 170 / PHI ** 4;
     const actualCore = 24.0;
     const errorPct = (Math.abs(theoreticalCore - actualCore) / actualCore) * 100;
@@ -101,8 +105,8 @@ test("WATQ Brand Rigor: Golden Ratio Harmonic Series (Phi = 1.618)", async (t) =
   });
 });
 
-test("WATQ Brand Rigor: Optical Corridor & Clearance Channels", async (t) => {
-  await t.test("Vertical Lower Corridor negative space is exactly 20.0px", () => {
+describe("WATQ Brand Rigor: Optical Corridor & Clearance Channels", () => {
+  it("Vertical Lower Corridor negative space is exactly 20.0px", () => {
     const facet3_x = 260.0;
     const facet2_x = 240.0;
     const corridor = facet3_x - facet2_x;
@@ -110,7 +114,7 @@ test("WATQ Brand Rigor: Optical Corridor & Clearance Channels", async (t) => {
   });
 });
 
-test("WATQ Brand Rigor: Production Asset Path Uniformity", async (t) => {
+test("WATQ Brand Rigor: Production Asset Path Uniformity", () => {
   const brandDir = path.join(__dirname, "../public/brand");
   const filesToVerify = [
     "watq-mark.svg",
@@ -141,7 +145,7 @@ test("WATQ Brand Rigor: Production Asset Path Uniformity", async (t) => {
   }
 });
 
-test("WATQ Brand Rigor: WCAG 2.2 AAA Luminance Contrast Ratio", async (t) => {
+test("WATQ Brand Rigor: WCAG 2.2 AAA Luminance Contrast Ratio", () => {
   // Relative Luminance formula: L = 0.2126 * R + 0.7152 * G + 0.0722 * B
   // Cold Basalt (#08090C): RGB(8, 9, 12) -> L = 0.0051
   // Stark White (#FFFFFF): RGB(255, 255, 255) -> L = 1.0000
@@ -156,7 +160,7 @@ test("WATQ Brand Rigor: WCAG 2.2 AAA Luminance Contrast Ratio", async (t) => {
   assert.ok(contrastRatio >= 7.0, "Must massively surpass WCAG AAA 7.0:1 requirement");
 });
 
-test("WATQ Brand Rigor: Wordmark & Full Lockup Title Case Integrity", async (t) => {
+test("WATQ Brand Rigor: Wordmark & Full Lockup Title Case Integrity", () => {
   const brandDir = path.join(__dirname, "../public/brand");
   const lockupFiles = ["watq-logo-full.svg", "watq-logo-full-black.svg"];
   const wordmarkFiles = ["watq-logotype.svg", "watq-logotype-black.svg"];

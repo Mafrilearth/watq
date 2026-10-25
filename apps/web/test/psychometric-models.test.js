@@ -1,5 +1,5 @@
-const test = require("node:test");
-const assert = require("node:assert/strict");
+import assert from "node:assert/strict";
+import { test } from "vitest";
 
 // =========================================================================
 // 1. JUNGIAN 16 TYPES DETERMINISTIC SCORING PROOFS

@@ -1,8 +1,12 @@
-const test = require("node:test");
-const assert = require("node:assert/strict");
-const fs = require("node:fs");
-const path = require("node:path");
-const { createHmac, timingSafeEqual } = require("node:crypto");
+import assert from "node:assert/strict";
+import { createHmac, timingSafeEqual } from "node:crypto";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { test } from "vitest";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const emailClientPath = path.resolve(__dirname, "../../../packages/email/src/client.ts");
 const webhookRoutePath = path.resolve(__dirname, "../src/app/api/webhooks/resend/route.ts");
