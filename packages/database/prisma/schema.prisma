@@ -53,6 +53,7 @@ model Session {
 
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
+  @@index([userId])
   @@map("sessions")
 }
 
@@ -73,6 +74,7 @@ model Account {
 
   user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 
+  @@index([userId])
   @@unique([providerId, accountId])
   @@map("accounts")
 }
@@ -123,6 +125,8 @@ model Question {
 
   model       PsychometricModel @relation(fields: [modelId], references: [id], onDelete: Cascade)
 
+  @@index([modelId])
+  @@index([dimension])
   @@map("questions")
 }
 
@@ -142,5 +146,8 @@ model AssessmentResult {
 
   user        User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
 
+  @@index([userId])
+  @@index([modelId])
+  @@index([completedAt])
   @@map("assessment_results")
 }
