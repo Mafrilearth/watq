@@ -17,6 +17,7 @@ import { getSession } from "@/lib/storage/session";
 import { saveEnterpriseAssessmentAction } from "@/app/actions/assessmentActions";
 import type { AssessmentResult } from "@watq/core";
 import { ArrowRight, CheckCircle2, UserPlus } from "lucide-react";
+import type { Route } from "next";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState, Suspense } from "react";
@@ -62,7 +63,7 @@ function RegisterContent() {
 
       setIsLoading(false);
       const redirect = searchParams.get("redirect") || "/dashboard";
-      router.push(redirect);
+      router.push(redirect as Route);
     } else {
       setIsLoading(false);
       setError(result.error || "Registration failed. Please try again.");
@@ -171,7 +172,9 @@ function RegisterContent() {
             <div>
               Already have an account?{" "}
               <Link
-                href={`/login${searchParams.get("redirect") ? `?redirect=${encodeURIComponent(searchParams.get("redirect")!)}` : ""}`}
+                href={
+                  `/login${searchParams.get("redirect") ? `?redirect=${encodeURIComponent(searchParams.get("redirect")!)}` : ""}` as Route
+                }
                 className="text-[#D4F024] hover:underline font-medium"
               >
                 Sign In
