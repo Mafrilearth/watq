@@ -1,50 +1,50 @@
 "use client";
 
 import { WatqFullLogo } from "@/components/brand/WatqLogo";
+import { CollaborationManualModal } from "@/components/modals/CollaborationManualModal";
+import { SocialStoryModal } from "@/components/modals/SocialStoryModal";
+import { VocationalSearch } from "@/components/result/VocationalSearch";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { getClientAuthSnapshot, getServerAuthSnapshot, subscribeAuth } from "@/lib/auth/authStore";
 import {
   clearSession,
   getClientSessionSnapshot,
   getServerSessionSnapshot,
   subscribeSession,
 } from "@/lib/storage/session";
-import { getClientAuthSnapshot, getServerAuthSnapshot, subscribeAuth } from "@/lib/auth/authStore";
 import { useUIStore } from "@/lib/stores/uiStore";
 import {
   ARCHETYPE_METAS,
-  generateJoyfulCallsign,
   type AnyAssessmentResult,
   type AssessmentResult,
   type BigFiveDimension,
   type BigFiveResult,
-  type EnneagramResult,
   type DISCResult,
+  type EnneagramResult,
   type RIASECResult,
+  generateJoyfulCallsign,
 } from "@watq/core";
 import {
   ArrowRight,
   Briefcase,
   Check,
+  CloudUpload,
   Copy,
   FileText,
+  Globe,
   GraduationCap,
   Layers,
   Printer,
   RotateCcw,
   ShieldCheck,
   Sparkles,
-  CloudUpload,
-  Globe,
 } from "lucide-react";
+import { motion } from "motion/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { parseAsStringLiteral, useQueryState } from "nuqs";
-import React, { useSyncExternalStore, useEffect, useState, useMemo } from "react";
-import { VocationalSearch } from "@/components/result/VocationalSearch";
-import { CollaborationManualModal } from "@/components/modals/CollaborationManualModal";
-import { SocialStoryModal } from "@/components/modals/SocialStoryModal";
-import { motion } from "motion/react";
+import { Suspense, useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { toast } from "sonner";
 
 interface PolarityBarProps {
@@ -111,7 +111,7 @@ function PolarityBar({
   );
 }
 
-export default function ResultPage() {
+function ResultContent() {
   const router = useRouter();
   const { locale, toggleLocale } = useUIStore();
   const session = useSyncExternalStore(
@@ -1067,5 +1067,19 @@ Report Verification: ${sha256Fingerprint}`;
         </div>
       </footer>
     </div>
+  );
+}
+
+export default function ResultPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#08090C] flex items-center justify-center text-slate-400 font-mono text-xs">
+          Loading Diagnostic Dossier...
+        </div>
+      }
+    >
+      <ResultContent />
+    </Suspense>
   );
 }

@@ -1,5 +1,19 @@
 "use client";
 
+import {
+  type EnterpriseQuestionItem,
+  createEnterpriseQuestionAction,
+  deleteEnterpriseQuestionAction,
+  getEnterpriseQuestionsAction,
+} from "@/app/actions/questionActions";
+import { type NeonDbTelemetry, getNeonDbTelemetryAction } from "@/app/actions/telemetryActions";
+import {
+  type EnterpriseUserRecord,
+  createEnterpriseUserAction,
+  deleteEnterpriseUserAction,
+  getEnterpriseUsersAction,
+  updateEnterpriseUserRoleAction,
+} from "@/app/actions/userActions";
 import { WatqFullLogo } from "@/components/brand/WatqLogo";
 import {
   getClientAuthSnapshot,
@@ -8,44 +22,31 @@ import {
   syncSessionFromDatabase,
 } from "@/lib/auth/authStore";
 import {
-  getEnterpriseUsersAction,
-  updateEnterpriseUserRoleAction,
-  createEnterpriseUserAction,
-  deleteEnterpriseUserAction,
-  type EnterpriseUserRecord,
-} from "@/app/actions/userActions";
-import {
-  getEnterpriseQuestionsAction,
-  createEnterpriseQuestionAction,
-  deleteEnterpriseQuestionAction,
-  type EnterpriseQuestionItem,
-} from "@/app/actions/questionActions";
-import { getNeonDbTelemetryAction, type NeonDbTelemetry } from "@/app/actions/telemetryActions";
-import {
+  Activity,
   ArrowLeft,
   CheckCircle2,
+  Layers,
   Lock,
   Plus,
   RefreshCw,
   Search,
   ShieldAlert,
   ShieldCheck,
+  Sliders,
   Trash2,
   UserCheck,
   UserPlus,
   Users,
-  Activity,
-  Sliders,
-  Layers,
 } from "lucide-react";
 import Link from "next/link";
 import { parseAsString, parseAsStringLiteral, useQueryState } from "nuqs";
-import React, { useState, useEffect, useSyncExternalStore, useMemo, useCallback } from "react";
+import type React from "react";
+import { Suspense, useCallback, useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { toast } from "sonner";
 
 type AdminTab = "users" | "questions" | "models" | "telemetry";
 
-export default function AdminPage() {
+function AdminContent() {
   const authSession = useSyncExternalStore(
     subscribeAuth,
     getClientAuthSnapshot,
@@ -928,5 +929,19 @@ export default function AdminPage() {
         )}
       </main>
     </div>
+  );
+}
+
+export default function AdminPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#08090C] flex items-center justify-center text-slate-400 font-mono text-xs">
+          Loading Administration Studio...
+        </div>
+      }
+    >
+      <AdminContent />
+    </Suspense>
   );
 }

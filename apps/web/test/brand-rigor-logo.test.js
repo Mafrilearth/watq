@@ -94,7 +94,7 @@ test("WATQ Brand Rigor: Golden Ratio Harmonic Series (Phi = 1.618)", async (t) =
   });
 
   await t.test("Core Singularity matches R / phi^4 within 3.5% optical margin", () => {
-    const theoreticalCore = 170 / Math.pow(PHI, 4);
+    const theoreticalCore = 170 / PHI ** 4;
     const actualCore = 24.0;
     const errorPct = (Math.abs(theoreticalCore - actualCore) / actualCore) * 100;
     assert.ok(errorPct < 3.5, `Golden ratio core deviation is ${errorPct}% (must be < 3.5%)`);

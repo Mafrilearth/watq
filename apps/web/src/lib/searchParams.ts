@@ -1,9 +1,9 @@
 import {
   createSearchParamsCache,
+  parseAsBoolean,
+  parseAsInteger,
   parseAsString,
   parseAsStringLiteral,
-  parseAsInteger,
-  parseAsBoolean,
 } from "nuqs/server";
 
 // ============================================================================

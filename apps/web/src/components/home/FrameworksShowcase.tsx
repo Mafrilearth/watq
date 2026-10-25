@@ -1,24 +1,22 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { useUIStore } from "@/lib/stores/uiStore";
 import {
-  Brain,
-  Compass,
-  Briefcase,
-  Users,
-  Target,
   ArrowRight,
+  Brain,
+  Briefcase,
+  Compass,
   ShieldCheck,
-  Zap,
   Sparkles,
-  Layers,
-  GraduationCap,
+  Target,
+  Users,
+  Zap,
 } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import type React from "react";
+import { useState } from "react";
 
 interface FrameworkSuite {
   id: "jungian" | "bigfive" | "enneagram" | "disc" | "riasec";

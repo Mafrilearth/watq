@@ -2,7 +2,7 @@
 
 import { actionClient } from "@/lib/action";
 import { assessmentSubmissionSchema } from "@/lib/validations";
-import { calculateJungianScores, type LikertValue } from "@watq/core";
+import { type LikertValue, calculateJungianScores } from "@watq/core";
 
 export const submitAssessmentAction = actionClient
   .schema(assessmentSubmissionSchema)

@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
-import { WatqPrismMark, WatqFullLogo } from "@/components/brand/WatqLogo";
+import { WatqFullLogo, WatqPrismMark } from "@/components/brand/WatqLogo";
 import { Check, Copy, Share2, Sparkles, X } from "lucide-react";
+import { useState } from "react";
 import { toast } from "sonner";
 
 interface SocialStoryModalProps {

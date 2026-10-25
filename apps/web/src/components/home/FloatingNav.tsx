@@ -6,7 +6,7 @@ import { useUIStore } from "@/lib/stores/uiStore";
 import type { AssessmentSession } from "@watq/core";
 import { ArrowRight, Globe, Menu, X } from "lucide-react";
 import Link from "next/link";
-import React, { useState, useEffect, useSyncExternalStore } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 
 interface FloatingNavProps {
   session: AssessmentSession | null;

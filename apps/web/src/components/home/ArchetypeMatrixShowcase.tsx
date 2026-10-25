@@ -1,9 +1,9 @@
 "use client";
 
-import { ARCHETYPES, type ArchetypeProfile } from "@watq/core";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useUIStore } from "@/lib/stores/uiStore";
+import { ARCHETYPES, type ArchetypeProfile } from "@watq/core";
 import {
   ArrowRight,
   Briefcase,
@@ -15,8 +15,7 @@ import {
   X,
 } from "lucide-react";
 import Link from "next/link";
-import React, { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { useMemo, useState } from "react";
 
 type Temperament = "all" | "analysts" | "diplomats" | "sentinels" | "explorers";
 

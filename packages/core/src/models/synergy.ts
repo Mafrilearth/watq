@@ -29,7 +29,8 @@ export function calculateArchetypeSynergy(typeA: string, typeB: string): Archety
       typeB: normB,
       synergyScore: 88,
       synergyTier: "IDEAL_HARMONY",
-      summary: `Shared cognitive architecture. Both share identical worldview vectors and intuitive pacing, creating instant mutual validation.`,
+      summary:
+        "Shared cognitive architecture. Both share identical worldview vectors and intuitive pacing, creating instant mutual validation.",
       collaborationStrengths: [
         "Unspoken alignment on core priorities and mental pace.",
         "Zero friction in interpreting each other's communication style.",

@@ -7,15 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@watq/design-system";
-import {
-  Activity,
-  ArrowLeft,
-  CheckCircle2,
-  Database,
-  Globe,
-  Lock,
-  ShieldCheck,
-} from "lucide-react";
+import { ArrowLeft, CheckCircle2, Database, Globe, Lock, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 
 export default function AdminStudioPage() {

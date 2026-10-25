@@ -22,7 +22,7 @@ export function calculateResponseValidity(
 
   // 1. Check for straight-lining (answering identical Likert values across the whole test)
   const mean = values.reduce((acc, v) => acc + v, 0) / values.length;
-  const variance = values.reduce((acc, v) => acc + Math.pow(v - mean, 2), 0) / values.length;
+  const variance = values.reduce((acc, v) => acc + (v - mean) ** 2, 0) / values.length;
   const isStraightLining = values.length >= 10 && variance < 0.15;
 
   // 2. Check inconsistency between positive and reversed items within each dimension

@@ -1,11 +1,11 @@
 "use server";
 
-import { db, Role } from "@watq/database";
 import {
   createEnterpriseUserSchema,
   formatZodError,
   updateUserRoleSchema,
 } from "@/lib/validations";
+import { Role, db } from "@watq/database";
 import { revalidatePath } from "next/cache";
 import { getEnterpriseSessionAction } from "./authActions";
 

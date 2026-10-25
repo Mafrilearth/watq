@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { JetBrains_Mono, Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import "@c15t/nextjs/styles.css";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { ConsentManager } from "@/components/privacy/ConsentManager";
-import { AnalyticsProvider } from "@watq/analytics";
-import { NuqsAdapter } from "nuqs/adapters/next/app";
-import { Toaster } from "@watq/design-system";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { VercelToolbar } from "@vercel/toolbar/next";
+import { AnalyticsProvider } from "@watq/analytics";
+import { Toaster } from "@watq/design-system";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],

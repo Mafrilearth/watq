@@ -1,5 +1,6 @@
 "use client";
 
+import { saveEnterpriseAssessmentAction } from "@/app/actions/assessmentActions";
 import { WatqFullLogo } from "@/components/brand/WatqLogo";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -14,13 +15,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { registerAsync } from "@/lib/auth/authStore";
 import { getSession } from "@/lib/storage/session";
-import { saveEnterpriseAssessmentAction } from "@/app/actions/assessmentActions";
 import type { AssessmentResult } from "@watq/core";
 import { ArrowRight, CheckCircle2, UserPlus } from "lucide-react";
 import type { Route } from "next";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useState, Suspense } from "react";
+import type React from "react";
+import { Suspense, useState } from "react";
 
 function RegisterContent() {
   const router = useRouter();

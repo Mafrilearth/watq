@@ -69,10 +69,10 @@ test("Enneagram: Wing Calculation for Type 5 (Wings: 4 or 6)", () => {
 });
 
 test("Enneagram: Circular Boundary Wrap (Type 1 wings: 9 or 2; Type 9 wings: 8 or 1)", () => {
-  const left1 = 1 === 1 ? 9 : 0;
-  const right9 = 9 === 9 ? 1 : 0;
-  assert.equal(left1, 9);
-  assert.equal(right9, 1);
+  const getWingLeft = (type) => (type === 1 ? 9 : type - 1);
+  const getWingRight = (type) => (type === 9 ? 1 : type + 1);
+  assert.equal(getWingLeft(1), 9);
+  assert.equal(getWingRight(9), 1);
 });
 
 // =========================================================================
@@ -103,7 +103,7 @@ test("Response Validity: Straight-Lining Detection Penalty", () => {
   // All 3s across 24 questions
   const values = new Array(24).fill(3);
   const mean = values.reduce((a, b) => a + b, 0) / values.length;
-  const variance = values.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / values.length;
+  const variance = values.reduce((a, b) => a + (b - mean) ** 2, 0) / values.length;
   assert.equal(variance, 0); // zero variance
   const isStraightLining = values.length >= 10 && variance < 0.15;
   assert.equal(isStraightLining, true);

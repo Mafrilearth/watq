@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
 import { generateCollaborationManual } from "@watq/core";
 import { Check, Copy, FileText, Sparkles, X } from "lucide-react";
+import { useState } from "react";
 import { toast } from "sonner";
 
 interface CollaborationManualModalProps {

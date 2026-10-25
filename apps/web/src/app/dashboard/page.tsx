@@ -1,5 +1,10 @@
 "use client";
 
+import {
+  type EnterpriseAssessmentResultItem,
+  deleteEnterpriseAssessmentAction,
+  getUserEnterpriseAssessmentsAction,
+} from "@/app/actions/assessmentActions";
 import { WatqFullLogo, WatqPrismMark } from "@/components/brand/WatqLogo";
 import {
   getClientAuthSnapshot,
@@ -9,18 +14,13 @@ import {
   syncSessionFromDatabase,
 } from "@/lib/auth/authStore";
 import {
-  getUserEnterpriseAssessmentsAction,
-  deleteEnterpriseAssessmentAction,
-  type EnterpriseAssessmentResultItem,
-} from "@/app/actions/assessmentActions";
-import {
   deleteHistoryRecord,
+  exportSovereignData,
   getClientHistorySnapshot,
   getServerHistorySnapshot,
-  subscribeHistory,
-  exportSovereignData,
   importSovereignData,
   purgeSovereignData,
+  subscribeHistory,
 } from "@/lib/storage/history";
 import {
   getClientQuestionsSnapshot,

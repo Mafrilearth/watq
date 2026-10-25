@@ -1,11 +1,11 @@
 "use client";
 
-import { useMemo } from "react";
-import { parseAsString, useQueryState } from "nuqs";
-import Fuse from "fuse.js";
-import { Search, Briefcase, GraduationCap } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useUIStore } from "@/lib/stores/uiStore";
+import Fuse from "fuse.js";
+import { Briefcase, GraduationCap, Search } from "lucide-react";
+import { parseAsString, useQueryState } from "nuqs";
+import { useMemo } from "react";
 
 interface VocationalSearchProps {
   careers: string[];

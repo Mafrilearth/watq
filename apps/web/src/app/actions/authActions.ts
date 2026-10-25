@@ -1,8 +1,8 @@
 "use server";
 
-import { db, Role } from "@watq/database";
-import { generateSecureToken, hashPassword, verifyPassword } from "@watq/security";
 import { formatZodError, signInSchema, signUpSchema } from "@/lib/validations";
+import { Role, db } from "@watq/database";
+import { generateSecureToken, hashPassword, verifyPassword } from "@watq/security";
 import { cookies } from "next/headers";
 
 const SESSION_COOKIE_NAME = "watq_auth_token";

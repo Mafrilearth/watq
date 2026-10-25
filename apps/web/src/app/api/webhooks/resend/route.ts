@@ -1,8 +1,6 @@
 import { verifyResendWebhookSignature } from "@watq/email";
 import { type NextRequest, NextResponse } from "next/server";
 
-export const dynamic = "force-dynamic";
-
 /**
  * Resend Webhook Handler (Enterprise Observability)
  * Receives real-time delivery notifications, bounce alerts, and engagement metrics.

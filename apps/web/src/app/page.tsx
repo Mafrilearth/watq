@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useSyncExternalStore } from "react";
+import { useSyncExternalStore } from "react";
 
 const MODEL_TOTAL_ITEMS: Record<string, number> = {
   jungian: 24,
@@ -72,7 +72,8 @@ export default function HomePage() {
       <div
         className="fixed inset-0 pointer-events-none opacity-[0.035] -z-20"
         style={{
-          backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+          backgroundImage:
+            "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)",
           backgroundSize: "48px 48px",
         }}
       />

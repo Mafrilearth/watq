@@ -1,9 +1,9 @@
 "use client";
 
 import { useUIStore } from "@/lib/stores/uiStore";
-import { BrainCircuit, CheckCircle2, GraduationCap, Keyboard, Lock, Sparkles } from "lucide-react";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { BrainCircuit, CheckCircle2, GraduationCap, Keyboard, Lock } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import { useState } from "react";
 
 export function BentoGridFeatures() {
   const [activeAxis, setActiveAxis] = useState<"EI" | "SN" | "TF" | "JP">("EI");

@@ -1,7 +1,7 @@
 "use server";
 
-import { db, Dimension, type Question } from "@watq/database";
 import { createQuestionSchema, formatZodError, updateQuestionSchema } from "@/lib/validations";
+import { type Dimension, type Question, db } from "@watq/database";
 import { revalidatePath } from "next/cache";
 import { getEnterpriseSessionAction } from "./authActions";
 
@@ -28,7 +28,7 @@ async function assertAdminRole() {
 /**
  * Fetches questions from Neon PostgreSQL for a given psychometric model.
  */
-export async function getEnterpriseQuestionsAction(modelId: string = "jung-16-types"): Promise<{
+export async function getEnterpriseQuestionsAction(modelId = "jung-16-types"): Promise<{
   success: boolean;
   questions?: EnterpriseQuestionItem[];
   error?: string;
@@ -205,9 +205,7 @@ export async function deleteEnterpriseQuestionAction(
  * Loads psychometric questions dynamically from Neon PostgreSQL for runner execution.
  * Zero hardcoding. Pulls live items from the database.
  */
-export async function getPublicAssessmentQuestionsAction(
-  modelId: string = "jung-16-types",
-): Promise<{
+export async function getPublicAssessmentQuestionsAction(modelId = "jung-16-types"): Promise<{
   success: boolean;
   questions?: Array<{
     id: string;

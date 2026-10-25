@@ -1,41 +1,41 @@
 "use client";
 
+import { saveEnterpriseAssessmentAction } from "@/app/actions/assessmentActions";
+import { getPublicAssessmentQuestionsAction } from "@/app/actions/questionActions";
 import { WatqPrismMark } from "@/components/brand/WatqLogo";
+import { saveHistoryRecord } from "@/lib/storage/history";
 import {
-  JUNGIAN_QUESTIONS,
-  BIG_FIVE_QUESTIONS,
-  ENNEAGRAM_QUESTIONS,
-  DISC_QUESTIONS,
-  RIASEC_QUESTIONS,
-  calculateJungianScores,
-  calculateBigFiveScores,
-  calculateEnneagramScores,
-  calculateDISCScores,
-  calculateRIASECScores,
-  calculateResponseValidity,
-  type AssessmentModelType,
-  type LikertValue,
-  type QuestionItem,
-  type AnyAssessmentResult,
-} from "@watq/core";
-import {
+  clearSession,
   completeSession,
   getSession,
   initSession,
   updateSessionResponse,
-  clearSession,
 } from "@/lib/storage/session";
-import { saveHistoryRecord } from "@/lib/storage/history";
-import { saveEnterpriseAssessmentAction } from "@/app/actions/assessmentActions";
-import { getPublicAssessmentQuestionsAction } from "@/app/actions/questionActions";
 import { useUIStore } from "@/lib/stores/uiStore";
-import { ArrowLeft, Check, Sparkles, Globe } from "lucide-react";
+import {
+  type AnyAssessmentResult,
+  type AssessmentModelType,
+  BIG_FIVE_QUESTIONS,
+  DISC_QUESTIONS,
+  ENNEAGRAM_QUESTIONS,
+  JUNGIAN_QUESTIONS,
+  type LikertValue,
+  type QuestionItem,
+  RIASEC_QUESTIONS,
+  calculateBigFiveScores,
+  calculateDISCScores,
+  calculateEnneagramScores,
+  calculateJungianScores,
+  calculateRIASECScores,
+  calculateResponseValidity,
+} from "@watq/core";
+import { QUESTION_TRANSLATIONS_ID } from "@watq/core";
+import { ArrowLeft, Check, Globe, Sparkles } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { parseAsStringLiteral, useQueryState } from "nuqs";
 import React, { useState, useEffect, useCallback, useTransition, useMemo } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { QUESTION_TRANSLATIONS_ID } from "@watq/core";
 
 const LIKERT_OPTIONS_EN: Array<{ value: LikertValue; label: string; short: string }> = [
   { value: 1, label: "Strongly Disagree", short: "1" },
@@ -143,7 +143,6 @@ function AssessmentRunnerContent() {
         return DISC_QUESTIONS;
       case "riasec":
         return RIASEC_QUESTIONS;
-      case "jungian":
       default:
         return JUNGIAN_QUESTIONS;
     }
@@ -297,7 +296,6 @@ function AssessmentRunnerContent() {
               });
               break;
             }
-            case "jungian":
             default: {
               const jResult = calculateJungianScores(nextResponses);
               finalResult = {
@@ -571,7 +569,7 @@ function AssessmentRunnerContent() {
 
       {/* Runner Footer */}
       <footer className="w-full max-w-[680px] mx-auto text-center text-xs font-mono text-slate-500">
-        Watq //{" "}
+        {"Watq // "}
         {isId
           ? "Platform Asesmen Kepribadian Mandiri"
           : "Universal Personality & Cognitive Platform"}

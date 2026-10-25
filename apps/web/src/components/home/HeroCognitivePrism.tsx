@@ -3,10 +3,10 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useUIStore } from "@/lib/stores/uiStore";
-import { ArrowRight, Sparkles, Compass } from "lucide-react";
+import { ArrowRight, Compass, Sparkles } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
-import React, { useState, useRef, type MouseEvent } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { type MouseEvent, useRef, useState } from "react";
 
 interface ArchetypePreview {
   code: string;

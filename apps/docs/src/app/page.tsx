@@ -10,12 +10,9 @@ import {
   BookOpen,
   CheckCircle2,
   Cpu,
-  Database,
   ExternalLink,
   Flame,
   Layers,
-  Lock,
-  Mail,
   Shield,
   Terminal,
 } from "lucide-react";
@@ -110,17 +107,17 @@ export default function DocsPage() {
           <Tabs items={["Formula Specification", "Tie-Breaking Invariant"]}>
             <Tab value="Formula Specification">
               <div className="p-4 bg-[#0C0E14] border border-white/10 rounded-lg text-xs font-mono space-y-2">
-                <p className="text-slate-400">// Raw score sum across 6 items per dimension:</p>
+                <p className="text-slate-400"># Raw score sum across 6 items per dimension:</p>
                 <p className="text-[#D4F024]">
                   S_dim = sum(item_response_i * polarity_i), S_dim in [6, 30]
                 </p>
-                <p className="text-slate-400">// Normalized percentage calculation (0% to 100%):</p>
+                <p className="text-slate-400"># Normalized percentage calculation (0% to 100%):</p>
                 <p className="text-white">Pole_Primary_% = ((S_dim - 6) / 24) * 100%</p>
               </div>
             </Tab>
             <Tab value="Tie-Breaking Invariant">
               <div className="p-4 bg-[#0C0E14] border border-white/10 rounded-lg text-xs font-mono space-y-2">
-                <p className="text-slate-400">// Exact Median Rule (50.0%):</p>
+                <p className="text-slate-400"># Exact Median Rule (50.0%):</p>
                 <p className="text-white">
                   normalizedScore &gt;= 50 ? PrimaryPole (E, S, T, J) : SecondaryPole (I, N, F, P)
                 </p>

@@ -1,7 +1,7 @@
 "use server";
 
-import { db, type Prisma } from "@watq/database";
-import { formatZodError, saveAssessmentSchema, type SaveAssessmentInput } from "@/lib/validations";
+import { formatZodError, saveAssessmentSchema } from "@/lib/validations";
+import { type Prisma, db } from "@watq/database";
 import { revalidatePath } from "next/cache";
 import { getEnterpriseSessionAction } from "./authActions";
 

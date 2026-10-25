@@ -8,16 +8,7 @@ import {
   CardTitle,
   Progress,
 } from "@watq/design-system";
-import {
-  Brain,
-  Compass,
-  ExternalLink,
-  FileText,
-  Settings,
-  ShieldCheck,
-  Sparkles,
-  TrendingUp,
-} from "lucide-react";
+import { Brain, Settings, ShieldCheck, Sparkles, TrendingUp } from "lucide-react";
 import Link from "next/link";
 
 export default function MemberDashboardPage() {
