@@ -45,6 +45,7 @@ export const authProtection = arcjet({
 });
 
 export * from "@arcjet/next";
+export * from "./webcrypto";
 
 import crypto from "node:crypto";
 

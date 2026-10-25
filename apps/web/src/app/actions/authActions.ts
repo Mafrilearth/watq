@@ -1,10 +1,9 @@
 "use server";
 
 import { db, Role } from "@watq/database";
-import { hashPassword, verifyPassword } from "@watq/security";
+import { generateSecureToken, hashPassword, verifyPassword } from "@watq/security";
 import { formatZodError, signInSchema, signUpSchema } from "@/lib/validations";
 import { cookies } from "next/headers";
-import crypto from "node:crypto";
 
 const SESSION_COOKIE_NAME = "watq_auth_token";
 
@@ -104,8 +103,8 @@ export async function signInEnterpriseAction(
       return { success: false, error: "Invalid email or password." };
     }
 
-    // Generate cryptographically secure session token
-    const token = `watq_${crypto.randomBytes(32).toString("hex")}_${Date.now()}`;
+    // Generate cryptographically secure session token via Web Crypto API
+    const token = `watq_${generateSecureToken(32)}_${Date.now()}`;
     const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
 
     await db.session.create({
@@ -202,7 +201,8 @@ export async function signUpEnterpriseAction(
       },
     });
 
-    const token = `watq_${crypto.randomBytes(32).toString("hex")}_${Date.now()}`;
+    // Generate cryptographically secure session token via Web Crypto API
+    const token = `watq_${generateSecureToken(32)}_${Date.now()}`;
     const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
 
     await db.session.create({

@@ -27,6 +27,17 @@ export function verifyPassword(password: string, storedHash: string): boolean {
 }
 ```
 
+## **1.2 Universal W3C Web Cryptography Suite (`crypto.subtle`)**
+For edge runtime portability (Cloudflare Workers, Vercel Edge Runtime, and modern browsers without Node.js runtime bindings), Watq implements a universal cryptographic primitives suite in [`packages/security/src/webcrypto.ts`](file:///d:/watq/packages/security/src/webcrypto.ts):
+
+1. **CSPRNG High-Entropy Tokens:** `generateSecureToken(byteLength)` powered by `globalThis.crypto.getRandomValues(new Uint8Array(byteLength))` guaranteeing cryptographically uniform entropy for enterprise auth sessions and CSRF tokens.
+2. **Deterministic RFC 4122 v4 UUIDs:** `generateUUID()` utilizing native hardware-accelerated `crypto.randomUUID()`.
+3. **NIST FIPS 180-4 Digests:** `sha256(data)` and `sha512(data)` via asynchronous `crypto.subtle.digest()`.
+4. **Hardware-Accelerated Message Authentication:** `signHmacSha256(data, secret)` and `verifyHmacSha256(data, signature, secret)` utilizing `crypto.subtle.sign` and `crypto.subtle.verify` with built-in timing-attack immunity.
+5. **Authenticated Symmetric Encryption:** `encryptAesGcm(plainText, keyHex)` and `decryptAesGcm(cipherText, keyHex)` utilizing AES-256-GCM with unique 96-bit random IVs and integrated GHASH authentication tags, preventing padding oracle vulnerabilities.
+6. **Universal Constant-Time Byte Verification:** `timingSafeEqualWeb(a, b)` for platform-independent XOR byte comparison resistant to side-channel execution analysis.
+
+
 ---
 
 # **2. STRICT 2-ROLE ENTERPRISE RBAC GOVERNANCE (THE "WHAT & HOW")**

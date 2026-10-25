@@ -40,8 +40,11 @@ export function subscribeSession(callback: () => void): () => void {
 }
 
 function generateUUID(): string {
-  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
-    return crypto.randomUUID();
+  if (
+    typeof globalThis.crypto !== "undefined" &&
+    typeof globalThis.crypto.randomUUID === "function"
+  ) {
+    return globalThis.crypto.randomUUID();
   }
   return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
     const r = (Math.random() * 16) | 0;
