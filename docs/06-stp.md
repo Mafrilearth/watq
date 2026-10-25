@@ -2,8 +2,8 @@
 
 > **ID & Version:** `WATQ-STP-06` │ `v1.0.0` │ `LOCKED`  
 > **Authority & Owner:** Fauzul (Platform Lead) │ **Standard:** `ISO/IEC/IEEE 29119:2022` │ `IEEE 730-2014`  
-> **SSOT Domain:** Master Test Strategy, 60/60 Automated Invariant Proofs (Geometry, Scoring, Zod Schemas, Zustand Stores, nuqs Parsers, Web Crypto API, Neon Serverless, Prisma ORM, Better Auth), Release Gates  
-> **Target Code:** [`apps/web/test/brand-rigor-logo.test.js`](file:///d:/watq/apps/web/test/brand-rigor-logo.test.js) │ [`apps/web/test/psychometric-models.test.js`](file:///d:/watq/apps/web/test/psychometric-models.test.js) │ [`apps/web/test/zod-validation.test.js`](file:///d:/watq/apps/web/test/zod-validation.test.js) │ [`apps/web/test/zustand-stores.test.js`](file:///d:/watq/apps/web/test/zustand-stores.test.js) │ [`apps/web/test/nuqs-parsers.test.js`](file:///d:/watq/apps/web/test/nuqs-parsers.test.js) │ [`apps/web/test/web-crypto.test.js`](file:///d:/watq/apps/web/test/web-crypto.test.js) │ [`apps/web/test/neon-serverless.test.js`](file:///d:/watq/apps/web/test/neon-serverless.test.js) │ [`apps/web/test/prisma-orm.test.js`](file:///d:/watq/apps/web/test/prisma-orm.test.js) │ [`apps/web/test/better-auth.test.js`](file:///d:/watq/apps/web/test/better-auth.test.js)
+> **SSOT Domain:** Master Test Strategy, 65/65 Automated Invariant Proofs (Geometry, Scoring, Zod Schemas, Zustand Stores, nuqs Parsers, Web Crypto API, Neon Serverless, Prisma ORM, Better Auth, Arcjet Defense), Release Gates  
+> **Target Code:** [`apps/web/test/brand-rigor-logo.test.js`](file:///d:/watq/apps/web/test/brand-rigor-logo.test.js) │ [`apps/web/test/psychometric-models.test.js`](file:///d:/watq/apps/web/test/psychometric-models.test.js) │ [`apps/web/test/zod-validation.test.js`](file:///d:/watq/apps/web/test/zod-validation.test.js) │ [`apps/web/test/zustand-stores.test.js`](file:///d:/watq/apps/web/test/zustand-stores.test.js) │ [`apps/web/test/nuqs-parsers.test.js`](file:///d:/watq/apps/web/test/nuqs-parsers.test.js) │ [`apps/web/test/web-crypto.test.js`](file:///d:/watq/apps/web/test/web-crypto.test.js) │ [`apps/web/test/neon-serverless.test.js`](file:///d:/watq/apps/web/test/neon-serverless.test.js) │ [`apps/web/test/prisma-orm.test.js`](file:///d:/watq/apps/web/test/prisma-orm.test.js) │ [`apps/web/test/better-auth.test.js`](file:///d:/watq/apps/web/test/better-auth.test.js) │ [`apps/web/test/arcjet-security.test.js`](file:///d:/watq/apps/web/test/arcjet-security.test.js)
 
 ---
 
@@ -19,13 +19,13 @@ In an enterprise psychometric SaaS platform, computational accuracy and visual i
 
 ---
 
-# **2. THE 60/60 PASSING AUTOMATED TEST PROOF MATRIX (THE "WHAT & HOW")**
+# **2. THE 65/65 PASSING AUTOMATED TEST PROOF MATRIX (THE "WHAT & HOW")**
 
-All 60 automated test suites execute with 100% pass rate (`pass 60, fail 0`):
+All 65 automated test suites execute with 100% pass rate (`pass 65, fail 0`):
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                   OFFICIAL VERIFIED AUTOMATED TEST SUITE MATRIX (60/60)                │
+│                   OFFICIAL VERIFIED AUTOMATED TEST SUITE MATRIX (65/65)                │
 ├────┬──────────────────────────────────────────┬──────────────┬──────────────┬──────────┤
 │ NO │ TEST IDENTIFIER & SUITE                  │ CATEGORY     │ DURATION     │ STATUS   │
 ├────┼──────────────────────────────────────────┼──────────────┼──────────────┼──────────┤
@@ -89,6 +89,11 @@ All 60 automated test suites execute with 100% pass rate (`pass 60, fail 0`):
 │ 58 │ Better Auth RBAC Input Injection Guard   │ AccessControl│ 0.378 ms     │ PASSED   │
 │ 59 │ Better Auth Session Cache & 7-Day Life   │ SessionState │ 0.386 ms     │ PASSED   │
 │ 60 │ Better Auth Rate Limiting & Client Hook  │ Defense      │ 0.616 ms     │ PASSED   │
+│ 61 │ Arcjet Decision Error Sanitization Proof │ WAFSecurity  │ 1.135 ms     │ PASSED   │
+│ 62 │ Arcjet Bot Policy SEO Crawler vs Zero Auth│ WAFSecurity │ 0.361 ms     │ PASSED   │
+│ 63 │ Arcjet Rate Limit Sliding & Token Bucket │ WAFSecurity  │ 0.293 ms     │ PASSED   │
+│ 64 │ Arcjet Email Validation Disposable & MX  │ WAFSecurity  │ 0.796 ms     │ PASSED   │
+│ 65 │ Arcjet Sensitive Info Leak Defense Check │ WAFSecurity  │ 0.263 ms     │ PASSED   │
 └────┴──────────────────────────────────────────┴──────────────┴──────────────┴──────────┘
 ```
 
