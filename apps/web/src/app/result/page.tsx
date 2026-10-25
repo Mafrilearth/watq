@@ -9,11 +9,7 @@ import {
   getServerSessionSnapshot,
   subscribeSession,
 } from "@/lib/storage/session";
-import {
-  getClientAuthSnapshot,
-  getServerAuthSnapshot,
-  subscribeAuth,
-} from "@/lib/auth/authStore";
+import { getClientAuthSnapshot, getServerAuthSnapshot, subscribeAuth } from "@/lib/auth/authStore";
 import { useUIStore } from "@/lib/stores/uiStore";
 import {
   ARCHETYPE_METAS,
@@ -153,11 +149,7 @@ export default function ResultPage() {
   };
 
   // Determine model type
-  const modelType = result
-    ? "modelType" in result
-      ? result.modelType
-      : "jungian"
-    : "jungian";
+  const modelType = result ? ("modelType" in result ? result.modelType : "jungian") : "jungian";
 
   // SHA-256 Fingerprint calculation
   const sha256Fingerprint = useMemo(() => {
@@ -227,16 +219,14 @@ Report Verification: ${sha256Fingerprint}`;
       await navigator.clipboard.writeText(text);
       setCopied(true);
       toast.success(
-        locale === "id"
-          ? "Laporan berhasil disalin ke papan klip!"
-          : "Report copied to clipboard!"
+        locale === "id" ? "Laporan berhasil disalin ke papan klip!" : "Report copied to clipboard!",
       );
       setTimeout(() => setCopied(false), 2000);
     } catch {
       toast.error(
         locale === "id"
           ? "Gagal menyalin laporan ke papan klip"
-          : "Failed to copy report to clipboard"
+          : "Failed to copy report to clipboard",
       );
     }
   };
@@ -245,7 +235,7 @@ Report Verification: ${sha256Fingerprint}`;
     toast.info(
       locale === "id"
         ? "Menyiapkan lembar laporan cetak / PDF..."
-        : "Preparing printable report / PDF..."
+        : "Preparing printable report / PDF...",
     );
     setTimeout(() => {
       window.print();
@@ -297,9 +287,7 @@ Report Verification: ${sha256Fingerprint}`;
                   <span className="hidden sm:inline">
                     {locale === "id" ? "Simpan Hasil" : "Save to Cloud"}
                   </span>
-                  <span className="sm:hidden">
-                    {locale === "id" ? "Simpan" : "Save"}
-                  </span>
+                  <span className="sm:hidden">{locale === "id" ? "Simpan" : "Save"}</span>
                 </Link>
               </Button>
             )}
@@ -325,7 +313,9 @@ Report Verification: ${sha256Fingerprint}`;
                   variant="island"
                   size="sm"
                   onClick={() => setShowManualModal(true)}
-                  title={locale === "id" ? "Panduan Kolaborasi Pribadi" : "View Collaboration Guide"}
+                  title={
+                    locale === "id" ? "Panduan Kolaborasi Pribadi" : "View Collaboration Guide"
+                  }
                   className="h-8 text-xs font-semibold text-slate-200"
                 >
                   <FileText className="w-3.5 h-3.5 text-[#D4F024]" />
@@ -368,9 +358,7 @@ Report Verification: ${sha256Fingerprint}`;
                   <span className="hidden sm:inline">
                     {locale === "id" ? "Salin Laporan" : "Copy Report"}
                   </span>
-                  <span className="sm:hidden">
-                    {locale === "id" ? "Salin" : "Copy"}
-                  </span>
+                  <span className="sm:hidden">{locale === "id" ? "Salin" : "Copy"}</span>
                 </>
               )}
             </Button>
@@ -383,9 +371,7 @@ Report Verification: ${sha256Fingerprint}`;
               className="h-8 text-xs font-semibold text-slate-300 hover:text-white border border-white/[0.08]"
             >
               <RotateCcw className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">
-                {locale === "id" ? "Ulangi" : "Retake"}
-              </span>
+              <span className="hidden sm:inline">{locale === "id" ? "Ulangi" : "Retake"}</span>
             </Button>
           </div>
         </div>
@@ -510,9 +496,7 @@ Report Verification: ${sha256Fingerprint}`;
               <div className="flex flex-wrap items-center gap-2 mb-4 sm:mb-6">
                 <Badge variant="citron" className="text-[10px] sm:text-xs">
                   <ShieldCheck className="w-3.5 h-3.5 mr-1" />
-                  <span>
-                    {locale === "id" ? "PROFIL TERVERIFIKASI" : "VERIFIED PROFILE"}
-                  </span>
+                  <span>{locale === "id" ? "PROFIL TERVERIFIKASI" : "VERIFIED PROFILE"}</span>
                 </Badge>
                 {temperament && (
                   <Badge variant="slate" className="text-[10px] sm:text-xs font-semibold">
@@ -642,7 +626,9 @@ Report Verification: ${sha256Fingerprint}`;
                   labelLeft={locale === "id" ? "Judging (Terencana)" : "Judging (Structured)"}
                   codeLeft="J"
                   scoreLeft={jungianResult.scores.J}
-                  labelRight={locale === "id" ? "Perceiving (Fleksibel & Spontan)" : "Perceiving (Adaptive)"}
+                  labelRight={
+                    locale === "id" ? "Perceiving (Fleksibel & Spontan)" : "Perceiving (Adaptive)"
+                  }
                   codeRight="P"
                   scoreRight={jungianResult.scores.P}
                   colorHex="#FBBF24"
@@ -710,9 +696,7 @@ Report Verification: ${sha256Fingerprint}`;
                 <div className="flex items-center gap-2 text-[#D4F024]">
                   <Briefcase className="w-5 h-5" />
                   <h3 className="font-display font-bold text-white text-base">
-                    {locale === "id"
-                      ? "Rekomendasi Bidang Karir"
-                      : "Aligned Career Pathways"}
+                    {locale === "id" ? "Rekomendasi Bidang Karir" : "Aligned Career Pathways"}
                   </h3>
                 </div>
                 <ul className="space-y-2.5 pt-2">
@@ -753,45 +737,47 @@ Report Verification: ${sha256Fingerprint}`;
                   </div>
 
                   <div className="space-y-4 pt-2">
-                    {(Object.keys(bResult.traitDescriptions) as BigFiveDimension[]).map((dimKey) => {
-                      const t = bResult.traitDescriptions[dimKey];
-                      const titlesEn: Record<BigFiveDimension, string> = {
-                        O: "Openness to Experience",
-                        C: "Conscientiousness",
-                        E: "Extraversion",
-                        A: "Agreeableness",
-                        N: "Neuroticism (Emotional Stability)",
-                      };
-                      const titlesId: Record<BigFiveDimension, string> = {
-                        O: "Keterbukaan pada Pengalaman Baru (Openness)",
-                        C: "Ketelitian & Rasa Tanggung Jawab (Conscientiousness)",
-                        E: "Ekstraversi & Interaksi Sosial (Extraversion)",
-                        A: "Keramahan & Kerjasama (Agreeableness)",
-                        N: "Stabilitas Emosional (Emotional Stability)",
-                      };
-                      return (
-                        <div
-                          key={dimKey}
-                          className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-2"
-                        >
-                          <div className="flex items-center justify-between">
-                            <span className="font-bold text-sm text-white">
-                              {locale === "id" ? titlesId[dimKey] : titlesEn[dimKey]} ({dimKey})
-                            </span>
-                            <span className="font-mono text-sm font-bold text-[#D4F024]">
-                              {t.score}% • {t.level}
-                            </span>
+                    {(Object.keys(bResult.traitDescriptions) as BigFiveDimension[]).map(
+                      (dimKey) => {
+                        const t = bResult.traitDescriptions[dimKey];
+                        const titlesEn: Record<BigFiveDimension, string> = {
+                          O: "Openness to Experience",
+                          C: "Conscientiousness",
+                          E: "Extraversion",
+                          A: "Agreeableness",
+                          N: "Neuroticism (Emotional Stability)",
+                        };
+                        const titlesId: Record<BigFiveDimension, string> = {
+                          O: "Keterbukaan pada Pengalaman Baru (Openness)",
+                          C: "Ketelitian & Rasa Tanggung Jawab (Conscientiousness)",
+                          E: "Ekstraversi & Interaksi Sosial (Extraversion)",
+                          A: "Keramahan & Kerjasama (Agreeableness)",
+                          N: "Stabilitas Emosional (Emotional Stability)",
+                        };
+                        return (
+                          <div
+                            key={dimKey}
+                            className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] space-y-2"
+                          >
+                            <div className="flex items-center justify-between">
+                              <span className="font-bold text-sm text-white">
+                                {locale === "id" ? titlesId[dimKey] : titlesEn[dimKey]} ({dimKey})
+                              </span>
+                              <span className="font-mono text-sm font-bold text-[#D4F024]">
+                                {t.score}% • {t.level}
+                              </span>
+                            </div>
+                            <div className="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                              <div
+                                className="h-full bg-gradient-to-r from-teal-400 to-[#D4F024] rounded-full transition-all duration-700"
+                                style={{ width: `${t.score}%` }}
+                              />
+                            </div>
+                            <p className="text-xs text-slate-400">{t.description}</p>
                           </div>
-                          <div className="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
-                            <div
-                              className="h-full bg-gradient-to-r from-teal-400 to-[#D4F024] rounded-full transition-all duration-700"
-                              style={{ width: `${t.score}%` }}
-                            />
-                          </div>
-                          <p className="text-xs text-slate-400">{t.description}</p>
-                        </div>
-                      );
-                    })}
+                        );
+                      },
+                    )}
                   </div>
                 </>
               );
@@ -811,9 +797,7 @@ Report Verification: ${sha256Fingerprint}`;
                       <span className="text-xs font-mono uppercase text-[#D4F024] bg-[#D4F024]/10 border border-[#D4F024]/20 px-2.5 py-0.5 rounded-full">
                         {eResult.triad} Triad
                       </span>
-                      <span className="text-xs font-mono text-slate-400">
-                        Wing: {eResult.wing}
-                      </span>
+                      <span className="text-xs font-mono text-slate-400">Wing: {eResult.wing}</span>
                     </div>
                     <h1 className="text-3xl sm:text-5xl font-extrabold text-white font-display">
                       {locale === "id" ? "Tipe" : "Type"} {eResult.coreType} — {eResult.title}
@@ -838,7 +822,9 @@ Report Verification: ${sha256Fingerprint}`;
                     </div>
                     <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
                       <span className="text-xs font-mono text-emerald-400 uppercase block mb-1">
-                        {locale === "id" ? "Arah Pertumbuhan Positif:" : "Growth Arrow (Integration):"}
+                        {locale === "id"
+                          ? "Arah Pertumbuhan Positif:"
+                          : "Growth Arrow (Integration):"}
                       </span>
                       <p className="text-sm text-white font-bold">
                         {locale === "id" ? "Tipe" : "Type"} {eResult.growthArrow}
@@ -846,7 +832,9 @@ Report Verification: ${sha256Fingerprint}`;
                     </div>
                     <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]">
                       <span className="text-xs font-mono text-rose-400 uppercase block mb-1">
-                        {locale === "id" ? "Pola Reaksi Saat Tekanan:" : "Stress Arrow (Disintegration):"}
+                        {locale === "id"
+                          ? "Pola Reaksi Saat Tekanan:"
+                          : "Stress Arrow (Disintegration):"}
                       </span>
                       <p className="text-sm text-white font-bold">
                         {locale === "id" ? "Tipe" : "Type"} {eResult.stressArrow}
@@ -873,7 +861,8 @@ Report Verification: ${sha256Fingerprint}`;
                         : "DISC WORKPLACE BEHAVIORAL PROFILE"}
                     </span>
                     <h1 className="text-3xl sm:text-5xl font-extrabold text-white font-display">
-                      {locale === "id" ? "Gaya" : "Style"} {dResult.styleLockup} — {dResult.styleTitle}
+                      {locale === "id" ? "Gaya" : "Style"} {dResult.styleLockup} —{" "}
+                      {dResult.styleTitle}
                     </h1>
                     <p className="text-sm sm:text-base text-slate-300 mt-2 leading-relaxed max-w-3xl">
                       {dResult.summary}
@@ -918,7 +907,9 @@ Report Verification: ${sha256Fingerprint}`;
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                     <div className="p-4 rounded-xl bg-emerald-500/[0.04] border border-emerald-500/20 space-y-2">
                       <span className="text-xs font-mono uppercase text-emerald-400 font-bold block">
-                        {locale === "id" ? "Hal yang Disukai Saat Berkomunikasi:" : "Communication DOs:"}
+                        {locale === "id"
+                          ? "Hal yang Disukai Saat Berkomunikasi:"
+                          : "Communication DOs:"}
                       </span>
                       {dResult.communicationDos.map((item, idx) => (
                         <p key={idx} className="text-xs text-slate-300">
@@ -957,7 +948,8 @@ Report Verification: ${sha256Fingerprint}`;
                         : "HOLLAND CODES (RIASEC) VOCATIONAL PROFILE"}
                     </span>
                     <h1 className="text-3xl sm:text-5xl font-extrabold text-white font-display">
-                      {locale === "id" ? "Kode:" : "Code:"} {rResult.hollandCode} — {rResult.primaryTheme}
+                      {locale === "id" ? "Kode:" : "Code:"} {rResult.hollandCode} —{" "}
+                      {rResult.primaryTheme}
                     </h1>
                     <p className="text-sm sm:text-base text-slate-300 mt-2 leading-relaxed max-w-3xl">
                       {rResult.environmentFit}

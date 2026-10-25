@@ -10,7 +10,7 @@ const assessmentSubmissionSchema = z.object({
       z.object({
         questionId: z.string().min(1),
         value: z.number().int().min(1).max(5),
-      })
+      }),
     )
     .length(24, "All 24 items must be completed"),
   respondentName: z.string().optional(),

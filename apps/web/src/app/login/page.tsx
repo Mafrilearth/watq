@@ -39,17 +39,10 @@ function LoginContent() {
     if (result.success) {
       // Automatically persist and link completed guest assessment to logged in account
       const localSession = getSession();
-      if (
-        localSession?.completedAt &&
-        localSession.result &&
-        "typeCode" in localSession.result
-      ) {
+      if (localSession?.completedAt && localSession.result && "typeCode" in localSession.result) {
         const r = localSession.result as AssessmentResult;
         await saveEnterpriseAssessmentAction({
-          modelId:
-            localSession.modelType === "jungian"
-              ? "jung-16-types"
-              : localSession.modelType,
+          modelId: localSession.modelType === "jungian" ? "jung-16-types" : localSession.modelType,
           typeCode: r.typeCode,
           archetype: r.archetypeTitle,
           scoreEI: r.scores.E,
@@ -63,8 +56,7 @@ function LoginContent() {
 
       setIsLoading(false);
       const redirect =
-        searchParams.get("redirect") ||
-        (result.user?.role === "ADMIN" ? "/admin" : "/dashboard");
+        searchParams.get("redirect") || (result.user?.role === "ADMIN" ? "/admin" : "/dashboard");
       router.push(redirect);
     } else {
       setIsLoading(false);
@@ -120,9 +112,7 @@ function LoginContent() {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-medium text-slate-300 font-mono">
-                  Password
-                </label>
+                <label className="text-xs font-medium text-slate-300 font-mono">Password</label>
                 <Input
                   type="password"
                   placeholder="••••••••"

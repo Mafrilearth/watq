@@ -45,17 +45,10 @@ function RegisterContent() {
     if (result.success) {
       // Automatically persist and link completed guest assessment to newly registered account
       const localSession = getSession();
-      if (
-        localSession?.completedAt &&
-        localSession.result &&
-        "typeCode" in localSession.result
-      ) {
+      if (localSession?.completedAt && localSession.result && "typeCode" in localSession.result) {
         const r = localSession.result as AssessmentResult;
         await saveEnterpriseAssessmentAction({
-          modelId:
-            localSession.modelType === "jungian"
-              ? "jung-16-types"
-              : localSession.modelType,
+          modelId: localSession.modelType === "jungian" ? "jung-16-types" : localSession.modelType,
           typeCode: r.typeCode,
           archetype: r.archetypeTitle,
           scoreEI: r.scores.E,
@@ -135,9 +128,7 @@ function RegisterContent() {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-medium text-slate-300 font-mono">
-                  Password
-                </label>
+                <label className="text-xs font-medium text-slate-300 font-mono">Password</label>
                 <Input
                   type="password"
                   placeholder="Minimum 8 characters"

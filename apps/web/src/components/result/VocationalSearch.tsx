@@ -34,7 +34,7 @@ export function VocationalSearch({ careers, majors }: VocationalSearchProps) {
         threshold: 0.35, // Typo-tolerant matching
         distance: 100,
       }),
-    [allItems]
+    [allItems],
   );
 
   const results = useMemo(() => {
@@ -72,9 +72,7 @@ export function VocationalSearch({ careers, majors }: VocationalSearchProps) {
                 ) : (
                   <GraduationCap className="w-3.5 h-3.5 text-sky-400 shrink-0" />
                 )}
-                <span className="text-xs text-slate-200 truncate font-medium">
-                  {item.title}
-                </span>
+                <span className="text-xs text-slate-200 truncate font-medium">{item.title}</span>
               </div>
               <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider shrink-0 ml-2">
                 {item.type === "Career"

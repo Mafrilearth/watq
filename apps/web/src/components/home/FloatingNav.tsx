@@ -1,11 +1,7 @@
 "use client";
 
 import { WatqFullLogo } from "@/components/brand/WatqLogo";
-import {
-  getClientAuthSnapshot,
-  getServerAuthSnapshot,
-  subscribeAuth,
-} from "@/lib/auth/authStore";
+import { getClientAuthSnapshot, getServerAuthSnapshot, subscribeAuth } from "@/lib/auth/authStore";
 import { useUIStore } from "@/lib/stores/uiStore";
 import type { AssessmentSession } from "@watq/core";
 import { ArrowRight, Globe, Menu, X } from "lucide-react";
@@ -62,16 +58,10 @@ export function FloatingNav({ session }: FloatingNavProps) {
 
         {/* Desktop Anchor Links (Clean typographic nav) */}
         <div className="hidden md:flex items-center gap-5 text-xs font-medium text-slate-300">
-          <a
-            href="#frameworks"
-            className="hover:text-white transition-colors duration-150"
-          >
+          <a href="#frameworks" className="hover:text-white transition-colors duration-150">
             {locale === "id" ? "5 Model" : "5 Suites"}
           </a>
-          <a
-            href="#archetypes"
-            className="hover:text-white transition-colors duration-150"
-          >
+          <a href="#archetypes" className="hover:text-white transition-colors duration-150">
             {locale === "id" ? "16 Tipe" : "16 Types"}
           </a>
           <a
@@ -85,13 +75,14 @@ export function FloatingNav({ session }: FloatingNavProps) {
               href={currentUser.role === "ADMIN" ? "/admin" : "/dashboard"}
               className="text-[#D4F024] hover:text-[#E2FE52] font-semibold transition-colors duration-150"
             >
-              {currentUser.role === "ADMIN" ? "Admin Portal" : locale === "id" ? "Dasbor" : "Dashboard"}
+              {currentUser.role === "ADMIN"
+                ? "Admin Portal"
+                : locale === "id"
+                  ? "Dasbor"
+                  : "Dashboard"}
             </Link>
           ) : (
-            <Link
-              href="/login"
-              className="hover:text-white transition-colors duration-150"
-            >
+            <Link href="/login" className="hover:text-white transition-colors duration-150">
               {locale === "id" ? "Masuk" : "Sign In"}
             </Link>
           )}
@@ -131,17 +122,16 @@ export function FloatingNav({ session }: FloatingNavProps) {
               className="group inline-flex items-center gap-2 pl-3.5 pr-2 py-1.5 rounded-full bg-[#D4F024] hover:bg-[#c2dc20] text-[#08090C] text-xs font-bold shadow-lg shadow-[#D4F024]/15 transition-all duration-200 active:scale-95"
             >
               <span>
-                {locale === "id" ? "Lanjutkan" : "Resume"} (
-                {session.currentIndex + 1}/
+                {locale === "id" ? "Lanjutkan" : "Resume"} ({session.currentIndex + 1}/
                 {session.modelType === "bigfive"
                   ? 20
                   : session.modelType === "enneagram"
-                  ? 36
-                  : session.modelType === "disc"
-                  ? 16
-                  : session.modelType === "riasec"
-                  ? 30
-                  : 24}
+                    ? 36
+                    : session.modelType === "disc"
+                      ? 16
+                      : session.modelType === "riasec"
+                        ? 30
+                        : 24}
                 )
               </span>
               <span className="w-6 h-6 rounded-full bg-[#08090C]/15 flex items-center justify-center transition-transform duration-200 group-hover:translate-x-0.5">
@@ -222,7 +212,11 @@ export function FloatingNav({ session }: FloatingNavProps) {
                 onClick={() => setMobileMenuOpen(false)}
                 className="p-2.5 rounded-lg hover:bg-white/[0.05] text-[#D4F024] font-medium transition-colors"
               >
-                {currentUser.role === "ADMIN" ? "Admin Portal" : locale === "id" ? "Dasbor Anggota" : "Member Dashboard"}
+                {currentUser.role === "ADMIN"
+                  ? "Admin Portal"
+                  : locale === "id"
+                    ? "Dasbor Anggota"
+                    : "Member Dashboard"}
               </Link>
             ) : (
               <Link

@@ -191,4 +191,3 @@ export function purgeSovereignData(): void {
   cachedHistory = [];
   notifyListeners();
 }
-

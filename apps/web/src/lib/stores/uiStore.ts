@@ -12,11 +12,10 @@ export const useUIStore = create<UIState>()(
     (set) => ({
       locale: "en",
       setLocale: (locale) => set({ locale }),
-      toggleLocale: () =>
-        set((state) => ({ locale: state.locale === "en" ? "id" : "en" })),
+      toggleLocale: () => set((state) => ({ locale: state.locale === "en" ? "id" : "en" })),
     }),
     {
       name: "watq_ui_preferences",
-    }
-  )
+    },
+  ),
 );

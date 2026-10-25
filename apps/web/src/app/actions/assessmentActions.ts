@@ -65,7 +65,8 @@ export async function saveEnterpriseAssessmentAction(data: {
       resultId: saved.id,
     };
   } catch (error: unknown) {
-    const message = error instanceof Error ? error.message : "Failed to persist assessment in database";
+    const message =
+      error instanceof Error ? error.message : "Failed to persist assessment in database";
     console.error("[EnterpriseAssessment] save error:", message);
     return { success: false, error: message };
   }
@@ -112,7 +113,8 @@ export async function getUserEnterpriseAssessmentsAction(): Promise<{
       })),
     };
   } catch (error: unknown) {
-    const message = error instanceof Error ? error.message : "Failed to load assessments from database";
+    const message =
+      error instanceof Error ? error.message : "Failed to load assessments from database";
     console.error("[EnterpriseAssessment] getUserAssessments error:", message);
     return { success: false, error: message };
   }
@@ -122,7 +124,7 @@ export async function getUserEnterpriseAssessmentsAction(): Promise<{
  * Deletes an assessment result record from Neon PostgreSQL.
  */
 export async function deleteEnterpriseAssessmentAction(
-  resultId: string
+  resultId: string,
 ): Promise<{ success: boolean; error?: string }> {
   try {
     const session = await getEnterpriseSessionAction();
@@ -151,7 +153,8 @@ export async function deleteEnterpriseAssessmentAction(
 
     return { success: true };
   } catch (error: unknown) {
-    const message = error instanceof Error ? error.message : "Failed to delete assessment from database";
+    const message =
+      error instanceof Error ? error.message : "Failed to delete assessment from database";
     console.error("[EnterpriseAssessment] delete error:", message);
     return { success: false, error: message };
   }

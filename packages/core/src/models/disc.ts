@@ -104,7 +104,8 @@ export const DISC_QUESTIONS: QuestionItem[] = [
     id: "DISC-S4",
     dimension: "S",
     isReversed: true,
-    prompt: "I get restless with steady routines and frequently disrupt stable plans for fast change.",
+    prompt:
+      "I get restless with steady routines and frequently disrupt stable plans for fast change.",
     target: "Low Steadiness: Pacing volatility",
     modelType: "disc",
   },
@@ -114,7 +115,8 @@ export const DISC_QUESTIONS: QuestionItem[] = [
     id: "DISC-C1",
     dimension: "C",
     isReversed: false,
-    prompt: "I focus on precision, factual accuracy, and high technical quality in my deliverables.",
+    prompt:
+      "I focus on precision, factual accuracy, and high technical quality in my deliverables.",
     target: "Conscientiousness: Systematic precision",
     modelType: "disc",
   },
@@ -130,7 +132,8 @@ export const DISC_QUESTIONS: QuestionItem[] = [
     id: "DISC-C3",
     dimension: "C",
     isReversed: false,
-    prompt: "I follow established standards, error-checking protocols, and technical specifications.",
+    prompt:
+      "I follow established standards, error-checking protocols, and technical specifications.",
     target: "Conscientiousness: Protocol compliance",
     modelType: "disc",
   },
@@ -138,7 +141,8 @@ export const DISC_QUESTIONS: QuestionItem[] = [
     id: "DISC-C4",
     dimension: "C",
     isReversed: true,
-    prompt: "I dislike meticulous fine-print details and prefer trusting gut feeling over spreadsheets.",
+    prompt:
+      "I dislike meticulous fine-print details and prefer trusting gut feeling over spreadsheets.",
     target: "Low Conscientiousness: Intuitive estimation",
     modelType: "disc",
   },
@@ -164,7 +168,8 @@ export const DISC_METAS: Record<string, DISCProfileMeta> = {
       "Do not beat around the bush or overload them with unnecessary trivia.",
       "Do not take their direct, blunt communication personally.",
     ],
-    summary: "Assertive, fast-paced, and motivated by overcoming obstacles. Thrives in crisis and rapid execution.",
+    summary:
+      "Assertive, fast-paced, and motivated by overcoming obstacles. Thrives in crisis and rapid execution.",
   },
   I: {
     title: "The Catalyst (Influential Persuader)",
@@ -177,7 +182,8 @@ export const DISC_METAS: Record<string, DISCProfileMeta> = {
       "Do not drown discussions in dry technical jargon without human context.",
       "Do not restrict their creative autonomy or isolate them socially.",
     ],
-    summary: "Charismatic, optimistic, and visionary. Excels at rallying people, building alliances, and boosting morale.",
+    summary:
+      "Charismatic, optimistic, and visionary. Excels at rallying people, building alliances, and boosting morale.",
   },
   S: {
     title: "The Anchor (Steady Collaborator)",
@@ -190,7 +196,8 @@ export const DISC_METAS: Record<string, DISCProfileMeta> = {
       "Do not impose sudden, chaotic disruptions without logical justification.",
       "Do not be aggressive or pressure them for instantaneous reactions.",
     ],
-    summary: "Reliable, patient, and deeply loyal. The stabilizing backbone of any high-performing team.",
+    summary:
+      "Reliable, patient, and deeply loyal. The stabilizing backbone of any high-performing team.",
   },
   C: {
     title: "The Architect (Conscientious Analyst)",
@@ -203,7 +210,8 @@ export const DISC_METAS: Record<string, DISCProfileMeta> = {
       "Do not make vague, unsubstantiated claims or push sloppy shortcuts.",
       "Do not interpret their objective scrutiny as personal criticism.",
     ],
-    summary: "Thorough, precise, and intellectually rigorous. Upholds standards, data integrity, and engineering quality.",
+    summary:
+      "Thorough, precise, and intellectually rigorous. Upholds standards, data integrity, and engineering quality.",
   },
 };
 
@@ -233,7 +241,7 @@ export function calculateDISCScores(responses: Record<string, LikertValue>): DIS
   };
 
   const sortedQuadrants = (["D", "I", "S", "C"] as DISCQuadrant[]).sort(
-    (a, b) => sums[b] - sums[a]
+    (a, b) => sums[b] - sums[a],
   );
 
   const primaryStyle = sortedQuadrants[0];

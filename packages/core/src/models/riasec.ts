@@ -1,4 +1,10 @@
-import type { LikertValue, QuestionItem, RIASECDimension, RIASECResult, RIASECScores } from "../types";
+import type {
+  LikertValue,
+  QuestionItem,
+  RIASECDimension,
+  RIASECResult,
+  RIASECScores,
+} from "../types";
 import { calculateResponseValidity } from "./validity";
 
 /**
@@ -12,7 +18,8 @@ export const RIASEC_QUESTIONS: QuestionItem[] = [
     id: "RIA-R1",
     dimension: "R",
     isReversed: false,
-    prompt: "I enjoy assembling, repairing, or troubleshooting mechanical devices and hardware systems.",
+    prompt:
+      "I enjoy assembling, repairing, or troubleshooting mechanical devices and hardware systems.",
     target: "Realistic: Mechanical aptitude",
     modelType: "riasec",
   },
@@ -20,7 +27,8 @@ export const RIASEC_QUESTIONS: QuestionItem[] = [
     id: "RIA-R2",
     dimension: "R",
     isReversed: false,
-    prompt: "I prefer working outdoors or in tangible environments rather than sitting at a desk all day.",
+    prompt:
+      "I prefer working outdoors or in tangible environments rather than sitting at a desk all day.",
     target: "Realistic: Physical environment",
     modelType: "riasec",
   },
@@ -28,7 +36,8 @@ export const RIASEC_QUESTIONS: QuestionItem[] = [
     id: "RIA-R3",
     dimension: "R",
     isReversed: false,
-    prompt: "I like operating equipment, electronic tools, or crafting physical objects with my hands.",
+    prompt:
+      "I like operating equipment, electronic tools, or crafting physical objects with my hands.",
     target: "Realistic: Technical craftsmanship",
     modelType: "riasec",
   },
@@ -54,7 +63,8 @@ export const RIASEC_QUESTIONS: QuestionItem[] = [
     id: "RIA-I1",
     dimension: "I",
     isReversed: false,
-    prompt: "I love exploring scientific questions, analyzing complex data, and solving logic puzzles.",
+    prompt:
+      "I love exploring scientific questions, analyzing complex data, and solving logic puzzles.",
     target: "Investigative: Scientific inquiry",
     modelType: "riasec",
   },
@@ -78,7 +88,8 @@ export const RIASEC_QUESTIONS: QuestionItem[] = [
     id: "RIA-I4",
     dimension: "I",
     isReversed: false,
-    prompt: "I prefer developing hypotheses and testing theories methodically over executing routine tasks.",
+    prompt:
+      "I prefer developing hypotheses and testing theories methodically over executing routine tasks.",
     target: "Investigative: Hypothesis testing",
     modelType: "riasec",
   },
@@ -222,7 +233,8 @@ export const RIASEC_QUESTIONS: QuestionItem[] = [
     id: "RIA-C1",
     dimension: "C",
     isReversed: false,
-    prompt: "I enjoy creating tidy spreadsheets, organizing databases, and maintaining accurate records.",
+    prompt:
+      "I enjoy creating tidy spreadsheets, organizing databases, and maintaining accurate records.",
     target: "Conventional: Data management & accuracy",
     modelType: "riasec",
   },
@@ -238,7 +250,8 @@ export const RIASEC_QUESTIONS: QuestionItem[] = [
     id: "RIA-C3",
     dimension: "C",
     isReversed: false,
-    prompt: "I take pride in auditing numbers, catching typographical errors, and verifying details.",
+    prompt:
+      "I take pride in auditing numbers, catching typographical errors, and verifying details.",
     target: "Conventional: Precision auditing",
     modelType: "riasec",
   },
@@ -254,7 +267,8 @@ export const RIASEC_QUESTIONS: QuestionItem[] = [
     id: "RIA-C5",
     dimension: "C",
     isReversed: true,
-    prompt: "I find tracking receipts, filling out forms, and maintaining records deeply frustrating.",
+    prompt:
+      "I find tracking receipts, filling out forms, and maintaining records deeply frustrating.",
     target: "Low Conventional: Aversion to clerical routines",
     modelType: "riasec",
   },
@@ -396,7 +410,7 @@ export function calculateRIASECScores(responses: Record<string, LikertValue>): R
   };
 
   const sorted = (["R", "I", "A", "S", "E", "C"] as RIASECDimension[]).sort(
-    (a, b) => sums[b] - sums[a]
+    (a, b) => sums[b] - sums[a],
   );
 
   const top3 = sorted.slice(0, 3);

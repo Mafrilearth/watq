@@ -60,7 +60,7 @@ export async function getEnterpriseSessionAction(): Promise<{
  */
 export async function signInEnterpriseAction(
   emailInput: string,
-  passwordInput: string
+  passwordInput: string,
 ): Promise<{
   success: boolean;
   error?: string;
@@ -149,7 +149,7 @@ export async function signInEnterpriseAction(
 export async function signUpEnterpriseAction(
   nameInput: string,
   emailInput: string,
-  passwordInput: string
+  passwordInput: string,
 ): Promise<{
   success: boolean;
   error?: string;

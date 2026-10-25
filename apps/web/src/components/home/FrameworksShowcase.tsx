@@ -88,7 +88,10 @@ const SUITES: FrameworkSuite[] = [
     deliverables: [
       { text: "Your 4-Letter Personality Archetype", textId: "Arketipe 4 Huruf Kepribadianmu" },
       { text: "Personal Energy & Stress Triggers", textId: "Pemicu Stres & Cara Pemulihan Mental" },
-      { text: "Best-Fit University Majors & Careers", textId: "Rekomendasi Jurusan Kuliah & Karir Nyata" },
+      {
+        text: "Best-Fit University Majors & Careers",
+        textId: "Rekomendasi Jurusan Kuliah & Karir Nyata",
+      },
       { text: "Teamwork & Communication Strengths", textId: "Kekuatan Komunikasi dalam Tim Kerja" },
     ],
   },
@@ -137,10 +140,22 @@ const SUITES: FrameworkSuite[] = [
       },
     ],
     deliverables: [
-      { text: "Continuous 0–100% Score on Each Trait", textId: "Skor Persentil 0–100% untuk Setiap Sifat" },
-      { text: "Low / Moderate / High Trait Insights", textId: "Penjelasan Tingkat Rendah / Sedang / Tinggi" },
-      { text: "Practical Daily Work & Habit Tips", textId: "Tips Praktis untuk Pola Belajar & Bekerja" },
-      { text: "Balanced Emotional Resilience Check", textId: "Indeks Keseimbangan Resiliensi Emosional" },
+      {
+        text: "Continuous 0–100% Score on Each Trait",
+        textId: "Skor Persentil 0–100% untuk Setiap Sifat",
+      },
+      {
+        text: "Low / Moderate / High Trait Insights",
+        textId: "Penjelasan Tingkat Rendah / Sedang / Tinggi",
+      },
+      {
+        text: "Practical Daily Work & Habit Tips",
+        textId: "Tips Praktis untuk Pola Belajar & Bekerja",
+      },
+      {
+        text: "Balanced Emotional Resilience Check",
+        textId: "Indeks Keseimbangan Resiliensi Emosional",
+      },
     ],
   },
   {
@@ -189,9 +204,15 @@ const SUITES: FrameworkSuite[] = [
     ],
     deliverables: [
       { text: "Core Type Lockup (Type 1 to 9)", textId: "Penetapan Tipe Inti (Tipe 1 hingga 9)" },
-      { text: "Dominant Wing Formulation (e.g. 5w4)", textId: "Formulasi Sayap Utama (misalnya 5w4 atau 3w2)" },
+      {
+        text: "Dominant Wing Formulation (e.g. 5w4)",
+        textId: "Formulasi Sayap Utama (misalnya 5w4 atau 3w2)",
+      },
       { text: "Personal Growth Roadmap", textId: "Peta Jalan Pertumbuhan Diri yang Nyata" },
-      { text: "Early Warnings for Burnout & Anxiety", textId: "Peringatan Dini Gejala Kelelahan Mental" },
+      {
+        text: "Early Warnings for Burnout & Anxiety",
+        textId: "Peringatan Dini Gejala Kelelahan Mental",
+      },
     ],
   },
   {
@@ -239,10 +260,22 @@ const SUITES: FrameworkSuite[] = [
       },
     ],
     deliverables: [
-      { text: "Your Primary & Secondary Work Blend", textId: "Kombinasi Gaya Kerja Utama & Pendukung" },
-      { text: "How to Communicate With You (DOs & DONTs)", textId: "Panduan Komunikasi (Hal Boleh & Jangan Dilakukan)" },
-      { text: "Natural Leadership Strengths", textId: "Karakter Kepemimpinan Alami di Tempat Kerja" },
-      { text: "Ideal Work Environment Preferences", textId: "Lingkungan Kerja yang Paling Mendukung Potensimu" },
+      {
+        text: "Your Primary & Secondary Work Blend",
+        textId: "Kombinasi Gaya Kerja Utama & Pendukung",
+      },
+      {
+        text: "How to Communicate With You (DOs & DONTs)",
+        textId: "Panduan Komunikasi (Hal Boleh & Jangan Dilakukan)",
+      },
+      {
+        text: "Natural Leadership Strengths",
+        textId: "Karakter Kepemimpinan Alami di Tempat Kerja",
+      },
+      {
+        text: "Ideal Work Environment Preferences",
+        textId: "Lingkungan Kerja yang Paling Mendukung Potensimu",
+      },
     ],
   },
   {
@@ -290,10 +323,22 @@ const SUITES: FrameworkSuite[] = [
       },
     ],
     deliverables: [
-      { text: "Top 3-Letter Holland Code (e.g. IAS)", textId: "Kode Holland 3 Huruf Pilihan (misal IAS, SEC)" },
-      { text: "Curated University Degree Recommendations", textId: "Daftar Rekomendasi Program Studi Kuliah" },
-      { text: "Matched Occupations (Global Standards)", textId: "Daftar Profesi Nyata Berstandar Internasional" },
-      { text: "Workplace Culture Compatibility Score", textId: "Kesesuaian Budaya Tempat Bekerja yang Nyaman" },
+      {
+        text: "Top 3-Letter Holland Code (e.g. IAS)",
+        textId: "Kode Holland 3 Huruf Pilihan (misal IAS, SEC)",
+      },
+      {
+        text: "Curated University Degree Recommendations",
+        textId: "Daftar Rekomendasi Program Studi Kuliah",
+      },
+      {
+        text: "Matched Occupations (Global Standards)",
+        textId: "Daftar Profesi Nyata Berstandar Internasional",
+      },
+      {
+        text: "Workplace Culture Compatibility Score",
+        textId: "Kesesuaian Budaya Tempat Bekerja yang Nyaman",
+      },
     ],
   },
 ];
@@ -362,7 +407,9 @@ export function FrameworksShowcase() {
                 <span>{isId ? suite.nameId : suite.name}</span>
                 <span
                   className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${
-                    isSelected ? "bg-black/10 text-black font-bold" : "bg-white/[0.05] text-slate-500"
+                    isSelected
+                      ? "bg-black/10 text-black font-bold"
+                      : "bg-white/[0.05] text-slate-500"
                   }`}
                 >
                   {suite.itemsCount}Q
@@ -474,13 +521,12 @@ export function FrameworksShowcase() {
                   {/* What You Receive */}
                   <div className="mt-5 space-y-2.5">
                     <span className="text-xs font-mono uppercase tracking-wider text-slate-300 font-bold block mb-3">
-                      {isId ? "YANG KAMU DAPATKAN SETELAH TES:" : "WHAT YOU RECEIVE IN YOUR REPORT:"}
+                      {isId
+                        ? "YANG KAMU DAPATKAN SETELAH TES:"
+                        : "WHAT YOU RECEIVE IN YOUR REPORT:"}
                     </span>
                     {activeSuite.deliverables.map((del, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-center gap-2.5 text-xs text-slate-200"
-                      >
+                      <div key={idx} className="flex items-center gap-2.5 text-xs text-slate-200">
                         <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
                         <span>{isId ? del.textId : del.text}</span>
                       </div>
@@ -496,9 +542,7 @@ export function FrameworksShowcase() {
                     style={{ backgroundColor: activeSuite.accentColor }}
                   >
                     <span>
-                      {isId
-                        ? `Mulai Tes ${activeSuite.nameId}`
-                        : `Start ${activeSuite.name}`}
+                      {isId ? `Mulai Tes ${activeSuite.nameId}` : `Start ${activeSuite.name}`}
                     </span>
                     <span className="w-7 h-7 rounded-lg bg-[#08090C]/15 flex items-center justify-center transition-transform duration-200 group-hover:translate-x-1">
                       <ArrowRight className="w-4 h-4 text-[#08090C]" />
@@ -536,10 +580,7 @@ export function FrameworksShowcase() {
             >
               <div>
                 <div className="flex items-center justify-between text-xs font-mono mb-1.5">
-                  <span
-                    className="font-bold text-[11px]"
-                    style={{ color: suite.accentColor }}
-                  >
+                  <span className="font-bold text-[11px]" style={{ color: suite.accentColor }}>
                     {suite.itemsCount}Q
                   </span>
                   <span className="text-slate-400 text-[10px]">~{suite.estMinutes}</span>
@@ -554,10 +595,7 @@ export function FrameworksShowcase() {
 
               <div className="mt-3 pt-2 border-t border-white/[0.05] flex items-center justify-between text-[10px] font-mono text-slate-400">
                 <span>{isSelected ? (isId ? "Dipilih" : "Active") : isId ? "Klik" : "View"}</span>
-                <ArrowRight
-                  className="w-3 h-3"
-                  style={{ color: suite.accentColor }}
-                />
+                <ArrowRight className="w-3 h-3" style={{ color: suite.accentColor }} />
               </div>
             </button>
           );

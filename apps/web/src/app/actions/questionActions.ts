@@ -27,9 +27,7 @@ async function assertAdminRole() {
 /**
  * Fetches questions from Neon PostgreSQL for a given psychometric model.
  */
-export async function getEnterpriseQuestionsAction(
-  modelId: string = "jung-16-types"
-): Promise<{
+export async function getEnterpriseQuestionsAction(modelId: string = "jung-16-types"): Promise<{
   success: boolean;
   questions?: EnterpriseQuestionItem[];
   error?: string;
@@ -55,7 +53,8 @@ export async function getEnterpriseQuestionsAction(
       })),
     };
   } catch (error: unknown) {
-    const message = error instanceof Error ? error.message : "Failed to load questions from database";
+    const message =
+      error instanceof Error ? error.message : "Failed to load questions from database";
     console.error("[EnterpriseQuestions] getEnterpriseQuestions error:", message);
     return { success: false, error: message };
   }
@@ -114,7 +113,8 @@ export async function createEnterpriseQuestionAction(data: {
       },
     };
   } catch (error: unknown) {
-    const message = error instanceof Error ? error.message : "Failed to create question in database";
+    const message =
+      error instanceof Error ? error.message : "Failed to create question in database";
     console.error("[EnterpriseQuestions] createEnterpriseQuestion error:", message);
     return { success: false, error: message };
   }
@@ -133,7 +133,7 @@ export async function updateEnterpriseQuestionAction(
     pole: string;
     polarity: number;
     isActive: boolean;
-  }>
+  }>,
 ): Promise<{ success: boolean; error?: string }> {
   try {
     await assertAdminRole();
@@ -155,7 +155,8 @@ export async function updateEnterpriseQuestionAction(
 
     return { success: true };
   } catch (error: unknown) {
-    const message = error instanceof Error ? error.message : "Failed to update question in database";
+    const message =
+      error instanceof Error ? error.message : "Failed to update question in database";
     console.error("[EnterpriseQuestions] updateEnterpriseQuestion error:", message);
     return { success: false, error: message };
   }
@@ -166,7 +167,7 @@ export async function updateEnterpriseQuestionAction(
  * Strict RBAC: Caller must be ADMIN.
  */
 export async function deleteEnterpriseQuestionAction(
-  id: number
+  id: number,
 ): Promise<{ success: boolean; error?: string }> {
   try {
     await assertAdminRole();
@@ -180,7 +181,8 @@ export async function deleteEnterpriseQuestionAction(
 
     return { success: true };
   } catch (error: unknown) {
-    const message = error instanceof Error ? error.message : "Failed to delete question from database";
+    const message =
+      error instanceof Error ? error.message : "Failed to delete question from database";
     console.error("[EnterpriseQuestions] deleteEnterpriseQuestion error:", message);
     return { success: false, error: message };
   }
@@ -191,7 +193,7 @@ export async function deleteEnterpriseQuestionAction(
  * Zero hardcoding. Pulls live items from the database.
  */
 export async function getPublicAssessmentQuestionsAction(
-  modelId: string = "jung-16-types"
+  modelId: string = "jung-16-types",
 ): Promise<{
   success: boolean;
   questions?: Array<{
@@ -233,8 +235,8 @@ export async function getPublicAssessmentQuestionsAction(
       }),
     };
   } catch (error: unknown) {
-    const message = error instanceof Error ? error.message : "Failed to load questions from database";
+    const message =
+      error instanceof Error ? error.message : "Failed to load questions from database";
     return { success: false, error: message };
   }
 }
-

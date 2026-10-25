@@ -1,4 +1,10 @@
-import type { BigFiveDimension, BigFiveResult, BigFiveScores, LikertValue, QuestionItem } from "../types";
+import type {
+  BigFiveDimension,
+  BigFiveResult,
+  BigFiveScores,
+  LikertValue,
+  QuestionItem,
+} from "../types";
 import { calculateResponseValidity } from "./validity";
 
 /**
@@ -216,8 +222,8 @@ export function calculateBigFiveScores(responses: Record<string, LikertValue>): 
         scores.O >= 67
           ? "High intellectual curiosity, deep artistic sensitivity, and preference for unconventional novelty."
           : scores.O <= 33
-          ? "Grounded pragmatist with strong preference for concrete facts, routine, and established methods."
-          : "Balanced orientation between practical execution and conceptual innovation.",
+            ? "Grounded pragmatist with strong preference for concrete facts, routine, and established methods."
+            : "Balanced orientation between practical execution and conceptual innovation.",
     },
     C: {
       score: scores.C,
@@ -226,8 +232,8 @@ export function calculateBigFiveScores(responses: Record<string, LikertValue>): 
         scores.C >= 67
           ? "Highly disciplined, methodical, organized, with exceptional anticipatory task follow-through."
           : scores.C <= 33
-          ? "Highly flexible, spontaneous, and emergent; thrives without rigid blueprints."
-          : "Healthy equilibrium between structured discipline and situational adaptability.",
+            ? "Highly flexible, spontaneous, and emergent; thrives without rigid blueprints."
+            : "Healthy equilibrium between structured discipline and situational adaptability.",
     },
     E: {
       score: scores.E,
@@ -236,8 +242,8 @@ export function calculateBigFiveScores(responses: Record<string, LikertValue>): 
         scores.E >= 67
           ? "Socially vibrant, energetic, assertively expressive, drawing mental energy from external engagement."
           : scores.E <= 33
-          ? "Quietly contemplative, independent, recharges energy in serene solitary environments."
-          : "Ambiverted: fluidly shifts between social participation and focused solitary work.",
+            ? "Quietly contemplative, independent, recharges energy in serene solitary environments."
+            : "Ambiverted: fluidly shifts between social participation and focused solitary work.",
     },
     A: {
       score: scores.A,
@@ -246,8 +252,8 @@ export function calculateBigFiveScores(responses: Record<string, LikertValue>): 
         scores.A >= 67
           ? "Deeply empathetic, cooperative, trusting, and proactive in cultivating communal harmony."
           : scores.A <= 33
-          ? "Analytically skeptical, competitive, and unswayed by social sentiment or peer pressure."
-          : "Diplomatic balance of constructive skepticism and collaborative warmth.",
+            ? "Analytically skeptical, competitive, and unswayed by social sentiment or peer pressure."
+            : "Diplomatic balance of constructive skepticism and collaborative warmth.",
     },
     N: {
       score: scores.N,
@@ -256,13 +262,15 @@ export function calculateBigFiveScores(responses: Record<string, LikertValue>): 
         scores.N >= 67
           ? "Heightened sensitivity to environmental stressors; alert to risks and subtle emotional undercurrents."
           : scores.N <= 33
-          ? "High affective stability, emotionally calm, composed, and resilient in high-pressure scenarios."
-          : "Normal affective reactivity with healthy recovery mechanisms under acute stress.",
+            ? "High affective stability, emotionally calm, composed, and resilient in high-pressure scenarios."
+            : "Normal affective reactivity with healthy recovery mechanisms under acute stress.",
     },
   };
 
   // Determine dominant signature trait
-  const traits = (["O", "C", "E", "A", "N"] as BigFiveDimension[]).sort((a, b) => scores[b] - scores[a]);
+  const traits = (["O", "C", "E", "A", "N"] as BigFiveDimension[]).sort(
+    (a, b) => scores[b] - scores[a],
+  );
   const primaryCode = traits[0];
   const traitNames: Record<BigFiveDimension, string> = {
     O: "Openness to Experience (Explorer of Concepts)",

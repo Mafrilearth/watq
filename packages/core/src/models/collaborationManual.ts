@@ -20,7 +20,7 @@ export interface CollaborationManual {
  */
 export function generateCollaborationManual(
   typeCode: string,
-  callsign?: string
+  callsign?: string,
 ): CollaborationManual {
   const code = typeCode.toUpperCase();
   const archetype = ARCHETYPES[code] || ARCHETYPES.INTJ;
@@ -69,7 +69,9 @@ export function generateCollaborationManual(
     "Working alongside high-trust peers who respect intellectual honesty and deadlines.",
   ];
 
-  const callsignLine = callsign ? `> **Callsign:** \`${callsign}\` │ **System ID:** WATQ Certified` : "";
+  const callsignLine = callsign
+    ? `> **Callsign:** \`${callsign}\` │ **System ID:** WATQ Certified`
+    : "";
 
   const markdownContent = `# User Manual: How to Work with Me
 ${callsignLine}

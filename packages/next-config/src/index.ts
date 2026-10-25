@@ -86,4 +86,3 @@ export function withBaseConfig(customConfig?: Partial<NextConfig>): NextConfig {
 
   return withBundleAnalyzer(merged);
 }
-

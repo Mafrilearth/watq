@@ -97,8 +97,8 @@ export default function HomePage() {
                         ? "PROFIL TERVERIFIKASI TERSIMPAN DI PERANGKAT"
                         : "SAVED ASSESSMENT AVAILABLE ON THIS DEVICE"
                       : isId
-                      ? "SESI ASESMEN SEDANG BERJALAN"
-                      : "IN-PROGRESS ASSESSMENT IN PROGRESS"}
+                        ? "SESI ASESMEN SEDANG BERJALAN"
+                        : "IN-PROGRESS ASSESSMENT IN PROGRESS"}
                   </div>
                   <div className="text-sm font-medium text-slate-200">
                     {hasCompletedResult
@@ -106,8 +106,8 @@ export default function HomePage() {
                         ? `Asesmenmu sudah selesai (${session.result && "typeCode" in session.result ? (session.result as { typeCode: string; archetypeTitle: string }).typeCode : "Profil Lengkap"}).`
                         : `Your verified assessment is ready (${session.result && "typeCode" in session.result ? (session.result as { typeCode: string; archetypeTitle: string }).typeCode : "Full Profile"}).`
                       : isId
-                      ? `Kamu telah menjawab ${session.currentIndex} dari ${totalModelQuestions} soal. Ingin melanjutkan sekarang?`
-                      : `You have completed ${session.currentIndex} of ${totalModelQuestions} questions. Ready to finalize?`}
+                        ? `Kamu telah menjawab ${session.currentIndex} dari ${totalModelQuestions} soal. Ingin melanjutkan sekarang?`
+                        : `You have completed ${session.currentIndex} of ${totalModelQuestions} questions. Ready to finalize?`}
                   </div>
                 </div>
               </div>
@@ -127,7 +127,8 @@ export default function HomePage() {
                     className="w-full sm:w-auto px-4 py-2 rounded-xl bg-[#D4F024] text-[#08090C] font-bold text-xs hover:bg-[#E2F752] transition-colors flex items-center justify-center gap-1.5"
                   >
                     <span>
-                      {isId ? "Lanjutkan" : "Resume"} ({session.currentIndex + 1}/{totalModelQuestions})
+                      {isId ? "Lanjutkan" : "Resume"} ({session.currentIndex + 1}/
+                      {totalModelQuestions})
                     </span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
@@ -156,7 +157,9 @@ export default function HomePage() {
                 {isId ? "5 Pilihan" : "5 Frameworks"}
               </div>
               <div className="text-[11px] text-slate-400 mt-0.5">
-                {isId ? "16 Tipe, Big Five, Enneagram, DISC, RIASEC" : "Jungian, Big Five, Enneagram, DISC, RIASEC"}
+                {isId
+                  ? "16 Tipe, Big Five, Enneagram, DISC, RIASEC"
+                  : "Jungian, Big Five, Enneagram, DISC, RIASEC"}
               </div>
             </div>
             <div className="p-4 rounded-xl bg-[#0B0F19]/80 border border-white/[0.04] transition-all hover:border-white/[0.1]">
@@ -218,7 +221,9 @@ export default function HomePage() {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-mono text-slate-300 mb-6">
                 <Sparkles className="w-3.5 h-3.5 text-[#D4F024]" />
                 <span>
-                  {isId ? "5 MODEL ASESMEN // 100% GRATIS TANPA DAFTAR" : "5 CALIBRATED INSTRUMENTS // NO REGISTRATION REQUIRED"}
+                  {isId
+                    ? "5 MODEL ASESMEN // 100% GRATIS TANPA DAFTAR"
+                    : "5 CALIBRATED INSTRUMENTS // NO REGISTRATION REQUIRED"}
                 </span>
               </div>
 

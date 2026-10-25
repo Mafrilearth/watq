@@ -209,8 +209,8 @@ export function HeroCognitivePrism() {
           </>
         ) : (
           <>
-            A sovereign, model-agnostic intelligence platform. Explore 5 calibrated psychometric frameworks
-            spanning <span className="text-white font-medium">16 Cognitive Types</span>,{" "}
+            A sovereign, model-agnostic intelligence platform. Explore 5 calibrated psychometric
+            frameworks spanning <span className="text-white font-medium">16 Cognitive Types</span>,{" "}
             <span className="text-white font-medium">Big Five OCEAN</span>,{" "}
             <span className="text-white font-medium">The 9 Enneagram Types</span>,{" "}
             <span className="text-white font-medium">DISC Workplace Dynamics</span>, and{" "}
@@ -655,13 +655,9 @@ export function HeroCognitivePrism() {
               </svg>
 
               <div className="flex items-center gap-4 mt-3 text-[10px] font-mono text-slate-500">
-                <span>
-                  {locale === "id" ? "24 PERTANYAAN PILIHAN" : "24 CALIBRATED ITEMS"}
-                </span>
+                <span>{locale === "id" ? "24 PERTANYAAN PILIHAN" : "24 CALIBRATED ITEMS"}</span>
                 <span>•</span>
-                <span>
-                  {locale === "id" ? "4 DIMENSI UTAMA" : "4 CORE DIMENSIONS"}
-                </span>
+                <span>{locale === "id" ? "4 DIMENSI UTAMA" : "4 CORE DIMENSIONS"}</span>
                 <span>•</span>
                 <span>
                   {locale === "id" ? "100% PRIVAT DI BROWSER" : "100% PRIVATE IN-BROWSER"}
@@ -748,7 +744,9 @@ export function HeroCognitivePrism() {
 
                     <div>
                       <div className="flex justify-between text-[11px] font-mono text-slate-300 mb-1">
-                        <span>{locale === "id" ? "Terencana & Terstruktur (J)" : "Judging (J)"}</span>
+                        <span>
+                          {locale === "id" ? "Terencana & Terstruktur (J)" : "Judging (J)"}
+                        </span>
                         <span className="font-bold text-[#FF7A00]">{activeType.bars.jp}%</span>
                       </div>
                       <div className="h-1.5 w-full rounded-full bg-white/[0.06] overflow-hidden">

@@ -58,9 +58,12 @@ export default function MemberDashboardPage() {
             <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-[#D4F024] uppercase">
               <Sparkles className="w-4 h-4" /> Cognitive Identity Decoded
             </div>
-            <h1 className="text-3xl font-bold tracking-tight text-white">Your Cognitive Architecture</h1>
+            <h1 className="text-3xl font-bold tracking-tight text-white">
+              Your Cognitive Architecture
+            </h1>
             <p className="text-slate-400 text-sm max-w-xl">
-              Inspect your calibrated diagnostic profile, structural traits, and vocational trajectories.
+              Inspect your calibrated diagnostic profile, structural traits, and vocational
+              trajectories.
             </p>
           </div>
           <div className="relative z-10 flex flex-wrap gap-3">

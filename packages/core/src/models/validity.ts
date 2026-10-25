@@ -7,7 +7,7 @@ import type { LikertValue, QuestionItem, ResponseValidity } from "../types";
  */
 export function calculateResponseValidity(
   responses: Record<string, LikertValue>,
-  questions: QuestionItem[]
+  questions: QuestionItem[],
 ): ResponseValidity {
   const values = Object.values(responses);
   if (values.length === 0) {
@@ -79,7 +79,8 @@ export function calculateResponseValidity(
   const finalScore = Math.max(10, Math.min(100, baseScore));
 
   let rating: ResponseValidity["rating"] = "HIGH_RELIABILITY";
-  let summary = "Response pattern demonstrates high cognitive integrity and thoughtful self-reflection.";
+  let summary =
+    "Response pattern demonstrates high cognitive integrity and thoughtful self-reflection.";
 
   if (finalScore < 65) {
     rating = "LOW_RELIABILITY";
@@ -88,7 +89,8 @@ export function calculateResponseValidity(
       : "Elevated variance detected: multiple contradictory responses observed across paired items.";
   } else if (finalScore < 85) {
     rating = "MODERATE_RELIABILITY";
-    summary = "Moderate variance detected: response profile is generally consistent with minor ambivalence.";
+    summary =
+      "Moderate variance detected: response profile is generally consistent with minor ambivalence.";
   }
 
   return {

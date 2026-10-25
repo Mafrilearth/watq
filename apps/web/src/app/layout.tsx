@@ -184,9 +184,7 @@ export default function RootLayout({
           </NuqsAdapter>
         </AnalyticsProvider>
         {process.env.NODE_ENV === "development" &&
-          Boolean(process.env.VERCEL_ENV || process.env.VERCEL_TOOLBAR) && (
-            <VercelToolbar />
-          )}
+          Boolean(process.env.VERCEL_ENV || process.env.VERCEL_TOOLBAR) && <VercelToolbar />}
       </body>
     </html>
   );

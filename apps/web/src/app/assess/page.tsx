@@ -74,7 +74,8 @@ const MODEL_CONFIGS: Record<
     label: "Big Five OCEAN",
     sublabel: "Mini-IPIP",
     itemsCount: 20,
-    description: "5 Empirical Behavioral Dimensions (Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism)",
+    description:
+      "5 Empirical Behavioral Dimensions (Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism)",
   },
   enneagram: {
     id: "enneagram",
@@ -121,7 +122,7 @@ function AssessmentRunnerContent() {
   useEffect(() => {
     let ignore = false;
     getPublicAssessmentQuestionsAction(
-      activeModel === "jungian" ? "jung-16-types" : activeModel
+      activeModel === "jungian" ? "jung-16-types" : activeModel,
     ).then((res) => {
       if (!ignore && res.success && res.questions && res.questions.length > 0) {
         setDbQuestions(res.questions as QuestionItem[]);
@@ -433,14 +434,14 @@ function AssessmentRunnerContent() {
               isId && mKey === "jungian"
                 ? "16 Tipe Kepribadian"
                 : isId && mKey === "bigfive"
-                ? "Big Five (OCEAN)"
-                : isId && mKey === "enneagram"
-                ? "9 Enneagram"
-                : isId && mKey === "disc"
-                ? "Gaya Kerja DISC"
-                : isId && mKey === "riasec"
-                ? "Minat Karir RIASEC"
-                : conf.label;
+                  ? "Big Five (OCEAN)"
+                  : isId && mKey === "enneagram"
+                    ? "9 Enneagram"
+                    : isId && mKey === "disc"
+                      ? "Gaya Kerja DISC"
+                      : isId && mKey === "riasec"
+                        ? "Minat Karir RIASEC"
+                        : conf.label;
 
             return (
               <button
@@ -476,7 +477,8 @@ function AssessmentRunnerContent() {
           {/* Question Category Metadata */}
           <div className="flex items-center justify-between gap-2 mb-4 sm:mb-6">
             <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-[#D4F024] bg-[#D4F024]/10 border border-[#D4F024]/20 px-2.5 py-1 rounded-md">
-              {activeConfig.label} • {isId ? "NOMOR" : "ITEM"} {currentIndex + 1} {isId ? "DARI" : "OF"} {questionSet.length}
+              {activeConfig.label} • {isId ? "NOMOR" : "ITEM"} {currentIndex + 1}{" "}
+              {isId ? "DARI" : "OF"} {questionSet.length}
             </span>
             <span className="text-xs text-slate-400 font-mono hidden sm:inline-block">
               {isId ? "Tersimpan otomatis" : "Progress saved automatically"}
@@ -561,7 +563,11 @@ function AssessmentRunnerContent() {
 
             <div className="flex items-center gap-2 text-[11px] font-mono text-slate-400 hidden sm:flex">
               <Sparkles className="w-3 h-3 text-[#D4F024]" />
-              <span>{isId ? "Tips: Tekan tombol 1–5 pada keyboard untuk memilih cepat" : "Tip: Press keys 1–5 on keyboard for instant selection"}</span>
+              <span>
+                {isId
+                  ? "Tips: Tekan tombol 1–5 pada keyboard untuk memilih cepat"
+                  : "Tip: Press keys 1–5 on keyboard for instant selection"}
+              </span>
             </div>
           </div>
         </div>
@@ -569,7 +575,10 @@ function AssessmentRunnerContent() {
 
       {/* Runner Footer */}
       <footer className="w-full max-w-[680px] mx-auto text-center text-xs font-mono text-slate-500">
-        Watq // {isId ? "Platform Asesmen Kepribadian Mandiri" : "Universal Personality & Cognitive Platform"}
+        Watq //{" "}
+        {isId
+          ? "Platform Asesmen Kepribadian Mandiri"
+          : "Universal Personality & Cognitive Platform"}
       </footer>
     </div>
   );

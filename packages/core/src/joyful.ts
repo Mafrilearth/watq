@@ -44,9 +44,7 @@ export function generateJoyfulCallsign(seed?: number): string {
       ? Math.abs(seed * 7) % ARCHETYPE_ANIMALS.length
       : Math.floor(Math.random() * ARCHETYPE_ANIMALS.length);
   const num =
-    seed !== undefined
-      ? (Math.abs(seed * 13) % 90) + 10
-      : Math.floor(Math.random() * 90 + 10);
+    seed !== undefined ? (Math.abs(seed * 13) % 90) + 10 : Math.floor(Math.random() * 90 + 10);
 
   return `${ADJECTIVES[rand1]}-${ARCHETYPE_ANIMALS[rand2]}-${num}`;
 }

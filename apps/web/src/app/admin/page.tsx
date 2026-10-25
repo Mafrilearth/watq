@@ -20,10 +20,7 @@ import {
   deleteEnterpriseQuestionAction,
   type EnterpriseQuestionItem,
 } from "@/app/actions/questionActions";
-import {
-  getNeonDbTelemetryAction,
-  type NeonDbTelemetry,
-} from "@/app/actions/telemetryActions";
+import { getNeonDbTelemetryAction, type NeonDbTelemetry } from "@/app/actions/telemetryActions";
 import {
   ArrowLeft,
   CheckCircle2,
@@ -51,7 +48,7 @@ export default function AdminPage() {
   const authSession = useSyncExternalStore(
     subscribeAuth,
     getClientAuthSnapshot,
-    getServerAuthSnapshot
+    getServerAuthSnapshot,
   );
 
   const [activeTab, setActiveTab] = useState<AdminTab>("users");
@@ -70,7 +67,9 @@ export default function AdminPage() {
   const [selectedDimension, setSelectedDimension] = useState<string>("ALL");
   const [newPrompt, setNewPrompt] = useState("");
   const [newTarget, setNewTarget] = useState("");
-  const [newDim, setNewDim] = useState<"ENERGY" | "PERCEPTION" | "JUDGMENT" | "ORIENTATION">("ENERGY");
+  const [newDim, setNewDim] = useState<"ENERGY" | "PERCEPTION" | "JUDGMENT" | "ORIENTATION">(
+    "ENERGY",
+  );
   const [newPole, setNewPole] = useState("E");
   const [newPolarity, setNewPolarity] = useState<1 | -1>(1);
 
@@ -289,7 +288,8 @@ export default function AdminPage() {
               Administrative Access Required
             </h2>
             <p className="text-sm text-slate-400 mb-6 leading-relaxed">
-              This area is restricted to authorized platform administrators. Please sign in with an account that has administrative privileges.
+              This area is restricted to authorized platform administrators. Please sign in with an
+              account that has administrative privileges.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
@@ -369,7 +369,8 @@ export default function AdminPage() {
                       Member Directory &amp; Permissions
                     </h2>
                     <p className="text-xs text-slate-400 mt-1">
-                      Manage registered accounts, grant administrative access, and monitor assessment engagement.
+                      Manage registered accounts, grant administrative access, and monitor
+                      assessment engagement.
                     </p>
                   </div>
                   <button
@@ -540,7 +541,8 @@ export default function AdminPage() {
                       </h3>
                     </div>
                     <p className="text-xs text-slate-400">
-                      Standard: Balanced keying ratio eliminates acquiescence bias across all test takers.
+                      Standard: Balanced keying ratio eliminates acquiescence bias across all test
+                      takers.
                     </p>
                   </div>
 
@@ -555,7 +557,9 @@ export default function AdminPage() {
                     </div>
                     <div className="px-3 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400">
                       <span>INVERSE: </span>
-                      <span className="font-bold">{audit.reversed} ({audit.reversedRatio}%)</span>
+                      <span className="font-bold">
+                        {audit.reversed} ({audit.reversedRatio}%)
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -593,7 +597,9 @@ export default function AdminPage() {
                       className="p-2 rounded-xl bg-white/[0.04] border border-white/10 text-slate-400 hover:text-white"
                       title="Reload Library"
                     >
-                      <RefreshCw className={`w-4 h-4 ${isLoadingQuestions ? "animate-spin" : ""}`} />
+                      <RefreshCw
+                        className={`w-4 h-4 ${isLoadingQuestions ? "animate-spin" : ""}`}
+                      />
                     </button>
                   </div>
                 </div>
@@ -615,7 +621,9 @@ export default function AdminPage() {
                       <tbody className="divide-y divide-white/[0.04]">
                         {filteredQuestions.map((q) => (
                           <tr key={q.id} className="hover:bg-white/[0.02] transition-colors group">
-                            <td className="py-3.5 px-4 font-bold text-[#D4F024]">#{q.orderIndex}</td>
+                            <td className="py-3.5 px-4 font-bold text-[#D4F024]">
+                              #{q.orderIndex}
+                            </td>
                             <td className="py-3.5 px-4">
                               <span className="px-2 py-0.5 rounded bg-white/[0.05] border border-white/[0.08] text-slate-300">
                                 {q.dimension}
@@ -626,7 +634,9 @@ export default function AdminPage() {
                               {q.polarity === -1 ? (
                                 <span className="text-amber-400 font-semibold">Inverse Scale</span>
                               ) : (
-                                <span className="text-emerald-400 font-semibold">Standard Scale</span>
+                                <span className="text-emerald-400 font-semibold">
+                                  Standard Scale
+                                </span>
                               )}
                             </td>
                             <td className="py-3.5 px-4 text-slate-300 font-sans max-w-md">
@@ -680,7 +690,13 @@ export default function AdminPage() {
                         <select
                           value={newDim}
                           onChange={(e) =>
-                            setNewDim(e.target.value as "ENERGY" | "PERCEPTION" | "JUDGMENT" | "ORIENTATION")
+                            setNewDim(
+                              e.target.value as
+                                | "ENERGY"
+                                | "PERCEPTION"
+                                | "JUDGMENT"
+                                | "ORIENTATION",
+                            )
                           }
                           className="w-full bg-[#121824] border border-white/10 rounded-xl px-3 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-[#D4F024]"
                         >
@@ -741,7 +757,8 @@ export default function AdminPage() {
                     Diagnostic Frameworks
                   </h2>
                   <p className="text-xs text-slate-400 mt-1">
-                    Multi-framework sovereign inventory measuring cognitive and vocational architecture.
+                    Multi-framework sovereign inventory measuring cognitive and vocational
+                    architecture.
                   </p>
                 </div>
 
@@ -830,7 +847,9 @@ export default function AdminPage() {
                     disabled={isLoadingTelemetry}
                     className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/[0.04] border border-white/10 text-xs font-mono text-slate-300 hover:text-white"
                   >
-                    <RefreshCw className={`w-3.5 h-3.5 ${isLoadingTelemetry ? "animate-spin" : ""}`} />
+                    <RefreshCw
+                      className={`w-3.5 h-3.5 ${isLoadingTelemetry ? "animate-spin" : ""}`}
+                    />
                     <span>Check Status</span>
                   </button>
                 </div>
@@ -838,7 +857,9 @@ export default function AdminPage() {
                 {telemetry ? (
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     <div className="p-6 rounded-[2rem] bg-[#0D111A] border border-white/[0.08]">
-                      <span className="text-xs font-mono text-slate-400 block mb-1">SYSTEM HEALTH</span>
+                      <span className="text-xs font-mono text-slate-400 block mb-1">
+                        SYSTEM HEALTH
+                      </span>
                       <div className="flex items-center gap-2 text-emerald-400 font-bold text-xl">
                         <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
                         <span>Active &amp; Secure</span>
@@ -849,7 +870,9 @@ export default function AdminPage() {
                     </div>
 
                     <div className="p-6 rounded-[2rem] bg-[#0D111A] border border-white/[0.08]">
-                      <span className="text-xs font-mono text-slate-400 block mb-1">REGISTERED MEMBERS</span>
+                      <span className="text-xs font-mono text-slate-400 block mb-1">
+                        REGISTERED MEMBERS
+                      </span>
                       <div className="text-white font-bold text-2xl font-mono">
                         {telemetry.usersCount}
                       </div>
@@ -859,7 +882,9 @@ export default function AdminPage() {
                     </div>
 
                     <div className="p-6 rounded-[2rem] bg-[#0D111A] border border-white/[0.08]">
-                      <span className="text-xs font-mono text-slate-400 block mb-1">QUESTION LIBRARY</span>
+                      <span className="text-xs font-mono text-slate-400 block mb-1">
+                        QUESTION LIBRARY
+                      </span>
                       <div className="text-white font-bold text-2xl font-mono">
                         {telemetry.questionsCount} Items
                       </div>
@@ -869,7 +894,9 @@ export default function AdminPage() {
                     </div>
 
                     <div className="p-6 rounded-[2rem] bg-[#0D111A] border border-white/[0.08]">
-                      <span className="text-xs font-mono text-slate-400 block mb-1">DIAGNOSTIC SESSIONS</span>
+                      <span className="text-xs font-mono text-slate-400 block mb-1">
+                        DIAGNOSTIC SESSIONS
+                      </span>
                       <div className="text-white font-bold text-2xl font-mono">
                         {telemetry.assessmentsCount}
                       </div>

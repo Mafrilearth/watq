@@ -109,9 +109,7 @@ https://watq.mafrilearth.com`;
               <h3 className="text-4xl font-black font-display text-white tracking-tight leading-none mb-1">
                 {typeCode}
               </h3>
-              <div className="text-sm font-bold text-[#D4F024] font-display">
-                {archetypeTitle}
-              </div>
+              <div className="text-sm font-bold text-[#D4F024] font-display">{archetypeTitle}</div>
 
               {callsign && (
                 <div className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[10px] font-mono text-slate-300">
@@ -139,7 +137,11 @@ https://watq.mafrilearth.com`;
             onClick={handleCopyText}
             className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-white/[0.05] border border-white/[0.1] text-xs font-mono font-semibold text-slate-200 hover:bg-white/[0.1] transition-all"
           >
-            {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+            {copied ? (
+              <Check className="w-3.5 h-3.5 text-emerald-400" />
+            ) : (
+              <Copy className="w-3.5 h-3.5" />
+            )}
             <span>{copied ? "Copied" : "Copy Caption"}</span>
           </button>
           <button

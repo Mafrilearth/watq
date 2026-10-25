@@ -151,7 +151,11 @@ body {
     background-color: #ffffff !important;
     color: #0f172a !important;
   }
-  .no-print, header, footer, button, nav {
+  .no-print,
+  header,
+  footer,
+  button,
+  nav {
     display: none !important;
   }
   main {
@@ -168,7 +172,13 @@ body {
     page-break-inside: avoid;
     margin-bottom: 24px !important;
   }
-  h1, h2, h3, h4, span, p, strong {
+  h1,
+  h2,
+  h3,
+  h4,
+  span,
+  p,
+  strong {
     color: #0f172a !important;
   }
   .print-only {

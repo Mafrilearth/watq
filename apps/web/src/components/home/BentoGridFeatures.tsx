@@ -1,14 +1,7 @@
 "use client";
 
 import { useUIStore } from "@/lib/stores/uiStore";
-import {
-  BrainCircuit,
-  CheckCircle2,
-  GraduationCap,
-  Keyboard,
-  Lock,
-  Sparkles,
-} from "lucide-react";
+import { BrainCircuit, CheckCircle2, GraduationCap, Keyboard, Lock, Sparkles } from "lucide-react";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -124,7 +117,9 @@ export function BentoGridFeatures() {
           <span>{isId ? "PONDASI POLA PIKIR" : "HOW YOUR MIND WORKS"}</span>
         </div>
         <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-          {isId ? "Mudah Dipahami, Tanpa Istilah Rumit." : "Clear, Human Insights. Zero Overcomplicated Jargon."}
+          {isId
+            ? "Mudah Dipahami, Tanpa Istilah Rumit."
+            : "Clear, Human Insights. Zero Overcomplicated Jargon."}
         </h2>
         <p className="mt-3 text-sm sm:text-base text-slate-400 leading-relaxed">
           {isId
@@ -181,9 +176,7 @@ export function BentoGridFeatures() {
                   transition={{ duration: 0.18 }}
                   className="space-y-6 my-6"
                 >
-                  <p className="text-sm text-slate-300 leading-relaxed">
-                    {currentAxisInfo.desc}
-                  </p>
+                  <p className="text-sm text-slate-300 leading-relaxed">{currentAxisInfo.desc}</p>
 
                   {/* 2 Opposite Poles Breakdown */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -231,10 +224,18 @@ export function BentoGridFeatures() {
             <div className="mt-4 pt-4 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-slate-400">
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                {isId ? "Pertanyaan seimbang & teruji secara psikometrik" : "Scientifically calibrated across positive and reverse questions"}
+                {isId
+                  ? "Pertanyaan seimbang & teruji secara psikometrik"
+                  : "Scientifically calibrated across positive and reverse questions"}
               </span>
               <span className="text-[#D4F024]">
-                {activeAxis === "EI" ? "E ↔ I" : activeAxis === "SN" ? "S ↔ N" : activeAxis === "TF" ? "T ↔ F" : "J ↔ P"}
+                {activeAxis === "EI"
+                  ? "E ↔ I"
+                  : activeAxis === "SN"
+                    ? "S ↔ N"
+                    : activeAxis === "TF"
+                      ? "T ↔ F"
+                      : "J ↔ P"}
               </span>
             </div>
           </div>
@@ -267,7 +268,9 @@ export function BentoGridFeatures() {
               <div className="my-6 p-4 rounded-2xl bg-black/40 border border-white/[0.06] space-y-2 font-mono text-xs">
                 <div className="flex items-center justify-between text-slate-300">
                   <span>{isId ? "Penyimpanan:" : "Storage:"}</span>
-                  <span className="text-emerald-400 font-bold">{isId ? "Lokal Perangkat" : "Your Browser"}</span>
+                  <span className="text-emerald-400 font-bold">
+                    {isId ? "Lokal Perangkat" : "Your Browser"}
+                  </span>
                 </div>
                 <div className="flex items-center justify-between text-slate-300">
                   <span>{isId ? "Pelacak Iklan:" : "Ad Trackers:"}</span>
@@ -356,7 +359,9 @@ export function BentoGridFeatures() {
               </div>
 
               <h3 className="font-display text-xl font-bold text-white mb-2">
-                {isId ? "Menghubungkan Kepribadian ke Jurusan & Karir Nyata" : "Connecting Personality to Your Next Chapter"}
+                {isId
+                  ? "Menghubungkan Kepribadian ke Jurusan & Karir Nyata"
+                  : "Connecting Personality to Your Next Chapter"}
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                 {isId
@@ -387,8 +392,14 @@ export function BentoGridFeatures() {
             </div>
 
             <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-slate-400">
-              <span>{isId ? "Panduan Lengkap untuk Setiap Tipe" : "Dedicated Guides for Every Archetype"}</span>
-              <span className="text-[#D4F024] font-semibold">{isId ? "16 Panduan Karir" : "16 Comprehensive Dossiers"}</span>
+              <span>
+                {isId
+                  ? "Panduan Lengkap untuk Setiap Tipe"
+                  : "Dedicated Guides for Every Archetype"}
+              </span>
+              <span className="text-[#D4F024] font-semibold">
+                {isId ? "16 Panduan Karir" : "16 Comprehensive Dossiers"}
+              </span>
             </div>
           </div>
         </div>

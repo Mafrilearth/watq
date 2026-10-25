@@ -1,11 +1,6 @@
 export type LikertValue = 1 | 2 | 3 | 4 | 5;
 
-export type AssessmentModelType =
-  | "jungian"
-  | "bigfive"
-  | "enneagram"
-  | "disc"
-  | "riasec";
+export type AssessmentModelType = "jungian" | "bigfive" | "enneagram" | "disc" | "riasec";
 
 export type CognitiveDimension = "EI" | "SN" | "TF" | "JP";
 export type CognitivePole = "E" | "I" | "S" | "N" | "T" | "F" | "J" | "P";
@@ -73,7 +68,10 @@ export interface BigFiveResult {
   scores: BigFiveScores;
   primaryTrait: string;
   dossierSummary: string;
-  traitDescriptions: Record<BigFiveDimension, { score: number; level: "Low" | "Moderate" | "High"; description: string }>;
+  traitDescriptions: Record<
+    BigFiveDimension,
+    { score: number; level: "Low" | "Moderate" | "High"; description: string }
+  >;
   validityIndex?: ResponseValidity;
 }
 

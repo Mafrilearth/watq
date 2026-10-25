@@ -96,7 +96,9 @@ export default function AdminStudioPage() {
             </CardHeader>
             <CardContent>
               <div className="text-xl font-bold text-white">Active &amp; Encrypted</div>
-              <p className="text-xs text-slate-400 mt-1">High-availability automated cloud persistence</p>
+              <p className="text-xs text-slate-400 mt-1">
+                High-availability automated cloud persistence
+              </p>
             </CardContent>
           </Card>
 
@@ -109,7 +111,9 @@ export default function AdminStudioPage() {
             </CardHeader>
             <CardContent>
               <div className="text-xl font-bold text-white">Access Control</div>
-              <p className="text-xs text-slate-400 mt-1">Server-side authenticated session control</p>
+              <p className="text-xs text-slate-400 mt-1">
+                Server-side authenticated session control
+              </p>
             </CardContent>
           </Card>
 
@@ -122,7 +126,9 @@ export default function AdminStudioPage() {
             </CardHeader>
             <CardContent>
               <div className="text-xl font-bold text-white">Protected</div>
-              <p className="text-xs text-slate-400 mt-1">Real-time threat monitoring and rate limits</p>
+              <p className="text-xs text-slate-400 mt-1">
+                Real-time threat monitoring and rate limits
+              </p>
             </CardContent>
           </Card>
 
@@ -149,7 +155,8 @@ export default function AdminStudioPage() {
                   Psychometric Instrument Registry
                 </CardTitle>
                 <CardDescription className="text-slate-400 text-sm">
-                  Standardized psychometric scales measuring human cognitive preferences and vocational orientation.
+                  Standardized psychometric scales measuring human cognitive preferences and
+                  vocational orientation.
                 </CardDescription>
               </div>
               <Badge variant="citron">Standardized Registry</Badge>

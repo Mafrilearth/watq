@@ -71,7 +71,7 @@ export async function getEnterpriseUsersAction(): Promise<{
  */
 export async function updateEnterpriseUserRoleAction(
   targetUserId: string,
-  newRole: "ADMIN" | "MEMBER"
+  newRole: "ADMIN" | "MEMBER",
 ): Promise<{ success: boolean; error?: string }> {
   try {
     const adminUser = await assertAdminRole();
@@ -163,7 +163,7 @@ export async function createEnterpriseUserAction(data: {
  * Deletes a user record and their sessions from Neon PostgreSQL.
  */
 export async function deleteEnterpriseUserAction(
-  targetUserId: string
+  targetUserId: string,
 ): Promise<{ success: boolean; error?: string }> {
   try {
     const adminUser = await assertAdminRole();
