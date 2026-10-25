@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@watq/database": "workspace:*",
+    "@watq/security": "workspace:*",
     "better-auth": "^1.1.18"
   },
   "devDependencies": {
