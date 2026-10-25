@@ -12,6 +12,8 @@
   "dependencies": {
     "@watq/design-system": "workspace:*",
     "@watq/next-config": "workspace:*",
+    "fumadocs-core": "^16.17.8",
+    "fumadocs-ui": "^16.17.8",
     "lucide-react": "^1.59.0",
     "next": "16.4.2",
     "react": "19.3.0",
