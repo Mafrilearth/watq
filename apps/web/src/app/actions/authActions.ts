@@ -2,6 +2,7 @@
 
 import { db, Role } from "@watq/database";
 import { hashPassword, verifyPassword } from "@watq/security";
+import { formatZodError, signInSchema, signUpSchema } from "@/lib/validations";
 import { cookies } from "next/headers";
 import crypto from "node:crypto";
 
@@ -67,15 +68,16 @@ export async function signInEnterpriseAction(
   user?: EnterpriseAuthUser;
 }> {
   try {
-    const email = emailInput.trim().toLowerCase();
-    const password = passwordInput.trim();
+    const parseResult = signInSchema.safeParse({
+      email: emailInput,
+      password: passwordInput,
+    });
 
-    if (!email || !email.includes("@")) {
-      return { success: false, error: "Please enter a valid email address." };
+    if (!parseResult.success) {
+      return { success: false, error: formatZodError(parseResult.error) };
     }
-    if (!password) {
-      return { success: false, error: "Please enter your password." };
-    }
+
+    const { email, password } = parseResult.data;
 
     const user = await db.user.findUnique({
       where: { email },
@@ -156,19 +158,17 @@ export async function signUpEnterpriseAction(
   user?: EnterpriseAuthUser;
 }> {
   try {
-    const email = emailInput.trim().toLowerCase();
-    const name = nameInput.trim();
-    const password = passwordInput.trim();
+    const parseResult = signUpSchema.safeParse({
+      name: nameInput,
+      email: emailInput,
+      password: passwordInput,
+    });
 
-    if (!name) {
-      return { success: false, error: "Name is required." };
+    if (!parseResult.success) {
+      return { success: false, error: formatZodError(parseResult.error) };
     }
-    if (!email || !email.includes("@")) {
-      return { success: false, error: "Valid email address is required." };
-    }
-    if (!password || password.length < 8) {
-      return { success: false, error: "Password must be at least 8 characters long." };
-    }
+
+    const { name, email, password } = parseResult.data;
 
     const existing = await db.user.findUnique({
       where: { email },

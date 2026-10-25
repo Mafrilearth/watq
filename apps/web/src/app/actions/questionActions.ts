@@ -1,6 +1,7 @@
 "use server";
 
 import { db, Dimension, type Question } from "@watq/database";
+import { createQuestionSchema, formatZodError, updateQuestionSchema } from "@/lib/validations";
 import { revalidatePath } from "next/cache";
 import { getEnterpriseSessionAction } from "./authActions";
 
@@ -76,22 +77,28 @@ export async function createEnterpriseQuestionAction(data: {
   try {
     await assertAdminRole();
 
+    const parseResult = createQuestionSchema.safeParse(data);
+    if (!parseResult.success) {
+      return { success: false, error: formatZodError(parseResult.error) };
+    }
+    const validated = parseResult.data;
+
     const maxOrder = await db.question.aggregate({
-      where: { modelId: data.modelId },
+      where: { modelId: validated.modelId },
       _max: { orderIndex: true },
     });
     const nextOrder = (maxOrder._max.orderIndex || 0) + 1;
 
     const created = await db.question.create({
       data: {
-        modelId: data.modelId,
-        prompt: data.prompt.trim(),
-        target: data.target.trim(),
-        dimension: data.dimension as Dimension,
-        pole: data.pole.trim().toUpperCase(),
-        polarity: data.polarity === -1 ? -1 : 1,
-        orderIndex: data.orderIndex || nextOrder,
-        isActive: true,
+        modelId: validated.modelId,
+        prompt: validated.prompt,
+        target: validated.target,
+        dimension: validated.dimension as Dimension,
+        pole: validated.pole.toUpperCase(),
+        polarity: validated.polarity,
+        orderIndex: validated.orderIndex || nextOrder,
+        isActive: validated.isActive,
       },
     });
 
@@ -138,15 +145,21 @@ export async function updateEnterpriseQuestionAction(
   try {
     await assertAdminRole();
 
+    const parseResult = updateQuestionSchema.safeParse({ id, ...data });
+    if (!parseResult.success) {
+      return { success: false, error: formatZodError(parseResult.error) };
+    }
+    const validated = parseResult.data;
+
     await db.question.update({
-      where: { id },
+      where: { id: validated.id },
       data: {
-        ...(data.prompt !== undefined && { prompt: data.prompt.trim() }),
-        ...(data.target !== undefined && { target: data.target.trim() }),
-        ...(data.dimension !== undefined && { dimension: data.dimension as Dimension }),
-        ...(data.pole !== undefined && { pole: data.pole.trim().toUpperCase() }),
-        ...(data.polarity !== undefined && { polarity: data.polarity }),
-        ...(data.isActive !== undefined && { isActive: data.isActive }),
+        ...(validated.prompt !== undefined && { prompt: validated.prompt }),
+        ...(validated.target !== undefined && { target: validated.target }),
+        ...(validated.dimension !== undefined && { dimension: validated.dimension as Dimension }),
+        ...(validated.pole !== undefined && { pole: validated.pole.toUpperCase() }),
+        ...(validated.polarity !== undefined && { polarity: validated.polarity }),
+        ...(validated.isActive !== undefined && { isActive: validated.isActive }),
       },
     });
 

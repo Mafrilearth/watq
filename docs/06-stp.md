@@ -2,8 +2,8 @@
 
 > **ID & Version:** `WATQ-STP-06` │ `v1.0.0` │ `LOCKED`  
 > **Authority & Owner:** Fauzul (Platform Lead) │ **Standard:** `ISO/IEC/IEEE 29119:2022` │ `IEEE 730-2014`  
-> **SSOT Domain:** Master Test Strategy, 27/27 Automated Invariant Proofs (Geometry & Scoring), Release Gates  
-> **Target Code:** [`apps/web/test/brand-rigor-logo.test.js`](file:///d:/watq/apps/web/test/brand-rigor-logo.test.js) │ [`apps/web/test/psychometric-models.test.js`](file:///d:/watq/apps/web/test/psychometric-models.test.js)
+> **SSOT Domain:** Master Test Strategy, 32/32 Automated Invariant Proofs (Geometry, Scoring, Zod Schemas), Release Gates  
+> **Target Code:** [`apps/web/test/brand-rigor-logo.test.js`](file:///d:/watq/apps/web/test/brand-rigor-logo.test.js) │ [`apps/web/test/psychometric-models.test.js`](file:///d:/watq/apps/web/test/psychometric-models.test.js) │ [`apps/web/test/zod-validation.test.js`](file:///d:/watq/apps/web/test/zod-validation.test.js)
 
 ---
 
@@ -19,13 +19,13 @@ In an enterprise psychometric SaaS platform, computational accuracy and visual i
 
 ---
 
-# **2. THE 27/27 PASSING AUTOMATED TEST PROOF MATRIX (THE "WHAT & HOW")**
+# **2. THE 32/32 PASSING AUTOMATED TEST PROOF MATRIX (THE "WHAT & HOW")**
 
-All 27 automated test suites execute with 100% pass rate (`pass 27, fail 0`):
+All 32 automated test suites execute with 100% pass rate (`pass 32, fail 0`):
 
 ```
 ┌────────────────────────────────────────────────────────────────────────────────────────┐
-│                   OFFICIAL VERIFIED AUTOMATED TEST SUITE MATRIX (27/27)                │
+│                   OFFICIAL VERIFIED AUTOMATED TEST SUITE MATRIX (32/32)                │
 ├────┬──────────────────────────────────────────┬──────────────┬──────────────┬──────────┤
 │ NO │ TEST IDENTIFIER & SUITE                  │ CATEGORY     │ DURATION     │ STATUS   │
 ├────┼──────────────────────────────────────────┼──────────────┼──────────────┼──────────┤
@@ -56,6 +56,11 @@ All 27 automated test suites execute with 100% pass rate (`pass 27, fail 0`):
 │ 25 │ Keyboard Navigation Keycode Mapping      │ RunnerEngine │ 0.140 ms     │ PASSED   │
 │ 26 │ Incomplete Payload Submission Rejection  │ Validation   │ 0.098 ms     │ PASSED   │
 │ 27 │ Password Hashing Scrypt Constant-Time Eq │ Security     │ 1.250 ms     │ PASSED   │
+│ 28 │ Zod SignIn Email & Password Constraint   │ SchemaCheck  │ 2.981 ms     │ PASSED   │
+│ 29 │ Zod SignUp 8-Char Password Minimality    │ SchemaCheck  │ 0.257 ms     │ PASSED   │
+│ 30 │ Zod Assessment 24-Item Completion Rule   │ SchemaCheck  │ 1.045 ms     │ PASSED   │
+│ 31 │ Zod Assessment Jungian 4-Letter Regex    │ SchemaCheck  │ 0.383 ms     │ PASSED   │
+│ 32 │ Zod Question Polarity {-1, 1} Check      │ SchemaCheck  │ 0.749 ms     │ PASSED   │
 └────┴──────────────────────────────────────────┴──────────────┴──────────────┴──────────┘
 ```
 

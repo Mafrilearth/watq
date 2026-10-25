@@ -1,6 +1,11 @@
 "use server";
 
 import { db, Role } from "@watq/database";
+import {
+  createEnterpriseUserSchema,
+  formatZodError,
+  updateUserRoleSchema,
+} from "@/lib/validations";
 import { revalidatePath } from "next/cache";
 import { getEnterpriseSessionAction } from "./authActions";
 
@@ -74,6 +79,11 @@ export async function updateEnterpriseUserRoleAction(
   newRole: "ADMIN" | "MEMBER",
 ): Promise<{ success: boolean; error?: string }> {
   try {
+    const parseResult = updateUserRoleSchema.safeParse({ targetUserId, newRole });
+    if (!parseResult.success) {
+      return { success: false, error: formatZodError(parseResult.error) };
+    }
+
     const adminUser = await assertAdminRole();
 
     // Prevent admin from accidentally demoting themselves if they are the only admin
@@ -114,12 +124,12 @@ export async function createEnterpriseUserAction(data: {
   try {
     await assertAdminRole();
 
-    const email = data.email.trim().toLowerCase();
-    const name = data.name.trim();
-
-    if (!name || !email || !email.includes("@")) {
-      return { success: false, error: "Valid name and email are required." };
+    const parseResult = createEnterpriseUserSchema.safeParse(data);
+    if (!parseResult.success) {
+      return { success: false, error: formatZodError(parseResult.error) };
     }
+
+    const { name, email, role } = parseResult.data;
 
     const existing = await db.user.findUnique({ where: { email } });
     if (existing) {
@@ -130,7 +140,7 @@ export async function createEnterpriseUserAction(data: {
       data: {
         name,
         email,
-        role: data.role as Role,
+        role: role as Role,
         emailVerified: true,
       },
       include: {

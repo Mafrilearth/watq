@@ -1,6 +1,7 @@
 "use server";
 
 import { db, type Prisma } from "@watq/database";
+import { formatZodError, saveAssessmentSchema, type SaveAssessmentInput } from "@/lib/validations";
 import { revalidatePath } from "next/cache";
 import { getEnterpriseSessionAction } from "./authActions";
 
@@ -39,21 +40,27 @@ export async function saveEnterpriseAssessmentAction(data: {
   error?: string;
 }> {
   try {
+    const parseResult = saveAssessmentSchema.safeParse(data);
+    if (!parseResult.success) {
+      return { success: false, error: formatZodError(parseResult.error) };
+    }
+    const validated = parseResult.data;
+
     const session = await getEnterpriseSessionAction();
     const userId = session.user?.id || null;
 
     const saved = await db.assessmentResult.create({
       data: {
         userId,
-        modelId: data.modelId || "jung-16-types",
-        typeCode: data.typeCode,
-        archetype: data.archetype,
-        scoreEI: data.scoreEI,
-        scoreSN: data.scoreSN,
-        scoreTF: data.scoreTF,
-        scoreJP: data.scoreJP,
-        rawScores: data.rawScores as Prisma.InputJsonValue,
-        responses: data.responses as Prisma.InputJsonValue,
+        modelId: validated.modelId || "jung-16-types",
+        typeCode: validated.typeCode,
+        archetype: validated.archetype,
+        scoreEI: validated.scoreEI,
+        scoreSN: validated.scoreSN,
+        scoreTF: validated.scoreTF,
+        scoreJP: validated.scoreJP,
+        rawScores: validated.rawScores as Prisma.InputJsonValue,
+        responses: validated.responses as Prisma.InputJsonValue,
       },
     });
 
