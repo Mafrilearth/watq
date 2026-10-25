@@ -5,6 +5,8 @@
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
+  --ease-psychomotor: cubic-bezier(0.16, 1, 0.3, 1);
+  --container-assessment: 680px;
 }
 
 @theme inline {
@@ -27,6 +29,11 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
+  --color-axis-energy: var(--axis-energy);
+  --color-axis-info: var(--axis-info);
+  --color-axis-decision: var(--axis-decision);
+  --color-axis-lifestyle: var(--axis-lifestyle);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -64,4 +71,26 @@ body {
     Roboto, sans-serif;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+}
+
+@utility focus-container {
+  max-width: var(--container-assessment, 680px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  width: 100%;
+}
+
+@utility psychomotor-btn {
+  transition-property: transform, background-color, border-color, box-shadow, color;
+  transition-duration: 120ms;
+  transition-timing-function: var(--ease-psychomotor, cubic-bezier(0.16, 1, 0.3, 1));
+}
+
+@utility glass-panel {
+  background: rgba(18, 21, 29, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
 }

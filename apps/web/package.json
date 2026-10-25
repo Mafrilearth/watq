@@ -28,6 +28,7 @@
     "@watq/core": "workspace:*",
     "@watq/database": "workspace:*",
     "@watq/design-system": "workspace:*",
+    "@watq/email": "workspace:*",
     "@watq/env": "workspace:*",
     "@watq/security": "workspace:*",
     "class-variance-authority": "^0.7.1",

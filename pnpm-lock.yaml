@@ -371,6 +371,9 @@ importers:
       '@watq/design-system':
         specifier: workspace:*
         version: link:../../packages/design-system
+      '@watq/email':
+        specifier: workspace:*
+        version: link:../../packages/email
       '@watq/env':
         specifier: workspace:*
         version: link:../../packages/env
